@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel - Hostello</title>
+    <link rel="stylesheet" href="estilosmain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <!-- <img src="imagens/hostello.png" class="logo"> -->
+    </header>
+    <center>
+    <table>
+        <tr>
+            <td>
+                <section id="quarto" class="quarto">
+                    <h1> Nome do hotel/pousada, quarto nº(nº do quarto)</h1>
+                    <img src="imagens/quarto_ex.png">
+                </section>
+            </td>
+            <td>
+                <section id="sectionformaluguel" class="sectionformaluguel">
+                    <h1>Descrição</h1>
+                    <p id="descrição">Breve descrição do quarto de hotel ou pousada que servirá como identificação e diferencial</p>
+                    <form id="formaluguel">
+                    <h3>Dados para aluguel</h3>
+                    <label class="label" for="npessoas">Número de pessoas:</label>
+                    <input class="entitem" type="number" id="npessoas" autocomplete="off">
+                    <br>
+                    <label class="label" for="entdata_entrada">Data de entrada:</label>
+                    <input class="entitem" type="date" id="entdata_entrada" autocomplete="off">
+                    <br>
+                    <label class="label" for="entdata_saida">Data de saída:</label>
+                    <input class="entitem" type="date" id="entdata_saida" autocomplete="off">
+                    <br>
+                    <input type="button" value="Próximo" class="botao">
+                    </form>
+                    
+                </section>
+            </td>
+        </tr>
+    </table>
+    </center>
+    
+   
+    
+</body>
+</html>
