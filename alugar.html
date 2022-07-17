@@ -9,10 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos_alugar.css">
 </head>
 <body>
     <header>
-        <!-- <img src="imagens/hostello.png" class="logo"> -->
     </header>
     <center>
     <table>
@@ -20,7 +20,33 @@
             <td>
                 <section id="quarto" class="quarto">
                     <h1> Nome do hotel/pousada, quarto nº(nº do quarto)</h1>
-                    <img src="imagens/quarto_ex.png">
+                    <div class="container">
+                        <button id="btn_anterior" class="rolagem-ant">anterior</button>
+                        <button id="btn_proximo" class="rolagem-prox">proximo</button>
+                        <div class="carousel_images">
+                            <img src="imagens/ex04.png" id="ultimo_copia">
+                            <img src="imagens/ex01.png">
+                            <img src="imagens/ex02.png">
+                            <img src="imagens/ex03.png">
+                            <img src="imagens/ex04.png">
+                            <img src="imagens/ex01.png" id="primeiro_copia">
+                        </div>
+                    </div>
+                    
+                    <div id="categorias" class="categorias">
+                        <center>
+                        <h1>Categorias</h1>
+                        </center>
+                        <input type="checkbox" id="suite" name="suite" checked>
+                        <label for="suite">Suíte</label>
+                        <input type="checkbox" id="animais" name="animais" checked>
+                        <label for="animais">Permitido animais</label>
+                        <input type="checkbox" id="cafe" name="cafe" checked>
+                        <label for="cafe">Café da manhã</label>
+                        <input type="checkbox" id="wifi" name="wifi" checked>
+                        <label for="wifi">Wi-fi</label>
+                    </div>
+                    
                 </section>
             </td>
             <td>
@@ -38,7 +64,8 @@
                     <label class="label" for="entdata_saida">Data de saída:</label>
                     <input class="entitem" type="date" id="entdata_saida" autocomplete="off">
                     <br>
-                    <input type="button" value="Próximo" class="botao">
+                        <h2>Valor: R$XX,xx</h2>
+                        <input type="button" value="Próximo" class="botao">
                     </form>
                     
                 </section>
@@ -48,6 +75,6 @@
     </center>
     
    
-    
+<script src="script/script_alugar.js"></script>
 </body>
 </html>

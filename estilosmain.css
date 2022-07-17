@@ -1,7 +1,14 @@
+*{
+    box-sizing: border-box;
+}
+
 body {
     background-color: #edeced;
     font-family: 'Oswald', sans-serif;
     color: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 header{
@@ -148,7 +155,7 @@ section{
 }
 
 .quarto{
-    width: 550px;
+    width: 650px;
     margin-right: 20px;
 }
 
