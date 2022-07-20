@@ -22,7 +22,6 @@ btnAnterior.addEventListener('click', ()=>{
     carouselSlide.style.transition = "transform 0.4s ease-in-out"
     pos--
     carouselSlide.style.transform = `translateX(${-tam * pos}px)`
-    console.log(pos)
 })
 
 console.log(carouselImages.length)
