@@ -60,3 +60,12 @@
     color:white;
     transition: all 300ms;
 }
+
+.quarto{
+    width: 650px;
+    margin-right: 20px;
+}
+
+.fileinput{
+    display: none;
+}
