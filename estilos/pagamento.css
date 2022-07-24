@@ -1,0 +1,150 @@
+body {
+    background-color: #edeced;
+    font-family: 'Oswald', sans-serif;
+    color: #f3f3f3;
+}
+
+header{
+    text-align: center;
+}
+
+h1{
+    font-size: 25pt;
+}
+
+
+.botao{
+    width: 100%;
+    height: 40px;
+    width: 180px;
+    background-color: #217bac;
+    border:none;
+    border-radius: 20px;
+    margin: 20px;
+    font-size: 12pt;
+    box-shadow: 0px 0px 3px  rgba(0, 0, 0, 0.39);
+}
+
+.botao:hover{
+    background-color: #0d3d57;
+    color:white;
+    transition: all 300ms;
+}
+
+.entitem{
+    margin-top: 10px;
+    padding:5px;
+    background-color: #edeced;
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    outline: none;
+    width: 390px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.entitemd{
+    margin-top: 10px;
+    padding:5px;
+    background-color: #edeced;
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    outline: none;
+    width: 100px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.entitemcvc{
+    margin-top: 10px;
+    padding:5px;
+    background-color: #edeced;
+    border: none;
+    border-bottom: 1px solid #e1e1e1;
+    outline: none;
+    width: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+}
+
+.rodape{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    opacity: 0.8;
+}
+
+.rodape a{
+    font-size: 20px;
+    opacity: 1;
+    color: #217bac;
+    margin: 10px 0;
+    text-decoration: none;
+}
+
+.rodape p{
+    font-size: 20px;
+}
+
+section{
+    background-color: #f3f3f3;
+    border-radius: 20px;
+    padding: 40px;
+    width: 400px;
+    margin: auto;
+    color: black;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.39);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.botaoopcg{
+    width: 100%;
+    height: 40px;
+    width: 150px;
+    background-color: #000000;
+    color: white;
+    border:none;
+    border-radius: 20px;
+    margin: 20px;
+    font-size: 12pt;
+    box-shadow: 0px 0px 3px  rgba(0, 0, 0, 0.39);
+}
+
+.botaoopcg a{
+    text-decoration: none;
+    color: white;
+    font-size: 12pt;
+}
+
+
+.botaoopcp{
+    width: 100%;
+    height: 40px;
+    width: 150px;
+    background-color: #1a294e;
+    border:none;
+    border-radius: 20px;
+    margin: 20px;
+    font-size: 12pt;
+    box-shadow: 0px 0px 3px  rgba(0, 0, 0, 0.39);
+}
+
+.botaoopcp a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 12pt;
+}
+
+.tdEspaco { display: table; float:left; margin-right:10px }
+
+table { border-spacing: 5px; }
