@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluguel - Hostello</title>
+    <link rel="stylesheet" href="estilos/estilosmain.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilos_avaliacao.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+    <header>
+        <center>
+            
+        </center> 
+    </header>
+    <center>
+    <table>
+        <tr>
+            <td>
+                <section id="quarto" class="quarto">
+                    <h1> Nome do hotel/pousada, quarto nº(nº do quarto)</h1>
+                    <div class="container">
+                        <button id="btn_anterior" class="rolagem-ant"><img src="imagens\setaanterior.png" alt="Anterior"></button>
+                        <button id="btn_proximo" class="rolagem-prox"><img src="imagens\setaproximo.png" alt="Próximo"></button>
+                        <div class="carousel_images">
+                            <img src="imagens/ex04.png" id="ultimo_copia">
+                            <img src="imagens/ex01.png">
+                            <img src="imagens/ex02.png">
+                            <img src="imagens/ex03.png">
+                            <img src="imagens/ex04.png">
+                            <img src="imagens/ex01.png" id="primeiro_copia">
+                        </div>
+                    </div>
+                    
+                    <div id="categorias" class="categorias">
+                        <center>
+                        <h1>Categorias</h1>
+                        </center>
+                        <input type="checkbox" id="suite" name="suite" checked>
+                        <label for="suite">Suíte</label>
+                        <input type="checkbox" id="animais" name="animais" checked>
+                        <label for="animais">Permitido animais</label>
+                        <input type="checkbox" id="cafe" name="cafe" checked>
+                        <label for="cafe">Café da manhã</label>
+                        <input type="checkbox" id="wifi" name="wifi" checked>
+                        <label for="wifi">Wi-fi</label>
+                    </div>
+                    
+                </section>
+            </td>
+            <td>
+                <section id="sectionformaluguel" class="sectionformaluguel">
+                    <h1>Classifique o atendimento do estabelecimento</h1>
+                    <div id="check" class="check">
+                        <input type="checkbox" id="muito bom" name="muito bom">
+                        <label for="cafe">Muito bom</label>
+                    <input type="checkbox" id="bom" name="bom">
+                        <label for="cafe">Bom</label>
+                    <input type="checkbox" id="ruim" name="ruim">
+                        <label for="cafe">Ruim</label>
+                    
+                    </div>
+                    <h3>Adicionar Avaliação</h3>
+                    <textarea class="textbox" rows="25";></textarea>
+                    
+
+                    <div id="estrelas" class="estrelas">
+                        <a href="javascript:void(0)" onclick="Avaliar(1)">
+                            <img src="imagens/star.png" id="s1"></a>
+                            
+                            <a href="javascript:void(0)" onclick="Avaliar(2)">
+                            <img src="imagens/star.png" id="s2"></a>
+                            
+                            <a href="javascript:void(0)" onclick="Avaliar(3)">
+                            <img src="imagens/star.png" id="s3"></a>
+                            
+                            <a href="javascript:void(0)" onclick="Avaliar(4)">
+                            <img src="imagens/star.png" id="s4"></a>
+                            
+                            <a href="javascript:void(0)" onclick="Avaliar(5)">
+                            <img src="imagens/star.png" id="s5"></a>
+                            <p id="rating">0</p>
+    
+                        
+                    </div>
+                    <input type="button" value="Inserir" class="botao">
+                    
+                    
+            
+                </section>
+            </td>
+        </tr>
+    </table>
+    </center>
+    
+   
+<script src="script/script_alugar.js"></script>
+<script src="script/script_avaliacao.js"></script>
+</body>
+</html>

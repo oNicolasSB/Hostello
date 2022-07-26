@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pagamento.css">
+    <link rel="stylesheet" href="estilos/estilos_pagamento.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
@@ -18,15 +18,24 @@
             Efetuar Pagamento:
         </h1>
         <div id="opc" alig>
+        
+        
         <button class="botaoopcg">
+            <a href="https://pay.google.com/intl/pt_br/about/">
             <img src="imagens/google.png" height="20" width="20" />
-            <a href="https://pay.google.com/intl/pt_br/about/">GooglePay</a>
+            GooglePay
+        </a>
         </button>
+    
 
+        
         <button class="botaoopcp">
+            <a href="https://www.paypal.com/br/home">
             <img src="imagens/paypal.png" height="20" width="20" />
-            <a href="https://www.paypal.com/br/home">PayPal</a>
+            PayPal
+        </a>
         </button>
+        
         </div>
         
         <div>
@@ -38,9 +47,9 @@
             </tr>
                 </p>
                 <td>
-                    <input type="radio" name="Método"><span>Cartão</span><br>
-                    <input type="radio" name="Método"><span>Pix</span><br>
-                    <input type="radio" name="Método"><span>Boleto</span><br>
+                    <input type="radio" name="Método" id="cartao"><span>Cartão</span><br>
+                    <input type="radio" name="Método" id="pix"><span>Pix</span><br>
+                    <input type="radio" name="Método" id="boleto"><span>Boleto</span><br>
                 </td></tr>
             </table>
         </div>
