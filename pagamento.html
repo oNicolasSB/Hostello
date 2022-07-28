@@ -12,7 +12,7 @@
     <title>Pagamento - Hostello</title>
 </head>
 
-<body>
+<body onload="altcartao()">
     <section id="secaoprincipal" class="secaoprincipal">
         <h1>
             Efetuar Pagamento:
@@ -47,70 +47,80 @@
             </tr>
                 </p>
                 <td>
-                    <input type="radio" name="Método" id="cartao"><span>Cartão</span><br>
-                    <input type="radio" name="Método" id="pix"><span>Pix</span><br>
-                    <input type="radio" name="Método" id="boleto"><span>Boleto</span><br>
+                    <input type="radio" name="Método" id="cartao" checked onclick="altcartao()"><span>Cartão</span><br>
+                    <input type="radio" name="Método" id="pix" onclick="altpix()"><span>Pix</span><br>
+                    <input type="radio" name="Método" id="boleto" onclick="altboleto()"><span>Boleto</span><br>
                 </td></tr>
             </table>
         </div>
         
-        <div id="ent_usuario">
-            <form id="form_usuario">
-            <table>
-            <tr>
-                <td>
-                    <label class="label" for="nome">Nome no cartão:</label>
-                    <input class="entitem" type="text" id="nome" autocomplete="off" placeholder="Anna Clara A. Babiski"><br>
-                    <label class="label" for="numero_cartao">Número do cartão:</label>
-                    <input class="entitem" type="number" id="numero_cartao" autocomplete="off" placeholder="0000 0000 0000 0000"><br>
-                </td></tr>
-            <tr>
-                <td class="tdEspaco"><label class="label" for="data_expiracao">Data da expiração:</label>
-                    <input class="entitemd" type="text" id="data_expiracao" autocomplete="off" placeholder="MM/AA"><br>
-                </td>
-                <td class="tdEspaco"><label class="label" for="cvv">cvv / cvc:</label>
-                    <input class="entitemcvc" type="number" id="cvv" autocomplete="off" placeholder="000"><br>
-                </td></tr>
-            </table>
-            </form>
-            <form>
-            <table>
-            <tr>
-                <td class="tdEspaco"><label class="label">1 - Abra o app ou banco de sua preferência. Escolha a opção pagar com código Pix “copia e cola”, ou código QR.</label>
-                </td>
-                <td class="tdEspaco"><label class="label">2 - Copie e cole o código, ou escaneie o código QR com a câmera do seu celular. Confira todas as informações e autorize o pagamento.</label>
-                </td></tr>
-                <td class="tdEspaco"><label class="label">3 - Você vai receber a confirmação do pagamento no seu e-mail. E pronto!</label>
-                </td></tr>
-            </table>
-                <center><img src="imagens/qrcode.jpeg"></center>
-                <center><input type="button" value="Copiar código PIX" class="botao"></center>
-                <p>Se o pagamento não for confirmado, não se preocupe. O pedido será cancelado automaticamente.</p>
-            </form>
-            <form>
-            <table>
-            <tr>
-                <td>
-                    <p>Número do pedido:</p>
-                </td></tr>
-                <td>
-                    84610000001-3
-                </td>
-                <td>
-                    08600024020-9
-                </td>
-                <td>
-                    02408102263-4
-                </td>
-                <td>
-                    61827041102-7
-                </td>
-            </table>
-                    <img src="imagens/codigodebarras.jpeg">
-                    <p>Utilize este código de barras e pague o boleto pelo celular ;)</p>
-                    <center><input type="button" value="Download do boleto" class="botao"></center>
-            </form>
-        </div>
+        
+            
+            <div id="divcartao">
+                <form id="form_cartao">
+                    <table>
+                    <tr>
+                        <td>
+                            <label class="label" for="nome">Nome no cartão:</label>
+                            <input class="entitem" type="text" id="nome" autocomplete="off" placeholder="Anna Clara A. Babiski"><br>
+                            <label class="label" for="numero_cartao">Número do cartão:</label>
+                            <input class="entitem" type="number" id="numero_cartao" autocomplete="off" placeholder="0000 0000 0000 0000"><br>
+                        </td></tr>
+                    <tr>
+                        <td class="tdEspaco"><label class="label" for="data_expiracao">Data da expiração:</label>
+                            <input class="entitemd" type="text" id="data_expiracao" autocomplete="off" placeholder="MM/AA"><br>
+                        </td>
+                        <td class="tdEspaco"><label class="label" for="cvv">cvv / cvc:</label>
+                            <input class="entitemcvc" type="number" id="cvv" autocomplete="off" placeholder="000"><br>
+                        </td></tr>
+                    </table>
+                    </form>
+            </div>
+            <div id="divpix">
+                <form>
+                    <table>
+                    <tr>
+                        <td class="tdEspaco"><label class="label">1 - Abra o app ou banco de sua preferência. Escolha a opção pagar com código Pix “copia e cola”, ou código QR.</label>
+                        </td>
+                        <td class="tdEspaco"><label class="label">2 - Copie e cole o código, ou escaneie o código QR com a câmera do seu celular. Confira todas as informações e autorize o pagamento.</label>
+                        </td></tr>
+                        <td class="tdEspaco"><label class="label">3 - Você vai receber a confirmação do pagamento no seu e-mail. E pronto!</label>
+                        </td></tr>
+                    </table>
+                        <center><img src="imagens/qrcode.jpeg"></center>
+                        <center><input type="button" value="Copiar código PIX" class="botao"></center>
+                        <p>Se o pagamento não for confirmado, não se preocupe. O pedido será cancelado automaticamente.</p>
+                    </form>
+            </div>
+            <div id="divboleto">
+                <form>
+                    <table>
+                    <tr>
+                        <td>
+                            <p>Número do pedido:</p>
+                        </td></tr>
+                        <td>
+                            84610000001-3
+                        </td>
+                        <td>
+                            08600024020-9
+                        </td>
+                        <td>
+                            02408102263-4
+                        </td>
+                        <td>
+                            61827041102-7
+                        </td>
+                    </table>
+                            <img src="imagens/codigodebarras.jpeg">
+                            <p>Utilize este código de barras e pague o boleto pelo celular ;)</p>
+                            <center><input type="button" value="Download do boleto" class="botao"></center>
+                    </form>
+            </div>
+            
+        
     </section>
+
+    <script src="script/script_pagamento.js"></script>
     </body>
 </html>
