@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluguel - Hostello</title>
+    <title>Avaliação - Hostello</title>
     <link rel="stylesheet" href="estilos/estilosmain.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilos_avaliacao.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
-<body>
+<body onload="avaliar1()">
     <header>
         <center>
             
@@ -51,6 +50,7 @@
                         <label for="cafe">Café da manhã</label>
                         <input type="checkbox" id="wifi" name="wifi" checked>
                         <label for="wifi">Wi-fi</label>
+                        
                     </div>
                     
                 </section>
@@ -72,23 +72,21 @@
                     
 
                     <div id="estrelas" class="estrelas">
-                        <a href="javascript:void(0)" onclick="Avaliar(1)">
-                            <img src="imagens/star.png" id="s1"></a>
-                            
-                            <a href="javascript:void(0)" onclick="Avaliar(2)">
-                            <img src="imagens/star.png" id="s2"></a>
-                            
-                            <a href="javascript:void(0)" onclick="Avaliar(3)">
-                            <img src="imagens/star.png" id="s3"></a>
-                            
-                            <a href="javascript:void(0)" onclick="Avaliar(4)">
-                            <img src="imagens/star.png" id="s4"></a>
-                            
-                            <a href="javascript:void(0)" onclick="Avaliar(5)">
-                            <img src="imagens/star.png" id="s5"></a>
-                            <p id="rating">0</p>
-    
-                        
+                        <div class="estrela" id="str1" onclick="avaliar1()">
+                            <img src="imagens/estrela_cinza.png" id="estrela1">
+                        </div>
+                        <div class="estrela" id="str2" onclick="avaliar2()">
+                            <img src="imagens/estrela_cinza.png" id="estrela2">
+                        </div>
+                        <div class="estrela" id="str3" onclick="avaliar3()">
+                            <img src="imagens/estrela_cinza.png" id="estrela3">
+                        </div>
+                        <div class="estrela" id="str4" onclick="avaliar4()">
+                            <img src="imagens/estrela_cinza.png" id="estrela4">
+                        </div>
+                        <div class="estrela" id="str5" onclick="avaliar5()">
+                            <img src="imagens/estrela_cinza.png" id="estrela5">
+                        </div>
                     </div>
                     <input type="button" value="Inserir" class="botao">
                     
@@ -102,6 +100,6 @@
     
    
 <script src="script/script_alugar.js"></script>
-<script src="script/script_avaliacao.js"></script>
+<script src="script/script_avaliar.js"></script>
 </body>
 </html>
