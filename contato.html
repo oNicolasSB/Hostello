@@ -31,11 +31,15 @@
             <input class="entitem" type="text" id="user" autocomplete="off">
         </form>
         <footer class="rodape">
-            <input type="button" value="Salvar" class="botao">
-            <p>Não tem um login? <a href="registro.html">Registre-se</a></p>
+            <a href="relatorio_contato.html"><input type="button" value="Salvar" class="botao" onclick="salvo()"></a>
+            
         </footer>
         
     </section>
-    <script src="script/script_login.js"></script>
+    <script>
+        function salvo(){
+            window.alert("Contato salvo com sucesso!")
+        }
+    </script>
 </body>
 </html>

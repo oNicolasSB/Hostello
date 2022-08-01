@@ -58,7 +58,6 @@ h1{
 }
 
 .botaoopc:hover{
-    background-color: #23bd23; /*====================> não funcionando */
     transition: all 300ms; 
 }
 
@@ -144,8 +143,4 @@ section{
 
 .quarto{
     width: 550px;
-}
-
-teste{
-    color:rgba(161, 149, 43, 0.39)
 }

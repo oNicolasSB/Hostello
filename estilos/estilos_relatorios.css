@@ -2,20 +2,24 @@
     width: 50%;
 }
 
-table{
+.entdatas{
+    text-align: center;
+}
+
+.tabela table{
     width: 100%;
     text-align: center;
 }
 
-thead>tr{
+.tabela thead>tr{
     background-color: #217bac;
 }
 
-tbody>tr:nth-child(even){
+.tabela tbody>tr:nth-child(even){
     background-color: #c1e9ff;
 }
 
-tbody>tr:nth-child(odd){
+.tabela tbody>tr:nth-child(odd){
     background-color:#ffed9f;
 }
 
@@ -23,4 +27,14 @@ tbody>tr:nth-child(odd){
     width: 800px;
     height: 600px;
     overflow-y: scroll;
+}
+
+#botao{
+    width: fit-content;
+}
+
+.link
+{
+    text-decoration: none;
+    color: black;
 }

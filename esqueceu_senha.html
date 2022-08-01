@@ -24,11 +24,16 @@
             <br>
         </form>
         <footer class="rodape">
-            <input type="button" value="Enviar" class="botao">
+            <a href="login.html"><input type="button" value="Enviar" class="botao" onclick="enviar()"></a> 
             <p>Não tem um login? <a href="registro.html">Registre-se</a></p>
         </footer>
         
     </section>
-    <script src="script/script.js"></script>
+    <script>
+        function enviar(){
+            window.alert("Código enviado para o e-mail cadastrado, caso não encontre verificar a caixa de spam.")
+        }
+
+    </script>
 </body>
 </html>
