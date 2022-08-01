@@ -57,20 +57,8 @@
             </td>
             <td>
                 <section id="sectionformaluguel" class="sectionformaluguel">
-                    <h1>Classifique o atendimento do estabelecimento</h1>
-                    <div id="check" class="check">
-                        <input type="checkbox" id="muito bom" name="muito bom">
-                        <label for="cafe">Muito bom</label>
-                    <input type="checkbox" id="bom" name="bom">
-                        <label for="cafe">Bom</label>
-                    <input type="checkbox" id="ruim" name="ruim">
-                        <label for="cafe">Ruim</label>
                     
-                    </div>
-                    <h3>Adicionar Avaliação</h3>
-                    <textarea class="textbox" rows="25";></textarea>
-                    
-
+                    <h3>Classifique o atendimento do estabelecimento</h3>
                     <div id="estrelas" class="estrelas">
                         <div class="estrela" id="str1" onclick="avaliar1()">
                             <img src="imagens/estrela_cinza.png" id="estrela1">
@@ -88,7 +76,13 @@
                             <img src="imagens/estrela_cinza.png" id="estrela5">
                         </div>
                     </div>
-                    <input type="button" value="Inserir" class="botao">
+
+                    </div>
+                    <h3>Adicionar Avaliação</h3>
+                    <textarea class="textbox" rows="25";></textarea>
+                    
+                   
+                    <a href="relatorio_alugueis.html"><input type="button" value="Inserir" class="botao" onclick="avaliacao()"></a>
                     
                     
             
@@ -101,5 +95,10 @@
    
 <script src="script/script_alugar.js"></script>
 <script src="script/script_avaliar.js"></script>
+<script>
+    function avaliacao(){
+        window.alert("Avaliação adicionada com sucesso!")
+    }
+</script>
 </body>
 </html>
