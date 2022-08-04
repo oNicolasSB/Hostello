@@ -1,0 +1,168 @@
+* {
+  box-sizing: border-box;
+}
+
+.nav {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: fit-content;
+  background-color: #217bac;
+}
+
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #217bac;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #434343;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #b5b5b6;
+  background-color: #0f3950;
+}
+
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidenav .closebtn:hover{
+  background-color: #ffffff00;
+}
+
+
+
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+
+.search input[type=text] {
+  display: inline-block;
+  position: relative;
+  width: 700px;
+  height: 25px;
+  border-radius: 25px;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.39);
+}
+
+.search {
+  position: absolute;
+  left: 30%;
+  margin: 7px;
+
+}
+
+.search button {
+  background-color: #FFD413;
+  color: #b5b5b5;
+  position: auto;
+  padding: 5px 10px;
+  margin-right: 16px;
+  font-size: 12px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.39);
+}
+
+.search button:hover {
+  transition: all 300ms;
+  background-color: #A1952B;
+}
+
+.imgs {
+  position: absolute;
+  top: 25%;
+  right: -20px;
+
+}
+
+.fotoperfil {
+  position: absolute;
+  padding-left: 5px;
+  top: 10%;
+}
+
+h3{
+  color: #0f3950;
+  padding-left: 30px;
+  font-size: 30px;
+}
+
+.botaosair{
+  width: 100%;
+  height: 40px;
+  background-color: #FFD413;
+  border:none;
+  border-radius: 20px;
+  margin: 20px;
+  font-size: 12pt;
+  box-shadow: 0px 0px 3px  rgba(0, 0, 0, 0.39);
+  cursor: pointer;
+  width: 100px;
+  align-items: center;
+  text-align: center;
+  
+}
+
+.botaosair a{
+  font-size: 18px;
+}
+
+.botaosair:hover{
+  background-color: #A1952B;
+  transition: all 300ms;
+
+}
+
+.botaosair:hover a{
+  color: white;
+}
+
+.sidenav .abotaosair{
+  padding: 0px;
+  margin: 0px;
+}
+
+.sidenav .abotaosair:hover{
+  background-color: #ffffff00;
+}

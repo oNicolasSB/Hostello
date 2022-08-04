@@ -11,8 +11,30 @@
     <title>Contatos - Hostello</title>
 </head>
 <body>
-    <header>
-    </header>
+    <nav class="nav">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
+                        src="imagens/perfil.png" class="imgs"></span></a>
+            <a href="relatorio_reservas.html">Reservas</a>
+            <a href="relatorio_reservas.html">Reservas</a>
+            <a href="relatorio_alugueis.html">Avaliações</a>
+            <a href="login.html">Sair</a>
+        </div>
+        <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
+        <div id="main">
+        </div>
+        <center>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder=" Pesquisar..." name="search">
+                    <button>
+                        <i class="fa fa-search"><img src="imagens/pesquisa.png" alt="pesquisar" height="12px"></i>
+                    </button>
+                </form>
+            </div>
+        </center>
+    </nav>
+    
     <section id="secaoprincipal" class="secaoprincipal">
         <h1>
             Adicionar contato:

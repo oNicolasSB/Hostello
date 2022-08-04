@@ -1,0 +1,26 @@
+.container{
+    width: 50%;
+}
+
+table{
+    width: 100%;
+    text-align: center;
+}
+
+thead>tr{
+    background-color: #217bac;
+}
+
+tbody>tr:nth-child(even){
+    background-color: #c1e9ff;
+}
+
+tbody>tr:nth-child(odd){
+    background-color:#ffed9f;
+}
+
+.tabela{
+    width: 800px;
+    height: 600px;
+    overflow-y: scroll;
+}

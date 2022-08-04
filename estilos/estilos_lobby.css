@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    position: ab;
 }
 
 body {
@@ -47,7 +48,7 @@ section{
 }
 
 .container{
-    height: 400px;
+    height: fit-content;
     width: fit-content;
     overflow: hidden;
     position: relative;
@@ -56,9 +57,9 @@ section{
 
 .quartos{
     width: fit-content;
-    height: 250px;
-    margin-right: 20px;
-    text-align: left;
+    height: fit-content;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .tabela{
@@ -67,17 +68,14 @@ section{
     
 }
 
-#margin{
-    margin-right: 400px;
-/*fazer borda para as propriedades depois*/
-}
-
 .btn{
     width: 100%;
     height: 40px;
     width: 90px;
     background-color: #217bac;
     border:none;
+    position: flex;
+    bottom:0px;
     border-radius: 20px;
     margin: 20px;
     font-size: 12pt;
@@ -90,16 +88,48 @@ section{
     transition: all 300ms;
 }
 
-.imgs
-{
-    height: 30px;
-    width: 30px;
-    margin:20px;
-}
-
 .quartos2{
     width: fit-content;
+    margin-left: 20px;
     height: fit-content;
-    margin-right: 20px;
     text-align: left;
+}
+
+.card{
+    height: 350px;
+    background-color: white;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.card h2{
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+.imagemhotel{
+    height: 350px;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.card-title{
+    margin-top: 0px;
+}
+
+.estrelas{
+    display: flex;
+    align-items: center;
+
+}
+
+.margintd
+{
+    padding-left: 20px;
+    
+}
+
+.cardimagem{
+    width: 350px;
+    height: 350px;
 }

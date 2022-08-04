@@ -1,158 +1,633 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluguel - Hostello</title>
-    <link rel="stylesheet" href="estilos/estilos_lobby.css">
+    <title>Hostello</title>
+    <link rel="stylesheet" href="estilos/estilosmain.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
     <link rel="stylesheet" href="estilos/estilos_alugar.css">
-    <link rel="stylesheet" href="estilos/estilosmain.css.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilos/estilosmain.css">
+    <link rel="stylesheet" href="estilos/estilos_lobby.css">
+    <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
 </head>
+
 <body>
-  
-        <header>
-            <nav class="nav">
-                <div id="mySidenav" class="sidenav">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img src="imagens/perfil.png" class="imgs"></span></a>
-                    <a href="relatorio_reservas.html">Reservas</a>
-                    <a href="relatorio_alugueis.html">Avaliações</a>
-                    <a href="login.html">Sair</a>
-                    
-                </div>
-                <span onclick="openNav()"><img src="imagens/perfil.png"></span>
-                <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-                <div id="main">
-                </div>
-                <center>
-                <div class="search">
-                    <form action="#">
-                        <input type="text"
-                            placeholder=" Pesquisar..."
-                            name="search">
-                        <button>
-                            <i class="fa fa-search"><img src="imagens/pesquisa.png" alt="pesquisar" height="12px"></i>
-                        </button>
-                    </form>
-                </div>
+
+    <nav class="nav">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
+                        src="imagens/perfil.png" class="imgs"></span></a>
+            <h3>Usuário</h3>
+                <a href="relatorio_reservas.html">Reservas</a>
+                <a href="relatorio_alugueis.html">Avaliações</a>
+                <br>
+            <h3>Hoteleiro</h3>
+                <a href="relatorio_contato.html">Cadastrar Contato</a>
+                <a href="relatorio_quartos.html">Cadastrar Quarto</a>
+                <a href="relatorio_avaliacao.html">Relatório de Avaliações</a>
+                <br>
+            <h3>Administrador</h3>
+            <a href="relatorio_pagamento.html">Relatório de Pagamentos</a>
+            <a href="relatorio_esqueceu_senha.html">Relatório de Recuperação de Senhas</a>
+            <br>
+            <center>
+                <button class="botaosair"><a href="login.html" class="abotaosair">Sair</a></button>
             </center>
-            </nav>
             
-        </header>
+        </div>
+        <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
+        <div id="main">
+        </div>
+        <center>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder=" Pesquisar..." name="search">
+                    <button>
+                        <i class="fa fa-search"><img src="imagens/pesquisa.png" alt="pesquisar" height="12px"></i>
+                    </button>
+                </form>
+            </div>
+        </center>
+    </nav>
 
-    <table class="tabela">
-        <tr>
-            <td>
-                <section id="margin" class="quartos2">
-                        
+    <div class="principal">
+        <div class="divesquerda">
+            <section class="quartos2">
+
                 <div class="quartos2">
-                    <h2> Categorias</h2>
-                        <input type="checkbox" id="suite" name="suite" checked>
-                            <label for="suite">Suíte</label><br>
-                        <input type="checkbox" id="animais" name="animais" >
-                            <label for="animais">Permitido animais</label><br>
-                        <input type="checkbox" id="cafe" name="cafe" >
-                            <label for="cafe">Café da manhã</label><br>
-                        <input type="checkbox" id="wifi" name="wifi" >
-                            <label for="wifi">Wi-fi</label><br>
-                        <input type="checkbox" id="suite" name="suite" >
-                            <label for="suite">Suíte</label><br>
-                        <input type="checkbox" id="animais" name="animais" >
-                            <label for="animais">Permitido animais</label><br>
-                        <input type="checkbox" id="cafe" name="cafe" >
-                            <label for="cafe">Café da manhã</label><br>
-                        <input type="checkbox" id="wifi" name="wifi" >
-                            <label for="wifi">Wi-fi</label><br>
-                        <input type="checkbox" id="suite" name="suite" >
-                            <label for="suite">Suíte</label><br>
-                        <input type="checkbox" id="animais" name="animais" >
-                            <label for="animais">Permitido animais</label><br>
-                        <input type="checkbox" id="cafe" name="cafe" >
-                            <label for="cafe">Café da manhã</label><br>
-                        <input type="checkbox" id="wifi" name="wifi" >
-                            <label for="wifi">Wi-fi</label><br>
-                        <input type="checkbox" id="suite" name="suite" >
-                            <label for="suite">Suíte</label><br>
-                        <input type="checkbox" id="animais" name="animais" >
-                            <label for="animais">Permitido animais</label><br>
-                        <input type="checkbox" id="cafe" name="cafe" >
-                            <label for="cafe">Café da manhã</label><br>
-                        <input type="checkbox" id="wifi" name="wifi" >
-                            <label for="wifi">Wi-fi</label><br>
-                    
-                </div>      
-                </section>
-            </td>
-            <td>
-                <section id="quartos" class="quartos">
-                    
-                    <div class="container">
-                        <h2> Nome do hotel/pousada, quarto nº(nº do quarto)</h2>
-                        <img src="imagens/ex04.png" height="100" width="100">
-                        <a href="alugar.html">
-                            <input type="button" value="Ver Quarto" class="btn">
-                        </a>
-                    </div> 
-                        
-                </section>
-             </td>
-        </tr>
-        <tr>
-            <td>a</td>
-            <td>
-                <section id="quartos" class="quartos">
-                    
-                    <div class="container">
-                        <h2> Nome do hotel/pousada, quarto nº(nº do quarto)</h2>
-                        <img src="imagens/ex04.png" height="100" width="100">
-                        <a href="alugar.html">
-                            <input type="button" value="Ver Quarto" class="btn">
-                        </a>           
-                    </div>
-                    
-                </section>
-             </td>
-        </tr>
-        <tr>
-            <td>a</td>
-             <td>
-                <section id="quartos" class="quartos">
-                    
-                    <div class="container">
-                        <h2> Nome do hotel/pousada, quarto nº(nº do quarto)</h2>
-                        <img src="imagens/ex04.png" height="100" width="100">
-                        <a href="alugar.html">
-                            <input type="button" value="Ver Quarto" class="btn">
-                        </a>    
-                    </div>
-                    
-                </section>
-             </td>
-        </tr>
-        <tr>
-            <td>a</td>
-             <td>
-                <section id="quartos" class="quartos">
-                    
-                    <div class="container">
-                        <h2> Nome do hotel/pousada, quarto nº(nº do quarto)</h2>
-                        <img src="imagens/ex04.png" height="100" width="100">   
-                        <a href="alugar.html">
-                            <input type="button" value="Ver Quarto" class="btn">
-                        </a> 
-                    </div>
-                    
-                </section>
-             </td>
-            </tr>
-        </table>
-    
+                    <h2> Serviços</h2>
+                    <input type="checkbox" id="Todas as opções" name="Todas as opções" checked>
+                    <label for="Todas as opções">Todas as opções</label><br>
+                    <input type="checkbox" id="Café da manhã" name="Café da manhã">
+                    <label for="Café da manhã">Café da manhã</label><br>
+                    <input type="checkbox" id="Internet" name="Internet">
+                    <label for="Internet">Internet</label><br>
+                    <input type="checkbox" id="Estacionamento" name="Estacionamento">
+                    <label for="Estacionamento">Estacionamento</label><br>
+                    <input type="checkbox" id="Piscina" name="Piscina">
+                    <label for="Piscina">Piscina</label><br>
+                    <input type="checkbox" id="Restaurante" name="Restaurante">
+                    <label for="Restaurante">Restaurante</label><br>
+                    <input type="checkbox" id="Lavanderia" name="Lavanderia">
+                    <label for="Lavanderia">Lavanderia</label><br>
+                    <input type="checkbox" id="Cancelamento gratis" name="Cancelamento gratis">
+                    <label for="Cancelamento gratis">Cancelamento gratis</label><br>
+                    <input type="checkbox" id="Academia" name="Academia">
+                    <label for="Academia">Academia</label><br>
+                    <input type="checkbox" id="Recepção 24 horas" name="Recepção 24 horas">
+                    <label for="Recepção 24 horas">Recepção 24 horas</label><br>
+                    <input type="checkbox" id="Aceita PETS" name="Aceita PETS">
+                    <label for="Aceita PETS">Aceita PETS</label><br>
+                    <input type="checkbox" id="Estacionamento" name="Estacionamento">
+                    <label for="Estacionamento">Estacionamento</label><br>
+                    <input type="checkbox" id="Churrasqueira" name="Churrasqueira">
+                    <label for="Churrasqueira">Churrasqueira</label><br>
 
-      <script src="script/pesquisa.js"></script>
+
+                    <h2>Opções de quarto</h2><br>
+                    <input type="checkbox" id="Ar-condicionado" name="Ar-condicionado">
+                    <label for="Ar-condicionado">Ar-condicionado</label><br>
+                    <input type="checkbox" id="Spa" name="Spa">
+                    <label for="Spa">Spa</label><br>
+                    <input type="checkbox" id="Chuveiro" name="Chuveiro">
+                    <label for="Chuveiro">Chuveiro</label><br>
+                    <input type="checkbox" id="Elevador" name="Elevador">
+                    <label for="Elevador">Elevador</label><br>
+                    <input type="checkbox" id="Tv" name="Tv">
+                    <label for="Tv">Tv</label><br>
+                    <input type="checkbox" id="Frigobar" name="Frigobar">
+                    <label for="Frigobar">Frigobar</label><br>
+                    <input type="checkbox" id="Tomada perto da cama" name="Tomada perto da cama">
+                    <label for="Tomada perto da cama">Tomada perto da cama</label><br>
+                    <input type="checkbox" id="Tomada perto da cama" name="Tomada perto da cama">
+                    <label for="Tomada perto da cama">Tomada perto da cama</label><br>
+                    <input type="checkbox" id="Secador de cabelo" name="Secador de cabelo">
+                    <label for="Secador de cabelo">Secador de cabelo</label><br>
+                    <input type="checkbox" id="Varanda" name="Varanda">
+                    <label for="Varanda">Varanda</label><br>
+
+                    <h2>Opções da Localidade</h2><br>
+                    <input type="checkbox" id="Beira-mar" name="Beira-mar">
+                    <label for="Beira-mar">Beira-mar</label><br>
+                    <input type="checkbox" id="Vista do mar" name="Vista do mar">
+                    <label for="Vista do mar">Vista do mar</label><br>
+
+                </div>
+            </section>
+        </div>
+        <div class="divdireita">
+            <table>
+                <tr>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/ex01.png" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 1</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/pousada6.jpg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 2</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/quarto6.jpg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 3</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/pousada3.jpg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 4</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/pousada2.jpg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 5</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/quarto4.jpeg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 6</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </section>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/quarto5.jpg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 7</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                    <td class="margintd">
+                        <section id="quartos" class="quartos">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <div class="cardimagem">
+                                            <img src="imagens/pousada4.jpg" class="imagemhotel">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <table class="card">
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <h5 class="card-title">Empresa 8</h5><br>
+                                                        <p class="card-text">Descrição brave sobre o estabelecimento
+                                                            cadastrado</p>
+                                                        <br>
+                                                        <p class="card-text">Florianópolis, Santa Catarina, Brasil</p>
+                                                        <br>
+                                                        <p class="card-text">Estrada Critóvão Machado de Campos, 1379
+                                                        </p><br>
+
+                                                    </div>
+                                                </td>
+                                                <td class="margintd">
+                                                    <div>
+
+                                                        <div id="estrelas" class="estrelas">
+                                                            <div class="estrela" id="str1" onclick="avaliar1()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela1">
+                                                            </div>
+                                                            <div class="estrela" id="str2" onclick="avaliar2()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela2">
+                                                            </div>
+                                                            <div class="estrela" id="str3" onclick="avaliar3()">
+                                                                <img src="imagens/estrela_amarela.png" id="estrela3">
+                                                            </div>
+                                                            <div class="estrela" id="str4" onclick="avaliar4()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela4">
+                                                            </div>
+                                                            <div class="estrela" id="str5" onclick="avaliar5()">
+                                                                <img src="imagens/estrela_cinza.png" id="estrela5">
+                                                            </div>
+                                                        </div>
+                                                        <p>Valor: R$XX,xx</p>
+                                                        <a href="alugar.html" class="">
+                                                            <input type="button" value="Detalhes" class="btn">
+                                                        </a>
+
+                                                    </div>
+                                                </td>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </section>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <script src="script/pesquisa.js"></script>
 </body>
+
 </html>
