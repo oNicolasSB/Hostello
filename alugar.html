@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilos_alugar.css">
     <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
+    <script src="https://kit.fontawesome.com/a831f4109b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -32,77 +33,79 @@
                 <form action="#">
                     <input type="text" placeholder=" Pesquisar..." name="search">
                     <button>
-                        <i class="fa fa-search"><img src="imagens/pesquisa.png" alt="pesquisar" height="12px"></i>
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
             </div>
         </center>
     </nav>
-
     <center>
-        <table>
-            <tr>
-                <td>
-                    <section id="quarto" class="quarto">
-                        <h1> Nome do hotel/pousada, quarto nº(nº do quarto)</h1>
-                        <div class="container">
-                            <button id="btn_anterior" class="rolagem-ant">anterior</button>
-                            <button id="btn_proximo" class="rolagem-prox">proximo</button>
-                            <div class="carousel_images">
-                                <img src="imagens/ex04.png" id="ultimo_copia">
-                                <img src="imagens/ex01.png">
-                                <img src="imagens/ex02.png">
-                                <img src="imagens/ex03.png">
-                                <img src="imagens/ex04.png">
-                                <img src="imagens/ex01.png" id="primeiro_copia">
+    <div class="principal">
+        
+            <table>
+                <tr>
+                    <td>
+                        <section id="quarto" class="quarto">
+                            <h1> Nome do hotel/pousada, quarto nº(nº do quarto)</h1>
+                            <div class="container">
+                                <i class="fa-solid fa-arrow-left" id="btn_anterior"></i>
+                                <i class="fa-solid fa-arrow-right" id="btn_proximo"></i>
+                                <div class="carousel_images">
+                                    <img src="imagens/ex04.png" id="ultimo_copia">
+                                    <img src="imagens/ex01.png">
+                                    <img src="imagens/ex02.png">
+                                    <img src="imagens/ex03.png">
+                                    <img src="imagens/ex04.png">
+                                    <img src="imagens/ex01.png" id="primeiro_copia">
+                                </div>
                             </div>
-                        </div>
-
-                        <div id="categorias" class="categorias">
-                            <center>
-                                <h1>Categorias</h1>
-                            </center>
-                            <input type="checkbox" id="suite" name="suite" checked>
-                            <label for="suite">Suíte</label>
-                            <input type="checkbox" id="animais" name="animais" checked>
-                            <label for="animais">Permitido animais</label>
-                            <input type="checkbox" id="cafe" name="cafe" checked>
-                            <label for="cafe">Café da manhã</label>
-                            <input type="checkbox" id="wifi" name="wifi" checked>
-                            <label for="wifi">Wi-fi</label>
-                        </div>
-
-                    </section>
-                </td>
-                <td>
-                    <section id="sectionformaluguel" class="sectionformaluguel">
-                        <h1>Descrição</h1>
-                        <p id="descrição">Breve descrição do quarto de hotel ou pousada que servirá como identificação e
-                            diferencial</p>
-                        <form id="formaluguel">
-                            <h3>Dados para aluguel</h3>
-                            <label class="label" for="npessoas">Número de pessoas:</label>
-                            <input class="entitem" type="number" id="npessoas" autocomplete="off" min="1">
-                            <br>
-                            <label class="label" for="entdata_entrada">Data de entrada:</label>
-                            <input class="entitem" type="date" id="entdata_entrada" autocomplete="off">
-                            <br>
-                            <label class="label" for="entdata_saida">Data de saída:</label>
-                            <input class="entitem" type="date" id="entdata_saida" autocomplete="off">
-                            <br>
-                            <h2>Valor: R$XX,xx</h2>
-                            <a href="pagamento.html">
-                                <input type="button" value="Próximo" class="botao">
-
-                            </a>
-
-                        </form>
-
-                    </section>
-                </td>
-            </tr>
-        </table>
-    </center>
+    
+                            <div id="categorias" class="categorias">
+                                <center>
+                                    <h1>Categorias</h1>
+                                </center>
+                                <input type="checkbox" id="suite" name="suite" checked>
+                                <label for="suite">Suíte</label>
+                                <input type="checkbox" id="animais" name="animais" checked>
+                                <label for="animais">Permitido animais</label>
+                                <input type="checkbox" id="cafe" name="cafe" checked>
+                                <label for="cafe">Café da manhã</label>
+                                <input type="checkbox" id="wifi" name="wifi" checked>
+                                <label for="wifi">Wi-fi</label>
+                            </div>
+    
+                        </section>
+                    </td>
+                    <td>
+                        <section id="sectionformaluguel" class="sectionformaluguel">
+                            <h1>Descrição</h1>
+                            <p id="descrição">Breve descrição do quarto de hotel ou pousada que servirá como identificação e
+                                diferencial</p>
+                            <form id="formaluguel">
+                                <h3>Dados para aluguel</h3>
+                                <label class="label" for="npessoas">Número de pessoas:</label>
+                                <input class="entitem" type="number" id="npessoas" autocomplete="off" min="1">
+                                <br>
+                                <label class="label" for="entdata_entrada">Data de entrada:</label>
+                                <input class="entitem" type="date" id="entdata_entrada" autocomplete="off">
+                                <br>
+                                <label class="label" for="entdata_saida">Data de saída:</label>
+                                <input class="entitem" type="date" id="entdata_saida" autocomplete="off">
+                                <br>
+                                <h2>Valor: R$XX,xx</h2>
+                                <a href="pagamento.html">
+                                    <input type="button" value="Próximo" class="botao">
+    
+                                </a>
+    
+                            </form>
+    
+                        </section>
+                    </td>
+                </tr>
+            </table>
+    </div>
+    </center>    
 
     <script src="script/pesquisa.js"></script>
     <script src="script/script_alugar.js"></script>

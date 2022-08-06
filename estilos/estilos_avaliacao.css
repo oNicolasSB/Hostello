@@ -12,7 +12,7 @@
     height: 500px;
 }
 
-.rolagem-ant{
+#btn_anterior{
     position: absolute;
     top: 50%;
     z-index: 10;
@@ -22,7 +22,7 @@
     cursor: pointer;
 }
 
-.rolagem-prox{
+#btn_proximo{
     position: absolute;
     top: 50%;
     z-index: 10;

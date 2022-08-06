@@ -1,8 +1,8 @@
 const carouselSlide = document.querySelector('.carousel_images')
 const carouselImages = window.document.querySelectorAll('.carousel_images img')
 
-const btnAnterior = window.document.querySelector('button#btn_anterior')
-const btnProximo = window.document.querySelector('button#btn_proximo')
+const btnAnterior = window.document.getElementById('btn_anterior')
+const btnProximo = window.document.getElementById('btn_proximo')
 
 let pos = 1;
 const tam = carouselImages[0].clientWidth;

@@ -12,21 +12,21 @@
     height: 500px;
 }
 
-.rolagem-ant{
+#btn_proximo{
     position: absolute;
     top: 50%;
     z-index: 10;
-    left: 5%;
+    right: 5%;
     font-size: 15px;
     color: white;
     cursor: pointer;
 }
 
-.rolagem-prox{
+#btn_anterior{
     position: absolute;
     top: 50%;
     z-index: 10;
-    right: 5%;
+    left: 5%;
     font-size: 15px;
     color: white;
     cursor: pointer;

@@ -120,6 +120,7 @@
   position: absolute;
   padding-left: 5px;
   top: 10%;
+  cursor: pointer;
 }
 
 h3{
@@ -165,4 +166,16 @@ h3{
 
 .sidenav .abotaosair:hover{
   background-color: #ffffff00;
+}
+
+.botaopesquisa:hover .fa-magnifying-glass{
+  color: white;
+}
+
+.fa-magnifying-glass{
+  color:black;
+}
+
+.fa-magnifying-glass:hover{
+  color:white;
 }
