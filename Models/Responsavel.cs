@@ -9,4 +9,5 @@ public class Responsavel
     public int IdResponsavel { get; set; }
     [ForeignKey("Usuario")]
     public int FkUsuario { get; set; }
+    public ICollection<Estabelecimento> Estabelecimentos { get; set; }
 }

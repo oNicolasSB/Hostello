@@ -17,4 +17,5 @@ public class Estabelecimento
     [Required, StringLength(128)]
     public string RazaoSocial { get; set; }
     public double MediaAvaliacao { get; set; }
+    public ICollection<Responsavel> Responsaveis { get; set; }
 } 
