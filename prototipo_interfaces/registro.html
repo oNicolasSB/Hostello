@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <title>Registro - Hostello</title>
 </head>
+
 <body onload="alterarusuario()">
     <header>
         <img src="imagens/hostello.png" class="logo">
@@ -23,103 +25,104 @@
             <input type="button" id="opchoteleiro" value="Para sua empresa" class="botaoopc" onclick=alterarhoteleiro()>
         </div>
         <div id="ent_usuario">
-        <form id="form_usuario">
-            <label class="label" for="usuario">Usuário:</label>
-            <input class="entitem" type="text" id="user" autocomplete="off">
-            <br>
-            <label class="label" for="entnome_responsavel">Nome Completo:</label>
-            <input class="entitem" type="text" id="entnome_responsavel" autocomplete="off">
-            <br>
-            <label class="label" for="entdata_nascimento">Data de nascimento:</label>
-            <input class="entitem" type="date" id="entdata_nascimento" autocomplete="off">
-            <br>
-            <label class="label" for="entsexo">Sexo:</label>
-            <input type="radio" id="masculino" name="entsexo" value="Masculino">
-            <label for="masculino">Masculino</label><br>
-            <input type="radio" id="feminino" name="entsexo" value="Feminino">
-            <label for="feminino">Feminino</label><br>
-            <input type="radio" id="outros" name="entsexo" value="Outros">
-            <label for="outros">Prefiro não informar</label>
-            <br>
-            <label class="label" for="entcpf">CPF:</label>
-            <input class="entitem" type="text" id="entcpf" autocomplete="off">
-            <br>
-            <label class="label" for="entcep">CEP:</label>
-            <input class="entitem" type="text" id="entcep" autocomplete="off">
-            <br>
-            <label class="label" for="entlogradouro">Logradouro</label>
-            <input class="entitem" type="text" id="entlogradouro" autocomplete="off">
-            <br>
-            <label class="label" for="entbairro">Bairro:</label>
-            <input class="entitem" type="text" id="entbairro" autocomplete="off">
-            <br>
-            <label class="label" for="entnumcasa">Nº da Casa:</label>
-            <input class="entitem" type="number" id="entnumcasa" autocomplete="off">
-            <br>
-            <label class="label" for="entcomplemento">Complemento:</label>
-            <input class="entitem" type="text" id="entcomplemento" autocomplete="off">
-            <br>
-            <label class="label" for="enttel_celular">Telefone ou Celular:</label>
-            <input class="entitem" type="text" id="enttel_celular" autocomplete="off">
-            <br>
-            <label class="label" for="entemail">E-mail:</label>
-            <input class="entitem" type="text" id="entemail" autocomplete="off">
-            <br>
-            <label for="password" class="label">Senha:</label>
-            <input class="entsenha" type="password" id="password" autocomplete="off">
-            
-        </form>
+            <form id="form_usuario">
+                <label class="label" for="usuario">Usuário:</label>
+                <input class="entitem" type="text" id="user" autocomplete="off">
+                <br>
+                <label class="label" for="entnome_responsavel">Nome Completo:</label>
+                <input class="entitem" type="text" id="entnome_responsavel" autocomplete="off">
+                <br>
+                <label class="label" for="entdata_nascimento">Data de nascimento:</label>
+                <input class="entitem" type="date" id="entdata_nascimento" autocomplete="off">
+                <br>
+                <label class="label" for="entsexo">Sexo:</label>
+                <input type="radio" id="masculino" name="entsexo" value="Masculino">
+                <label for="masculino">Masculino</label><br>
+                <input type="radio" id="feminino" name="entsexo" value="Feminino">
+                <label for="feminino">Feminino</label><br>
+                <input type="radio" id="outros" name="entsexo" value="Outros">
+                <label for="outros">Prefiro não informar</label>
+                <br>
+                <label class="label" for="entcpf">CPF:</label>
+                <input class="entitem" type="text" id="entcpf" autocomplete="off">
+                <br>
+                <label class="label" for="entcep">CEP:</label>
+                <input class="entitem" type="text" id="entcep" autocomplete="off">
+                <br>
+                <label class="label" for="entlogradouro">Logradouro</label>
+                <input class="entitem" type="text" id="entlogradouro" autocomplete="off">
+                <br>
+                <label class="label" for="entbairro">Bairro:</label>
+                <input class="entitem" type="text" id="entbairro" autocomplete="off">
+                <br>
+                <label class="label" for="entnumcasa">Nº da Casa:</label>
+                <input class="entitem" type="number" id="entnumcasa" autocomplete="off">
+                <br>
+                <label class="label" for="entcomplemento">Complemento:</label>
+                <input class="entitem" type="text" id="entcomplemento" autocomplete="off">
+                <br>
+                <label class="label" for="enttel_celular">Telefone ou Celular:</label>
+                <input class="entitem" type="text" id="enttel_celular" autocomplete="off">
+                <br>
+                <label class="label" for="entemail">E-mail:</label>
+                <input class="entitem" type="text" id="entemail" autocomplete="off">
+                <br>
+                <label for="password" class="label">Senha:</label>
+                <input class="entsenha" type="password" id="password" autocomplete="off">
+
+            </form>
         </div>
         <div id="ent_hoteleiro">
-        <form id="form_hoteleiro">
-            <label class="label" for="usuario">Usuário:</label>
-            <input class="entitem" type="text" id="user" autocomplete="off">
-            <br>
-            <label class="label" for="entnome_responsavel">Nome do Responsável:</label>
-            <input class="entitem" type="text" id="entnome_responsavel" autocomplete="off">
-            <br>
-            <label class="label" for="entdata_nascimento">Data de nascimento:</label>
-            <input class="entitem" type="date" id="entdata_nascimento" autocomplete="off">
-            <br>
-            <label class="label" for="entsexo">Sexo:</label>
-            <input type="radio" id="masculino" name="entsexo" value="Masculino">
-            <label for="masculino">Masculino</label><br>
-            <input type="radio" id="feminino" name="entsexo" value="Feminino">
-            <label for="feminino">Feminino</label><br>
-            <input type="radio" id="outros" name="entsexo" value="Outros">
-            <label for="outros">Prefiro não informar</label>
-            <br>
-            <label class="label" for="entrazao_social">Razão Social:</label>
-            <input class="entitem" type="text" id="entrazao_social" autocomplete="off">
-            <br>
-            <label class="label" for="entnome_fantasia">Nome Fantasia:</label>
-            <input class="entitem" type="text" id="entnome_fantasia" autocomplete="off">
-            <br>
-            <label class="label" for="entcnpj">CNPJ:</label>
-            <input class="entitem" type="text" id="entcnpj" autocomplete="off">
-            <br>
-            <label class="label" for="entcep">CEP:</label>
-            <input class="entitem" type="text" id="entcep" autocomplete="off">
-            <br>
-            <label class="label" for="enttel_fixo">Telefone Fixo:</label>
-            <input class="entitem" type="text" id="enttel_fixo" autocomplete="off">
-            <br>
-            <label class="label" for="entcelular">Celular:</label>
-            <input class="entitem" type="text" id="entcelular" autocomplete="off">
-            <br>
-            <label class="label" for="entemail">E-mail:</label>
-            <input class="entitem" type="text" id="entemail" autocomplete="off">
-            <br>
-            <label for="password" class="label">Senha:</label>
-            <input class="entsenha" type="password" id="password" autocomplete="off">
-        </form>
+            <form id="form_hoteleiro">
+                <label class="label" for="usuario">Usuário:</label>
+                <input class="entitem" type="text" id="user" autocomplete="off">
+                <br>
+                <label class="label" for="entnome_responsavel">Nome do Responsável:</label>
+                <input class="entitem" type="text" id="entnome_responsavel" autocomplete="off">
+                <br>
+                <label class="label" for="entdata_nascimento">Data de nascimento:</label>
+                <input class="entitem" type="date" id="entdata_nascimento" autocomplete="off">
+                <br>
+                <label class="label" for="entsexo">Sexo:</label>
+                <input type="radio" id="masculino" name="entsexo" value="Masculino">
+                <label for="masculino">Masculino</label><br>
+                <input type="radio" id="feminino" name="entsexo" value="Feminino">
+                <label for="feminino">Feminino</label><br>
+                <input type="radio" id="outros" name="entsexo" value="Outros">
+                <label for="outros">Prefiro não informar</label>
+                <br>
+                <label class="label" for="entrazao_social">Razão Social:</label>
+                <input class="entitem" type="text" id="entrazao_social" autocomplete="off">
+                <br>
+                <label class="label" for="entnome_fantasia">Nome Fantasia:</label>
+                <input class="entitem" type="text" id="entnome_fantasia" autocomplete="off">
+                <br>
+                <label class="label" for="entcnpj">CNPJ:</label>
+                <input class="entitem" type="text" id="entcnpj" autocomplete="off">
+                <br>
+                <label class="label" for="entcep">CEP:</label>
+                <input class="entitem" type="text" id="entcep" autocomplete="off">
+                <br>
+                <label class="label" for="enttel_fixo">Telefone Fixo:</label>
+                <input class="entitem" type="text" id="enttel_fixo" autocomplete="off">
+                <br>
+                <label class="label" for="entcelular">Celular:</label>
+                <input class="entitem" type="text" id="entcelular" autocomplete="off">
+                <br>
+                <label class="label" for="entemail">E-mail:</label>
+                <input class="entitem" type="text" id="entemail" autocomplete="off">
+                <br>
+                <label for="password" class="label">Senha:</label>
+                <input class="entsenha" type="password" id="password" autocomplete="off">
+            </form>
         </div>
         <footer class="rodape">
             <a href="login.html"><input type="button" value="Registrar" class="botao"></a>
             <p>Já tem uma conta? <a href="login.html">Login</a></p>
         </footer>
-        
+
     </section>
     <script src="script/script_registro.js"></script>
 </body>
+
 </html>

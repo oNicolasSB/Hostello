@@ -148,3 +148,9 @@ section{
 .tdEspaco { display: table; float:left; margin-right:10px }
 
 table { border-spacing: 5px; }
+
+.secaoprincipal{
+    display: inline-flex;
+    width: 100%;
+    margin-top: 60px;
+}

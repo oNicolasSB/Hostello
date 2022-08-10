@@ -152,3 +152,9 @@ section{
 .tdEspaco { display: table; float:left; margin-right:10px }
 
 table { border-spacing: 5px; }
+
+.principal{
+    width: 100%;
+    margin-top: 60px;
+    display: inline-flex;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,115 +13,147 @@
     <link rel="stylesheet" href="estilos/estilos_cadastrar_quarto.css">
     <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
 </head>
+
 <body>
     <nav class="nav">
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
-                        src="imagens/perfil.png" class="imgs"></span></a>
-            <a href="relatorio_reservas.html">Reservas</a>
-            <a href="relatorio_reservas.html">Reservas</a>
-            <a href="relatorio_alugueis.html">Avaliações</a>
-            <a href="login.html">Sair</a>
-        </div>
-        <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
-        <div id="main">
-        </div>
-        <center>
-            <div class="search">
-                <form action="#">
-                    <input type="text" placeholder=" Pesquisar..." name="search">
-                    <button>
-                        <i class="fa fa-search"><img src="imagens/pesquisa.png" alt="pesquisar" height="12px"></i>
-                    </button>
-                </form>
+        <nav class="nav">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
+                            src="imagens/perfil.png" class="imgs"></span></a>
+                <h3>Usuário</h3>
+                <a href="relatorio_reservas.html">Reservas</a>
+                <a href="relatorio_alugueis.html">Avaliações</a>
+                <br>
+                <h3>Hoteleiro</h3>
+                <a href="relatorio_contato.html">Cadastrar Contato</a>
+                <a href="relatorio_quartos.html">Cadastrar Quarto</a>
+                <a href="relatorio_avaliacao.html">Relatório de Avaliações</a>
+                <br>
+                <h3>Administrador</h3>
+                <a href="relatorio_pagamento.html">Relatório de Pagamentos</a>
+                <a href="relatorio_esqueceu_senha.html">Relatório de Recuperação de Senhas</a>
+                <br>
+                <center>
+                    <button class="botaosair"><a href="login.html" class="abotaosair">Sair</a></button>
+                </center>
+
             </div>
-        </center>
+            <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
+            <div id="main">
+            </div>
+            <center>
+                <div class="search">
+                    <form action="#">
+                        <input type="text" placeholder=" Pesquisar..." name="search">
+                        <button class="botaopesquisa">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+            </center>
+            <span class=spanlogo><a href="lobby.html"><img src="imagens/logo_completa.png"
+                        class="logohostello"></a></span>
+
+        </nav>
     </nav>
 
-    <center>
-    <table>
-        <tr>
-            <td>
-                <section id="quarto" class="quarto">
-                    <h1> Insira as imagens do local: </h1>
-                    <div class="container">
-                        
-                        <div class="imagens_enviadas">
-                            <img src="imagens/imgnotfound.png">
-                        </div>
-                        
-                    </div>
-                    <br>
-                    <div id="arquivos" class="arquivos">
-                        
-                        <input type="file" class="fileinput" id="fileinput" name="arquivos" accept="image/png, image/jpeg" multiple="multiple">
-                        <label for="fileinput" class="botao-arquivos">Selecionar Arquivos</label>
-                    </div>
-                    
-                    <div id="categorias" class="categorias">
-                        <center>
-                        <h1>Categorias:</h1>
-                        </center>
-                        <input type="checkbox" id="suite" name="suite">
-                        <label for="suite">Suíte</label>
-                        <input type="checkbox" id="animais" name="animais">
-                        <label for="animais">Permitido animais</label>
-                        <input type="checkbox" id="cafe" name="cafe">
-                        <label for="cafe">Café da manhã</label>
-                        <input type="checkbox" id="wifi" name="wifi">
-                        <label for="wifi">Wi-fi</label>
-                    </div>
-                    
-                </section>
-            </td>
-            <td>
-                <section id="sectionformaluguel" class="sectionformaluguel">
-                    <form id="formaluguel">
-                    <h1>Formulário de cadastro</h1>
-                    <div id="scrollbox" class="scrollbox">
-                    <h3>Descrição</h3>
-                    <input type="text" class="entitem" value="Insira uma descrição do estabelecimento">
-                    <h3>Dados para aluguel</h3>
-                    <label class="label" for="enttipo">O que você quer cadastrar?</label>
-                    <div class="esttipo" id="esttipo">
-                        <input type="radio" id="quarto" name="enttipo" checked>
-                        <label for="quarto">Quarto</label><br>
-                        <input type="radio" id="pousada" name="enttipo">
-                        <label for="pousada">Pousada</label><br>
-                    </div>
-                    <label class="label" for="nquarto">Número do quarto:</label>
-                    <input class="entitem" type="number" id="nquarto" autocomplete="off" min="1">
-                    <br>
-                    <label class="label" for="nmaxpessoas">Número máximo de pessoas:</label>
-                    <input class="entitem" type="number" id="nmaxpessoas" autocomplete="off" min="1">
-                    <br>
-                    <h4>Disponibilidade:</h5>
-                    <label class="label" for="data_inicio">Data de início:</label>
-                    <input class="entitem" type="date" id="data_inicio" autocomplete="off">
-                    <br>
-                    <label class="label" for="data_fim">Data de fim:</label>
-                    <input class="entitem" type="date" id="data_fim" autocomplete="off">
-                    <br>
-                    <label class="label" for="minestadia">Período mínimo de estadia (dias):</label>
-                    <input class="entitem" type="number" id="minestadia" autocomplete="off" min="1">
-                    <br>
-                    <label class="label" for="entvalor">Valor da diária (R$XX,xx): </label>
-                    <input type="number" id="entvalor" min="0.00" max="10000.00" step="0.01"  class="entitem">
-                    <br>
-                    </div>
-                    <a href="relatorio_quartos.html"><input type="button" value="Próximo" class="botao" onclick="cadastrar()"></a>
-                    
-                    </form>
-                    
-                </section>
-            </td>
-        </tr>
-    </table>
-    </center>
-    <script>
-        function cadastrar(){
-            window.alert("Quarto cadastrado com sucesso!")
-        }
-    </script>
+        <center>
+            <div class="principal">
+                <table>
+                    <tr>
+                        <td>
+                            <section id="quarto" class="quarto">
+                                <h1> Insira as imagens do local: </h1>
+                                <div class="container">
+
+                                    <div class="imagens_enviadas">
+                                        <img src="imagens/imgnotfound.png">
+                                    </div>
+
+                                </div>
+                                <br>
+                                <div id="arquivos" class="arquivos">
+
+                                    <input type="file" class="fileinput" id="fileinput" name="arquivos"
+                                        accept="image/png, image/jpeg" multiple="multiple">
+                                    <label for="fileinput" class="botao-arquivos">Selecionar Arquivos</label>
+                                </div>
+
+                                <div id="categorias" class="categorias">
+                                    <center>
+                                        <h1>Categorias:</h1>
+                                    </center>
+                                    <input type="checkbox" id="suite" name="suite">
+                                    <label for="suite">Suíte</label>
+                                    <input type="checkbox" id="animais" name="animais">
+                                    <label for="animais">Permitido animais</label>
+                                    <input type="checkbox" id="cafe" name="cafe">
+                                    <label for="cafe">Café da manhã</label>
+                                    <input type="checkbox" id="wifi" name="wifi">
+                                    <label for="wifi">Wi-fi</label>
+                                </div>
+
+                            </section>
+                        </td>
+                        <td>
+                            <section id="sectionformaluguel" class="sectionformaluguel">
+                                <form id="formaluguel">
+                                    <h1>Formulário de cadastro</h1>
+                                    <div id="scrollbox" class="scrollbox">
+                                        <h3>Descrição</h3>
+                                        <input type="text" class="entitem"
+                                            value="Insira uma descrição do estabelecimento">
+                                        <h3>Dados para aluguel</h3>
+                                        <label class="label" for="enttipo">O que você quer cadastrar?</label>
+                                        <div class="esttipo" id="esttipo">
+                                            <input type="radio" id="quarto" name="enttipo" checked>
+                                            <label for="quarto">Quarto</label><br>
+                                            <input type="radio" id="pousada" name="enttipo">
+                                            <label for="pousada">Pousada</label><br>
+                                        </div>
+                                        <label class="label" for="nquarto">Número do quarto:</label>
+                                        <input class="entitem" type="number" id="nquarto" autocomplete="off" min="1">
+                                        <br>
+                                        <label class="label" for="nmaxpessoas">Número máximo de pessoas:</label>
+                                        <input class="entitem" type="number" id="nmaxpessoas" autocomplete="off"
+                                            min="1">
+                                        <br>
+                                        <h4>Disponibilidade:</h5>
+                                            <label class="label" for="data_inicio">Data de início:</label>
+                                            <input class="entitem" type="date" id="data_inicio" autocomplete="off">
+                                            <br>
+                                            <label class="label" for="data_fim">Data de fim:</label>
+                                            <input class="entitem" type="date" id="data_fim" autocomplete="off">
+                                            <br>
+                                            <label class="label" for="minestadia">Período mínimo de estadia
+                                                (dias):</label>
+                                            <input class="entitem" type="number" id="minestadia" autocomplete="off"
+                                                min="1">
+                                            <br>
+                                            <label class="label" for="entvalor">Valor da diária (R$XX,xx): </label>
+                                            <input type="number" id="entvalor" min="0.00" max="10000.00" step="0.01"
+                                                class="entitem">
+                                            <br>
+                                    </div>
+                                    <a href="relatorio_quartos.html"><input type="button" value="Próximo" class="botao"
+                                            onclick="cadastrar()"></a>
+
+                                </form>
+
+                            </section>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </center>
+
+        <script src="https://kit.fontawesome.com/a831f4109b.js" crossorigin="anonymous"></script>
+        <script src="script/pesquisa.js"></script>
+        <script>
+            function cadastrar() {
+                window.alert("Quarto cadastrado com sucesso!")
+            }
+        </script>
 </body>
+
 </html>

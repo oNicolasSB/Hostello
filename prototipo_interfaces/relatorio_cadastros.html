@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,9 +10,49 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilos_relatorios.css">
+    <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
     <title>Relatorio de Cadastros - Hostello</title>
 </head>
+
 <body onload="alterarusuario()">
+    <nav class="nav">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
+                        src="imagens/perfil.png" class="imgs"></span></a>
+            <h3>Usuário</h3>
+            <a href="relatorio_reservas.html">Reservas</a>
+            <a href="relatorio_alugueis.html">Avaliações</a>
+            <br>
+            <h3>Hoteleiro</h3>
+            <a href="relatorio_contato.html">Cadastrar Contato</a>
+            <a href="relatorio_quartos.html">Cadastrar Quarto</a>
+            <a href="relatorio_avaliacao.html">Relatório de Avaliações</a>
+            <br>
+            <h3>Administrador</h3>
+            <a href="relatorio_pagamento.html">Relatório de Pagamentos</a>
+            <a href="relatorio_esqueceu_senha.html">Relatório de Recuperação de Senhas</a>
+            <br>
+            <center>
+                <button class="botaosair"><a href="login.html" class="abotaosair">Sair</a></button>
+            </center>
+
+        </div>
+        <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
+        <div id="main">
+        </div>
+        <center>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder=" Pesquisar..." name="search">
+                    <button class="botaopesquisa">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </center>
+        <span class=spanlogo><a href="lobby.html"><img src="imagens/logo_completa.png" class="logohostello"></a></span>
+
+    </nav>
     <section class="container">
         <h1>Relatório de Clientes Cadastrados</h1>
         <p>Selecione o tipo de cliente que deseja listar</p>
@@ -22,67 +63,343 @@
         <div id="tabelausuario" class="tabela">
             <table>
                 <thead>
-                    <tr><th>ID</th><th>Nome</th><th>Telefone</th><th>CPF</th><th>E-mail</th></tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Telefone</th>
+                        <th>CPF</th>
+                        <th>E-mail</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Usuário1</td><td>+55(28)999999-0011</td><td>111.111.111-01</td><td>usuario1@email.com</td></tr>
-                    <tr><td>2</td><td>Usuário2</td><td>+55(28)999999-0012</td><td>111.111.111-02</td><td>usuario2@email.com</td></tr>
-                    <tr><td>3</td><td>Usuário3</td><td>+55(28)999999-0013</td><td>111.111.111-03</td><td>usuario3@email.com</td></tr>
-                    <tr><td>4</td><td>Usuário4</td><td>+55(28)999999-0014</td><td>111.111.111-04</td><td>usuario4@email.com</td></tr>
-                    <tr><td>5</td><td>Usuário5</td><td>+55(28)999999-0015</td><td>111.111.111-05</td><td>usuario5@email.com</td></tr>
-                    <tr><td>6</td><td>Usuário6</td><td>+55(28)999999-0016</td><td>111.111.111-06</td><td>usuario6@email.com</td></tr>
-                    <tr><td>7</td><td>Usuário7</td><td>+55(28)999999-0017</td><td>111.111.111-07</td><td>usuario7@email.com</td></tr>
-                    <tr><td>8</td><td>Usuário8</td><td>+55(28)999999-0018</td><td>111.111.111-08</td><td>usuario8@email.com</td></tr>
-                    <tr><td>9</td><td>Usuário9</td><td>+55(28)999999-0019</td><td>111.111.111-09</td><td>usuario9@email.com</td></tr>
-                    <tr><td>10</td><td>Usuário10</td><td>+55(28)999999-0010</td><td>111.111.111-10</td><td>usuario10@email.com</td></tr>
-                    <tr><td>11</td><td>Usuário11</td><td>+55(28)999999-0011</td><td>111.111.111-11</td><td>usuario11@email.com</td></tr>
-                    <tr><td>12</td><td>Usuário12</td><td>+55(28)999999-0012</td><td>111.111.111-12</td><td>usuario12@email.com</td></tr>
-                    <tr><td>13</td><td>Usuário13</td><td>+55(28)999999-0013</td><td>111.111.111-13</td><td>usuario13@email.com</td></tr>
-                    <tr><td>14</td><td>Usuário14</td><td>+55(28)999999-0014</td><td>111.111.111-14</td><td>usuario14@email.com</td></tr>
-                    <tr><td>15</td><td>Usuário15</td><td>+55(28)999999-0015</td><td>111.111.111-15</td><td>usuario15@email.com</td></tr>
-                    <tr><td>16</td><td>Usuário16</td><td>+55(28)999999-0016</td><td>111.111.111-16</td><td>usuario16@email.com</td></tr>
-                    <tr><td>17</td><td>Usuário17</td><td>+55(28)999999-0017</td><td>111.111.111-17</td><td>usuario17@email.com</td></tr>
-                    <tr><td>18</td><td>Usuário18</td><td>+55(28)999999-0018</td><td>111.111.111-18</td><td>usuario18@email.com</td></tr>
-                    <tr><td>19</td><td>Usuário19</td><td>+55(28)999999-0019</td><td>111.111.111-19</td><td>usuario19@email.com</td></tr>
-                    <tr><td>20</td><td>Usuário20</td><td>+55(28)999999-0020</td><td>111.111.111-20</td><td>usuario20@email.com</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Usuário1</td>
+                        <td>+55(28)999999-0011</td>
+                        <td>111.111.111-01</td>
+                        <td>usuario1@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Usuário2</td>
+                        <td>+55(28)999999-0012</td>
+                        <td>111.111.111-02</td>
+                        <td>usuario2@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Usuário3</td>
+                        <td>+55(28)999999-0013</td>
+                        <td>111.111.111-03</td>
+                        <td>usuario3@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Usuário4</td>
+                        <td>+55(28)999999-0014</td>
+                        <td>111.111.111-04</td>
+                        <td>usuario4@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Usuário5</td>
+                        <td>+55(28)999999-0015</td>
+                        <td>111.111.111-05</td>
+                        <td>usuario5@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Usuário6</td>
+                        <td>+55(28)999999-0016</td>
+                        <td>111.111.111-06</td>
+                        <td>usuario6@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Usuário7</td>
+                        <td>+55(28)999999-0017</td>
+                        <td>111.111.111-07</td>
+                        <td>usuario7@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Usuário8</td>
+                        <td>+55(28)999999-0018</td>
+                        <td>111.111.111-08</td>
+                        <td>usuario8@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Usuário9</td>
+                        <td>+55(28)999999-0019</td>
+                        <td>111.111.111-09</td>
+                        <td>usuario9@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Usuário10</td>
+                        <td>+55(28)999999-0010</td>
+                        <td>111.111.111-10</td>
+                        <td>usuario10@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Usuário11</td>
+                        <td>+55(28)999999-0011</td>
+                        <td>111.111.111-11</td>
+                        <td>usuario11@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Usuário12</td>
+                        <td>+55(28)999999-0012</td>
+                        <td>111.111.111-12</td>
+                        <td>usuario12@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Usuário13</td>
+                        <td>+55(28)999999-0013</td>
+                        <td>111.111.111-13</td>
+                        <td>usuario13@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Usuário14</td>
+                        <td>+55(28)999999-0014</td>
+                        <td>111.111.111-14</td>
+                        <td>usuario14@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Usuário15</td>
+                        <td>+55(28)999999-0015</td>
+                        <td>111.111.111-15</td>
+                        <td>usuario15@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Usuário16</td>
+                        <td>+55(28)999999-0016</td>
+                        <td>111.111.111-16</td>
+                        <td>usuario16@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Usuário17</td>
+                        <td>+55(28)999999-0017</td>
+                        <td>111.111.111-17</td>
+                        <td>usuario17@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Usuário18</td>
+                        <td>+55(28)999999-0018</td>
+                        <td>111.111.111-18</td>
+                        <td>usuario18@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Usuário19</td>
+                        <td>+55(28)999999-0019</td>
+                        <td>111.111.111-19</td>
+                        <td>usuario19@email.com</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Usuário20</td>
+                        <td>+55(28)999999-0020</td>
+                        <td>111.111.111-20</td>
+                        <td>usuario20@email.com</td>
+                    </tr>
                 </tbody>
-    
+
             </table>
         </div>
         <div id="tabelahoteleiro" class="tabela">
             <table>
                 <thead>
-                    <tr><th>ID</th><th>Razão social</th><th>Nome Fantasia</th><th>Telefone</th><th>CNPJ</th><th>E-mail</th></tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Razão social</th>
+                        <th>Nome Fantasia</th>
+                        <th>Telefone</th>
+                        <th>CNPJ</th>
+                        <th>E-mail</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Empresa1 locações ltda</td><td>Empresa1</td><td>+55(28)999999-0011</td><td>11.111.111/0001-01</td><td>contato1@empresa.com</td></tr>
-                    <tr><td>2</td><td>Empresa2 locações ltda</td><td>Empresa2</td><td>+55(28)999999-0012</td><td>11.111.111/0001-02</td><td>contato2@empresa.com</td></tr>
-                    <tr><td>3</td><td>Empresa3 locações ltda</td><td>Empresa3</td><td>+55(28)999999-0013</td><td>11.111.111/0001-03</td><td>contato3@empresa.com</td></tr>
-                    <tr><td>4</td><td>Empresa4 locações ltda</td><td>Empresa4</td><td>+55(28)999999-0014</td><td>11.111.111/0001-04</td><td>contato4@empresa.com</td></tr>
-                    <tr><td>5</td><td>Empresa5 locações ltda</td><td>Empresa5</td><td>+55(28)999999-0015</td><td>11.111.111/0001-05</td><td>contato5@empresa.com</td></tr>
-                    <tr><td>6</td><td>Empresa6 locações ltda</td><td>Empresa6</td><td>+55(28)999999-0016</td><td>11.111.111/0001-06</td><td>contato6@empresa.com</td></tr>
-                    <tr><td>7</td><td>Empresa7 locações ltda</td><td>Empresa7</td><td>+55(28)999999-0017</td><td>11.111.111/0001-07</td><td>contato7@empresa.com</td></tr>
-                    <tr><td>8</td><td>Empresa8 locações ltda</td><td>Empresa8</td><td>+55(28)999999-0018</td><td>11.111.111/0001-08</td><td>contato8@empresa.com</td></tr>
-                    <tr><td>9</td><td>Empresa9 locações ltda</td><td>Empresa9</td><td>+55(28)999999-0019</td><td>11.111.111/0001-09</td><td>contato9@empresa.com</td></tr>
-                    <tr><td>10</td><td>Empresa10 locações ltda</td><td>Empresa10</td><td>+55(28)999999-0010</td><td>11.111.111/0001-10</td><td>contato10@empresa.com</td></tr>
-                    <tr><td>11</td><td>Empresa11 locações ltda</td><td>Empresa11</td><td>+55(28)999999-0011</td><td>11.111.111/0001-11</td><td>contato11@empresa.com</td></tr>
-                    <tr><td>12</td><td>Empresa12 locações ltda</td><td>Empresa12</td><td>+55(28)999999-0012</td><td>11.111.111/0001-12</td><td>contato12@empresa.com</td></tr>
-                    <tr><td>13</td><td>Empresa13 locações ltda</td><td>Empresa13</td><td>+55(28)999999-0013</td><td>11.111.111/0001-13</td><td>contato13@empresa.com</td></tr>
-                    <tr><td>14</td><td>Empresa14 locações ltda</td><td>Empresa14</td><td>+55(28)999999-0014</td><td>11.111.111/0001-14</td><td>contato14@empresa.com</td></tr>
-                    <tr><td>15</td><td>Empresa15 locações ltda</td><td>Empresa15</td><td>+55(28)999999-0015</td><td>11.111.111/0001-15</td><td>contato15@empresa.com</td></tr>
-                    <tr><td>16</td><td>Empresa16 locações ltda</td><td>Empresa16</td><td>+55(28)999999-0016</td><td>11.111.111/0001-16</td><td>contato16@empresa.com</td></tr>
-                    <tr><td>17</td><td>Empresa17 locações ltda</td><td>Empresa17</td><td>+55(28)999999-0017</td><td>11.111.111/0001-17</td><td>contato17@empresa.com</td></tr>
-                    <tr><td>18</td><td>Empresa18 locações ltda</td><td>Empresa18</td><td>+55(28)999999-0018</td><td>11.111.111/0001-18</td><td>contato18@empresa.com</td></tr>
-                    <tr><td>19</td><td>Empresa19 locações ltda</td><td>Empresa19</td><td>+55(28)999999-0019</td><td>11.111.111/0001-19</td><td>contato19@empresa.com</td></tr>
-                    <tr><td>20</td><td>Empresa20 locações ltda</td><td>Empresa20</td><td>+55(28)999999-0020</td><td>11.111.111/0001-20</td><td>contato20@empresa.com</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Empresa1 locações ltda</td>
+                        <td>Empresa1</td>
+                        <td>+55(28)999999-0011</td>
+                        <td>11.111.111/0001-01</td>
+                        <td>contato1@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Empresa2 locações ltda</td>
+                        <td>Empresa2</td>
+                        <td>+55(28)999999-0012</td>
+                        <td>11.111.111/0001-02</td>
+                        <td>contato2@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Empresa3 locações ltda</td>
+                        <td>Empresa3</td>
+                        <td>+55(28)999999-0013</td>
+                        <td>11.111.111/0001-03</td>
+                        <td>contato3@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Empresa4 locações ltda</td>
+                        <td>Empresa4</td>
+                        <td>+55(28)999999-0014</td>
+                        <td>11.111.111/0001-04</td>
+                        <td>contato4@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Empresa5 locações ltda</td>
+                        <td>Empresa5</td>
+                        <td>+55(28)999999-0015</td>
+                        <td>11.111.111/0001-05</td>
+                        <td>contato5@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Empresa6 locações ltda</td>
+                        <td>Empresa6</td>
+                        <td>+55(28)999999-0016</td>
+                        <td>11.111.111/0001-06</td>
+                        <td>contato6@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Empresa7 locações ltda</td>
+                        <td>Empresa7</td>
+                        <td>+55(28)999999-0017</td>
+                        <td>11.111.111/0001-07</td>
+                        <td>contato7@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Empresa8 locações ltda</td>
+                        <td>Empresa8</td>
+                        <td>+55(28)999999-0018</td>
+                        <td>11.111.111/0001-08</td>
+                        <td>contato8@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Empresa9 locações ltda</td>
+                        <td>Empresa9</td>
+                        <td>+55(28)999999-0019</td>
+                        <td>11.111.111/0001-09</td>
+                        <td>contato9@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Empresa10 locações ltda</td>
+                        <td>Empresa10</td>
+                        <td>+55(28)999999-0010</td>
+                        <td>11.111.111/0001-10</td>
+                        <td>contato10@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Empresa11 locações ltda</td>
+                        <td>Empresa11</td>
+                        <td>+55(28)999999-0011</td>
+                        <td>11.111.111/0001-11</td>
+                        <td>contato11@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Empresa12 locações ltda</td>
+                        <td>Empresa12</td>
+                        <td>+55(28)999999-0012</td>
+                        <td>11.111.111/0001-12</td>
+                        <td>contato12@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Empresa13 locações ltda</td>
+                        <td>Empresa13</td>
+                        <td>+55(28)999999-0013</td>
+                        <td>11.111.111/0001-13</td>
+                        <td>contato13@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Empresa14 locações ltda</td>
+                        <td>Empresa14</td>
+                        <td>+55(28)999999-0014</td>
+                        <td>11.111.111/0001-14</td>
+                        <td>contato14@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Empresa15 locações ltda</td>
+                        <td>Empresa15</td>
+                        <td>+55(28)999999-0015</td>
+                        <td>11.111.111/0001-15</td>
+                        <td>contato15@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Empresa16 locações ltda</td>
+                        <td>Empresa16</td>
+                        <td>+55(28)999999-0016</td>
+                        <td>11.111.111/0001-16</td>
+                        <td>contato16@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Empresa17 locações ltda</td>
+                        <td>Empresa17</td>
+                        <td>+55(28)999999-0017</td>
+                        <td>11.111.111/0001-17</td>
+                        <td>contato17@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Empresa18 locações ltda</td>
+                        <td>Empresa18</td>
+                        <td>+55(28)999999-0018</td>
+                        <td>11.111.111/0001-18</td>
+                        <td>contato18@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Empresa19 locações ltda</td>
+                        <td>Empresa19</td>
+                        <td>+55(28)999999-0019</td>
+                        <td>11.111.111/0001-19</td>
+                        <td>contato19@empresa.com</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Empresa20 locações ltda</td>
+                        <td>Empresa20</td>
+                        <td>+55(28)999999-0020</td>
+                        <td>11.111.111/0001-20</td>
+                        <td>contato20@empresa.com</td>
+                    </tr>
                 </tbody>
-    
+
             </table>
         </div>
         <div>
             <a href="lobby.html"><input type="button" value="Retornar ao Lobby" class="botao" id="botao"></a>
         </div>
     </section>
+    <script src="https://kit.fontawesome.com/a831f4109b.js" crossorigin="anonymous"></script>
+    <script src="script/pesquisa.js"></script>
     <script src="script/script_relatorio_cadastro.js"></script>
 </body>
+
 </html>

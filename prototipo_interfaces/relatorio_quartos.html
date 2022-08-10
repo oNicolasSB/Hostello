@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,47 +10,259 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/estilos_relatorios.css">
+    <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
     <title>Todos os Quartos cadastrados - Hostello</title>
 </head>
+
 <body>
+    <nav class="nav">
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
+                        src="imagens/perfil.png" class="imgs"></span></a>
+            <h3>Usuário</h3>
+            <a href="relatorio_reservas.html">Reservas</a>
+            <a href="relatorio_alugueis.html">Avaliações</a>
+            <br>
+            <h3>Hoteleiro</h3>
+            <a href="relatorio_contato.html">Cadastrar Contato</a>
+            <a href="relatorio_quartos.html">Cadastrar Quarto</a>
+            <a href="relatorio_avaliacao.html">Relatório de Avaliações</a>
+            <br>
+            <h3>Administrador</h3>
+            <a href="relatorio_pagamento.html">Relatório de Pagamentos</a>
+            <a href="relatorio_esqueceu_senha.html">Relatório de Recuperação de Senhas</a>
+            <br>
+            <center>
+                <button class="botaosair"><a href="login.html" class="abotaosair">Sair</a></button>
+            </center>
+
+        </div>
+        <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
+        <div id="main">
+        </div>
+        <center>
+            <div class="search">
+                <form action="#">
+                    <input type="text" placeholder=" Pesquisar..." name="search">
+                    <button class="botaopesquisa">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+        </center>
+        <span class=spanlogo><a href="lobby.html"><img src="imagens/logo_completa.png" class="logohostello"></a></span>
+
+    </nav>
     <section class="container">
         <h1>Todos os quartos/pousadas cadastrados</h1>
         <div class="tabela">
             <table>
                 <thead>
-                    <tr><th>ID</th><th>Nome do Estabelecimento</th><th>Telefone</th><th>Tipo</th><th>Nº do quarto</th><th>Inicio disponibilidade</th><th>Fim disponibilidade</th></tr>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Estabelecimento</th>
+                        <th>Telefone</th>
+                        <th>Tipo</th>
+                        <th>Nº do quarto</th>
+                        <th>Inicio disponibilidade</th>
+                        <th>Fim disponibilidade</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>1</td><td>Empresa1</td><td>+55(28)999999-0001</td><td>Quarto</td><td>001</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>2</td><td>Empresa2</td><td>+55(28)999999-0002</td><td>Quarto</td><td>002</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>3</td><td>Empresa3</td><td>+55(28)999999-0003</td><td>Quarto</td><td>003</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>4</td><td>Empresa4</td><td>+55(28)999999-0004</td><td>Quarto</td><td>004</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>5</td><td>Empresa5</td><td>+55(28)999999-0005</td><td>Quarto</td><td>005</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>6</td><td>Empresa6</td><td>+55(28)999999-0006</td><td>Quarto</td><td>006</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>7</td><td>Empresa7</td><td>+55(28)999999-0007</td><td>Quarto</td><td>007</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>8</td><td>Empresa8</td><td>+55(28)999999-0008</td><td>Quarto</td><td>008</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>9</td><td>Empresa9</td><td>+55(28)999999-0019</td><td>Quarto</td><td>009</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>10</td><td>Empresa10</td><td>+55(28)999999-0010</td><td>Quarto</td><td>010</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>11</td><td>Empresa11</td><td>+55(28)999999-0011</td><td>Pousada</td><td>011</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>12</td><td>Empresa12</td><td>+55(28)999999-0012</td><td>Pousada</td><td>012</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>13</td><td>Empresa13</td><td>+55(28)999999-0013</td><td>Pousada</td><td>013</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>14</td><td>Empresa14</td><td>+55(28)999999-0014</td><td>Pousada</td><td>014</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>15</td><td>Empresa15</td><td>+55(28)999999-0015</td><td>Pousada</td><td>015</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>16</td><td>Empresa16</td><td>+55(28)999999-0016</td><td>Pousada</td><td>016</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>17</td><td>Empresa17</td><td>+55(28)999999-0017</td><td>Pousada</td><td>017</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>18</td><td>Empresa18</td><td>+55(28)999999-0018</td><td>Pousada</td><td>018</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>19</td><td>Empresa19</td><td>+55(28)999999-0019</td><td>Pousada</td><td>019</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
-                    <tr><td>20</td><td>Empresa20</td><td>+55(28)999999-0020</td><td>Pousada</td><td>020</td><td>dd/mm/aaaa</td><td>dd/mm/aaaa</td></tr>
+                    <tr>
+                        <td>1</td>
+                        <td>Empresa1</td>
+                        <td>+55(28)999999-0001</td>
+                        <td>Quarto</td>
+                        <td>001</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Empresa2</td>
+                        <td>+55(28)999999-0002</td>
+                        <td>Quarto</td>
+                        <td>002</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Empresa3</td>
+                        <td>+55(28)999999-0003</td>
+                        <td>Quarto</td>
+                        <td>003</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Empresa4</td>
+                        <td>+55(28)999999-0004</td>
+                        <td>Quarto</td>
+                        <td>004</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Empresa5</td>
+                        <td>+55(28)999999-0005</td>
+                        <td>Quarto</td>
+                        <td>005</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Empresa6</td>
+                        <td>+55(28)999999-0006</td>
+                        <td>Quarto</td>
+                        <td>006</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Empresa7</td>
+                        <td>+55(28)999999-0007</td>
+                        <td>Quarto</td>
+                        <td>007</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Empresa8</td>
+                        <td>+55(28)999999-0008</td>
+                        <td>Quarto</td>
+                        <td>008</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Empresa9</td>
+                        <td>+55(28)999999-0019</td>
+                        <td>Quarto</td>
+                        <td>009</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Empresa10</td>
+                        <td>+55(28)999999-0010</td>
+                        <td>Quarto</td>
+                        <td>010</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Empresa11</td>
+                        <td>+55(28)999999-0011</td>
+                        <td>Pousada</td>
+                        <td>011</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>Empresa12</td>
+                        <td>+55(28)999999-0012</td>
+                        <td>Pousada</td>
+                        <td>012</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Empresa13</td>
+                        <td>+55(28)999999-0013</td>
+                        <td>Pousada</td>
+                        <td>013</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>Empresa14</td>
+                        <td>+55(28)999999-0014</td>
+                        <td>Pousada</td>
+                        <td>014</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Empresa15</td>
+                        <td>+55(28)999999-0015</td>
+                        <td>Pousada</td>
+                        <td>015</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Empresa16</td>
+                        <td>+55(28)999999-0016</td>
+                        <td>Pousada</td>
+                        <td>016</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Empresa17</td>
+                        <td>+55(28)999999-0017</td>
+                        <td>Pousada</td>
+                        <td>017</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>Empresa18</td>
+                        <td>+55(28)999999-0018</td>
+                        <td>Pousada</td>
+                        <td>018</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>Empresa19</td>
+                        <td>+55(28)999999-0019</td>
+                        <td>Pousada</td>
+                        <td>019</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>Empresa20</td>
+                        <td>+55(28)999999-0020</td>
+                        <td>Pousada</td>
+                        <td>020</td>
+                        <td>dd/mm/aaaa</td>
+                        <td>dd/mm/aaaa</td>
+                    </tr>
                 </tbody>
-    
+
             </table>
         </div>
         <div>
             <a href="lobby.html"><input type="button" value="Retornar ao Lobby" class="botao" id="botao"></a>
-            <a href="cadastrar_quarto.html"><input type="button" value="Adicionar novo quarto" class="botao" id="botao"></a>
+            <a href="cadastrar_quarto.html"><input type="button" value="Adicionar novo quarto" class="botao"
+                    id="botao"></a>
         </div>
-        
-        
+
+
     </section>
 </body>
+<script src="https://kit.fontawesome.com/a831f4109b.js" crossorigin="anonymous"></script>
+<script src="script/pesquisa.js"></script>
+
 </html>

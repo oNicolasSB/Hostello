@@ -1,67 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="estilos/estilos_contato.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="estilos/estilosmain.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/estilos_pesquisa.css">
     <title>Contatos - Hostello</title>
 </head>
+
 <body>
     <nav class="nav">
-        <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
-                        src="imagens/perfil.png" class="imgs"></span></a>
-            <a href="relatorio_reservas.html">Reservas</a>
-            <a href="relatorio_reservas.html">Reservas</a>
-            <a href="relatorio_alugueis.html">Avaliações</a>
-            <a href="login.html">Sair</a>
-        </div>
-        <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
-        <div id="main">
-        </div>
-        <center>
-            <div class="search">
-                <form action="#">
-                    <input type="text" placeholder=" Pesquisar..." name="search">
-                    <button>
-                        <i class="fa fa-search"><img src="imagens/pesquisa.png" alt="pesquisar" height="12px"></i>
-                    </button>
-                </form>
+        <nav class="nav">
+            <div id="mySidenav" class="sidenav">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> <span onclick="openNav()"><img
+                            src="imagens/perfil.png" class="imgs"></span></a>
+                <h3>Usuário</h3>
+                <a href="relatorio_reservas.html">Reservas</a>
+                <a href="relatorio_alugueis.html">Avaliações</a>
+                <br>
+                <h3>Hoteleiro</h3>
+                <a href="relatorio_contato.html">Cadastrar Contato</a>
+                <a href="relatorio_quartos.html">Cadastrar Quarto</a>
+                <a href="relatorio_avaliacao.html">Relatório de Avaliações</a>
+                <br>
+                <h3>Administrador</h3>
+                <a href="relatorio_pagamento.html">Relatório de Pagamentos</a>
+                <a href="relatorio_esqueceu_senha.html">Relatório de Recuperação de Senhas</a>
+                <br>
+                <center>
+                    <button class="botaosair"><a href="login.html" class="abotaosair">Sair</a></button>
+                </center>
+
             </div>
-        </center>
+            <span onclick="openNav()"><img src="imagens/perfil.png" class="fotoperfil"></span>
+            <div id="main">
+            </div>
+            <center>
+                <div class="search">
+                    <form action="#">
+                        <input type="text" placeholder=" Pesquisar..." name="search">
+                        <button class="botaopesquisa">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+            </center>
+            <span class=spanlogo><a href="lobby.html"><img src="imagens/logo_completa.png"
+                        class="logohostello"></a></span>
+
+        </nav>
     </nav>
-    
-    <section id="secaoprincipal" class="secaoprincipal">
-        <h1>
-            Adicionar contato:
-        </h1>
-        <form id="formulario">
-            <label class="label" for="usuario">Nome completo:</label>
-            <input class="entitem" type="text" id="user" autocomplete="off">
-            <br>
-            <label class="label" for="usuario">Telefone/Celular:</label>
-            <input class="entitem" type="text" id="user" autocomplete="off">
-            <br>
-            <label class="label" for="usuario">Email:</label>
-            <input class="entitem" type="text" id="user" autocomplete="off">
-            <br>
-            <label class="label" for="usuario">Cargo:</label>
-            <input class="entitem" type="text" id="user" autocomplete="off">
-        </form>
-        <footer class="rodape">
-            <a href="relatorio_contato.html"><input type="button" value="Salvar" class="botao" onclick="salvo()"></a>
-            
-        </footer>
-        
-    </section>
+    <div class="principal">
+        <section id="secaoprincipal" class="secaoprincipal">
+            <h1>
+                Adicionar contato:
+            </h1>
+            <form id="formulario">
+                <label class="label" for="usuario">Nome completo:</label>
+                <input class="entitem" type="text" id="user" autocomplete="off">
+                <br>
+                <label class="label" for="usuario">Telefone/Celular:</label>
+                <input class="entitem" type="text" id="user" autocomplete="off">
+                <br>
+                <label class="label" for="usuario">Email:</label>
+                <input class="entitem" type="text" id="user" autocomplete="off">
+                <br>
+                <label class="label" for="usuario">Cargo:</label>
+                <input class="entitem" type="text" id="user" autocomplete="off">
+            </form>
+            <footer class="rodape">
+                <a href="relatorio_contato.html"><input type="button" value="Salvar" class="botao"
+                        onclick="salvo()"></a>
+
+            </footer>
+
+        </section>
+    </div>
+
+    <script src="https://kit.fontawesome.com/a831f4109b.js" crossorigin="anonymous"></script>
+    <script src="script/pesquisa.js"></script>
     <script>
-        function salvo(){
+        function salvo() {
             window.alert("Contato salvo com sucesso!")
         }
     </script>
 </body>
+
 </html>
