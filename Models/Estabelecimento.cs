@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hostello.Models;
 
@@ -17,5 +18,8 @@ public class Estabelecimento
     [Required, StringLength(128)]
     public string RazaoSocial { get; set; }
     public double MediaAvaliacao { get; set; }
+    [ForeignKey("Endereco")]
+    public int FkEndereco { get; set; }
+    public Endereco Endereco { get; set; }
     public ICollection<Responsavel> Responsaveis { get; set; }
 } 

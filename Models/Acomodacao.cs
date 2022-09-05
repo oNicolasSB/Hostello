@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hostello.Models;
 
@@ -13,6 +14,9 @@ public class Acomodacao
     public int PessoasMax { get; set; }
     public int EstadiaMin { get; set; }
     public double ValorDiaria { get; set; }
+    [ForeignKey("TipoAcomodacao")]
+    public int FkTipoAcomodacao { get; set; }
+    public TipoAcomodacao TipoAcomodacao { get; set; }
     public ICollection<ItemReserva> ItensReserva { get; set; }
     public ICollection<Avaliacao> Avaliacoes { get; set; }
 }

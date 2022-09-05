@@ -11,4 +11,9 @@ public class Reserva
     public DateTime DataReserva { get; set; }
     public DateTime EstadiaEntrada { get; set; }
     public DateTime EstadiaSaida { get; set; }
+    public double ValorReserva { get; set; }
+    [ForeignKey("Cliente")]
+    public int FkCliente { get; set; }
+    public Cliente Cliente { get; set; }
+    public ICollection<ItemReserva> ItensReserva { get; set; }
 } 

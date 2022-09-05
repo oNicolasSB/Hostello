@@ -22,4 +22,5 @@ public class Endereco
     public string Estado { get; set; }
     [Required, StringLength(128)]
     public string Pais { get; set; }
+    public ICollection<Cliente> Clientes { get; set; }
 }
