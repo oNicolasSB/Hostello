@@ -1,0 +1,140 @@
+/* .green{
+    background-color: green;
+}
+
+.red{
+    background-color: red;
+} */
+
+body{
+    background-color: #edeced;
+}
+
+.altura{
+    height: 700px;
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Oswald', sans-serif;;
+}
+
+.smargin{
+    margin: 10px;
+}
+
+.mt{
+    margin-top: 20px;
+}
+
+.mb{
+    margin-bottom: 20px;
+}
+
+.mr{
+    margin-right: 20px;
+}
+
+.ml{
+    margin-left: 20px;
+}
+
+.margin{
+    margin: 20px;
+}
+
+.pt{
+    padding-top: 20px;
+}
+
+.pb{
+    padding-bottom: 20px;
+}
+
+.pr{
+    padding-right: 20px;
+}
+
+.pl{
+    padding-left: 20px;
+}
+
+.padding{
+    padding: 20px;
+}
+
+.size0{
+    width: fit-content;
+}
+
+.filtros{
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.39);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.card{
+    display: inline-flex;
+    background-color: #f3f3f3;
+    box-shadow: 0px 0px 10px  rgba(0, 0, 0, 0.39);
+    border-radius: 20px;
+}
+
+.preview{
+    border-radius: 10px;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+}
+
+.card-info{
+    background-color: white;
+    border-radius: 10px;
+}
+
+.estrela{
+    display: inline-flex;
+}
+
+.botao{
+    background-color: #217bac;
+    border-radius: 20px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-shadow: 0px 0px 3px  rgba(0, 0, 0, 0.39);
+    cursor: pointer;
+}
+
+.botao:hover{
+    background-color: #0d3d57;
+    color:white;
+    transition: all 300ms;
+}
+
+.offcanvas-body{
+    background-color: #f3f3f3;
+}
+
+.botao-expandir{
+    background-color: #217bac;
+    opacity: 1;
+    color: black;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.botao-expandir:hover{
+    color: white;
+}
