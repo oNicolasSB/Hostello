@@ -1,10 +1,4 @@
-/* .green{
-    background-color: green;
-}
-
-.red{
-    background-color: red;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600;700&display=swap');
 
 body {
     background-color: #F3F3F3;
@@ -21,69 +15,9 @@ body {
     font-family: 'Oswald', sans-serif;
 }
 
-.smargin {
-    margin: 10px;
-}
-
-.mt {
-    margin-top: 20px;
-}
-
-.mb {
-    margin-bottom: 20px;
-}
-
-.mr {
-    margin-right: 20px;
-}
-
-.ml {
-    margin-left: 20px;
-}
-
-.margin {
-    margin: 20px;
-}
-
-.pt {
-    padding-top: 20px;
-}
-
-.pb {
-    padding-bottom: 20px;
-}
-
-.pr {
-    padding-right: 20px;
-}
-
-.pl {
-    padding-left: 20px;
-}
-
-.padding {
-    padding: 20px;
-}
-
-.size0 {
-    width: fit-content;
-}
-
 .filtros {
-    /* display: flex;
-    flex-direction: column; */
     background-color: #FFFEFE;
-    /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.39);
-    border-radius: 20px;
-    padding: 15px; */
 }
-
-/* .card {
-    display: inline-block;
-    background-color: #f3f3f3;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.39);
-    border-radius: 20px;
-} */
 
 .preview {
     border-radius: 10px;
@@ -99,9 +33,12 @@ body {
     border-radius: 10px;
 }
 
-.estrela {
+.estrelas {
     display: inline-flex;
+    font-size: 25px;
+    color: #fec106;
 }
+
 
 .botao {
     background-color: #217bac;
@@ -130,10 +67,7 @@ body {
     opacity: 1;
     color: white;
     border: 0;
-    /*width: 100%;
-    padding: 0;
-    margin: 0;
-    border: 0; */
+    font-size: 30px;
 }
 
 .botao-expandir:hover {
