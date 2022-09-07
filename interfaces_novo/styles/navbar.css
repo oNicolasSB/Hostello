@@ -5,3 +5,86 @@
 .navegacao {
     background-color: #217bac;
 }
+
+.botao-expandir {
+    background-color: #217bac;
+    opacity: 1;
+    color: white;
+    border: 0;
+    font-size: 30px;
+}
+
+.barra-pesquisa{
+    background-color: white;
+    border-radius: 40px;
+    padding: 5px;
+}
+
+.barra-pesquisa input{
+    padding: 0px 10px;
+    width: 350px;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+.barra-pesquisa button{
+    border-radius: 40px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    background-color: #FFE713;
+}
+
+.barra-pesquisa button :hover{
+    background-color: #A1952B;
+}
+
+.botao-pesquisa{
+    
+    font-size: 25px;
+    color: white;
+    border: none;
+    background: transparent;
+}
+
+.avatar{
+    background: transparent;
+    font-size: 25px;
+    border: none;
+    outline: none;
+}
+
+.avatar img{
+    height: 45px;
+    border-radius: 30px;
+}
+
+.sidebar-avatar{
+    background: transparent;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    height: 45px;
+    border-radius: 30px;
+}
+
+/* nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a{
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+nav a :hover{
+    margin: 0;
+    background-color: black;
+} */

@@ -4,10 +4,6 @@ body {
     background-color: #F3F3F3;
 }
 
-.altura {
-    height: 700px;
-}
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -19,26 +15,11 @@ body {
     background-color: #FFFEFE;
 }
 
-.preview {
-    border-radius: 10px;
-}
-
-.zeropm {
-    margin: 0;
-    padding: 0;
-}
-
-.card-info {
-    background-color: white;
-    border-radius: 10px;
-}
-
 .estrelas {
     display: inline-flex;
     font-size: 25px;
     color: #fec106;
 }
-
 
 .botao {
     background-color: #217bac;
@@ -60,16 +41,4 @@ body {
 
 .offcanvas-body {
     background-color: #f3f3f3;
-}
-
-.botao-expandir {
-    background-color: #217bac;
-    opacity: 1;
-    color: white;
-    border: 0;
-    font-size: 30px;
-}
-
-.botao-expandir:hover {
-    color: white;
 }
