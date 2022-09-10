@@ -14,10 +14,6 @@
     font-size: 30px;
 }
 
-.botao-expandir:hover {
-    color: white;
-}
-
 .barra-pesquisa{
     background-color: white;
     border-radius: 40px;
@@ -40,11 +36,12 @@
     background: transparent;
     border: none;
     outline: none;
-    background-color: #FFE713;
+    background-color: #fec106;
 }
 
 .barra-pesquisa button:hover{
-    background-color: #A1952B;
+    transition: all 300ms;
+    background-color: #a37f13;
 }
 
 .botao-pesquisa{
@@ -75,18 +72,22 @@
     height: 45px;
     border-radius: 30px;
 }
-/* 
+ 
 nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-nav a{
-    color: inherit;
+.lista{
+    color: black;
     text-decoration: none;
+    display: block;
+    width: 100%;
 }
 
-nav a :hover{
-    background-color: black;
-} */
+.lista :hover{
+    color: black;
+    background-color: white;
+    transition: all 300ms;
+}
