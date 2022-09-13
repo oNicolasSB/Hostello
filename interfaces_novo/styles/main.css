@@ -42,3 +42,20 @@ body {
 .offcanvas-body {
     background-color: #f3f3f3;
 }
+
+.botao-destaque {
+    background-color: #fec106;
+    border-radius: 20px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+}
+
+.botao-destaque:hover{
+    background-color: #a37f13;
+    color: white;
+    transition: all 300ms;
+}
