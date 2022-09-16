@@ -1,35 +1,27 @@
 using hostello.Data;
-using hostello.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+//serviços views e controllers
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
-builder.Services.AddDbContext<DataContext>(options => {
-    options.UseSqlite("Data Source=data.db");
-});
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+    options.UseSqlite("Data source=data.db");
+}); //adição do serviço do banco de dados
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+
+//pipeline vvv
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
-
+app.MapDefaultControllerRoute(); //define a utilização da rota padrão
 app.Run();

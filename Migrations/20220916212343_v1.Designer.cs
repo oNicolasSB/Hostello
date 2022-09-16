@@ -10,33 +10,33 @@ using hostello.Data;
 
 namespace hostello.Migrations
 {
-    [DbContext(typeof(DataContext))]
-    [Migration("20220905174558_v1")]
+    [DbContext(typeof(AppDbContext))]
+    [Migration("20220916212343_v1")]
     partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.8");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
 
             modelBuilder.Entity("EstabelecimentoResponsavel", b =>
                 {
                     b.Property<int>("EstabelecimentosFkEndereco")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ResponsaveisIdResponsavel")
+                    b.Property<int>("ResponsaveisFkUsuario")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("EstabelecimentosFkEndereco", "ResponsaveisIdResponsavel");
+                    b.HasKey("EstabelecimentosFkEndereco", "ResponsaveisFkUsuario");
 
-                    b.HasIndex("ResponsaveisIdResponsavel");
+                    b.HasIndex("ResponsaveisFkUsuario");
 
                     b.ToTable("EstabelecimentoResponsavel");
                 });
 
             modelBuilder.Entity("hostello.Models.Acomodacao", b =>
                 {
-                    b.Property<int>("FkTipoAcomodacao")
+                    b.Property<int>("FkEstabelecimento")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descricao")
@@ -45,6 +45,9 @@ namespace hostello.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<int>("EstadiaMin")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("FkTipoAcomodacao")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("IdAcomodacao")
@@ -62,46 +65,22 @@ namespace hostello.Migrations
                     b.Property<double>("ValorDiaria")
                         .HasColumnType("REAL");
 
-                    b.HasKey("FkTipoAcomodacao");
+                    b.HasKey("FkEstabelecimento");
+
+                    b.HasIndex("FkTipoAcomodacao");
 
                     b.ToTable("Acomodacoes");
                 });
 
             modelBuilder.Entity("hostello.Models.Admin", b =>
                 {
-                    b.Property<int>("IdAdmin")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("FkUsuario")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("TEXT");
+                    b.Property<int>("IdAdmin")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("TEXT");
-
-                    b.Property<char>("Sexo")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Telefone")
-                        .HasMaxLength(14)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("IdAdmin");
+                    b.HasKey("FkUsuario");
 
                     b.ToTable("Admins");
                 });
@@ -137,41 +116,18 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Cliente", b =>
                 {
-                    b.Property<int>("FkEndereco")
+                    b.Property<int>("FkUsuario")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Cpf")
-                        .IsRequired()
-                        .HasMaxLength(11)
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("DataNascimento")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(128)
-                        .HasColumnType("TEXT");
+                    b.Property<int>("FkEndereco")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("IdCliente")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Nome")
-                        .HasColumnType("TEXT");
+                    b.HasKey("FkUsuario");
 
-                    b.Property<string>("Senha")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("TEXT");
-
-                    b.Property<char>("Sexo")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Telefone")
-                        .HasMaxLength(14)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("FkEndereco");
+                    b.HasIndex("FkEndereco");
 
                     b.ToTable("Clientes");
                 });
@@ -187,8 +143,10 @@ namespace hostello.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Cep")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Cep")
+                        .IsRequired()
+                        .HasMaxLength(9)
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Cidade")
                         .IsRequired()
@@ -210,8 +168,9 @@ namespace hostello.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Numero")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Numero")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Pais")
                         .IsRequired()
@@ -311,7 +270,36 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Responsavel", b =>
                 {
+                    b.Property<int>("FkUsuario")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("IdResponsavel")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("FkUsuario");
+
+                    b.ToTable("Responsaveis");
+                });
+
+            modelBuilder.Entity("hostello.Models.TipoAcomodacao", b =>
+                {
+                    b.Property<int>("IdTipoAcomodacao")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NomeAcomodacao")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("IdTipoAcomodacao");
+
+                    b.ToTable("TiposAcomodacoes");
+                });
+
+            modelBuilder.Entity("hostello.Models.Usuario", b =>
+                {
+                    b.Property<int>("IdUsuario")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -343,25 +331,9 @@ namespace hostello.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("IdResponsavel");
+                    b.HasKey("IdUsuario");
 
-                    b.ToTable("Responsaveis");
-                });
-
-            modelBuilder.Entity("hostello.Models.TipoAcomodacao", b =>
-                {
-                    b.Property<int>("IdTipoAcomodacao")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("NomeAcomodacao")
-                        .IsRequired()
-                        .HasMaxLength(64)
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("IdTipoAcomodacao");
-
-                    b.ToTable("TiposAcomodacoes");
+                    b.ToTable("Usuarios");
                 });
 
             modelBuilder.Entity("EstabelecimentoResponsavel", b =>
@@ -374,20 +346,39 @@ namespace hostello.Migrations
 
                     b.HasOne("hostello.Models.Responsavel", null)
                         .WithMany()
-                        .HasForeignKey("ResponsaveisIdResponsavel")
+                        .HasForeignKey("ResponsaveisFkUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("hostello.Models.Acomodacao", b =>
                 {
+                    b.HasOne("hostello.Models.Estabelecimento", "Estabelecimento")
+                        .WithMany("Acomodacoes")
+                        .HasForeignKey("FkEstabelecimento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("hostello.Models.TipoAcomodacao", "TipoAcomodacao")
                         .WithMany("Acomodacoes")
                         .HasForeignKey("FkTipoAcomodacao")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("Estabelecimento");
+
                     b.Navigation("TipoAcomodacao");
+                });
+
+            modelBuilder.Entity("hostello.Models.Admin", b =>
+                {
+                    b.HasOne("hostello.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("FkUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("hostello.Models.Avaliacao", b =>
@@ -412,12 +403,20 @@ namespace hostello.Migrations
             modelBuilder.Entity("hostello.Models.Cliente", b =>
                 {
                     b.HasOne("hostello.Models.Endereco", "Endereco")
-                        .WithMany("Clientes")
+                        .WithMany()
                         .HasForeignKey("FkEndereco")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("hostello.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("FkUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Endereco");
+
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("hostello.Models.Estabelecimento", b =>
@@ -461,6 +460,17 @@ namespace hostello.Migrations
                     b.Navigation("Cliente");
                 });
 
+            modelBuilder.Entity("hostello.Models.Responsavel", b =>
+                {
+                    b.HasOne("hostello.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("FkUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
             modelBuilder.Entity("hostello.Models.Acomodacao", b =>
                 {
                     b.Navigation("Avaliacoes");
@@ -475,9 +485,9 @@ namespace hostello.Migrations
                     b.Navigation("Reservas");
                 });
 
-            modelBuilder.Entity("hostello.Models.Endereco", b =>
+            modelBuilder.Entity("hostello.Models.Estabelecimento", b =>
                 {
-                    b.Navigation("Clientes");
+                    b.Navigation("Acomodacoes");
                 });
 
             modelBuilder.Entity("hostello.Models.Reserva", b =>

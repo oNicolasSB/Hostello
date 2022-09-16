@@ -10,25 +10,6 @@ namespace hostello.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Admins",
-                columns: table => new
-                {
-                    IdAdmin = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
-                    Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Senha = table.Column<string>(type: "TEXT", maxLength: 32, nullable: false),
-                    Telefone = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
-                    DataNascimento = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Sexo = table.Column<char>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Admins", x => x.IdAdmin);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Enderecos",
                 columns: table => new
                 {
@@ -36,9 +17,9 @@ namespace hostello.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Logradouro = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
                     Bairro = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Numero = table.Column<int>(type: "INTEGER", nullable: false),
+                    Numero = table.Column<string>(type: "TEXT", nullable: false),
                     Complemento = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Cep = table.Column<int>(type: "INTEGER", nullable: false),
+                    Cep = table.Column<string>(type: "TEXT", maxLength: 9, nullable: false),
                     Cidade = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false),
                     Estado = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false),
                     Pais = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false)
@@ -46,25 +27,6 @@ namespace hostello.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Enderecos", x => x.IdEndereco);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Responsaveis",
-                columns: table => new
-                {
-                    IdResponsavel = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
-                    Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Senha = table.Column<string>(type: "TEXT", maxLength: 32, nullable: false),
-                    Telefone = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
-                    DataNascimento = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Sexo = table.Column<char>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Responsaveis", x => x.IdResponsavel);
                 });
 
             migrationBuilder.CreateTable(
@@ -81,11 +43,11 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Clientes",
+                name: "Usuarios",
                 columns: table => new
                 {
-                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: false),
-                    IdCliente = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdUsuario = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Nome = table.Column<string>(type: "TEXT", nullable: true),
                     Cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
                     Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
@@ -96,13 +58,7 @@ namespace hostello.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clientes", x => x.FkEndereco);
-                    table.ForeignKey(
-                        name: "FK_Clientes_Enderecos_FkEndereco",
-                        column: x => x.FkEndereco,
-                        principalTable: "Enderecos",
-                        principalColumn: "IdEndereco",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
                 });
 
             migrationBuilder.CreateTable(
@@ -130,21 +86,89 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Admins",
+                columns: table => new
+                {
+                    FkUsuario = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdAdmin = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Admins", x => x.FkUsuario);
+                    table.ForeignKey(
+                        name: "FK_Admins_Usuarios_FkUsuario",
+                        column: x => x.FkUsuario,
+                        principalTable: "Usuarios",
+                        principalColumn: "IdUsuario",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Clientes",
+                columns: table => new
+                {
+                    FkUsuario = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdCliente = table.Column<int>(type: "INTEGER", nullable: false),
+                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clientes", x => x.FkUsuario);
+                    table.ForeignKey(
+                        name: "FK_Clientes_Enderecos_FkEndereco",
+                        column: x => x.FkEndereco,
+                        principalTable: "Enderecos",
+                        principalColumn: "IdEndereco",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Clientes_Usuarios_FkUsuario",
+                        column: x => x.FkUsuario,
+                        principalTable: "Usuarios",
+                        principalColumn: "IdUsuario",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Responsaveis",
+                columns: table => new
+                {
+                    FkUsuario = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdResponsavel = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Responsaveis", x => x.FkUsuario);
+                    table.ForeignKey(
+                        name: "FK_Responsaveis_Usuarios_FkUsuario",
+                        column: x => x.FkUsuario,
+                        principalTable: "Usuarios",
+                        principalColumn: "IdUsuario",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Acomodacoes",
                 columns: table => new
                 {
-                    FkTipoAcomodacao = table.Column<int>(type: "INTEGER", nullable: false),
+                    FkEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false),
                     IdAcomodacao = table.Column<int>(type: "INTEGER", nullable: false),
                     MediaAvaliacaoQuarto = table.Column<double>(type: "REAL", nullable: false),
                     Descricao = table.Column<string>(type: "TEXT", maxLength: 256, nullable: false),
                     Numero = table.Column<int>(type: "INTEGER", nullable: false),
                     PessoasMax = table.Column<int>(type: "INTEGER", nullable: false),
                     EstadiaMin = table.Column<int>(type: "INTEGER", nullable: false),
-                    ValorDiaria = table.Column<double>(type: "REAL", nullable: false)
+                    ValorDiaria = table.Column<double>(type: "REAL", nullable: false),
+                    FkTipoAcomodacao = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Acomodacoes", x => x.FkTipoAcomodacao);
+                    table.PrimaryKey("PK_Acomodacoes", x => x.FkEstabelecimento);
+                    table.ForeignKey(
+                        name: "FK_Acomodacoes_Estabelecimentos_FkEstabelecimento",
+                        column: x => x.FkEstabelecimento,
+                        principalTable: "Estabelecimentos",
+                        principalColumn: "FkEndereco",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Acomodacoes_TiposAcomodacoes_FkTipoAcomodacao",
                         column: x => x.FkTipoAcomodacao,
@@ -171,7 +195,7 @@ namespace hostello.Migrations
                         name: "FK_Reservas_Clientes_FkCliente",
                         column: x => x.FkCliente,
                         principalTable: "Clientes",
-                        principalColumn: "FkEndereco",
+                        principalColumn: "FkUsuario",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -180,11 +204,11 @@ namespace hostello.Migrations
                 columns: table => new
                 {
                     EstabelecimentosFkEndereco = table.Column<int>(type: "INTEGER", nullable: false),
-                    ResponsaveisIdResponsavel = table.Column<int>(type: "INTEGER", nullable: false)
+                    ResponsaveisFkUsuario = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EstabelecimentoResponsavel", x => new { x.EstabelecimentosFkEndereco, x.ResponsaveisIdResponsavel });
+                    table.PrimaryKey("PK_EstabelecimentoResponsavel", x => new { x.EstabelecimentosFkEndereco, x.ResponsaveisFkUsuario });
                     table.ForeignKey(
                         name: "FK_EstabelecimentoResponsavel_Estabelecimentos_EstabelecimentosFkEndereco",
                         column: x => x.EstabelecimentosFkEndereco,
@@ -192,10 +216,10 @@ namespace hostello.Migrations
                         principalColumn: "FkEndereco",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_EstabelecimentoResponsavel_Responsaveis_ResponsaveisIdResponsavel",
-                        column: x => x.ResponsaveisIdResponsavel,
+                        name: "FK_EstabelecimentoResponsavel_Responsaveis_ResponsaveisFkUsuario",
+                        column: x => x.ResponsaveisFkUsuario,
                         principalTable: "Responsaveis",
-                        principalColumn: "IdResponsavel",
+                        principalColumn: "FkUsuario",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -217,13 +241,13 @@ namespace hostello.Migrations
                         name: "FK_Avaliacoes_Acomodacoes_FkAcomodacao",
                         column: x => x.FkAcomodacao,
                         principalTable: "Acomodacoes",
-                        principalColumn: "FkTipoAcomodacao",
+                        principalColumn: "FkEstabelecimento",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Avaliacoes_Clientes_FkCliente",
                         column: x => x.FkCliente,
                         principalTable: "Clientes",
-                        principalColumn: "FkEndereco",
+                        principalColumn: "FkUsuario",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -243,7 +267,7 @@ namespace hostello.Migrations
                         name: "FK_ItensReserva_Acomodacoes_FkAcomodacao",
                         column: x => x.FkAcomodacao,
                         principalTable: "Acomodacoes",
-                        principalColumn: "FkTipoAcomodacao",
+                        principalColumn: "FkEstabelecimento",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_ItensReserva_Reservas_FkReserva",
@@ -254,14 +278,24 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_Acomodacoes_FkTipoAcomodacao",
+                table: "Acomodacoes",
+                column: "FkTipoAcomodacao");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Avaliacoes_FkCliente",
                 table: "Avaliacoes",
                 column: "FkCliente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_EstabelecimentoResponsavel_ResponsaveisIdResponsavel",
+                name: "IX_Clientes_FkEndereco",
+                table: "Clientes",
+                column: "FkEndereco");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_EstabelecimentoResponsavel_ResponsaveisFkUsuario",
                 table: "EstabelecimentoResponsavel",
-                column: "ResponsaveisIdResponsavel");
+                column: "ResponsaveisFkUsuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItensReserva_FkAcomodacao",
@@ -284,9 +318,6 @@ namespace hostello.Migrations
                 name: "ItensReserva");
 
             migrationBuilder.DropTable(
-                name: "Estabelecimentos");
-
-            migrationBuilder.DropTable(
                 name: "Responsaveis");
 
             migrationBuilder.DropTable(
@@ -296,6 +327,9 @@ namespace hostello.Migrations
                 name: "Reservas");
 
             migrationBuilder.DropTable(
+                name: "Estabelecimentos");
+
+            migrationBuilder.DropTable(
                 name: "TiposAcomodacoes");
 
             migrationBuilder.DropTable(
@@ -303,6 +337,9 @@ namespace hostello.Migrations
 
             migrationBuilder.DropTable(
                 name: "Enderecos");
+
+            migrationBuilder.DropTable(
+                name: "Usuarios");
         }
     }
 }

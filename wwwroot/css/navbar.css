@@ -1,0 +1,119 @@
+.logo {
+    height: 45px;
+}
+
+.navegacao {
+    background-color: #217bac;
+}
+
+.botao-expandir {
+    background-color: #217bac;
+    opacity: 1;
+    color: white;
+    border: 0;
+    font-size: 30px;
+}
+
+.barra-pesquisa{
+    background-color: white;
+    border-radius: 40px;
+    padding: 5px;
+}
+
+.barra-pesquisa input{
+    padding: 0px 10px;
+    width: 350px;
+    background: transparent;
+    border: 0;
+    outline: none;
+}
+
+.barra-pesquisa button{
+    border-radius: 40px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    background-color: #fec106;
+}
+
+.barra-pesquisa button:hover{
+    transition: all 300ms;
+    background-color: #a37f13;
+}
+
+.botao-pesquisa{
+    
+    font-size: 25px;
+    color: white;
+    border: none;
+    background: transparent;
+}
+
+.avatar{
+    background: transparent;
+    font-size: 25px;
+    border: none;
+    outline: none;
+}
+
+.avatar img{
+    height: 45px;
+    border-radius: 30px;
+}
+
+.sidebar-avatar{
+    background: transparent;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    height: 45px;
+    border-radius: 30px;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lista{
+    color: black;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+.lista :hover{
+    color: black;
+    background-color: white;
+    transition: all 300ms;
+}
+
+.cor-footer{
+    color: inherit;
+    text-decoration: none;
+}
+
+.barralateral{
+    height: 87px !important;
+}
+
+.lista-header{
+    background-color: #217bac;
+    color: white !important;
+}
+
+.fechar{
+    color: white;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.fechar:hover{
+    text-decoration: none;
+    color: inherit;
+}

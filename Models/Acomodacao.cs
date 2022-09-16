@@ -16,7 +16,10 @@ public class Acomodacao
     public double ValorDiaria { get; set; }
     [ForeignKey("TipoAcomodacao")]
     public int FkTipoAcomodacao { get; set; }
+    [ForeignKey("Estabelecimento")]
+    public int FkEstabelecimento { get; set; }
     public TipoAcomodacao TipoAcomodacao { get; set; }
+    public Estabelecimento Estabelecimento { get; set; }
     public ICollection<ItemReserva> ItensReserva { get; set; }
     public ICollection<Avaliacao> Avaliacoes { get; set; }
 }

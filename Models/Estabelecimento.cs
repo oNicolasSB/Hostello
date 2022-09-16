@@ -22,4 +22,5 @@ public class Estabelecimento
     public int FkEndereco { get; set; }
     public Endereco Endereco { get; set; }
     public ICollection<Responsavel> Responsaveis { get; set; }
+    public ICollection<Acomodacao> Acomodacoes { get; set; }
 } 

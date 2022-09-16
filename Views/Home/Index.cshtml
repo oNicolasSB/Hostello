@@ -1,8 +1,245 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+<div class="col-lg-3 d-none d-lg-block"><!--Barra Lateral -->
+                    <div class="border-1 border rounded-3 filtros p-3">
+                        <h3>Filtros: </h3>
+                        <hr>
+                        <h3 class="mb-3">Serviços</h3><!-- menu normal-->
+                        <div class="mb-1">
+                            <input type="checkbox" id="cafe_da_manha" name="cafe_da_manha">
+                            <label for="cafe_da_manha">Café da Manhã</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="pet_friendly" name="pet_friendly">
+                            <label for="pet_friendly">PET friendly</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="internet" name="internet">
+                            <label for="internet">Internet</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="lavanderia" name="lavanderia">
+                            <label for="lavanderia">Lavanderia</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="estacionamento" name="estacionamento">
+                            <label for="estacionamento">Estacionamento</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="cancelamento" name="cancelamento">
+                            <label for="cancelamento">Cancelamento grátis</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="tomada" name="tomada">
+                            <label for="tomada">Tomada perto da cama</label>
+                        </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+                        <h3 class="my-3">Opções de Quarto</h3>
+                        <div class="mb-1">
+                            <input type="checkbox" id="ar_condicionado" name="ar_condicionado">
+                            <label for="ar_condicionado">Ar-condicionado</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="chuveiro" name="chuveiro">
+                            <label for="chuveiro">Chuveiro</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="elevador" name="elevador">
+                            <label for="elevador">Elevador</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="Tv" name="Tv">
+                            <label for="Tv">Tv</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="frigobar" name="frigobar">
+                            <label for="frigobar">Frigobar</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="secador" name="secador">
+                            <label for="secador">Secador de cabelo</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="varanda" name="varanda">
+                            <label for="varanda">Varanda</label>
+                        </div>
+
+                        <h3 class="my-3">Opções de Localidade</h3>
+                        <div class="mb-1">
+                            <input type="checkbox" id="beira_mar" name="beira_mar">
+                            <label for="beira_mar">Beira-mar</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="centro_comercial" name="centro_comercial">
+                            <label for="centro_comercial">Centro comercial</label>
+                        </div>
+                        <div class="mb-1">
+                            <input type="checkbox" id="interior" name="interior">
+                            <label for="interior">Interior</label>
+                        </div>
+                        <div class="d-flex justify-content-center mt-3"><button class="botao-destaque"><i class="bi bi-funnel-fill"></i></button></div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-9 green"><!-- Conteúdo Principal -->
+                    <div class="row g-3"><!-- Cards -->
+                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                            <div class="card">
+                                <img src="img/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6"><h4>R$ 999,99</h4></div>
+                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                            <div class="card">
+                                <img src="img/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6"><h4>R$ 999,99</h4></div>
+                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                            <div class="card">
+                                <img src="img/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6"><h4>R$ 999,99</h4></div>
+                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                            <div class="card">
+                                <img src="img/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6"><h4>R$ 999,99</h4></div>
+                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                            <div class="card">
+                                <img src="img/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6"><h4>R$ 999,99</h4></div>
+                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                            <div class="card">
+                                <img src="img/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-half"></i>
+                                            <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6"><h4>R$ 999,99</h4></div>
+                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
