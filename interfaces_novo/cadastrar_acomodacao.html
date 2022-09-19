@@ -98,15 +98,17 @@
                                 <i class="bi bi-arrow-left" id="btn_anterior"></i>
                                 <i class="bi bi-arrow-right" id="btn_proximo"></i>
                                 <div class="carrossel_images">
-                                    <img src="images/ex04.png" id="ultimo_copia">
-                                    <img src="images/ex01.png">
-                                    <img src="images/ex02.png">
-                                    <img src="images/ex03.png">
-                                    <img src="images/ex04.png">
-                                    <img src="images/ex01.png" id="primeiro_copia">
+                                    <img src="images/imgnotfound.png" id="ultimo_copia">
+                                    <img src="images/imgnotfound.png">
+                                    <img src="images/imgnotfound.png">
+                                    <img src="images/imgnotfound.png">
+                                    <img src="images/imgnotfound.png">
+                                    <img src="images/imgnotfound.png" id="primeiro_copia">
                                 </div>
                             </div>
-                        
+                            <input type="file" class="fileinput d-none" id="fileinput" name="arquivos"
+                            accept="image/png, image/jpeg" multiple="multiple">
+                        <label for="fileinput" class="botao mb-3"><!--<i class="bi bi-plus"></i><i class="bi bi-file-earmark-image-fill"></i>-->Selecione as imagens</label>
                         <h3>Inclui:</h3>
                         <input type="checkbox" id="suite" name="suite" checked>
                         <label for="suite">Suíte</label>
@@ -122,43 +124,57 @@
                 </div>
                 <div class="col-12 col-lg-5 col-xl-4">
                     <div class="border-1 border rounded-3 secao p-3 mt-3 mt-lg-0 quarto">
-                        <center>
-                            <h3>Descrição: </h3>
-                        <p>Breve descrição do quarto de hotel ou pousada que servirá como identificação e diferencial</p>
-                        <h3>Selecione as opções para aluguel: </h3>
-                        </center>
+                        
                         
                         <div>
+                            
+                            <center>
+                                <h3>Insira os dados para aluguel: </h3>
+                                
+                            
+                            </center>
+                            <div class="mb-3">
+                                <label for="descricao" class="form-label">Adicione uma descrição: </label>
+                                <textarea class="form-control shadow-none" style="resize: none;" id="descricao" rows="3"></textarea>
+                              </div>
                             <div class="row my-4">
-                                <div class="col-4"><label for="pessoas">Número de Pessoas: </label>
+                                <div class="col-4"><label for="tipoacomodacao">Tipo de acomodação: </label>
+                                </div>
+                                <div class="col-8">
+                                    <select class="form-select shadow-none" id="tipoacomodacao">
+                                        <option selected value="hotel">Hotel</option>
+                                        <option value="pousada">Pousada</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row my-4">
+                                <div class="col-4"><label for="numero">Número do quarto: </label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control shadow-none" id="numero" placeholder="Ex.: 101">
+                                </div>
+                            </div>
+                            <div class="row my-4">
+                                <div class="col-4"><label for="pessoas">Número Máximo de Pessoas: </label>
                                 </div>
                                 <div class="col-8">
                                     <select class="form-select shadow-none" id="pessoas">
                                         <option selected value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
                                     </select>
                                 </div>
                             </div>
 
+                            
                             <div class="row my-4">
-                                <div class="col-4"><label for="mes">Mês da Viagem</label>
+                                <div class="col-4"><label for="minimo">Período mínimo de estadia: (Dias)</label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-select shadow-none" id="mes">
-                                        <option selected value="1">Setembro 2022</option>
-                                        <option value="2">Outubro 2022</option>
-                                        <option value="3">Novembro 2022</option>
-                                        <option value="4">Dezembro 2022</option>
-                                        <option value="5">Janeiro 2023</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row my-4">
-                                <div class="col-4"><label for="dia">Dia de Ida</label>
-                                </div>
-                                <div class="col-8">
-                                    <select class="form-select shadow-none" id="dia">
+                                    <select class="form-select shadow-none" id="minimo">
                                         <option selected value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -194,23 +210,56 @@
                                 </div>
                             </div>
                             <div class="row my-4">
-                                <div class="col-4"><label for="periodo">Período de Estadia</label>
+                                <div class="col-4"><label for="maximo">Período máximo de estadia: (Dias)</label>
                                 </div>
                                 <div class="col-8">
-                                    <select class="form-select shadow-none" id="periodo">
-                                        <option selected value="1">1 Dia</option>
-                                        <option value="2">2 Dias</option>
-                                        <option value="3">3 Dias</option>
-                                        <option value="4">4 Dias</option>
-                                        <option value="5">5 Dias</option>
+                                    <select class="form-select shadow-none" id="maximo">
+                                        <option selected value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row my-4">
+                                <div class="col-4"><label for="valor">Valor da diária (R$): </label>
+                                </div>
+                                <div class="col-8">
+                                    <input type="text" class="form-control" id="valor" placeholder="Ex.: 99,90">
                                 </div>
                             </div>
                         </div>
                         <hr>
                         <div class="row mt-3">
                             <div class="col-7">
-                                <h3>Valor: R$ 999,99</h3>
+                                
                             </div>
                             <div class="col-5 text-end"><a href="alugar.html" class="btn btn-primary botao">Próximo</a>
                             </div>

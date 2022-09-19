@@ -1,0 +1,193 @@
+@model Acomodacao
+
+<form method="post">
+
+    <div class="row">
+        <div class="col-12 col-lg-7 col-xl-6">
+            <div class="border-1 border rounded-3 secao p-3 fit-content">
+                <center>
+                    <h3>Nome do Quarto/Pousada, nº</h3>
+
+                    <div class="carrossel rounded-3 my-3">
+                        <i class="bi bi-arrow-left" id="btn_anterior"></i>
+                        <i class="bi bi-arrow-right" id="btn_proximo"></i>
+                        <div class="carrossel_images">
+                            <img src="~/img/imgnotfound.png" id="ultimo_copia">
+                            <img src="~/img/imgnotfound.png">
+                            <img src="~/img/imgnotfound.png">
+                            <img src="~/img/imgnotfound.png">
+                            <img src="~/img/imgnotfound.png">
+                            <img src="~/img/imgnotfound.png" id="primeiro_copia">
+                        </div>
+                    </div>
+                    <input type="file" class="fileinput d-none" id="fileinput" name="arquivos"
+                        accept="image/png, image/jpeg" multiple="multiple">
+                    <label for="fileinput" class="botao mb-3">
+                        <!--<i class="bi bi-plus"></i><i class="bi bi-file-earmark-image-fill"></i>-->Selecione as
+                        imagens
+                    </label>
+                    <h3>Inclui:</h3>
+                    <input type="checkbox" id="suite" name="suite" checked>
+                    <label for="suite">Suíte</label>
+                    <input type="checkbox" id="animais" name="animais" checked>
+                    <label for="animais">Permitido animais</label>
+                    <input type="checkbox" id="cafe" name="cafe" checked>
+                    <label for="cafe">Café da manhã</label>
+                    <input type="checkbox" id="wifi" name="wifi" checked>
+                    <label for="wifi">Wi-fi</label>
+                </center>
+            </div>
+
+        </div>
+        <div class="col-12 col-lg-5 col-xl-4">
+            <div class="border-1 border rounded-3 secao p-3 mt-3 mt-lg-0 quarto">
+
+
+                <div>
+
+                    <center>
+                        <h3>Insira os dados para aluguel: </h3>
+
+
+                    </center>
+                    <div class="mb-3">
+                        <label for="descricao" class="form-label" asp-for="@Model.Descricao">Adicione uma descrição: </label>
+                        <textarea class="form-control shadow-none" style="resize: none;" id="descricao"
+                            rows="3" asp-for="@Model.Descricao"></textarea>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-4"><label for="tipoacomodacao" asp-for="@Model.TipoAcomodacao">Tipo de acomodação: </label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select shadow-none" id="tipoacomodacao">
+                                <option selected value="hotel"  asp-for="@Model.TipoAcomodacao">Hotel</option>
+                                <option value="pousada" asp-for="@Model.TipoAcomodacao">Pousada</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-4"><label for="numero" asp-for="@Model.Numero">Número do quarto: </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control shadow-none" id="numero" placeholder="Ex.: 101"  asp-for="@Model.Numero">
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-4"><label for="pessoas" asp-for="@Model.PessoasMax">Número Máximo de Pessoas: </label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select shadow-none" id="pessoas">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="row my-4">
+                        <div class="col-4"><label for="minimo" asp-for="@Model.EstadiaMin">Período mínimo de estadia: (Dias)</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select shadow-none" id="minimo">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-4"><label for="maximo" asp-for="EstadiaMax">Período máximo de estadia: (Dias)</label>
+                        </div>
+                        <div class="col-8">
+                            <select class="form-select shadow-none" id="maximo">
+                                <option selected value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row my-4">
+                        <div class="col-4"><label for="valor" asp-for="@Model.ValorDiaria">Valor da diária (R$): </label>
+                        </div>
+                        <div class="col-8">
+                            <input type="text" class="form-control shadow-none" id="valor" placeholder="Ex.: 99,90" asp-for="@Model.ValorDiaria">
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-7">
+
+                    </div>
+                    <div class="col-5 text-end"><button type="submit" href="alugar.html" class="btn btn-primary botao">Próximo</button>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+</form>
+<script src="~/js/carousel.js"></script>

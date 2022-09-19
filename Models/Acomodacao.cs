@@ -13,6 +13,7 @@ public class Acomodacao
     public int Numero { get; set; }
     public int PessoasMax { get; set; }
     public int EstadiaMin { get; set; }
+    public int EstadiaMax { get; set; }
     public double ValorDiaria { get; set; }
     [ForeignKey("TipoAcomodacao")]
     public int FkTipoAcomodacao { get; set; }

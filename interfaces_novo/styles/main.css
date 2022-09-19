@@ -30,6 +30,7 @@ body {
     padding-left: 15px;
     padding-right: 15px;
     cursor: pointer;
+    color: white;
 }
 
 .botao:hover {
@@ -98,7 +99,7 @@ body {
     cursor: pointer;
 }
 
-.quarto select{
+.rm-boxshadow{
     box-shadow: none !important;
 }
 
