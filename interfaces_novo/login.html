@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="prototipo_interfaces/estilos/estilos_pagamento.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Contato</title>
+    <title>Login</title>
 </head>
 
 <body>
@@ -59,33 +59,31 @@
         </div>
     </nav>
 
-    <div class="container border-1 border rounded-3 p-3 filtros secao"> 
+    <div class="container border-1 border rounded-3 p-3 filtros secao_menor"> 
         <div class="row py-2">
             <div class="col-12">
                 <div class="py-2">
-                    <div><h1 class="py-2">Adicionar Contato:</h1></div>
+                    <div><h1 class="py-2">Efetuar Login:</h1></div>
                     <div>
                         <form>
                             <div class="form-group py-2 text-align">
-                              <label for="cadastro">Nome Completo:</label>
-                              <input type="text" class="form-control" id="nome" placeholder="Nícolas Sanson Bassini">
+                              <label for="cadastro">Usuário:</label>
+                              <input type="text" class="form-control" id="usuario">
                             </div>
                             <div class="form-group py-2 text-align">
-                               <label for="cadastro">Telefone/Celular:</label>
-                               <input type="text" class="form-control" id="telefone" placeholder="(XX) XXXXX-XXXX">
-                            </div>
-                            <div class="form-group py-2 text-align">
-                               <label for="cadastro">Email:</label>
-                               <input type="text" class="form-control" id="email" placeholder="nicleis@gmail.com">
-                            </div>
-                            <div class="form-group py-2 text-align">
-                               <label for="cadastro">Cargo:</label>
-                               <input type="text" class="form-control" id="cargo" placeholder="Gerente">
+                               <label for="exampleInputPassword1">Senha:</label>
+                               <input type="password" class="form-control" id="senha">
                             </div>
                         </form>
-                        <div class="py-4">
-                            <a href="" class="btn btn-primary botao">Salvar</a>
-                        </div>
+                            <div class="py-4">
+                                <a href="" class="btn btn-primary botao">Login</a>
+                            </div>
+                            <div>
+                                <a href="esqueceu_senha.html" class="text-decoration-none">Esqueceu a senha?</a>
+                            </div>
+                            <div>
+                                Não tem um login?<a href="" class="text-decoration-none"> Registre-se</a>
+                            </div>
                     </div>
                 </div>
             </div>

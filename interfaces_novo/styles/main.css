@@ -48,6 +48,11 @@ body {
     text-align: center;
 }
 
+.secao_menor{
+    max-width: 300px;
+    text-align: center;
+}
+
 .text-align{
     text-align: left;
 }
@@ -114,4 +119,8 @@ body {
 
 .fit-content{
     width: fit-content;
+}
+
+.filtros{
+    background-color: #FFFEFE;
 }
