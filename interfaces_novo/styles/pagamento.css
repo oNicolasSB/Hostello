@@ -3,9 +3,6 @@
     text-align: center;
 }
 
-.filtros{
-    background-color: #FFFEFE;
-}
 
 .botao-google {
     background-color: #000000;
@@ -47,30 +44,5 @@
     transition: all 300ms;
 }
 
-.alinhar-esquerda{
-    text-align: left;
-}
 
-.label{
-    display: flex;
-    flex-direction: column;
-    padding:10px;
-}
 
-.entitem{
-    margin-top: 10px;
-    padding:5px;
-    background-color: #edeced;
-    border: none;
-    border-bottom: 1px solid #e1e1e1;
-    outline: none;
-    width: 390px;
-    border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
-
-}
-
-.text-align{
-    text-align: left;
-}

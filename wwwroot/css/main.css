@@ -99,10 +99,6 @@ body {
     cursor: pointer;
 }
 
-.rm-boxshadow{
-    box-shadow: none !important;
-}
-
 .fit-content{
     width: fit-content;
 }

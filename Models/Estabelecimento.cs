@@ -23,4 +23,5 @@ public class Estabelecimento
     public Endereco Endereco { get; set; }
     public ICollection<Responsavel> Responsaveis { get; set; }
     public ICollection<Acomodacao> Acomodacoes { get; set; }
+    public ICollection<Contato> Contatos { get; set; }
 } 
