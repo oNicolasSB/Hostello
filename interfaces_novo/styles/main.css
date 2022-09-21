@@ -43,16 +43,6 @@ body {
     background-color: #FFFEFE;
 }
 
-.secao{
-    max-width: 400px;
-    text-align: center;
-}
-
-.secao_menor{
-    max-width: 300px;
-    text-align: center;
-}
-
 .text-align{
     text-align: left;
 }
@@ -76,7 +66,6 @@ body {
 }
 
 .fundocinza{
-    width: 100%;
     background-color: #FFFEFE;
 }
 
@@ -115,10 +104,6 @@ body {
 
 .rm-boxshadow{
     box-shadow: none !important;
-}
-
-.fit-content{
-    width: fit-content;
 }
 
 .filtros{

@@ -40,36 +40,36 @@
                 </div>
 
             </div>
-                <div class="d-inline-block">
-                    <!-- Botão Perfil-->
-                    <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                        aria-controls="offcanvasRight">
-                        <img src="images/avatar.png">
-                    </button>
+            <div class="d-inline-block">
+                <!-- Botão Perfil-->
+                <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
+                    <img src="images/avatar.png">
+                </button>
 
-                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
-                        aria-labelledby="offcanvasRightLabel">
-                        <div class="offcanvas-header barralateral lista-header">
-                            <button type="button" class="btn fechar" data-bs-dismiss="offcanvas" aria-label="Close"><i
-                                    class="bi bi-x-lg"></i></button>
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header barralateral lista-header">
+                        <button type="button" class="btn fechar" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                                class="bi bi-x-lg"></i></button>
 
-                            <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
-                            <img src="images/avatar.png" class="sidebar-avatar">
-                        </div>
-                        <div class="offcanvas-body p-0">
-                            <ul>
-                                <li class="my-3"><a href="" class="lista">
-                                        <h4 class="px-3 py-1">Reservas</h4>
-                                    </a></li>
-                                <li class="my-3"><a href="" class="lista">
-                                        <h4 class="px-3 py-1">Reservas</h4>
-                                    </a></li>
-                            </ul>
-                        </div>
+                        <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
+                        <img src="images/avatar.png" class="sidebar-avatar">
+                    </div>
+                    <div class="offcanvas-body p-0">
+                        <ul>
+                            <li class="my-3"><a href="" class="lista">
+                                    <h4 class="px-3 py-1">Reservas</h4>
+                                </a></li>
+                            <li class="my-3"><a href="" class="lista">
+                                    <h4 class="px-3 py-1">Reservas</h4>
+                                </a></li>
+                        </ul>
                     </div>
                 </div>
-
             </div>
+
+        </div>
         </div>
         <div class="d-block d-md-none container mt-2">
             <form class="barra-pesquisa">
@@ -89,26 +89,28 @@
     <main>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-7 col-xl-6">
-                    <div class="border-1 border rounded-3 secao p-3 fit-content">
-                        <center>
+                <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-7 col-xl-6 offset-xl-1">
+                    <div class="border-1 border rounded-3 secao p-3 fit-content text-center">
                         <h3>Nome do Quarto/Pousada, nº</h3>
-                        
-                            <div class="carrossel rounded-3 my-3">
-                                <i class="bi bi-arrow-left" id="btn_anterior"></i>
-                                <i class="bi bi-arrow-right" id="btn_proximo"></i>
-                                <div class="carrossel_images">
-                                    <img src="images/imgnotfound.png" id="ultimo_copia">
-                                    <img src="images/imgnotfound.png">
-                                    <img src="images/imgnotfound.png">
-                                    <img src="images/imgnotfound.png">
-                                    <img src="images/imgnotfound.png">
-                                    <img src="images/imgnotfound.png" id="primeiro_copia">
-                                </div>
+
+                        <div class="carrossel rounded-3 my-3">
+                            <i class="bi bi-arrow-left" id="btn_anterior"></i>
+                            <i class="bi bi-arrow-right" id="btn_proximo"></i>
+                            <div class="carrossel_images">
+                                <img src="images/imgnotfound.png" id="ultimo_copia">
+                                <img src="images/imgnotfound.png">
+                                <img src="images/imgnotfound.png">
+                                <img src="images/imgnotfound.png">
+                                <img src="images/imgnotfound.png">
+                                <img src="images/imgnotfound.png" id="primeiro_copia">
                             </div>
-                            <input type="file" class="fileinput d-none" id="fileinput" name="arquivos"
+                        </div>
+                        <input type="file" class="fileinput d-none" id="fileinput" name="arquivos"
                             accept="image/png, image/jpeg" multiple="multiple">
-                        <label for="fileinput" class="botao mb-3"><!--<i class="bi bi-plus"></i><i class="bi bi-file-earmark-image-fill"></i>-->Selecione as imagens</label>
+                        <label for="fileinput" class="btn btn-primary botao mb-3">
+                            <!--<i class="bi bi-plus"></i><i class="bi bi-file-earmark-image-fill"></i>-->Selecione as
+                            imagens
+                        </label>
                         <h3>Inclui:</h3>
                         <input type="checkbox" id="suite" name="suite" checked>
                         <label for="suite">Suíte</label>
@@ -118,25 +120,18 @@
                         <label for="cafe">Café da manhã</label>
                         <input type="checkbox" id="wifi" name="wifi" checked>
                         <label for="wifi">Wi-fi</label>
-                        </center>
                     </div>
 
                 </div>
-                <div class="col-12 col-lg-5 col-xl-4">
+                <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-5 col-xl-4">
                     <div class="border-1 border rounded-3 secao p-3 mt-3 mt-lg-0 quarto">
-                        
-                        
                         <div>
-                            
-                            <center>
-                                <h3>Insira os dados para aluguel: </h3>
-                                
-                            
-                            </center>
+                            <h3 class="text-center">Insira os dados para aluguel: </h3>
                             <div class="mb-3">
                                 <label for="descricao" class="form-label">Adicione uma descrição: </label>
-                                <textarea class="form-control shadow-none" style="resize: none;" id="descricao" rows="3"></textarea>
-                              </div>
+                                <textarea class="form-control shadow-none" style="resize: none;" id="descricao"
+                                    rows="3"></textarea>
+                            </div>
                             <div class="row my-4">
                                 <div class="col-4"><label for="tipoacomodacao">Tipo de acomodação: </label>
                                 </div>
@@ -151,7 +146,8 @@
                                 <div class="col-4"><label for="numero">Número do quarto: </label>
                                 </div>
                                 <div class="col-8">
-                                    <input type="text" class="form-control shadow-none" id="numero" placeholder="Ex.: 101">
+                                    <input type="text" class="form-control shadow-none" id="numero"
+                                        placeholder="Ex.: 101">
                                 </div>
                             </div>
                             <div class="row my-4">
@@ -168,8 +164,6 @@
                                     </select>
                                 </div>
                             </div>
-
-                            
                             <div class="row my-4">
                                 <div class="col-4"><label for="minimo">Período mínimo de estadia: (Dias)</label>
                                 </div>
@@ -259,15 +253,11 @@
                         <hr>
                         <div class="row mt-3">
                             <div class="col-7">
-                                
                             </div>
                             <div class="col-5 text-end"><a href="alugar.html" class="btn btn-primary botao">Próximo</a>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
     </main>

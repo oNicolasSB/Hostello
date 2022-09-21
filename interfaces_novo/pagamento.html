@@ -20,7 +20,8 @@
 
     <nav class="navegacao py-3 mb-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href=""><img src="images/logo_completa.png" class="logo d-none d-lg-block"><img src="images/logo.png" class=" logo d-block d-lg-none"></a>
+            <a class="navbar-brand" href=""><img src="images/logo_completa.png" class="logo d-none d-lg-block"><img
+                    src="images/logo.png" class=" logo d-block d-lg-none"></a>
             <div>
                 <form class="d-none d-md-block barra-pesquisa">
                     <input type="search" placeholder="Qual seu destino?">
@@ -29,172 +30,180 @@
                     </button>
                 </form>
             </div>
-            <div> <!-- Botões barra de navegação -->
-                <div class=" d-none"> <!-- Botão Pesquisa-->
+            <div>
+                <!-- Botões barra de navegação -->
+                <div class=" d-none">
+                    <!-- Botão Pesquisa-->
                     <button class="botao-pesquisa pr-3">
                         <i class="bi bi-search"></i>
                     </button>
                 </div>
-                <div class="d-inline-block"><!-- Botão Perfil-->
-                    <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <div class="d-inline-block">
+                    <!-- Botão Perfil-->
+                    <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight">
                         <img src="images/avatar.png">
                     </button>
 
-                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                    <div class="offcanvas-header">
-                        <img src="images/avatar.png" class="sidebar-avatar">
-                        <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body p-0">
-                        <ul>
-                            <li class="my-3"><a href="" class="lista"><h4 class="px-3 py-1">Reservas</h4></a></li>
-                            <li class="my-3"><a href="" class="lista"><h4 class="px-3 py-1">Reservas</h4></a></li>
-                        </ul>
-                    </div>
+                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <img src="images/avatar.png" class="sidebar-avatar">
+                            <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body p-0">
+                            <ul>
+                                <li class="my-3"><a href="" class="lista">
+                                        <h4 class="px-3 py-1">Reservas</h4>
+                                    </a></li>
+                                <li class="my-3"><a href="" class="lista">
+                                        <h4 class="px-3 py-1">Reservas</h4>
+                                    </a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </nav>
 
-    <div class="container border-1 border rounded-3 p-3 filtros secao"> 
-        <div class="row py-3">
-            <div class="col-12">
-                <div><h1>Efetuar Pagamento</h1></div><br>
-                <div>
-                        <a href="https://pay.google.com/intl/pt_br/about/" class="text-decoration-none">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-1 border rounded-3 p-3 secao">
+                <div class="text-center">
+                    <h2 class="pb-2">Efetuar Pagamento</h1>
+                        <a href="https://pay.google.com/intl/pt_br/about/" class="text-decoration-none px-1">
                             <button class="botao-google">
-                            <i class="bi bi-google"></i> GooglePay</button>
+                                <i class="bi bi-google"></i> GooglePay</button>
                         </a>
-                        <a href="https://www.paypal.com/br/home" class="text-decoration-none">
+                        <a href="https://www.paypal.com/br/home" class="text-decoration-none px-1">
                             <button class="botao-paypal">
-                            <i class="bi bi-paypal"></i> PayPal</button>
+                                <i class="bi bi-paypal"></i> PayPal</button>
                         </a>
                 </div>
-
-                <div>
-                    <div class="row py-5">
-                        <div class="col-4"><label for="metodo">Escolha o método: </label>
-                        </div>
-                        <div class="col-8">
-                            <select class="form-select shadow-none" id="metodo">
-                                <option selected value="cartao">Cartão</option>
-                                <option value="pix">Pix</option>
-                                <option value="boleto">Boleto</option>
-                            </select>
-                        </div>
+                <div class="row py-3">
+                    <div class="col-4"><label for="metodo">Escolha o método: </label>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-select shadow-none" id="metodo">
+                            <option selected value="cartao">Cartão</option>
+                            <option value="pix">Pix</option>
+                            <option value="boleto">Boleto</option>
+                        </select>
                     </div>
                 </div>
-
                 <form>
                     <div class="form-group py-2 text-align">
-                      <label for="pagamento_cartao">Nome no cartão</label>
-                      <input type="text" class="form-control bg-light shadow-none shadow-none" id="nome" placeholder="Nícolas Sanson Bassini">
+                        <label for="pagamento_cartao">Nome no cartão</label>
+                        <input type="text" class="form-control bg-light shadow-none shadow-none" id="nome"
+                            placeholder="Nícolas Sanson Bassini">
                     </div>
                     <div class="form-group py-2 text-align">
-                      <label for="pagamento_cartao">Número no cartão</label>
-                      <input type="text" class="form-control bg-light shadow-none" id="numero" placeholder="0000.0000.0000.0000">
+                        <label for="pagamento_cartao">Número no cartão</label>
+                        <input type="text" class="form-control bg-light shadow-none" id="numero"
+                            placeholder="0000.0000.0000.0000">
                     </div>
-                <div class="row">
-                    <div class="col-6">
-                    <div class="form-group py-2 text-align">
-                        <label for="pagamento_cartao">Data de expiração</label>
-                        <input type="text" class="form-control bg-light shadow-none" id="data" placeholder="00/00/0000">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group py-2 text-align">
+                                <label for="pagamento_cartao">Data de expiração</label>
+                                <input type="text" class="form-control bg-light shadow-none" id="data"
+                                    placeholder="00/00/0000">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group py-2 text-align">
+                                <label for="pagamento_cartao">CVC/CVV</label>
+                                <input type="text" class="form-control bg-light shadow-none" id="cvc" placeholder="000">
+                            </div>
+                        </div>
                     </div>
-                    </div>
-                    <div class="col-6">
-                    <div class="form-group py-2 text-align">
-                        <label for="pagamento_cartao">CVC/CVV</label>
-                        <input type="text" class="form-control bg-light shadow-none" id="cvc" placeholder="000">
-                    </div>
-                    </div>
-                </div>
-                  </form>
+                </form>
 
                 <div>
                     <ul>
                         <li class="py-2 text-align">
-                            1 - Abra o app ou banco de sua preferência. Escolha a opção pagar com código Pix “copia e cola”, ou código QR.
+                            1 - Abra o app ou banco de sua preferência. Escolha a opção pagar com código Pix “copia e
+                            cola”, ou código QR.
                         </li>
                         <li class="py-2 text-align">
-                            2 - Copie e cole o código, ou escaneie o código QR com a câmera do seu celular. Confira todas as informações e autorize o pagamento.
+                            2 - Copie e cole o código, ou escaneie o código QR com a câmera do seu celular. Confira
+                            todas as informações e autorize o pagamento.
                         </li>
                         <li class="py-2 text-align">
                             3 - Você vai receber a confirmação do pagamento no seu e-mail. E pronto!
                         </li>
                         <li py-2>
-                            <img src="images/qrcode.jpeg">
+                            <img src="images/qrcode.jpeg" class="mx-auto d-block">
                         </li>
                     </ul>
                 </div>
 
                 <div>
                     <ul>
-                        <li class="py-2 text-align">
+                        <li class="py-2">
                             Número do pedido:
                         </li>
-                        <li class="py-2">
-                            84610000001-3	08600024020-9	02408102263-4	61827041102-7
+                        <li class="py-2 text-center">
+                            84610000001-3 08600024020-9 02408102263-4 61827041102-7
                         </li>
                         <li class="py-2">
-                            <img src="images/codigodebarras.jpeg">
+                            <img src="images/codigodebarras.jpeg" style="width: 100%;">
                         </li>
-                        <li class="py-2 text-align">
+                        <li class="py-2">
                             Utilize este código de barras e pague o boleto pelo celular ;)
                         </li>
-                        <li class="py-2">
+                        <li class="py-2 text-center">
                             <a href="" class="btn btn-primary botao">Baixar Boleto</a>
                         </li>
                     </ul>
                 </div>
 
-                <div class="py-2">
+                <div class="py-2 text-center">
                     <a href="" class="btn btn-primary botao">Finalizar Pagamento</a>
                 </div>
+            </div>
         </div>
-    </div>
     </div>
 
     <footer class="py-3 bg-light border-top mt-3">
         <div class="container">
-        
-          <div class="row">
-            <div class="col-4">
-              <h5>Contato</h5>
-              <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">hostello.mab@gmail.com</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">About</a></li>
-              </ul>
-            </div>
-      
-            <div class="col-4">
-              <h5>Section</h5>
-              <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">About</a></li>
-              </ul>
-            </div>
-      
-            <div class="col-4">
-              <h5>Section</h5>
-              <ul class="nav flex-column">
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Home</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Features</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Pricing</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">FAQs</a></li>
-                <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">About</a></li>
-              </ul>
-            </div>
-      
-            <!-- <div class="col-4 offset-1">
+            <div class="row">
+                <div class="col-4">
+                    <h5>Contato</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">hostello.mab@gmail.com</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Features</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Pricing</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">FAQs</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Features</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Pricing</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">FAQs</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-4">
+                    <h5>Section</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Features</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">Pricing</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">FAQs</a></li>
+                        <li class="nav-item mb-2"><a class="nav-link p-0 text-muted">About</a></li>
+                    </ul>
+                </div>
+
+                <!-- <div class="col-4 offset-1">
               <form>
                 <h5>Subscribe to our newsletter</h5>
                 <p>Monthly digest of whats new and exciting from us.</p>
@@ -205,11 +214,11 @@
                 </div>
               </form>
             </div> -->
-        </div>
-      
-          <div class="d-flex justify-content-between py-4 my-4 border-top">
-            <p>&copy; 2022 Hostello. Todos os Direitos Reservados.</p>
-          </div>
+            </div>
+
+            <div class="d-flex justify-content-between py-4 my-4 border-top">
+                <p>&copy; 2022 Hostello. Todos os Direitos Reservados.</p>
+            </div>
         </div>
     </footer>
 
@@ -218,5 +227,5 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 </body>
-</html>
 
+</html>
