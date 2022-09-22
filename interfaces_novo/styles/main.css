@@ -109,3 +109,11 @@ body {
 .filtros{
     background-color: #FFFEFE;
 }
+
+.tabela td{
+    text-align: center;
+}
+
+.tabela th{
+    text-align: center;
+}
