@@ -20,8 +20,12 @@
 
     <nav class="navegacao py-3 mb-3">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand" href=""><img src="images/logo_completa.png" class="logo d-none d-lg-block"><img src="images/logo.png" class=" logo d-block d-lg-none"></a>
-            <div>
+            <div class="col-2 text-start">
+                <a href=""><img src="images/logo_completa.png" class="logo d-none d-lg-block"><img src="images/logo.png"
+                        class=" logo d-block d-lg-none"></a>
+            </div>
+
+            <div class="col-8 d-flex justify-content-center">
                 <form class="d-none d-md-block barra-pesquisa">
                     <input type="search" placeholder="Qual seu destino?">
                     <button type="submit">
@@ -29,130 +33,42 @@
                     </button>
                 </form>
             </div>
-            <div> <!-- Botões barra de navegação -->
-                <div class=" d-none"> <!-- Botão Pesquisa-->
-                    <button class="botao-pesquisa pr-3">
-                        <i class="bi bi-search" ></i>
-                    </button>
-                </div>
-                <div class="d-inline-block d-lg-none"> <!-- Botão Filtros -->
-                    <button class="botao-expandir px-3" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="bi bi-list botao-expandir"></i></button>
-                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-                        aria-labelledby="offcanvasWithBothOptionsLabel">
-                        <div class="offcanvas-header barralateral">
-                            <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filtros: </h2>
-                            <button type="button" class="fechar text-dark" data-bs-dismiss="offcanvas"
-                                aria-label="Close"><i class="bi bi-x-lg"></i></button>
-                        </div>
-                        <hr class="mx-3 my-0">
-                        <div class="offcanvas-body">
-                            <!-- menu botao-->
-                            <h3 class="my-3">Serviços</h3>
-                            <div class="mb-1">
-                                <input type="checkbox" id="cafe_da_manha" name="cafe_da_manha">
-                                <label for="cafe_da_manha">Café da Manhã</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="pet_friendly" name="pet_friendly">
-                                <label for="pet_friendly">PET friendly</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="internet" name="internet">
-                                <label for="internet">Internet</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="lavanderia" name="lavanderia">
-                                <label for="lavanderia">Lavanderia</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="estacionamento" name="estacionamento">
-                                <label for="estacionamento">Estacionamento</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="cancelamento" name="cancelamento">
-                                <label for="cancelamento">Cancelamento grátis</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="tomada" name="tomada">
-                                <label for="tomada">Tomada perto da cama</label>
-                            </div>
+            <div class="col-2 text-end">
+                <!-- Botão Perfil-->
+                <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
+                    <img src="images/avatar.png">
+                </button>
 
-                            <h3 class="my-3">Opções de Quarto</h3>
-                            <div class="mb-1">
-                                <input type="checkbox" id="ar_condicionado" name="ar_condicionado">
-                                <label for="ar_condicionado">Ar-condicionado</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="chuveiro" name="chuveiro">
-                                <label for="chuveiro">Chuveiro</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="elevador" name="elevador">
-                                <label for="elevador">Elevador</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="Tv" name="Tv">
-                                <label for="Tv">Tv</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="frigobar" name="frigobar">
-                                <label for="frigobar">Frigobar</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="secador" name="secador">
-                                <label for="secador">Secador de cabelo</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="varanda" name="varanda">
-                                <label for="varanda">Varanda</label>
-                            </div>
-
-                            <h3 class="my-3">Opções de Localidade</h3>
-                            <div class="mb-1">
-                                <input type="checkbox" id="beira_mar" name="beira_mar">
-                                <label for="beira_mar">Beira-mar</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="centro_comercial" name="centro_comercial">
-                                <label for="centro_comercial">Centro comercial</label>
-                            </div>
-                            <div class="mb-1">
-                                <input type="checkbox" id="interior" name="interior">
-                                <label for="interior">Interior</label>
-                            </div>
-                            <div class="d-flex justify-content-center my-3"><button class="botao-destaque"><i class="bi bi-funnel-fill"></i></button></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="d-inline-block"><!-- Botão Perfil-->
-                    <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <img src="images/avatar.png">
-                    </button>
-
-                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header barralateral lista-header">
-                        <button type="button" class="btn fechar" data-bs-dismiss="offcanvas" aria-label="Close"><i class="bi bi-x-lg"></i></button>
-                        
+                        <button type="button" class="btn fechar" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                                class="bi bi-x-lg"></i></button>
+
                         <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
                         <img src="images/avatar.png" class="sidebar-avatar">
                     </div>
                     <div class="offcanvas-body p-0">
                         <ul>
-                            <li class="my-3"><a href="" class="lista"><h4 class="px-3 py-1">Reservas</h4></a></li>
-                            <li class="my-3"><a href="" class="lista"><h4 class="px-3 py-1">Reservas</h4></a></li>
+                            <li class="my-3"><a href="" class="lista">
+                                    <h4 class="px-3 py-1">Reservas</h4>
+                                </a></li>
+                            <li class="my-3"><a href="" class="lista">
+                                    <h4 class="px-3 py-1">Reservas</h4>
+                                </a></li>
                         </ul>
                     </div>
-                    </div>
                 </div>
-                
             </div>
+
         </div>
-    <div class="d-block d-md-none container mt-2">
+        </div>
+        <div class="d-block d-md-none container mt-2">
             <form class="barra-pesquisa">
                 <div class="input-group">
-                    <input  class="form-control shadow-none bg-transparent" type="search" placeholder="Qual seu destino?">
+                    <input class="form-control shadow-none bg-transparent" type="search"
+                        placeholder="Qual seu destino?">
                     <div>
                         <button type="submit">
                             <i class="bi bi-search"></i>
@@ -160,8 +76,8 @@
                     </div>
                 </div>
             </form>
-    </div>
-</div>
+        </div>
+        </div>
     </nav>
 
     <header>
@@ -170,9 +86,10 @@
 
     <main>
         <div class="container">
-        
+
             <div class="row">
-                <div class="col-lg-3 d-none d-lg-block"><!--Barra Lateral -->
+                <div class="col-lg-3 d-none d-lg-block">
+                    <!--Barra Lateral -->
                     <div class="border-1 border rounded-3 secao p-3">
                         <h3>Filtros: </h3>
                         <hr>
@@ -249,13 +166,17 @@
                             <input type="checkbox" id="interior" name="interior">
                             <label for="interior">Interior</label>
                         </div>
-                        <div class="d-flex justify-content-center mt-3"><button class="botao-destaque"><i class="bi bi-funnel-fill"></i></button></div>
+                        <div class="d-flex justify-content-center mt-3"><button class="botao-destaque"><i
+                                    class="bi bi-funnel-fill"></i></button></div>
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-9 green"><!-- Conteúdo Principal -->
-                    <div class="row g-3"><!-- Cards -->
-                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                <div class="col-12 col-lg-9 green">
+                    <!-- Conteúdo Principal -->
+                    <div class="row g-3">
+                        <!-- Cards -->
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <!-- Card -->
                             <div class="card">
                                 <img src="images/ex01.png" class="card-img-top">
                                 <div class="card-body">
@@ -266,22 +187,26 @@
                                         Estrada Critóvão Machado de Campos, 1379
                                     </p>
                                     <div class="card-text estrelas">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                            <i class="bi bi-star"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
                                     </div>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
-                                        <div class="col-6"><h4>R$ 999,99</h4></div>
-                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                        <div class="col-6">
+                                            <h4>R$ 999,99</h4>
+                                        </div>
+                                        <div class="col-6 text-end"><a href="alugar.html"
+                                                class="btn btn-primary botao">Detalhes</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <!-- Card -->
                             <div class="card">
                                 <img src="images/ex01.png" class="card-img-top">
                                 <div class="card-body">
@@ -292,50 +217,27 @@
                                         Estrada Critóvão Machado de Campos, 1379
                                     </p>
                                     <div class="card-text estrelas">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                            <i class="bi bi-star"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
                                     </div>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
-                                        <div class="col-6"><h4>R$ 999,99</h4></div>
-                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
-                            <div class="card">
-                                <img src="images/ex01.png" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Empresa 1</h5>
-                                    <p class="card-text">
-                                        Descrição breve sobre o estabelecimento cadastrado <br>
-                                        Florianópolis, Santa Catarina, Brasil <br>
-                                        Estrada Critóvão Machado de Campos, 1379
-                                    </p>
-                                    <div class="card-text estrelas">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                            <i class="bi bi-star"></i>
-                                    </div>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <div class="row">
-                                        <div class="col-6"><h4>R$ 999,99</h4></div>
-                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                        <div class="col-6">
+                                            <h4>R$ 999,99</h4>
+                                        </div>
+                                        <div class="col-6 text-end"><a href="alugar.html"
+                                                class="btn btn-primary botao">Detalhes</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <!-- Card -->
                             <div class="card">
                                 <img src="images/ex01.png" class="card-img-top">
                                 <div class="card-body">
@@ -346,23 +248,27 @@
                                         Estrada Critóvão Machado de Campos, 1379
                                     </p>
                                     <div class="card-text estrelas">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                            <i class="bi bi-star"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
                                     </div>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
-                                        <div class="col-6"><h4>R$ 999,99</h4></div>
-                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                        <div class="col-6">
+                                            <h4>R$ 999,99</h4>
+                                        </div>
+                                        <div class="col-6 text-end"><a href="alugar.html"
+                                                class="btn btn-primary botao">Detalhes</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <!-- Card -->
                             <div class="card">
                                 <img src="images/ex01.png" class="card-img-top">
                                 <div class="card-body">
@@ -373,23 +279,27 @@
                                         Estrada Critóvão Machado de Campos, 1379
                                     </p>
                                     <div class="card-text estrelas">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                            <i class="bi bi-star"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
                                     </div>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
-                                        <div class="col-6"><h4>R$ 999,99</h4></div>
-                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                        <div class="col-6">
+                                            <h4>R$ 999,99</h4>
+                                        </div>
+                                        <div class="col-6 text-end"><a href="alugar.html"
+                                                class="btn btn-primary botao">Detalhes</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-12 col-md-6 col-xl-4"> <!-- Card -->
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <!-- Card -->
                             <div class="card">
                                 <img src="images/ex01.png" class="card-img-top">
                                 <div class="card-body">
@@ -400,17 +310,51 @@
                                         Estrada Critóvão Machado de Campos, 1379
                                     </p>
                                     <div class="card-text estrelas">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-half"></i>
-                                            <i class="bi bi-star"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
                                     </div>
                                 </div>
                                 <div class="card-footer text-center">
                                     <div class="row">
-                                        <div class="col-6"><h4>R$ 999,99</h4></div>
-                                        <div class="col-6 text-end"><a href="alugar.html" class="btn btn-primary botao">Detalhes</a></div>
+                                        <div class="col-6">
+                                            <h4>R$ 999,99</h4>
+                                        </div>
+                                        <div class="col-6 text-end"><a href="alugar.html"
+                                                class="btn btn-primary botao">Detalhes</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-xl-4">
+                            <!-- Card -->
+                            <div class="card">
+                                <img src="images/ex01.png" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Empresa 1</h5>
+                                    <p class="card-text">
+                                        Descrição breve sobre o estabelecimento cadastrado <br>
+                                        Florianópolis, Santa Catarina, Brasil <br>
+                                        Estrada Critóvão Machado de Campos, 1379
+                                    </p>
+                                    <div class="card-text estrelas">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-half"></i>
+                                        <i class="bi bi-star"></i>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h4>R$ 999,99</h4>
+                                        </div>
+                                        <div class="col-6 text-end"><a href="alugar.html"
+                                                class="btn btn-primary botao">Detalhes</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -418,7 +362,7 @@
                     </div>
                 </div>
             </div>
-        
+
         </div>
     </main>
 
@@ -477,7 +421,7 @@
             </div>
         </div>
     </footer>
-      
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
