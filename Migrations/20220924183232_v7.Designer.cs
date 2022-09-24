@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using hostello.Data;
 
@@ -10,9 +11,10 @@ using hostello.Data;
 namespace hostello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220924183232_v7")]
+    partial class v7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -120,7 +122,7 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Contato", b =>
                 {
-                    b.Property<int>("FkEstabelecimento")
+                    b.Property<int>("FkEstabelecimentoContato")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cargo")
@@ -146,7 +148,7 @@ namespace hostello.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("FkEstabelecimento");
+                    b.HasKey("FkEstabelecimentoContato");
 
                     b.ToTable("Contatos");
                 });
@@ -432,7 +434,7 @@ namespace hostello.Migrations
                 {
                     b.HasOne("hostello.Models.Estabelecimento", "Estabelecimento")
                         .WithMany("Contatos")
-                        .HasForeignKey("FkEstabelecimento")
+                        .HasForeignKey("FkEstabelecimentoContato")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

@@ -10,11 +10,12 @@ body {
     margin: 0;
     font-family: 'Oswald', sans-serif;
     font-weight: 200;
-}
-
-h1, h2, h3, h4, h5, h6, p, span, ul, li, select, option, input, button, a{
     font-weight: 200 !important; 
 }
+/* 
+h1, h2, h3, h4, h5, h6, p, span, ul, li, select, option, input, button, a{
+    font-weight: 200 !important; 
+} */
 
 .bold{
     font-weight: 400 !important;

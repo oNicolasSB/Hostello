@@ -1,0 +1,43 @@
+@{
+    Layout = "_LayoutAdmin";
+}
+@model List<Contato>
+
+<div class="row mb-2">
+        @foreach (var rs in Model)
+    {
+
+            <div class="col-md-6">
+                <div class="row g-0 border rounded mb-4 secao">
+                    <div class="col-9 p-3">
+                            <ul>
+                                <li>
+                                    Nome Completo: @rs.Nome
+                                </li>
+                                <li>
+                                    Telefone/Celular: @rs.Telefone
+                                </li>
+                                <li>
+                                    Email: @rs.Email
+                                </li>
+                                <li>
+                                    Cargo: @rs.Cargo
+                                </li>
+                            </ul>
+                    </div>
+                    <div class="col-3 align-self-center text-end p-3">
+                        <div class="col-12">
+                            <a class="botao-destaque my-1 my-md-2" type="button" asp-controller="Contato" asp-action="Edit" asp-route-id="@rs.IdContato">
+                            <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <button class="botao-destaque my-1 my-md-2" type="button">
+                                <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    }
+</div>
