@@ -26,7 +26,7 @@
               <label asp-for="@Model.Cargo">Cargo:</label>
               <input type="text" class="form-control shadow-none" id="cargo" placeholder="Gerente" asp-for="@Model.Cargo">
             </div>
-            <input type="hidden" name="" asp-for="@Model.FkEstabelecimento" value="1">
+            <input type="hidden" asp-for="@Model.FkEstabelecimento">
 
             <div class="py-4">
               <button type="submit" class="btn btn-primary botao">Salvar</button>

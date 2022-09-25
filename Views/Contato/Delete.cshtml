@@ -8,7 +8,7 @@
 <h3>Tem certeza que deseja deletar este contato? Esta ação é irreversível</h3>
 <hr>
 <form method="POST" asp-action="ProcessDelete">
-    <a asp-action="Index" asp-controller="Contato" class="btn btn-success">No</a>
     <input type="hidden" asp-for="@Model.IdContato">
+    <a asp-action="Index" asp-controller="Contato" class="btn btn-success">No</a>
     <button type="submit" class="btn btn-danger">Yes</button>
 </form>

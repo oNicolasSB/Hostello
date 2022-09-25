@@ -19,7 +19,8 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Acomodacao", b =>
                 {
-                    b.Property<int>("FkEstabelecimento")
+                    b.Property<int>("IdAcomodacao")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descricao")
@@ -33,10 +34,10 @@ namespace hostello.Migrations
                     b.Property<int>("EstadiaMin")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FkTipoAcomodacao")
+                    b.Property<int>("FkEstabelecimento")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdAcomodacao")
+                    b.Property<int>("FkTipoAcomodacao")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("MediaAvaliacaoQuarto")
@@ -51,7 +52,9 @@ namespace hostello.Migrations
                     b.Property<double>("ValorDiaria")
                         .HasColumnType("REAL");
 
-                    b.HasKey("FkEstabelecimento");
+                    b.HasKey("IdAcomodacao");
+
+                    b.HasIndex("FkEstabelecimento");
 
                     b.HasIndex("FkTipoAcomodacao");
 
@@ -60,20 +63,24 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Admin", b =>
                 {
+                    b.Property<int>("IdAdmin")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("FkUsuario")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdAdmin")
-                        .HasColumnType("INTEGER");
+                    b.HasKey("IdAdmin");
 
-                    b.HasKey("FkUsuario");
+                    b.HasIndex("FkUsuario");
 
                     b.ToTable("Admins");
                 });
 
             modelBuilder.Entity("hostello.Models.Avaliacao", b =>
                 {
-                    b.Property<int>("FkAcomodacao")
+                    b.Property<int>("IdAvaliacao")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Comentario")
@@ -84,16 +91,18 @@ namespace hostello.Migrations
                     b.Property<DateTime>("DataAvaliacao")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("FkCliente")
+                    b.Property<int>("FkAcomodacao")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdAvaliacao")
+                    b.Property<int>("FkCliente")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("NotaAvaliacao")
                         .HasColumnType("REAL");
 
-                    b.HasKey("FkAcomodacao");
+                    b.HasKey("IdAvaliacao");
+
+                    b.HasIndex("FkAcomodacao");
 
                     b.HasIndex("FkCliente");
 
@@ -102,25 +111,29 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Cliente", b =>
                 {
-                    b.Property<int>("FkUsuario")
+                    b.Property<int>("IdCliente")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("FkEndereco")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdCliente")
+                    b.Property<int>("FkUsuario")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("FkUsuario");
+                    b.HasKey("IdCliente");
 
                     b.HasIndex("FkEndereco");
+
+                    b.HasIndex("FkUsuario");
 
                     b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("hostello.Models.Contato", b =>
                 {
-                    b.Property<int>("FkEstabelecimento")
+                    b.Property<int>("IdContato")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Cargo")
@@ -133,7 +146,7 @@ namespace hostello.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdContato")
+                    b.Property<int>("FkEstabelecimento")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Nome")
@@ -146,7 +159,9 @@ namespace hostello.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("FkEstabelecimento");
+                    b.HasKey("IdContato");
+
+                    b.HasIndex("FkEstabelecimento");
 
                     b.ToTable("Contatos");
                 });
@@ -203,7 +218,8 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Estabelecimento", b =>
                 {
-                    b.Property<int>("FkEndereco")
+                    b.Property<int>("IdEstabelecimento")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CNPJ")
@@ -216,7 +232,7 @@ namespace hostello.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdEstabelecimento")
+                    b.Property<int>("FkEndereco")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("MediaAvaliacao")
@@ -232,44 +248,50 @@ namespace hostello.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ResponsavelFkUsuario")
+                    b.Property<int?>("ResponsavelIdResponsavel")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("TelefoneFixo")
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.HasKey("FkEndereco");
+                    b.HasKey("IdEstabelecimento");
 
-                    b.HasIndex("ResponsavelFkUsuario");
+                    b.HasIndex("FkEndereco");
+
+                    b.HasIndex("ResponsavelIdResponsavel");
 
                     b.ToTable("Estabelecimentos");
                 });
 
             modelBuilder.Entity("hostello.Models.ItemReserva", b =>
                 {
-                    b.Property<int>("FkReserva")
+                    b.Property<int>("IdItemReserva")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("FkAcomodacao")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdItemReserva")
+                    b.Property<int>("FkReserva")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("Valor")
                         .HasColumnType("REAL");
 
-                    b.HasKey("FkReserva");
+                    b.HasKey("IdItemReserva");
 
                     b.HasIndex("FkAcomodacao");
+
+                    b.HasIndex("FkReserva");
 
                     b.ToTable("ItensReserva");
                 });
 
             modelBuilder.Entity("hostello.Models.Reserva", b =>
                 {
-                    b.Property<int>("FkCliente")
+                    b.Property<int>("IdReserva")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("DataReserva")
@@ -281,26 +303,31 @@ namespace hostello.Migrations
                     b.Property<DateTime>("EstadiaSaida")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdReserva")
+                    b.Property<int>("FkCliente")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("ValorReserva")
                         .HasColumnType("REAL");
 
-                    b.HasKey("FkCliente");
+                    b.HasKey("IdReserva");
+
+                    b.HasIndex("FkCliente");
 
                     b.ToTable("Reservas");
                 });
 
             modelBuilder.Entity("hostello.Models.Responsavel", b =>
                 {
+                    b.Property<int>("IdResponsavel")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("FkUsuario")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdResponsavel")
-                        .HasColumnType("INTEGER");
+                    b.HasKey("IdResponsavel");
 
-                    b.HasKey("FkUsuario");
+                    b.HasIndex("FkUsuario");
 
                     b.ToTable("Responsaveis");
                 });
@@ -449,7 +476,7 @@ namespace hostello.Migrations
 
                     b.HasOne("hostello.Models.Responsavel", null)
                         .WithMany("Estabelecimentos")
-                        .HasForeignKey("ResponsavelFkUsuario");
+                        .HasForeignKey("ResponsavelIdResponsavel");
 
                     b.Navigation("Endereco");
                 });

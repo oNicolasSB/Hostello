@@ -40,7 +40,7 @@ public class ContatoController : Controller
     {
         var contato = _db.Contatos.Find(id);
         if(contato is null)
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
         return View(contato);
     }
     [HttpPost]
@@ -48,7 +48,7 @@ public class ContatoController : Controller
     {
         var contatooriginal = _db.Contatos.Find(id);
         if(contatooriginal is null)
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index");
 
         contato.FkEstabelecimento = contatooriginal.FkEstabelecimento;
         if(!ModelState.IsValid)
@@ -59,7 +59,7 @@ public class ContatoController : Controller
         contatooriginal.Cargo = contato.Cargo;
         contatooriginal.Telefone = contato.Telefone;
         _db.SaveChanges();
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Index");
     }
 
     [HttpGet]
@@ -69,11 +69,11 @@ public class ContatoController : Controller
         if(contato is null)
             return RedirectToAction("Index");
         return View(contato);
+        
     }
     [HttpPost]
-    public IActionResult ProcessDelete(int id)
+    public IActionResult ProcessDelete(Contato contato)
     {
-        var contato = _db.Contatos.Find(id);
         if(contato is null)
             return RedirectToAction("Index");
         _db.Contatos.Remove(contato);
