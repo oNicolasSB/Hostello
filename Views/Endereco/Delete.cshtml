@@ -1,0 +1,10 @@
+@model Endereco;
+
+<h2>Deletando Endereço</h2>
+<h3>Tem certeza que deseja deletar este endereço? Esta ação é irreversível</h3>
+<hr>
+<form method="POST" asp-action="ProcessDelete">
+    <input type="hidden" asp-for="@Model.IdEndereco">
+    <a asp-action="Index" asp-controller="Endereco" class="btn btn-success">No</a>
+    <button type="submit" class="btn btn-danger">Yes</button>
+</form>
