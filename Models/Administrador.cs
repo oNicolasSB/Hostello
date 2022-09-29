@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace hostello.Models;
 
-public class Cliente : Usuario
+public class Administrador : Usuario
 {
     public ICollection<Avaliacao> Avaliacoes { get; set; }
-    public ICollection<Reserva> Reservas { get; set; }
-} 
+    public ICollection<Acomodacao> Acomodacoes { get; set; }
+}

@@ -1,48 +1,62 @@
 @{
+
     Layout = "_LayoutAdmin";
 }
 @model List<Contato>
 
-<a class="botao-destaque my-1 my-md-2 text-center" style="width: 16px;" type="button" asp-controller="Contato" asp-action="Create">
-        <i class="bi bi-plus-lg" style="font-size: 16px; line-height: 16px;"></i>
-    </a>
-<div class="row mb-2">
-    
+<header class="container">
+    <div class="row">
+        <div class="col-8 offset-2 align-self-center">
+            <h1 class="text-center pb-3">Contatos Cadastrados</h1>
+        </div>
+        <div class="text-end col-2 align-self-center">
+            <a class="botao-destaque" asp-action="Create">
+                <i class="bi bi-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+</header>
 
-        @foreach (var rs in Model)
-    {
+<main class="container">
+    <div class="row mb-2">
+        @foreach (var contato in Model)
 
-            <div class="col-md-6">
-                <div class="row g-0 border rounded mb-4 secao">
+        {
+            <div class="col-md-6 ">
+                <div class="row g-0 border rounded mb-4 secao align-items-stretch">
                     <div class="col-9 p-3">
-                            <ul>
-                                <li>
-                                    Nome Completo: @rs.Nome
-                                </li>
-                                <li>
-                                    Telefone/Celular: @rs.Telefone
-                                </li>
-                                <li>
-                                    Email: @rs.Email
-                                </li>
-                                <li>
-                                    Cargo: @rs.Cargo
-                                </li>
-                            </ul>
+                        <ul>
+                            <li>
+                                Nome Completo: @contato.Nome
+                            </li>
+                            <li>
+                                Telefone/Celular: @contato.Telefone
+                            </li>
+                            <li>
+                                Email: @contato.Email
+                            </li>
+                            <li>
+                                Cargo: @contato.Cargo
+                            </li>
+                        </ul>
                     </div>
                     <div class="col-3 align-self-center text-end p-3">
-                        <div class="col-12">
-                            <a class="botao-destaque my-1 my-md-2" type="button" asp-controller="Contato" asp-action="Edit" asp-route-id="@rs.IdContato">
-                            <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
+                        <div class="col-12 mb-3">
+                            <a class="botao-destaque my-3" asp-action="Edit" asp-route-id="@contato.IdContato">
+                                <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
                             </a>
                         </div>
                         <div class="col-12">
-                            <a class="botao-destaque my-1 my-md-2" type="button" asp-controller="Contato" asp-action="Delete" asp-route-id="@rs.IdContato">
+                            <a class="botao-destaque my-3" asp-action="Delete" asp-route-id="@contato.IdContato">
                                 <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-    }
-</div>
+
+        }
+
+
+    </div>
+</main>

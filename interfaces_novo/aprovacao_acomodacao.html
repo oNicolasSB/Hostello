@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/admin-navbar.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Cadastrar Acomodação</title>
+</head>
+
+<body>
+
+
+    <nav class="navegacao py-3 mb-3">
+        <div class="container d-flex align-items-center">
+            <div class="col-2 text-center">
+                <a class="" href=""><img src="images/logo_completa.png" class="logo d-none d-lg-block"><img
+                        src="images/logo.png" class=" logo d-block d-lg-none"></a>
+            </div>
+            <div class="col-8 text-center">
+                <h3 class="text-white bold align-items-center">Administrador</h3>
+            </div>
+            <div class="col-2 text-end">
+                <div class="d-inline-block">
+                    <!-- Botão Perfil-->
+                    <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                        aria-controls="offcanvasRight">
+                        <img src="images/avatar.png">
+                    </button>
+
+                    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                        aria-labelledby="offcanvasRightLabel">
+                        <div class="offcanvas-header">
+                            <img src="images/avatar.png" class="sidebar-avatar">
+                            <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body p-0 text-start">
+                            <ul>
+                                <li class="my-3"><a href="" class="lista">
+                                        <h4 class="px-3 py-1">Reservas</h4>
+                                    </a></li>
+                                <li class="my-3"><a href="" class="lista">
+                                        <h4 class="px-3 py-1">Reservas</h4>
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-7 col-xl-6 offset-xl-1">
+                    <div class="border-1 border rounded-3 secao p-3 fit-content text-center">
+                        <h3>Nome do Quarto/Pousada, nº</h3>
+
+                        <div id="carouselExampleIndicators" class="carousel slide mb-3" data-bs-ride="true">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="images/imgnotfound.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/imgnotfound.png" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="images/imgnotfound.png" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button"
+                                data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <input type="file" class="fileinput d-none" id="fileinput" name="arquivos"
+                            accept="image/png, image/jpeg" multiple="multiple">
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-5 col-xl-4">
+                    <div class="border-1 border rounded-3 secao p-3 mt-3 mt-lg-0 quarto">
+                        <div>
+                            <h3 class="text-center">Dados da acomodação: </h3>
+                            <div class="mb-3">
+                                <h5 for="descricao" class="form-h5">Descrição adicionada: </h5>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                    Itaque sequi beatae ipsa similique, fugiat fuga numquam labore autem rerum
+                                    consequuntur sapiente quae, quam vel officiis enim repudiandae. In, provident.
+                                    Placeat.</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row mt-3">
+                            <div class="col-12 text-end">
+                                <a href="alugar.html" class="btn btn-danger me-1 botao-vermelho">Reprovar</a><a
+                                    href="alugar.html" class="btn btn-primary botao">Aprovar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer class="bg-light border-top py-3 mt-3">
+        <div class="d-flex flex-wrap container justify-content-between align-items-center">
+
+            <div class="col-12 col-md-8 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-muted">© 2022 Hostello para administradores. Todos os Direitos
+                    Reservados.</span>
+            </div>
+
+            <ul class="col-12 col-md-4 justify-content-center justify-content-md-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-instagram"></i></a></li>
+                <li class="ms-3"><a class="text-muted" href="#"><i class="bi bi-facebook"></i></a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="js/carousel.js"></script>
+</body>
+
+</html>

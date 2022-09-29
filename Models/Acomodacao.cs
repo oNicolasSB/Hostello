@@ -15,10 +15,13 @@ public class Acomodacao
     public int EstadiaMin { get; set; }
     public int EstadiaMax { get; set; }
     public double ValorDiaria { get; set; }
+    [ForeignKey("Administrador")]
+    public int? FkAdministrador { get; set; }
     [ForeignKey("TipoAcomodacao")]
     public int FkTipoAcomodacao { get; set; }
     [ForeignKey("Estabelecimento")]
     public int FkEstabelecimento { get; set; }
+    public Administrador Administrador { get; set; }
     public TipoAcomodacao TipoAcomodacao { get; set; }
     public Estabelecimento Estabelecimento { get; set; }
     public ICollection<ItemReserva> ItensReserva { get; set; }

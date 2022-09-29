@@ -12,10 +12,14 @@ public class Avaliacao
     public double NotaAvaliacao { get; set; }
     [Required, StringLength(256)]
     public string Comentario { get; set; }
+    public bool? Aprovado { get; set; }
+    [ForeignKey("Administrador")]
+    public int? FkAdministrador { get; set; }
     [ForeignKey("Cliente")]
     public int FkCliente { get; set; }
     [ForeignKey("Acomodacao")]
     public int FkAcomodacao { get; set; }
+    public Administrador Administrador { get; set; }
     public Cliente Cliente { get; set; }
     public Acomodacao Acomodacao { get; set; }
 } 

@@ -13,9 +13,9 @@ public class EnderecoController : Controller
         _db = db;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(int p=1)
     {
-        var enderecos = _db.Enderecos.ToList();
+        var enderecos = _db.Enderecos.Skip((p-1)*5).Take(5).ToList();
         return View(enderecos);
     }
     [HttpGet]
@@ -71,8 +71,9 @@ public class EnderecoController : Controller
         
     }
     [HttpPost]
-    public IActionResult ProcessDelete(Endereco endereco)
+    public IActionResult ProcessDelete(int idEndereco)
     {
+        var endereco = _db.Enderecos.Find(idEndereco);
         if(endereco is null)
             return RedirectToAction("Index");
         _db.Enderecos.Remove(endereco);

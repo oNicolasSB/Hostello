@@ -51,6 +51,24 @@ h1, h2, h3, h4, h5, h6, p, span, ul, li, select, option, input, button, a{
     transition: all 300ms;
 }
 
+.botao-vermelho {
+    background-color: #d81b1b;
+    border-radius: 20px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.botao-vermelho:hover {
+    background-color: #701414;
+    color: white;
+    transition: all 300ms;
+}
+
 .offcanvas-body {
     background-color: #FFFEFE;
 }
