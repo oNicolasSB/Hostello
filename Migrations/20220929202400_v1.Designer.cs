@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using hostello.Data;
 
@@ -10,9 +11,10 @@ using hostello.Data;
 namespace hostello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220929202400_v1")]
+    partial class v1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -43,7 +45,7 @@ namespace hostello.Migrations
                     b.Property<int>("FkTipoAcomodacao")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double?>("MediaAvaliacaoQuarto")
+                    b.Property<double>("MediaAvaliacaoQuarto")
                         .HasColumnType("REAL");
 
                     b.Property<int>("Numero")

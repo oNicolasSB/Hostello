@@ -59,9 +59,8 @@
                         <div class="col-4"><label for="tipoacomodacao" asp-for="@Model.TipoAcomodacao">Tipo de acomodação: </label>
                         </div>
                         <div class="col-8">
-                            <select class="form-select shadow-none" id="tipoacomodacao">
-                                <option selected value="hotel"  asp-for="@Model.TipoAcomodacao">Hotel</option>
-                                <option value="pousada" asp-for="@Model.TipoAcomodacao">Pousada</option>
+                            <select class="form-select shadow-none" id="tipoacomodacao" asp-for="@Model.TipoAcomodacao" asp-items="@ViewBag.SelectTiposAcomodacoes">
+                                <option value="">Selecione</option>
                             </select>
                         </div>
                     </div>
@@ -176,10 +175,10 @@
                 </div>
                 <hr>
                 <div class="row mt-3">
-                    <div class="col-7">
-
-                    </div>
-                    <div class="col-5 text-end"><button type="submit" href="alugar.html" class="btn btn-primary botao">Próximo</button>
+                    <input type="hidden" asp-for="@Model.FkEstabelecimento">
+                    <input type="hidden" asp-for="@Model.MediaAvaliacaoQuarto">
+                    <div class="col-5 text-end">
+                        <button type="submit" class="btn btn-primary botao">Próximo</button>
                     </div>
                 </div>
 

@@ -7,7 +7,7 @@ public class Acomodacao
 {
     [Key]
     public int IdAcomodacao { get; set; }
-    public double MediaAvaliacaoQuarto { get; set; }
+    public double? MediaAvaliacaoQuarto { get; set; }
     [Required, StringLength(256)]
     public string Descricao { get; set; }
     public int Numero { get; set; }
