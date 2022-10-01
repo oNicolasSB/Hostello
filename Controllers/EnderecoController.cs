@@ -15,7 +15,7 @@ public class EnderecoController : Controller
 
     public IActionResult Index(int p=1)
     {
-        var enderecos = _db.Enderecos.Skip((p-1)*5).Take(5).ToList();
+        var enderecos = _db.Enderecos.Skip((p-1)*5).Take(5).ToList(); //paginação
         return View(enderecos);
     }
     [HttpGet]

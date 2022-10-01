@@ -1,0 +1,87 @@
+@model Cliente
+<div class="row align-items-center vh-100">
+            <div class="col-12 col-12-6 offset-12-3 col-md-6 offset-md-3 border-1 border rounded-3 p-3 secao">
+                <div class="py-2">
+                    <div>
+                        <h2 class="py-2 text-center">Efetuar cadastro:</h1>
+                    </div>
+                    <div>
+                        <div class="text-center">
+                            <input type="button" id="opcusuario" value="Para você" class="botao-destaque shadow-none"
+                                onclick=alterarusuario()>
+                            <input type="button" id="opchoteleiro" value="Para sua empresa"
+                                class="botao-destaque shadow-none" onclick=alterarhoteleiro()>
+                        </div>
+
+                        <div id="ent_usuario">
+                            <form id="form_usuario" method="POST">
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label asp-for="@Model.Nome">Nome completo:</label>
+                                        <input type="text" class="form-control shadow-none" asp-for="@Model.Nome">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label asp-for="@Model.Email">E-mail:</label>
+                                        <input type="email" class="form-control shadow-none" asp-for="@Model.Email">
+                                    </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label asp-for="@Model.Cpf">CPF:</label>
+                                            <input type="text" class="form-control shadow-none" asp-for="@Model.Cpf">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label asp-for="@Model.DataNascimento">Data de nascimento:</label>
+                                            <input type="date" class="form-control shadow-none" asp-for="@Model.DataNascimento">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label asp-for="@Model.Telefone">Telefone celular:</label>
+                                            <input type="text" class="form-control shadow-none" asp-for="@Model.Telefone">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form">
+                                            <label asp-for="@Model.Sexo">Sexo:</label>
+                                            <select class="form-select" asp-for="@Model.Sexo">
+                                                <option value="1">Masculino</option>
+                                                <option value="2">Feminino</option>
+                                                <option value="3" selected>Prefiro não informar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label asp-for="@Model.Senha">Senha:</label>
+                                            <input type="password" class="form-control shadow-none" asp-for="@Model.Senha">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Confirmar senha:</label>
+                                            <input type="password" class="form-control shadow-none" id="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="botao">Registrar</button>
+                                    <p>Já tem uma conta? Efetue <a href="login.html">Login</a></p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

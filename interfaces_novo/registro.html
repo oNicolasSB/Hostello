@@ -27,53 +27,145 @@
                         <h2 class="py-2 text-center">Efetuar cadastro:</h1>
                     </div>
                     <div>
-                        <form>
-                            <div class="text-center">
-                                <input type="button" id="opcusuario" value="Para você" class="botao-destaque shadow-none"
-                                    onclick=alterarusuario()>
-                                <input type="button" id="opchoteleiro" value="Para sua empresa" class="botao-destaque shadow-none"
-                                    onclick=alterarhoteleiro()>
-                            </div>
+                        <div class="text-center">
+                            <input type="button" id="opcusuario" value="Para você" class="botao-destaque shadow-none"
+                                onclick=alterarusuario()>
+                            <input type="button" id="opchoteleiro" value="Para sua empresa"
+                                class="botao-destaque shadow-none" onclick=alterarhoteleiro()>
+                        </div>
 
-                            <div id="ent_usuario">
-                                <form id="form_usuario">
-                                    <div class="col-12">
+                        <div id="ent_usuario">
+                            <form id="form_usuario">
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">Nome completo:</label>
+                                        <input type="text" class="form-control shadow-none" id="nome">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">E-mail:</label>
+                                        <input type="email" class="form-control shadow-none" id="email">
+                                    </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Nome completo:</label>
-                                            <input type="text" class="form-control shadow-none" id="nome">
+                                            <label for="cadastro">CPF:</label>
+                                            <input type="text" class="form-control shadow-none" id="cpf">
                                         </div>
                                     </div>
-
-
-                                    <div class="col-12">
+                                    <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">E-mail:</label>
-                                            <input type="email" class="form-control shadow-none" id="email">
+                                            <label for="cadastro">Data de nascimento:</label>
+                                            <input type="date" class="form-control shadow-none" id="Nascimento">
                                         </div>
                                     </div>
-                                    <div class="row g-2">
-                                        <div class="col-6">
-                                            <div class="form-group py-2">
-                                                <label for="cadastro">CPF:</label>
-                                                <input type="text" class="form-control shadow-none" id="cpf">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group py-2">
-                                                <label for="cadastro">Data de nascimento:</label>
-                                                <input type="date" class="form-control shadow-none" id="Nascimento">
-                                            </div>
+                                </div>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="cadastro">Telefone celular:</label>
+                                            <input type="text" class="form-control shadow-none" id="telefone">
                                         </div>
                                     </div>
+                                    <div class="col-6">
+                                        <div class="form">
+                                            <label for="SelectGrid">Sexo:</label>
+                                            <select class="form-select" id="SelectGrid">
+                                                <option value="1">Masculino</option>
+                                                <option value="2">Feminino</option>
+                                                <option value="3" selected>Prefiro não informar</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">Usuário:</label>
+                                        <input type="text" class="form-control shadow-none" id="usuario">
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Senha:</label>
+                                            <input type="password" class="form-control shadow-none" id="password">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Confirmar senha:</label>
+                                            <input type="password" class="form-control shadow-none" id="password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <a href="login.html"><input type="button" value="Registrar" class="botao"></a>
+                                    <p>Já tem uma conta? Efetue <a href="login.html">Login</a></p>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="ent_hoteleiro">
+                            <form id="form_hoteleiro">
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">Nome completo:</label>
+                                        <input type="text" class="form-control shadow-none" id="nome">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">E-mail:</label>
+                                        <input type="email" class="form-control shadow-none" id="email">
+                                    </div>
+                                </div>
+
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">CPF:</label>
+                                            <input type="text" class="form-control shadow-none" id="cpf">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Data de nascimento:</label>
+                                            <input type="date" class="form-control shadow-none" id="Nascimento">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="cadastro">Telefone celular:</label>
+                                            <input type="text" class="form-control shadow-none" id="telefone">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="cadastro">Telefone fixo:</label>
+                                            <input type="text" class="form-control shadow-none" id="telefone">
+                                        </div>
+                                    </div>
+
                                     <div class="row g-2">
                                         <div class="col-6">
                                             <div class="form-group">
-                                                <label for="cadastro">Telefone celular:</label>
-                                                <input type="text" class="form-control shadow-none" id="telefone">
+                                                <label for="cadastro">Usuário:</label>
+                                                <input type="text" class="form-control shadow-none" id="usuario">
                                             </div>
                                         </div>
                                         <div class="col-6">
-                                            <div class="form">
+                                            <div class="form-group">
                                                 <label for="SelectGrid">Sexo:</label>
                                                 <select class="form-select" id="SelectGrid">
                                                     <option value="1">Masculino</option>
@@ -83,14 +175,35 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="col-12">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Usuário:</label>
+                                            <label for="cadastro">Razão Social:</label>
                                             <input type="text" class="form-control shadow-none" id="usuario">
                                         </div>
                                     </div>
 
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <div class="form-group py-2">
+                                                <label for="cadastro">CNPJ:</label>
+                                                <input type="text" class="form-control shadow-none" id="cnpj">
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group py-2">
+                                                <label for="cadastro">CEP:</label>
+                                                <input type="text" class="form-control shadow-none" id="cep">
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col-12">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Nome fantasia:</label>
+                                            <input type="text" class="form-control shadow-none" id="usuario">
+                                        </div>
+                                    </div>
 
                                     <div class="row g-2">
                                         <div class="col-6">
@@ -106,131 +219,13 @@
                                             </div>
                                         </div>
                                     </div>
+
                                     <div class="text-center">
                                         <a href="login.html"><input type="button" value="Registrar" class="botao"></a>
                                         <p>Já tem uma conta? Efetue <a href="login.html">Login</a></p>
                                     </div>
-                                </form>
-                            </div>
-
-                            <div id="ent_hoteleiro" >
-                                <form id="form_hoteleiro">
-                                    <div class="col-12">
-                                        <div class="form-group py-2">
-                                            <label for="cadastro">Nome completo:</label>
-                                            <input type="text" class="form-control shadow-none" id="nome">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group py-2">
-                                            <label for="cadastro">E-mail:</label>
-                                            <input type="email" class="form-control shadow-none" id="email">
-                                        </div>
-                                    </div>
-
-                                    <div class="row g-2">
-                                        <div class="col-6">
-                                            <div class="form-group py-2">
-                                                <label for="cadastro">CPF:</label>
-                                                <input type="text" class="form-control shadow-none" id="cpf">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group py-2">
-                                                <label for="cadastro">Data de nascimento:</label>
-                                                <input type="date" class="form-control shadow-none" id="Nascimento">
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row g-2">
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="cadastro">Telefone celular:</label>
-                                                <input type="text" class="form-control shadow-none" id="telefone">
-                                            </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="form-group">
-                                                <label for="cadastro">Telefone fixo:</label>
-                                                <input type="text" class="form-control shadow-none" id="telefone">
-                                            </div>
-                                        </div>
-
-                                        <div class="row g-2">
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="cadastro">Usuário:</label>
-                                                    <input type="text" class="form-control shadow-none" id="usuario">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group">
-                                                    <label for="SelectGrid">Sexo:</label>
-                                                    <select class="form-select" id="SelectGrid">
-                                                        <option value="1">Masculino</option>
-                                                        <option value="2">Feminino</option>
-                                                        <option value="3" selected>Prefiro não informar</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-group py-2">
-                                                <label for="cadastro">Razão Social:</label>
-                                                <input type="text" class="form-control shadow-none" id="usuario">
-                                            </div>
-                                        </div>
-
-                                        <div class="row g-2">
-                                            <div class="col-6">
-                                                <div class="form-group py-2">
-                                                    <label for="cadastro">CNPJ:</label>
-                                                    <input type="text" class="form-control shadow-none" id="cnpj">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group py-2">
-                                                    <label for="cadastro">CEP:</label>
-                                                    <input type="text" class="form-control shadow-none" id="cep">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="form-group py-2">
-                                                <label for="cadastro">Nome fantasia:</label>
-                                                <input type="text" class="form-control shadow-none" id="usuario">
-                                            </div>
-                                        </div>
-
-                                        <div class="row g-2">
-                                            <div class="col-6">
-                                                <div class="form-group py-2">
-                                                    <label for="cadastro">Senha:</label>
-                                                    <input type="password" class="form-control shadow-none"
-                                                        id="password">
-                                                </div>
-                                            </div>
-                                            <div class="col-6">
-                                                <div class="form-group py-2">
-                                                    <label for="cadastro">Confirmar senha:</label>
-                                                    <input type="password" class="form-control shadow-none"
-                                                        id="password">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="text-center">
-                                            <a href="login.html"><input type="button" value="Registrar"
-                                                    class="botao"></a>
-                                            <p>Já tem uma conta? Efetue <a href="login.html">Login</a></p>
-                                        </div>
-                                </form>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
