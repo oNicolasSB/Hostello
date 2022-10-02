@@ -95,14 +95,17 @@
                                     <div class="col-6">
                                         <div class="form-group py-2">
                                             <label for="cadastro">Senha:</label>
-                                            <input type="password" class="form-control shadow-none" id="password">
+                                            <input type="password" class="form-control shadow-none" id="password" onkeyup="verificar()">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
                                             <label for="cadastro">Confirmar senha:</label>
-                                            <input type="password" class="form-control shadow-none" id="password">
+                                            <input type="password" class="form-control shadow-none" id="confirm" onkeyup="verificar()">
                                         </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <span id="message"></span>
                                     </div>
                                 </div>
                                 <div class="text-center">
@@ -112,7 +115,7 @@
                             </form>
                         </div>
 
-                        <div id="ent_hoteleiro">
+                        <!-- <div id="ent_hoteleiro">
                             <form id="form_hoteleiro">
                                 <div class="col-12">
                                     <div class="form-group py-2">
@@ -215,9 +218,10 @@
                                         <div class="col-6">
                                             <div class="form-group py-2">
                                                 <label for="cadastro">Confirmar senha:</label>
-                                                <input type="password" class="form-control shadow-none" id="password">
+                                                <input type="password" class="form-control shadow-none" id="confirm">
                                             </div>
                                         </div>
+                                        <div class="col-12"><span id="message"></span></div>
                                     </div>
 
                                     <div class="text-center">
@@ -225,14 +229,15 @@
                                         <p>Já tem uma conta? Efetue <a href="login.html">Login</a></p>
                                     </div>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="scripts/script_registro.js"></script>
+    <!-- <script src="js/script_registro.js"></script> -->
+    <script src="js/verificar_senha.js"></script>
 </body>
 
 </html>
