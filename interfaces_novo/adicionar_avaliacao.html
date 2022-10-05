@@ -15,7 +15,7 @@
     <title>Adicionar avaliação</title>
 </head>
 
-<body>
+<body onload="avaliar3()">
 
     <nav class="navegacao py-3 mb-3">
         <div class="container d-flex justify-content-between align-items-center">
@@ -143,16 +143,18 @@
                         </p>
                         <h3 class="text-center">Classifique o estabelecimento: </h3>
                         <div class="estrelas justify-content-center w-100">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                                <i class="bi bi-star"></i>
+                                <i id="estrela1" onclick="avaliar1()"></i>
+                                <i id="estrela2" onclick="avaliar2()"></i>
+                                <i id="estrela3" onclick="avaliar3()"></i>
+                                <i id="estrela4" onclick="avaliar4()"></i>
+                                <i id="estrela5" onclick="avaliar5()"></i>
                         </div>
 
                         <h3 class="text-center">Adicionar avaliação: </h3>
                         <textarea class="form-control shadow-none" style="resize: none;" id="descricao"
                         rows="3"></textarea>
+
+                        <input type="hidden" value="" id="avaliacao">
                         
                         <div class="row mt-3">
     
@@ -227,6 +229,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
     <script src="js/carousel.js"></script>
+    <script src="js/script_avaliar.js"></script>
 </body>
 
 </html>
