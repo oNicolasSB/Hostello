@@ -1,0 +1,29 @@
+@{
+    Layout = "_LayoutAdmin";
+}
+@model List<Responsavel>
+<div class="row">
+            <table class="table table-striped table-hover tabela">
+                <h2 class="text-center">Responsaveis Cadastrados</h2>
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var responsavel in Model)
+                    {
+                        <tr>
+                        <th scope="row">@responsavel.Nome</th>
+                        <td>@responsavel.Telefone</td>
+                        <td>@responsavel.Cpf</td>
+                        <td>@responsavel.Email</td>
+                    </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>

@@ -21,13 +21,27 @@ public class ClienteController : Controller
     [HttpGet]
     public IActionResult Create()
     {
-        var cliente = new Cliente();
+        var cliente = new CadastroClienteViewModel();
         return View(cliente);
     }
     [HttpPost]
-    public IActionResult Create(Cliente cliente)
+    public IActionResult Create(CadastroClienteViewModel clienteViewModel)
     {
-        if(!ModelState.IsValid) return View(cliente);
+        if(!ModelState.IsValid) return View(clienteViewModel);
+        var cliente = new Cliente();
+        cliente.Nome = clienteViewModel.Nome;
+        cliente.Cpf = clienteViewModel.Cpf;
+        cliente.Email = clienteViewModel.Email;
+        cliente.Senha = clienteViewModel.Senha;
+        cliente.Telefone = clienteViewModel.Telefone;
+        cliente.DataNascimento = clienteViewModel.DataNascimento;
+        if(clienteViewModel.Sexo == 0){
+            cliente.Sexo = EnumSexo.NaoInformado;
+        } else if (clienteViewModel.Sexo == 1){
+            cliente.Sexo = EnumSexo.Masculino;
+        } else {
+            cliente.Sexo = EnumSexo.Feminino;
+        }
         _db.Clientes.Add(cliente);
         _db.SaveChanges();
         return RedirectToAction("Index");
