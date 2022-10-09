@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Perfil</title>
+</head>
+
+<body>
+
+    <nav class="navegacao py-3 mb-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="col-2 text-start">
+                <a href=""><img src="images/logo_completa.png" class="logo d-none d-lg-block"><img src="images/logo.png"
+                        class=" logo d-block d-lg-none"></a>
+            </div>
+
+            <div class="col-8 d-flex justify-content-center">
+                <form class="d-none d-md-block barra-pesquisa">
+                    <input type="search" placeholder="Qual seu destino?">
+                    <button type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="col-2 text-end">
+                <!-- Botão Perfil-->
+                <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight">
+                    <img src="images/avatar.png">
+                </button>
+
+                <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
+                    aria-labelledby="offcanvasRightLabel">
+                    <div class="offcanvas-header barralateral lista-header">
+                        <button type="button" class="btn fechar" data-bs-dismiss="offcanvas" aria-label="Close"><i
+                                class="bi bi-x-lg"></i></button>
+
+                        <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
+                        <img src="images/avatar.png" class="sidebar-avatar">
+                    </div>
+                    <div class="offcanvas-body p-0 text-start">
+                        <ul>
+                            <li class="my-3"><a href="" class="lista">
+                                    <h4 class="px-3 py-1">Reservas</h4>
+                                </a></li>
+                            <li class="my-3"><a href="" class="lista">
+                                    <h4 class="px-3 py-1">Reservas</h4>
+                                </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+        <div class="d-block d-md-none container mt-2">
+            <form class="barra-pesquisa">
+                <div class="input-group">
+                    <input class="form-control shadow-none bg-transparent" type="search"
+                        placeholder="Qual seu destino?">
+                    <div>
+                        <button type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container">
+        <div class="card mb-3">
+            <div class="row g-0">
+                <div class="col-sm-5 col-md-4">
+                    <img src="images/foto_perfil.jpg" class="img-fluid" alt="...">
+                </div>
+                <div class="col-sm-7 col-md-8 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">Informações pessoais:</h5>
+                        <ul class=" list-group-flush">
+                            <li>Nome: Biruliro Da Silva</li>
+                            <li>E-mail: presidente@gmail.com</li>
+                            <li>Telefone: 28 99926598</li>
+                            <li>Nasci.: 12/10/1996</li>
+                        </ul>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="col-12 text-end">
+                            <a href="editar_perfil.html" class="btn btn-primary botao">Editar perfil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="text-center mb-3 col-12">Consultar Reservas:</h3>
+        <div class="row g-0 d-flex">
+            <div class="col-md-2 secao mb-3"
+                style="height:fit-content; border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                <form style="margin: 10px;">
+                    <label for="dia">Reservas:</label>
+                    <select class="form-select shadow-none">
+                        <option value="1" selected>Concluidas</option>
+                        <option value="2">Futuras</option>
+                    </select>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary botao-destaque mt-2" style="align-items: center;"
+                            type="submit"><i class="bi bi-funnel-fill"></i></button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-10">
+                <div class="col secao ms-lg-3" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <h5 style="margin: 10px;">Reservas encontradas:</h5>
+                        </div>
+                        <div class=" col-6 text-end">
+                            <button class="btn btn-primary botao-destaque mt-2 me-2" type="submit">Detalhes</button>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                    
+                    
+                    <hr style="margin: 10px;">
+
+                    <div>
+
+                        <div class="table-overflow" >
+                            <table class="table table-striped table-hover tabela mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Estab.</th>
+                                        <th scope="col">Quarto</th>
+                                        <th scope="col">Inicio da Estadía</th>
+                                        <th scope="col">Fim da Estadía</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Empresa 1</td>
+                                        <td>001</td>
+                                        <td class="text-center">dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 2</td>
+                                        <td>002</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 3</td>
+                                        <td>003</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 4</td>
+                                        <td>004</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 5</td>
+                                        <td>005</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 6</td>
+                                        <td>006</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 7</td>
+                                        <td>007</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 8</td>
+                                        <td>008</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 9</td>
+                                        <td>009</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 10</td>
+                                        <td>010</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</html>
