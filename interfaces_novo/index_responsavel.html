@@ -85,10 +85,10 @@
         <h3 class="text-center mb-3 col-12">Consultar Reservas</h3>
         <div class="row g-0 d-flex">
             <div class="col-md-2 mb-3">
-                <div class="me-3 secao" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                <div class="me-lg-3 secao" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
                     <form style="margin: 10px;">
                         <label for="dia">Dia:</label>
-    
+
                         <select class="form-select shadow-none" id="maximo">
                             <option selected value="1">1</option>
                             <option value="2">2</option>
@@ -122,9 +122,9 @@
                             <option value="29">29</option>
                             <option value="30">30</option>
                         </select>
-    
+
                         <label for="dia">Mês:</label>
-    
+
                         <select class="form-select shadow-none" id="maximo">
                             <option selected value="1">Janeiro</option>
                             <option value="2">Fevereiro</option>
@@ -139,9 +139,9 @@
                             <option value="10">Novembro</option>
                             <option value="11">Dezembro</option>
                         </select>
-    
+
                         <label for="dia">Ano:</label>
-    
+
                         <select class="form-select shadow-none" id="maximo">
                             <option selected value="1">2022</option>
                             <option value="2">2021</option>
@@ -150,27 +150,89 @@
                             <option value="5">2018</option>
                             <option value="5">2017</option>
                         </select>
-    
+
                         <div class="text-center">
-                            <button class="btn btn-primary botao-destaque mt-2" style="align-items: center;"
+                            <button class="btn btn-primary botao mt-2" style="align-items: center;"
                                 type="submit"><i class="bi bi-funnel-fill"></i></button>
                         </div>
-    
+
                     </form>
                 </div>
-                
+
             </div>
             <div class="col-md-10">
-                <div class="col secao ms-lg-3" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
-                    <h5 style="margin: 10px;">Reservas encontrados:</h5>
-                <hr style="margin: 10px;">
-                <div>
-                    <p style="margin: 10px;">alugueis aqui</p>
+
+                <div class="col secao ms-md-3" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <h5 style="margin: 10px;">Reservas encontradas:</h5>
+                        </div>
+                        <div class=" col-6 text-end">
+                            <button class="btn btn-primary botao mt-2 me-2" type="submit">Detalhes</button>
+                        </div>
+                    </div>
+
+                    <hr style="margin: 10px;">
+
+
+
+
+                    <div class="col-12  align-self-center text-left table-overflow">
+                        <table class="table table-striped table-hover tabela mb-0">
+                            
+                            <thead>
+                                <tr>
+                                    <th scope="col">Entrada</th>
+                                    <th scope="col">Saída</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
                 </div>
-                </div>
-                
             </div>
+
         </div>
+    </div>
     </div>
 
 </body>
