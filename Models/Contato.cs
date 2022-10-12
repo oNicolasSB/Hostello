@@ -7,7 +7,9 @@ public class Contato
 {
     [Key]
     public int IdContato { get; set; }
-    [Required, StringLength(128)]
+    
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [StringLength(64, ErrorMessage = "O campo {0} deve ter no máximo {1} caracteres")]
     public string Nome { get; set; }
     [Required, StringLength(14)]
     public string Telefone { get; set; }
