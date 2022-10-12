@@ -33,4 +33,22 @@ public class AvaliacaoController : Controller
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+    [HttpGet]
+    public IActionResult Delete(int id)
+    {
+        var avaliacao = _db.Avaliacoes.Find(id);
+        if(avaliacao is null)
+            return RedirectToAction("Index");
+        return View(avaliacao);
+        
+    }
+    [HttpPost]
+    public IActionResult ProcessDelete(Avaliacao avaliacao)
+    {
+        if(avaliacao is null)
+            return RedirectToAction("Index");
+        _db.Avaliacoes.Remove(avaliacao);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
 }

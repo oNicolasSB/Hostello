@@ -1,10 +1,28 @@
 @model Endereco;
 
-<h2>Deletando Endereço</h2>
-<h3>Tem certeza que deseja deletar este endereço? Esta ação é irreversível</h3>
-<hr>
-<form method="POST" asp-action="ProcessDelete">
-    <input type="hidden" asp-for="@Model.IdEndereco">
-    <a asp-action="Index" asp-controller="Endereco" class="btn btn-success">No</a>
-    <button type="submit" class="btn btn-danger">Yes</button>
-</form>
+<div class="container">
+        <div class="row align-items-center vh-100">
+            <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 border-1 border rounded-3 p-3 secao">
+                <div class="py-2">
+                    <div>
+                        <h2 class="text-center">Excluir item</h2>
+                    </div>
+                    <hr>
+                    <form method="post" asp-action="ProcessDelete">
+                        <input type="hidden" asp-for="@Model.IdEndereco">
+                    <div>
+                        <p class="text-center">Tem certeza que deseja excluir a acomodação selecionada?</p>
+                    </div>
+                    <div style="text-align: center;"><a class="botao text-decoration-none" asp-action="Index">
+                            Cancelar
+                        </a>
+                        <button class="botao-vermelho" type="submit">
+                            Excluir
+                        </button>
+                    </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </div>

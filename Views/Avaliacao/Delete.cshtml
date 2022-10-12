@@ -1,19 +1,18 @@
 @{
     Layout = "_LayoutVazio";
 }
-
-@model Contato;
+@model Avaliacao;
 
 <div class="container">
         <div class="row align-items-center vh-100">
             <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 border-1 border rounded-3 p-3 secao">
                 <div class="py-2">
                     <div>
-                        <h2 class="text-center">Excluindo @Model.Nome</h2>
+                        <h2 class="text-center">Excluir item</h2>
                     </div>
                     <hr>
                     <form method="post" asp-action="ProcessDelete">
-                        <input type="hidden" asp-for="@Model.IdContato">
+                        <input type="hidden" asp-for="@Model.IdAvaliacao">
                     <div>
                         <p class="text-center">Tem certeza que deseja excluir a acomodação selecionada?</p>
                     </div>

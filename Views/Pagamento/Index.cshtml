@@ -1,119 +1,96 @@
-<div class="principal">
-
-    
-    <section id="secaoprincipal" class="secaoprincipal">
-        <h1>
-            Efetuar Pagamento:
-        </h1>
-        <div id="opc" alig>
-        
-        
-        <button class="botaoopcg">
-            <a href="https://pay.google.com/intl/pt_br/about/">
-            <img src="imagens/google.png" height="20" width="20" />
-            GooglePay
-        </a>
-        </button>
-    
-
-        
-        <button class="botaoopcp">
-            <a href="https://www.paypal.com/br/home">
-            <img src="imagens/paypal.png" height="20" width="20" />
-            PayPal
-        </a>
-        </button>
-        
+<div class="row">
+    <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-1 border rounded-3 p-3 secao">
+        <div class="row py-3">
+            <div class="col-12 col-md-4"><label for="metodo">Escolha o método: </label>
+            </div>
+            <div class="col-12 col-md-8">
+                <div>
+                    <input type="radio" id="cartao" name="metodo" onclick="altcartao()">
+                    <label for="cartao">Cartão</label>
+                </div>
+                <div>
+                    <input type="radio" id="pix" name="metodo"  onclick="altpix()">
+                    <label for="pix">Pix</label>
+                </div>
+                <div>
+                    <input type="radio" id="boleto"  name="metodo" onclick="altboleto()">
+                    <label for="boleto">Boleto</label>
+                </div>
+            </div>
         </div>
-        
-        <div>
-            <table style="text-align:left;">
-            <tr>
-                <td>
-                <p></p><span>Métodos:</span>
-                </td>
-            </tr>
-                </p>
-                <td>
-                    <input type="radio" name="Método" id="cartao" checked onclick="altcartao()"><span>Cartão</span><br>
-                    <input type="radio" name="Método" id="pix" onclick="altpix()"><span>Pix</span><br>
-                    <input type="radio" name="Método" id="boleto" onclick="altboleto()"><span>Boleto</span><br>
-                </td></tr>
-            </table>
-        </div>
-        
-        
-            
-            <div id="divcartao">
-                <form>
-                    <div class="form-group py-2 text-align">
-                        <label for="pagamento_cartao">Nome no cartão</label>
-                        <input type="text" class="form-control bg-light shadow-none shadow-none" id="nome"
-                            placeholder="Nícolas Sanson Bassini">
-                    </div>
-                    <div class="form-group py-2 text-align">
-                        <label for="pagamento_cartao">Número no cartão</label>
-                        <input type="text" class="form-control bg-light shadow-none" id="numero"
-                            placeholder="0000.0000.0000.0000">
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <div class="form-group py-2 text-align">
-                                <label for="pagamento_cartao">Data de expiração</label>
-                                <input type="text" class="form-control bg-light shadow-none" id="data"
-                                    placeholder="00/00/0000">
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="form-group py-2 text-align">
-                                <label for="pagamento_cartao">CVC/CVV</label>
-                                <input type="text" class="form-control bg-light shadow-none" id="cvc" placeholder="000">
-                            </div>
+        <div id="divcartao" style="display: none;">
+            <form>
+                <div class="form-group py-2 text-align">
+                    <label for="pagamento_cartao">Nome no cartão</label>
+                    <input type="text" class="form-control bg-light shadow-none shadow-none" id="nome"
+                        placeholder="Nícolas Sanson Bassini">
+                </div>
+                <div class="form-group py-2 text-align">
+                    <label for="pagamento_cartao">Número no cartão</label>
+                    <input type="text" class="form-control bg-light shadow-none" id="numero"
+                        placeholder="0000.0000.0000.0000">
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group py-2 text-align">
+                            <label for="pagamento_cartao">Data de expiração</label>
+                            <input type="text" class="form-control bg-light shadow-none" id="data"
+                                placeholder="00/00/0000">
                         </div>
                     </div>
-                </form>
-            <div id="divpix">
-                <form>
-                    <table>
-                    <tr>
-                        <td class="tdEspaco"><label class="label">1 - Abra o app ou banco de sua preferência. Escolha a opção pagar com código Pix “copia e cola”, ou código QR.</label>
-                        </td>
-                        <td class="tdEspaco"><label class="label">2 - Copie e cole o código, ou escaneie o código QR com a câmera do seu celular. Confira todas as informações e autorize o pagamento.</label>
-                        </td></tr>
-                        <td class="tdEspaco"><label class="label">3 - Você vai receber a confirmação do pagamento no seu e-mail. E pronto!</label>
-                        </td></tr>
-                    </table>
-                        <center><img src="imagens/qrcode.jpeg"></center>
-                        <center><input type="button" value="Copiar código PIX" class="botao"></center>
-                        <p>Se o pagamento não for confirmado, não se preocupe. O pedido será cancelado automaticamente.</p>
-                    </form>
-            </div>
-            <div id="divboleto">
-                <form>
-                    <table>
-                    <tr>
-                        <td>
-                            <p>Número do pedido:</p>
-                        </td></tr>
-                        <td>
-                            84610000001-3
-                        </td>
-                        <td>
-                            08600024020-9
-                        </td>
-                        <td>
-                            02408102263-4
-                        </td>
-                        <td>
-                            61827041102-7
-                        </td>
-                    </table>
-                            <img src="imagens/codigodebarras.jpeg">
-                            <p>Utilize este código de barras e pague o boleto pelo celular ;)</p>
-                            <center><input type="button" value="Download do boleto" class="botao"></center>
-                    </form>
-            </div>
-            
-            
-    </section>
+                    <div class="col-6">
+                        <div class="form-group py-2 text-align">
+                            <label for="pagamento_cartao">CVC/CVV</label>
+                            <input type="text" class="form-control bg-light shadow-none" id="cvc" placeholder="000">
+                        </div>
+                    </div>
+                </div>
+                <div class="py-2 text-center">
+                <a asp-action="Index" asp-controller="Home" class="btn btn-primary botao">Finalizar Pagamento</a>
+                </div>
+            </form>
+        </div>
+
+
+        <div id="divpix" style="display: none;">
+            <ul>
+                <li class="py-2 text-align">
+                    1 - Abra o app ou banco de sua preferência. Escolha a opção pagar com código Pix “copia e
+                    cola”, ou código QR.
+                </li>
+                <li class="py-2 text-align">
+                    2 - Copie e cole o código, ou escaneie o código QR com a câmera do seu celular. Confira
+                    todas as informações e autorize o pagamento.
+                </li>
+                <li class="py-2 text-align">
+                    3 - Você vai receber a confirmação do pagamento no seu e-mail. E pronto!
+                </li>
+                <li py-2>
+                    <img src="~/img/qrcode.jpeg" class="mx-auto d-block">
+                </li>
+            </ul>
+        </div>
+
+        <div id="divboleto" style="display: none;">
+            <ul>
+                <li class="py-2">
+                    Número do pedido:
+                </li>
+                <li class="py-2 text-center">
+                    84610000001-3 08600024020-9 02408102263-4 61827041102-7
+                </li>
+                <li class="py-2">
+                    <img src="~/img/codigodebarras.jpeg" style="width: 100%;">
+                </li>
+                <li class="py-2">
+                    Utilize este código de barras e pague o boleto pelo celular ;)
+                </li>
+                <li class="py-2 text-center">
+                    <a href="" class="btn btn-primary botao">Baixar Boleto</a>
+                </li>
+            </ul>
+        </div>
+
+        
+    </div>
 </div>

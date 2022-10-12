@@ -3,13 +3,21 @@
 }
 @model List<Endereco>
 
-<a class="botao-destaque my-1 my-md-2 text-center" style="width: 16px;" type="button" asp-controller="Endereco" asp-action="Create">
-        <i class="bi bi-plus-lg" style="font-size: 16px; line-height: 16px;"></i>
-    </a>
+<header class="container">
+    <div class="row">
+        <div class="col-8 offset-2 align-self-center">
+            <h1 class="text-center pb-3">Endereços Cadastrados</h1>
+        </div>
+        <div class="text-end col-2 align-self-center">
+            <a class="botao-destaque" asp-action="Create">
+                <i class="bi bi-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+</header>
 
 <div class="row">
             <table class="table table-striped table-hover tabela">
-                <h2 class="text-center">Enderecos Cadastrados</h2>
                 <thead>
                     <tr>
                         <th scope="col">Id</th>

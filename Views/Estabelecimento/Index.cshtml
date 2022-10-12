@@ -13,7 +13,6 @@
                         <th scope="col">CNPJ</th>
                         <th scope="col">Razão Social</th>
                         <th scope="col">Media Avaliação</th>
-                        <th scope="col">Detalhes</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,7 +25,6 @@
                         <td>@estabelecimento.CNPJ</td>
                         <td>@estabelecimento.RazaoSocial</td>
                         <td>@estabelecimento.MediaAvaliacao</td>
-                        <td><a asp-action="Details" asp-controller="Estabelecimento" asp-route-id=@estabelecimento.IdEstabelecimento>Detalhes</a></td>
                     </tr>
                     }
                     
