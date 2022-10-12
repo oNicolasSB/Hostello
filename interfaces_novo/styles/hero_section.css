@@ -1,23 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
-
-@font-face{
-    font-family: bold;
-    src: url("styles/OpenSans_Condensed-ExtraBold.ttf") format("ttf");
-}
-
 body {
    font-size: 15px;
-   font-family: 'Open Sans', sans-serif;
    background-color: white;
 }
 
+.titulo{
+   font-weight: 800 !important;
+}
 
 .title-sm {
    font-size: 16px;
    letter-spacing: 1px;
 }
 
-img {
+.imagem {
+   width: 100%;
+}
+
+.img-header{
+   max-height: 500px;
+   max-width: 720px;
    width: 100%;
 }
 
