@@ -53,79 +53,63 @@
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label asp-for=@Model.Telefone>Telefone celular:</label>
-                                            <input type="text" class="form-control shadow-none" id="telefone">
+                                            <label asp-for=@Model.Celular>Telefone celular:</label>
+                                            <input type="text" class="form-control shadow-none" asp-for=@Model.Celular>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Telefone fixo:</label>
-                                            <input type="text" class="form-control shadow-none" id="telefone">
+                                            <label asp-for=@Model.Telefone>Telefone fixo:</label>
+                                            <input type="text" class="form-control shadow-none"  asp-for=@Model.Telefone>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="row g-2 ">
                                     <div class="col-6">
-                                        <div class="form-group py-2">
-                                            <label for="cadastro">Usuário:</label>
-                                            <input type="text" class="form-control shadow-none" id="usuario">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
                                         <div class="form-group py-2 ">
-                                            <label for="SelectGrid">Sexo:</label>
-                                            <select class="form-select" id="SelectGrid">
+                                            <label asp-for=@Model.Sexo>Sexo:</label>
+                                            <select class="form-select shadow-none" id="SelectGrid">
                                                 <option value="1">Masculino</option>
                                                 <option value="2">Feminino</option>
                                                 <option value="3" selected>Prefiro não informar</option>
                                             </select>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group py-2">
-                                        <label for="cadastro">Razão Social:</label>
-                                        <input type="text" class="form-control shadow-none" id="usuario">
-                                    </div>
-                                </div>
-
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <div class="form-group py-2">
-                                            <label for="cadastro">CNPJ:</label>
-                                            <input type="text" class="form-control shadow-none" id="cnpj">
-                                        </div>
+                                        
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">CEP:</label>
-                                            <input type="text" class="form-control shadow-none" id="cep">
+                                            <label asp-for=@Model.Cnpj>CNPJ:</label>
+                                            <input type="text" class="form-control shadow-none"  asp-for=@Model.Cnpj>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="col-12">
                                     <div class="form-group py-2">
-                                        <label for="cadastro">Nome fantasia:</label>
-                                        <input type="text" class="form-control shadow-none" id="usuario">
+                                        <label asp-for=@Model.RazaoSocial>Razão Social:</label>
+                                        <input type="text" class="form-control shadow-none"  asp-for=@Model.RazaoSocial>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label  asp-for=@Model.NomeFantasia>Nome fantasia:</label>
+                                        <input type="text" class="form-control shadow-none"  asp-for=@Model.NomeFantasia>
                                     </div>
                                 </div>
 
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Senha:</label>
-                                            <input type="password" class="form-control shadow-none" id="password"
-                                                onkeyup="verificar()">
+                                            <label  asp-for=@Model.Senha>Senha:</label>
+                                            <input type="password" class="form-control shadow-none"  asp-for=@Model.Senha>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Confirmar senha:</label>
-                                            <input type="password" class="form-control shadow-none" id="confirm"
-                                                onkeyup="verificar()">
+                                            <label asp-for=@Model.ConfSenha>Confirmar senha:</label>
+                                            <input type="password" class="form-control shadow-none"  asp-for=@Model.ConfSenha>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -134,7 +118,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <a href="login.html" class="botao" id="proximo">Registrar</a>
+                                    <button type="submit" class="botao" id="proximo">Registrar</button>
                                     <p class="pt-2">Já tem uma conta? Efetue <a href="login.html">Login</a></p>
                                 </div>
                             </form>

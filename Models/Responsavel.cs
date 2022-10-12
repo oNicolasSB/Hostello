@@ -5,5 +5,6 @@ namespace hostello.Models;
 
 public class Responsavel : Usuario
 {
+    [NotMapped]
     public ICollection<Estabelecimento> Estabelecimentos { get; set; }
 }

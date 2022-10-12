@@ -6,7 +6,7 @@ namespace hostello.Models;
 public class CadastroResponsavelViewModel
 {
     [Key]
-    public int IdUsuario { get; set; }
+    public int IdCadastroResponsavel { get; set; }
 
     public string Nome { get; set; }
 
@@ -22,9 +22,17 @@ public class CadastroResponsavelViewModel
     [Required, StringLength(32)]
     [Compare(nameof(Senha), ErrorMessage = "Os campos {0} e {1} devem ser iguais.")]
     public string ConfSenha { get; set; }
+    [Required, StringLength(128)]
+    public string RazaoSocial { get; set; }
+    [Required, StringLength(128)]
+    public string NomeFantasia { get; set; }
+    [Required, StringLength(14)]
+    public string Cnpj { get; set; }
 
     [StringLength(14)]
     public string Telefone { get; set; }
+    [StringLength(14)]
+    public string Celular { get; set; }
 
     [Required]
     public DateTime DataNascimento { get; set; }

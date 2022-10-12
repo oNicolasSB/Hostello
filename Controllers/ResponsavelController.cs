@@ -44,8 +44,17 @@ public class ResponsavelController : Controller
             responsavel.Sexo = EnumSexo.Feminino;
         }
         _db.Responsaveis.Add(responsavel);
+        var estabelecimento = new Estabelecimento();
+        estabelecimento.CNPJ = responsavelViewModel.Cnpj;
+        estabelecimento.NomeFantasia = responsavelViewModel.NomeFantasia;
+        estabelecimento.TelefoneFixo = responsavelViewModel.Telefone;
+        estabelecimento.Celular = responsavelViewModel.Celular;
+        estabelecimento.RazaoSocial = responsavelViewModel.RazaoSocial;
+        estabelecimento.MediaAvaliacao = null;
+        _db.Estabelecimentos.Add(estabelecimento);
+
         _db.SaveChanges();
-        return RedirectToAction("Index");
+        return RedirectToAction("Create", "Endereco");
 
     }
 }

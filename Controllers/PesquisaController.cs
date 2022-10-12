@@ -5,17 +5,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace hostello.Controllers;
 
-public class HomeController : Controller
+public class PesquisaController : Controller
 {
     private readonly AppDbContext _db;
 
-    public HomeController(AppDbContext db)
+    public PesquisaController(AppDbContext db)
     {
         _db = db;
     }
-
     public IActionResult Index()
     {
-        return View();
+        var acomodacoes = _db.Acomodacoes.Include(a=>a.Estabelecimento).Include(a=>a.Estabelecimento.Endereco).AsNoTracking().ToList();
+        return View(acomodacoes);
     }
 }

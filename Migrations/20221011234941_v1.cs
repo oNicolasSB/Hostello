@@ -54,12 +54,18 @@ namespace hostello.Migrations
                     Senha = table.Column<string>(type: "TEXT", maxLength: 32, nullable: false),
                     Telefone = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
                     DataNascimento = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Sexo = table.Column<char>(type: "TEXT", nullable: false),
-                    Discriminator = table.Column<string>(type: "TEXT", nullable: false)
+                    Sexo = table.Column<int>(type: "INTEGER", nullable: false),
+                    Discriminator = table.Column<string>(type: "TEXT", nullable: false),
+                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
+                    table.ForeignKey(
+                        name: "FK_Usuarios_Enderecos_FkEndereco",
+                        column: x => x.FkEndereco,
+                        principalTable: "Enderecos",
+                        principalColumn: "IdEndereco");
                 });
 
             migrationBuilder.CreateTable(
@@ -73,8 +79,8 @@ namespace hostello.Migrations
                     TelefoneFixo = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
                     Celular = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
                     RazaoSocial = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    MediaAvaliacao = table.Column<double>(type: "REAL", nullable: false),
-                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: false),
+                    MediaAvaliacao = table.Column<double>(type: "REAL", nullable: true),
+                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: true),
                     ResponsavelIdUsuario = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
@@ -84,8 +90,7 @@ namespace hostello.Migrations
                         name: "FK_Estabelecimentos_Enderecos_FkEndereco",
                         column: x => x.FkEndereco,
                         principalTable: "Enderecos",
-                        principalColumn: "IdEndereco",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdEndereco");
                     table.ForeignKey(
                         name: "FK_Estabelecimentos_Usuarios_ResponsavelIdUsuario",
                         column: x => x.ResponsavelIdUsuario,
@@ -122,7 +127,7 @@ namespace hostello.Migrations
                 {
                     IdAcomodacao = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    MediaAvaliacaoQuarto = table.Column<double>(type: "REAL", nullable: false),
+                    MediaAvaliacaoQuarto = table.Column<double>(type: "REAL", nullable: true),
                     Descricao = table.Column<string>(type: "TEXT", maxLength: 256, nullable: false),
                     Numero = table.Column<int>(type: "INTEGER", nullable: false),
                     PessoasMax = table.Column<int>(type: "INTEGER", nullable: false),
@@ -300,6 +305,11 @@ namespace hostello.Migrations
                 name: "IX_Reservas_FkCliente",
                 table: "Reservas",
                 column: "FkCliente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Usuarios_FkEndereco",
+                table: "Usuarios",
+                column: "FkEndereco");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -326,10 +336,10 @@ namespace hostello.Migrations
                 name: "TiposAcomodacoes");
 
             migrationBuilder.DropTable(
-                name: "Enderecos");
+                name: "Usuarios");
 
             migrationBuilder.DropTable(
-                name: "Usuarios");
+                name: "Enderecos");
         }
     }
 }

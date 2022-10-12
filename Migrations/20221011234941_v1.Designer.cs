@@ -11,8 +11,8 @@ using hostello.Data;
 namespace hostello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220929203356_v2")]
-    partial class v2
+    [Migration("20221011234941_v1")]
+    partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -210,10 +210,10 @@ namespace hostello.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("FkEndereco")
+                    b.Property<int?>("FkEndereco")
                         .HasColumnType("INTEGER");
 
-                    b.Property<double>("MediaAvaliacao")
+                    b.Property<double?>("MediaAvaliacao")
                         .HasColumnType("REAL");
 
                     b.Property<string>("NomeFantasia")
@@ -341,8 +341,8 @@ namespace hostello.Migrations
                         .HasMaxLength(32)
                         .HasColumnType("TEXT");
 
-                    b.Property<char>("Sexo")
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Sexo")
+                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Telefone")
                         .HasMaxLength(14)
@@ -365,6 +365,11 @@ namespace hostello.Migrations
             modelBuilder.Entity("hostello.Models.Cliente", b =>
                 {
                     b.HasBaseType("hostello.Models.Usuario");
+
+                    b.Property<int?>("FkEndereco")
+                        .HasColumnType("INTEGER");
+
+                    b.HasIndex("FkEndereco");
 
                     b.HasDiscriminator().HasValue("Cliente");
                 });
@@ -441,9 +446,7 @@ namespace hostello.Migrations
                 {
                     b.HasOne("hostello.Models.Endereco", "Endereco")
                         .WithMany()
-                        .HasForeignKey("FkEndereco")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("FkEndereco");
 
                     b.HasOne("hostello.Models.Responsavel", null)
                         .WithMany("Estabelecimentos")
@@ -480,6 +483,15 @@ namespace hostello.Migrations
                         .IsRequired();
 
                     b.Navigation("Cliente");
+                });
+
+            modelBuilder.Entity("hostello.Models.Cliente", b =>
+                {
+                    b.HasOne("hostello.Models.Endereco", "Endereco")
+                        .WithMany()
+                        .HasForeignKey("FkEndereco");
+
+                    b.Navigation("Endereco");
                 });
 
             modelBuilder.Entity("hostello.Models.Acomodacao", b =>
