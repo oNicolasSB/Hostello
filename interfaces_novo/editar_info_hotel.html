@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="styles/registro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <title>Registro Cliente</title>
+    <title>Editar perfil</title>
 </head>
 
 <body>
@@ -21,24 +21,18 @@
 
     <div class="container">
         <div class="row align-items-center vh-100">
-            <div class="col-12 col-md-8 col-lg-6 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-3 offset-xxl-4 border-1 border rounded-3 p-3 secao">
+            <div
+                class="col-12 col-md-8 col-lg-6 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-3 offset-xxl-4 border-1 border rounded-3 p-3 secao">
                 <div class="py-2">
                     <div>
-                        <h2 class="py-2 text-center">Efetuar cadastro:</h2>
+                        <h2 class="py-2 text-center">Editar informações:</h2>
                     </div>
                     <div>
-                        <div class="text-center">
-                            <input type="button" id="opcusuario" value="Para você" class="botao-destaque shadow-none"
-                                onclick=alterarusuario()>
-                            <input type="button" id="opchoteleiro" value="Para sua empresa"
-                                class="botao-destaque shadow-none" onclick=alterarhoteleiro()>
-                        </div>
-
                         <div id="ent_usuario">
                             <form id="form_usuario">
                                 <div class="col-12">
                                     <div class="form-group py-2">
-                                        <label for="cadastro">Nome completo:</label>
+                                        <label for="cadastro">Nome:</label>
                                         <input type="text" class="form-control shadow-none" id="nome">
                                     </div>
                                 </div>
@@ -47,79 +41,82 @@
                                 <div class="col-12">
                                     <div class="form-group py-2">
                                         <label for="cadastro">E-mail:</label>
-                                        <input type="email" class="form-control shadow-none" id="email">
+                                        <input type="text" class="form-control shadow-none" id="email">
                                     </div>
                                 </div>
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">CPF:</label>
-                                            <input type="text" class="form-control shadow-none" id="cpf">
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="form-group py-2">
-                                            <label for="cadastro">Data de nascimento:</label>
-                                            <input type="date" class="form-control shadow-none" id="Nascimento">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row g-2">
-                                    <div class="col-6">
-                                        <div class="form-group">
-                                            <label for="cadastro">Telefone celular:</label>
+                                            <label for="cadastro">Telefone:</label>
                                             <input type="text" class="form-control shadow-none" id="telefone">
                                         </div>
                                     </div>
                                     <div class="col-6">
-                                        <div class="form">
-                                            <label for="SelectGrid">Sexo:</label>
-                                            <select class="form-select" id="SelectGrid">
-                                                <option value="1">Masculino</option>
-                                                <option value="2">Feminino</option>
-                                                <option value="3" selected>Prefiro não informar</option>
-                                            </select>
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Telefone Fixo:</label>
+                                            <input type="text" class="form-control shadow-none" id="fixo">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-group py-2">
-                                        <label for="cadastro">Usuário:</label>
-                                        <input type="text" class="form-control shadow-none" id="usuario">
-                                    </div>
-                                </div>
-
-
 
                                 <div class="row g-2">
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Senha:</label>
-                                            <input type="password" class="form-control shadow-none" id="password" onkeyup="verificar()">
+                                            <label for="cadastro">Usuário:</label>
+                                            <input type="text" class="form-control shadow-none" id="usuario">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
-                                            <label for="cadastro">Confirmar senha:</label>
-                                            <input type="password" class="form-control shadow-none" id="confirm" onkeyup="verificar()">
+                                            <label for="cadastro">CNPJ:</label>
+                                            <input type="text" class="form-control shadow-none" id="cnpj">
                                         </div>
                                     </div>
-                                    <div class="col-12">
-                                        <span id="message"></span>
+                                </div>
+
+                                <div class="col-12">
+                                    <span id="message"></span>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">Razão Social:</label>
+                                        <input type="email" class="form-control shadow-none" id="razao_social">
                                     </div>
                                 </div>
-                                <div class="text-center">
-                                    <div class="py-3">
-                                        <a href="" class="btn btn-primary botao">Registrar</a>
+                                <div class="col-12">
+                                    <div class="form-group py-2">
+                                        <label for="cadastro">Nome Fantasia:</label>
+                                        <input type="email" class="form-control shadow-none" id="nome_fantasia">
                                     </div>
-                                    <p class="pt-2">Já tem uma conta? Efetue <a href="login.html">Login</a></p>
                                 </div>
-                            </form>
+                                <div class="row g-2">
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Senha:</label>
+                                            <input type="password" class="form-control shadow-none" id="password"
+                                                onkeyup="verificar()">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group py-2">
+                                            <label for="cadastro">Confirmar Senha:</label>
+                                            <input type="password" class="form-control shadow-none" id="confirm"
+                                                onkeyup="verificar()">
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
+                        <div class="text-center">
+                            <div class="py-3">
+                                <a href="" class="btn btn-primary botao">Salvar</a>
+                            </div>
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <script src="js/verificar_senha.js"></script>
 </body>
