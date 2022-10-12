@@ -1,5 +1,7 @@
 using hostello.Data;
+using hostello.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace hostello.Controllers;
 
@@ -12,8 +14,28 @@ public class AlugarController : Controller
         _db = db;
     }
 
+    public void CarregarMaxPessoas(int idAcomodacao){
+        
+        List<int> listMaxPessoas = new List<int>();
+        for (int i = 0; i < idAcomodacao; i++)
+        {
+            listMaxPessoas.Add(i);
+        }
+        var selectMaxPessoas = new SelectList(listMaxPessoas);
+        ViewBag.SelectMaxPessoas = selectMaxPessoas;
+
+    }
     public IActionResult Index()
     {
         return View();
     }
+
+    // public IActionResult Alugar(int IdAcomodacao)
+    // {
+    //     var acomodacao = _db.Acomodacoes.Find(IdAcomodacao);
+    //     if(acomodacao is null)
+    //         return RedirectToAction("Index", "Pesquisa");
+    //     CarregarMaxPessoas(acomodacao.PessoasMax);
+    //     return View(acomodacao);
+    // }
 }

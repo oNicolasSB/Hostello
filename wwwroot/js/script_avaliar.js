@@ -3,8 +3,7 @@ let estrela2 = document.getElementById("estrela2")
 let estrela3 = document.getElementById("estrela3")
 let estrela4 = document.getElementById("estrela4")
 let estrela5 = document.getElementById("estrela5")
-let avaliacao2 = document.getElementById("avaliacao").value
-let avaliacao = document.getElementsByClassName("avaliacao")
+let avaliacao = document.getElementById("avaliacao").value
 
 function avaliar1(){
     estrela1.className = "bi bi-star-fill"
@@ -12,7 +11,7 @@ function avaliar1(){
     estrela3.className = "bi bi-star"
     estrela4.className = "bi bi-star"
     estrela5.className = "bi bi-star"
-    avaliacao.value = "1"
+    avaliacao = 1
     console.log(avaliacao)
 }
 

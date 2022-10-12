@@ -11,7 +11,7 @@ using hostello.Data;
 namespace hostello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221011234941_v1")]
+    [Migration("20221012144839_v1")]
     partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -82,7 +82,7 @@ namespace hostello.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime>("DataAvaliacao")
+                    b.Property<DateTime?>("DataAvaliacao")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("FkAcomodacao")
@@ -226,9 +226,6 @@ namespace hostello.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("ResponsavelIdUsuario")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("TelefoneFixo")
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
@@ -236,8 +233,6 @@ namespace hostello.Migrations
                     b.HasKey("IdEstabelecimento");
 
                     b.HasIndex("FkEndereco");
-
-                    b.HasIndex("ResponsavelIdUsuario");
 
                     b.ToTable("Estabelecimentos");
                 });
@@ -448,10 +443,6 @@ namespace hostello.Migrations
                         .WithMany()
                         .HasForeignKey("FkEndereco");
 
-                    b.HasOne("hostello.Models.Responsavel", null)
-                        .WithMany("Estabelecimentos")
-                        .HasForeignKey("ResponsavelIdUsuario");
-
                     b.Navigation("Endereco");
                 });
 
@@ -530,11 +521,6 @@ namespace hostello.Migrations
                     b.Navigation("Avaliacoes");
 
                     b.Navigation("Reservas");
-                });
-
-            modelBuilder.Entity("hostello.Models.Responsavel", b =>
-                {
-                    b.Navigation("Estabelecimentos");
                 });
 #pragma warning restore 612, 618
         }

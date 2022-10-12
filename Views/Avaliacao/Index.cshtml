@@ -1,0 +1,35 @@
+@{
+    Layout = "_LayoutAdmin";
+}
+@model List<Avaliacao>
+<div class="row">
+            <table class="table table-striped table-hover tabela">
+                <h2 class="text-center">Avaliação de quartos</h2>
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Telefone</th>
+                        <th scope="col">CPF</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Avaliação</th>
+                        <th scope="col">Excluir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var avaliacao in Model)
+                    {
+                        <tr>
+                        <td>@avaliacao.IdAvaliacao</td>
+                        <td>@avaliacao.Cliente.Nome</td>
+                        <td>@avaliacao.Cliente.Telefone</td>
+                        <td>@avaliacao.Cliente.Cpf</td>
+                        <td>@avaliacao.Cliente.Email</td>
+                        <td>@avaliacao.Comentario</td>
+                        <td><a asp-action="Delete" asp-route-id="@avaliacao.IdAvaliacao" class="botao-destaque" type="button">
+                                <i class="bi-trash" style="font-size: 16px; line-height: 12px;"></i>
+                            </a></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>

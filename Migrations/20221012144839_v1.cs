@@ -43,6 +43,30 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Estabelecimentos",
+                columns: table => new
+                {
+                    IdEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CNPJ = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
+                    NomeFantasia = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    TelefoneFixo = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
+                    Celular = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
+                    RazaoSocial = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    MediaAvaliacao = table.Column<double>(type: "REAL", nullable: true),
+                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Estabelecimentos", x => x.IdEstabelecimento);
+                    table.ForeignKey(
+                        name: "FK_Estabelecimentos_Enderecos_FkEndereco",
+                        column: x => x.FkEndereco,
+                        principalTable: "Enderecos",
+                        principalColumn: "IdEndereco");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
@@ -69,55 +93,25 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Estabelecimentos",
+                name: "Contatos",
                 columns: table => new
                 {
-                    IdEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false)
+                    IdContato = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    CNPJ = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
-                    NomeFantasia = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    TelefoneFixo = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
-                    Celular = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
-                    RazaoSocial = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    MediaAvaliacao = table.Column<double>(type: "REAL", nullable: true),
-                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: true),
-                    ResponsavelIdUsuario = table.Column<int>(type: "INTEGER", nullable: true)
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    Telefone = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
+                    Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
+                    Cargo = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false),
+                    FkEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Estabelecimentos", x => x.IdEstabelecimento);
+                    table.PrimaryKey("PK_Contatos", x => x.IdContato);
                     table.ForeignKey(
-                        name: "FK_Estabelecimentos_Enderecos_FkEndereco",
-                        column: x => x.FkEndereco,
-                        principalTable: "Enderecos",
-                        principalColumn: "IdEndereco");
-                    table.ForeignKey(
-                        name: "FK_Estabelecimentos_Usuarios_ResponsavelIdUsuario",
-                        column: x => x.ResponsavelIdUsuario,
-                        principalTable: "Usuarios",
-                        principalColumn: "IdUsuario");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Reservas",
-                columns: table => new
-                {
-                    IdReserva = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    DataReserva = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    EstadiaEntrada = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    EstadiaSaida = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    ValorReserva = table.Column<double>(type: "REAL", nullable: false),
-                    FkCliente = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Reservas", x => x.IdReserva);
-                    table.ForeignKey(
-                        name: "FK_Reservas_Usuarios_FkCliente",
-                        column: x => x.FkCliente,
-                        principalTable: "Usuarios",
-                        principalColumn: "IdUsuario",
+                        name: "FK_Contatos_Estabelecimentos_FkEstabelecimento",
+                        column: x => x.FkEstabelecimento,
+                        principalTable: "Estabelecimentos",
+                        principalColumn: "IdEstabelecimento",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -161,25 +155,25 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Contatos",
+                name: "Reservas",
                 columns: table => new
                 {
-                    IdContato = table.Column<int>(type: "INTEGER", nullable: false)
+                    IdReserva = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Telefone = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
-                    Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    Cargo = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false),
-                    FkEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false)
+                    DataReserva = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EstadiaEntrada = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    EstadiaSaida = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    ValorReserva = table.Column<double>(type: "REAL", nullable: false),
+                    FkCliente = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Contatos", x => x.IdContato);
+                    table.PrimaryKey("PK_Reservas", x => x.IdReserva);
                     table.ForeignKey(
-                        name: "FK_Contatos_Estabelecimentos_FkEstabelecimento",
-                        column: x => x.FkEstabelecimento,
-                        principalTable: "Estabelecimentos",
-                        principalColumn: "IdEstabelecimento",
+                        name: "FK_Reservas_Usuarios_FkCliente",
+                        column: x => x.FkCliente,
+                        principalTable: "Usuarios",
+                        principalColumn: "IdUsuario",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -189,7 +183,7 @@ namespace hostello.Migrations
                 {
                     IdAvaliacao = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    DataAvaliacao = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    DataAvaliacao = table.Column<DateTime>(type: "TEXT", nullable: true),
                     NotaAvaliacao = table.Column<double>(type: "REAL", nullable: false),
                     Comentario = table.Column<string>(type: "TEXT", maxLength: 256, nullable: false),
                     Aprovado = table.Column<bool>(type: "INTEGER", nullable: true),
@@ -285,11 +279,6 @@ namespace hostello.Migrations
                 name: "IX_Estabelecimentos_FkEndereco",
                 table: "Estabelecimentos",
                 column: "FkEndereco");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Estabelecimentos_ResponsavelIdUsuario",
-                table: "Estabelecimentos",
-                column: "ResponsavelIdUsuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItensReserva_FkAcomodacao",
