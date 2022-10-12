@@ -1,10 +1,15 @@
+@font-face {
+   font-family: teste;
+   src: url("../OpenSans-ExtraBold.ttf");
+}
+
 body {
    font-size: 15px;
    background-color: white;
 }
 
 .titulo{
-   font-weight: 800 !important;
+   font-family: "teste";
 }
 
 .title-sm {
