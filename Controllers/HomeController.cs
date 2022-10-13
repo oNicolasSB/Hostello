@@ -18,4 +18,22 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult IndexAdmin()
+    {
+        var admin = _db.Administradores.Find(3);
+        return View(admin);
+    }
+    public IActionResult Login()
+    {
+        return View();
+    }
+    public IActionResult Recuperar()
+    {
+        return View();
+    }
+    public IActionResult IndexResponsavel()
+    {
+         var admin = _db.Responsaveis.Find(1);
+        return View(admin);
+    }
 }

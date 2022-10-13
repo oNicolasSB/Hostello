@@ -10,8 +10,8 @@
                     </div>
                     <div>
                         <div class="text-center">
-                            <a class="botao-destaque shadow-none">Para Você</a>
-                            <a class="botao-destaque shadow-none">Para sua empresa</a>
+                            <a class="botao-destaque shadow-none text-decoration-none selecionado">Para Você</a>
+                            <a asp-action="Create" asp-controller="Responsavel" class="botao-destaque shadow-none text-decoration-none">Para sua empresa</a>
                         </div>
 
                         <div id="ent_usuario">
@@ -81,7 +81,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="botao">Registrar</button>
-                                    <p class="pt-2">Já tem uma conta? Efetue <a asp-action="Login">Login</a></p>
+                                    <p class="pt-2">Já tem uma conta? Efetue <a asp-action="Login" asp-controller="Home">Login</a></p>
                                 </div>
                                 <div asp-validation-summary="All">
                                     

@@ -1,0 +1,207 @@
+@{
+    Layout = "_LayoutResponsavel";
+}
+@model Responsavel
+
+    <div class="container">
+        <div class="card mb-3">
+            <div class="row g-2">
+                <div class="col-md-3 col-sm-5 flex-columnn-flex align-self-center">
+                    <div class="">
+                        <img src="~/img/foto-removebg-preview.png" class="img-fluid" alt="...">
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-7 d-flex flex-column">
+                    <div class="card-body">
+                        <h4 class="card-title">Informações pessoais:</h4>
+                        <p class="card-text">
+                        <ul>
+                            <li>Nome: @Model.Nome</li>
+                            <li>E-mail: @Model.Email</li>
+                            <li>Telefone: @Model.Telefone</li>
+                            <li>Nascimento: @Model.DataNascimento/li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-end">
+                            <a asp-action="Edit" asp-controller="Responsavel" asp-route-id="@Model.IdUsuario" class="btn btn-primary botao">Editar perfil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="row g-2">
+                <div class="col-md-4 flex-columnn-flex align-items-stretch align-self-center">
+                    <div class="">
+                        <img src="~/img/ex_logo.png" class="img-fluid" alt="...">
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h3 class="card-title">Descrição</h3>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla est enim
+                            tenetur, laborum voluptatem sequi. Animi, vero assumenda, ex voluptate harum impedit
+                            eligendi asperiores provident sit nesciunt dicta sunt! Temporibus! Lorem, ipsum dolor sit
+                            amet consectetur adipisicing elit. Cumque magni odio, eaque iure molestias sapiente aliquam,
+                            id facere similique quibusdam perspiciatis necessitatibus dignissimos, labore culpa maxime
+                            eveniet optio! Consequuntur, nesciunt.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="text-center mb-3 col-12">Consultar Reservas</h3>
+        <div class="row g-0 d-flex">
+            <div class="col-md-2 mb-3">
+                <div class="me-lg-3 secao" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                    <form style="margin: 10px;">
+                        <label for="dia">Dia:</label>
+
+                        <select class="form-select shadow-none" id="maximo">
+                            <option selected value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                        </select>
+
+                        <label for="dia">Mês:</label>
+
+                        <select class="form-select shadow-none" id="maximo">
+                            <option selected value="1">Janeiro</option>
+                            <option value="2">Fevereiro</option>
+                            <option value="3">Março</option>
+                            <option value="4">Abril</option>
+                            <option value="5">Maio</option>
+                            <option value="5">Junho</option>
+                            <option value="6">Julho</option>
+                            <option value="7">Agosto</option>
+                            <option value="8">Setembro</option>
+                            <option value="9">Outubro</option>
+                            <option value="10">Novembro</option>
+                            <option value="11">Dezembro</option>
+                        </select>
+
+                        <label for="dia">Ano:</label>
+
+                        <select class="form-select shadow-none" id="maximo">
+                            <option selected value="1">2022</option>
+                            <option value="2">2021</option>
+                            <option value="3">2020</option>
+                            <option value="4">2019</option>
+                            <option value="5">2018</option>
+                            <option value="5">2017</option>
+                        </select>
+
+                        <div class="text-center">
+                            <button class="btn btn-primary botao mt-2" style="align-items: center;" type="submit"><i
+                                    class="bi bi-funnel-fill"></i></button>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+            <div class="col-md-10">
+
+                <div class="col secao ms-md-3" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <h5 style="margin: 10px;">Reservas encontradas:</h5>
+                        </div>
+                        <div class=" col-6 text-end">
+                            <button class="btn btn-primary botao mt-2 me-2" type="submit">Detalhes</button>
+                        </div>
+                    </div>
+
+                    <hr style="margin: 10px;">
+
+
+
+
+                    <div class="col-12  align-self-center text-left table-overflow">
+                        <table class="table table-striped table-hover tabela mb-0">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Entrada</th>
+                                    <th scope="col">Saída</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                                <tr>
+                                    <td>10/05/2022</td>
+                                    <td>18/05/2022</td>
+                                    <td>R$999,99</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>

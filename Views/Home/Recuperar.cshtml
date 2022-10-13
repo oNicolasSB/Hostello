@@ -1,0 +1,23 @@
+@{
+    Layout = "_LayoutVazio";
+}
+
+<div class="row align-items-center vh-100">
+            <div
+                class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 border-1 border rounded-3 p-3 secao text-center">
+                <div>
+                    <h2>Recuperação de Senha</h2>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label py-4">Insira seu E-mail para enviarmos o código de
+                        verificação:</label>
+                    <input type="email" class="form-control shadow-none" id="email">
+                </div>
+                <div class="py-4">
+                    <a href="" class="btn btn-primary botao">Enviar</a>
+                </div>
+                <div>
+                    Não tem um login?<a asp-action="Create" asp-controller="Cliente" class="text-decoration-none"> Registre-se</a>
+                </div>
+            </div>
+        </div>

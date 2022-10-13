@@ -57,4 +57,25 @@ public class ResponsavelController : Controller
         return RedirectToAction("Create", "Endereco");
 
     }
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var responsavel = _db.Responsaveis.Find(id);
+        if(responsavel is null)
+            return RedirectToAction("Index");
+        return View(responsavel);
+    }
+    [HttpPost]
+    public IActionResult Edit(int id, Responsavel responsavel)
+    {
+        var responsaveloriginal = _db.Responsaveis.Find(id);
+        if(responsaveloriginal is null)
+            return RedirectToAction("Index");
+
+        responsaveloriginal.Nome = responsavel.Nome;
+        responsaveloriginal.Email = responsavel.Email;
+        responsaveloriginal.Telefone = responsavel.Telefone;
+        _db.SaveChanges();
+        return RedirectToAction("IndexResponsavel", "Home");
+    }
 }

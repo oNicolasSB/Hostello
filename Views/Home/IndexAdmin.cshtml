@@ -1,0 +1,201 @@
+@{
+    Layout = "_LayoutAdmin";
+}
+@model Administrador
+
+<div class="card mb-3">
+            <div class="row g-2">
+                <div class="col-md-3 col-sm-5 flex-columnn-flex align-self-center">
+                    <div class="">
+                        <img src="~/img/foto-removebg-preview.png" class="img-fluid" alt="...">
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-7 d-flex flex-column">
+                    <div class="card-body">
+                        <h4 class="card-title">Informações pessoais:</h4>
+                        <p class="card-text">
+                        <ul>
+                            <li>Nome: @Model.Nome</li>
+                            <li>E-mail: @Model.Email</li>
+                            <li>Telefone: @Model.Telefone</li>
+                            <li>Nascimento: @Model.DataNascimento</li>
+                        </ul>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="text-end">
+                            <a asp-action="Edit" asp-controller="Administrador" asp-route-id="@Model.IdUsuario" class="btn btn-primary botao">Editar perfil</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row g-0">
+            <div class="col-md-2 secao mb-2"
+                style="border: 1px solid rgb(223, 221, 221); border-radius: 4px; height: fit-content;">
+                <ul class="text-center">
+                    <li>
+                        <a asp-action="Index" asp-controller="Avaliacao" class="btn btn-primary botao mt-2 mb-2 shadow-none "
+                                style="width: 120px;" type="submit">Avaliações</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Acomodacao" class="btn btn-primary botao mb-2 shadow-none"
+                                style="width: 120px;" type="submit">Acomodações</a>
+                        </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Cliente" class="btn btn-primary botao mb-2 shadow-none"
+                                style="width: 120px;" type="submit">Usuários</a>
+                        </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Responsavel" class="btn btn-primary botao mb-2 shadow-none" style="width: 120px;"
+                                type="submit">Responsaveis</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-10">
+                <div class="col secao ms-md-3" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                    <h5 class="text-center mt-2 ">Comentários pendentes de avaliação:</h5>
+                    <!--<div style="border: 1px solid rgb(223, 221, 221); border-radius: 4px; margin: 10px;">
+                        <p style="margin: 10px;"></p>
+                    </div>-->
+                    <div class="card" style="margin: 10px;">
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <p class="align-items-center">annaclara comentou:</p>
+                            </div>
+                            <div class="d-flex flex-row-reverse col-6">
+                                <div>
+                                    <button class="btn btn-primary botao" type="submit"><i
+                                            class="bi bi-check"></i></button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary botao-vermelho " type="submit"><i
+                                            class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <p class="card-text mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    Error earum
+                                    omnis ad expedita deleniti velit minus obcaecati, facilis quam iste minima magni
+                                    ea
+                                    quibusdam pariatur accusantium veniam fugiat, beatae amet! lo Lorem ipsum, dolor sit
+                                    amet consectetur adipisicing elit. Magnam repudiandae veniam unde consectetur iure,
+                                    dolorum nostrum excepturi ullam, corporis ipsam inventore porro fugit quia mollitia
+                                    natus cupiditate. Cumque, aut voluptatum. Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ab alias blanditiis tempore nesciunt est in laudantium? Nobis
+                                    itaque, quae praesentium alias dignissimos aut aliquam quidem labore incidunt
+                                    reprehenderit repudiandae officia.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card" style="margin: 10px;">
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <p class="align-items-center">annaclara comentou:</p>
+                            </div>
+                            <div class="d-flex flex-row-reverse col-6">
+                                <div>
+                                    <button class="btn btn-primary botao" type="submit"><i
+                                            class="bi bi-check"></i></button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary botao-vermelho " type="submit"><i
+                                            class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <p class="card-text mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    Error earum
+                                    omnis ad expedita deleniti velit minus obcaecati, facilis quam iste minima magni
+                                    ea
+                                    quibusdam pariatur accusantium veniam fugiat, beatae amet! lo Lorem ipsum, dolor sit
+                                    amet consectetur adipisicing elit. Magnam repudiandae veniam unde consectetur iure,
+                                    dolorum nostrum excepturi ullam, corporis ipsam inventore porro fugit quia mollitia
+                                    natus cupiditate. Cumque, aut voluptatum. Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ab alias blanditiis tempore nesciunt est in laudantium? Nobis
+                                    itaque, quae praesentium alias dignissimos aut aliquam quidem labore incidunt
+                                    reprehenderit repudiandae officia.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card" style="margin: 10px;">
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <p class="align-items-center">annaclara comentou:</p>
+                            </div>
+                            <div class="d-flex flex-row-reverse col-6">
+                                <div>
+                                    <button class="btn btn-primary botao" type="submit"><i
+                                            class="bi bi-check"></i></button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary botao-vermelho " type="submit"><i
+                                            class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <p class="card-text mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    Error earum
+                                    omnis ad expedita deleniti velit minus obcaecati, facilis quam iste minima magni
+                                    ea
+                                    quibusdam pariatur accusantium veniam fugiat, beatae amet! lo Lorem ipsum, dolor sit
+                                    amet consectetur adipisicing elit. Magnam repudiandae veniam unde consectetur iure,
+                                    dolorum nostrum excepturi ullam, corporis ipsam inventore porro fugit quia mollitia
+                                    natus cupiditate. Cumque, aut voluptatum. Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ab alias blanditiis tempore nesciunt est in laudantium? Nobis
+                                    itaque, quae praesentium alias dignissimos aut aliquam quidem labore incidunt
+                                    reprehenderit repudiandae officia.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card" style="margin: 10px;">
+                        <div class="card-body row">
+                            <div class="col-6">
+                                <p class="align-items-center">annaclara comentou:</p>
+                            </div>
+                            <div class="d-flex flex-row-reverse col-6">
+                                <div>
+                                    <button class="btn btn-primary botao" type="submit"><i
+                                            class="bi bi-check"></i></button>
+                                </div>
+                                <div>
+                                    <button class="btn btn-primary botao-vermelho " type="submit"><i
+                                            class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+
+
+                            <div>
+                                <p class="card-text mt-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    Error earum
+                                    omnis ad expedita deleniti velit minus obcaecati, facilis quam iste minima magni
+                                    ea
+                                    quibusdam pariatur accusantium veniam fugiat, beatae amet! lo Lorem ipsum, dolor sit
+                                    amet consectetur adipisicing elit. Magnam repudiandae veniam unde consectetur iure,
+                                    dolorum nostrum excepturi ullam, corporis ipsam inventore porro fugit quia mollitia
+                                    natus cupiditate. Cumque, aut voluptatum. Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Ab alias blanditiis tempore nesciunt est in laudantium? Nobis
+                                    itaque, quae praesentium alias dignissimos aut aliquam quidem labore incidunt
+                                    reprehenderit repudiandae officia.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>

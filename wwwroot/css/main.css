@@ -1,5 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600;700&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;500;800&display=swap');
 
 body {
     background-color: #F3F3F3;
@@ -18,6 +17,11 @@ body {
 h1, h2, h3, h4, h5, h6, p, span, ul, li, select, option, input, button, a{
     font-weight: 200 !important; 
 } */
+
+.selecionado{
+    background-color: #a37f13 !important;
+    pointer-events: none;
+}
 
 .bold{
     font-weight: 500 !important;
