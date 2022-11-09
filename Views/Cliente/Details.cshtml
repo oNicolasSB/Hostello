@@ -1,0 +1,148 @@
+@model Cliente;
+
+<div>
+            <div class="card mb-3">
+                <div class="row g-2">
+                    <div class="col-md-3 col-sm-5 flex-columnn-flex align-self-center">
+                        <div class="">
+                            <img src="~/img/foto-removebg-preview.png" class="img-fluid" alt="...">
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-7 d-flex flex-column">
+                        <div class="card-body">
+                            <h4 class="card-title">Informações pessoais:</h4>
+                            <p class="card-text">
+                            <ul>
+                                <li>Nome: @Model.Nome</li>
+                                <li>E-mail: @Model.Email</li>
+                                <li>Telefone: @Model.Telefone</li>
+                                <li>Nascimento: @Model.DataNascimento</li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="text-end">
+                                <a asp-action="Edit" asp-route-id="@Model.IdUsuario" class="botao text-decoration-none">Editar perfil</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-center mb-3 col-12">Consultar Reservas:</h3>
+        <div class="row g-0 d-flex">
+            <div class="col-md-2 secao mb-3"
+                style="height:fit-content; border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                <form style="margin: 10px;">
+                    <label for="dia">Reservas:</label>
+                    <select class="form-select shadow-none">
+                        <option value="1" selected>Concluidas</option>
+                        <option value="2">Futuras</option>
+                    </select>
+
+                    <div class="text-center">
+                        <button class="btn btn-primary botao-destaque mt-2" style="align-items: center;"
+                            type="submit"><i class="bi bi-funnel-fill"></i></button>
+                    </div>
+
+                </form>
+            </div>
+            <div class="col-md-10">
+                <div class="col secao ms-lg-3" style="border: 1px solid rgb(223, 221, 221); border-radius: 4px;">
+                    <div class="row g-0">
+                        <div class="col-6">
+                            <h5 style="margin: 10px;">Reservas encontradas:</h5>
+                        </div>
+                        <div class=" col-6 text-end">
+                            <button class="btn btn-primary botao-destaque mt-2 me-2" type="submit">Detalhes</button>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <hr style="margin: 10px;">
+
+                    <div>
+
+                        <div class="table-overflow">
+                            <table class="table table-striped table-hover tabela mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Estab.</th>
+                                        <th scope="col">Quarto</th>
+                                        <th scope="col">Inicio da Estadía</th>
+                                        <th scope="col">Fim da Estadía</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Empresa 1</td>
+                                        <td>001</td>
+                                        <td class="text-center">dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 2</td>
+                                        <td>002</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 3</td>
+                                        <td>003</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 4</td>
+                                        <td>004</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 5</td>
+                                        <td>005</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 6</td>
+                                        <td>006</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 7</td>
+                                        <td>007</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 8</td>
+                                        <td>008</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 9</td>
+                                        <td>009</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Empresa 10</td>
+                                        <td>010</td>
+                                        <td>dd/mm/aa</td>
+                                        <td>dd/mm/aa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>

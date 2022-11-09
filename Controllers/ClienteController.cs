@@ -47,4 +47,32 @@ public class ClienteController : Controller
         return RedirectToAction("Index");
 
     }
+    public IActionResult Details()
+    {
+        var cliente = _db.Clientes.Find(2);
+        return View(cliente);
+    }
+    [HttpGet]
+    public IActionResult Edit(int id)
+    {
+        var cliente = _db.Usuarios.Find(id);
+        if(cliente is null)
+            return RedirectToAction("Details", "Cliente");
+        return View(cliente);
+    }
+    [HttpPost]
+    public IActionResult Edit(int id, Cliente cliente)
+    {
+        var clienteoriginal = _db.Usuarios.Find(id);
+        Cliente teste = cliente;
+        if(clienteoriginal is null)
+            return RedirectToAction("Details", "Cliente");
+
+        clienteoriginal.Nome = cliente.Nome;
+        clienteoriginal.Email = cliente.Email;
+        clienteoriginal.Senha = cliente.Senha;
+        clienteoriginal.Telefone = cliente.Telefone;
+        _db.SaveChanges();
+        return RedirectToAction("Details", "Cliente");
+    }
 }
