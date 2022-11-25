@@ -1,0 +1,50 @@
+@model LoginViewModel
+@{
+    var returnUrl = "";
+    if (Context.Request.Query.ContainsKey("returnUrl"))  
+    {
+        returnUrl = Context.Request.Query["returnUrl"].ToString();
+    }
+}
+
+@{
+    Layout = "_LayoutVazio";
+}
+
+<div class="row align-items-center vh-100">
+            <div class="col-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4 border-1 border rounded-3 p-3 secao">
+                <div class="py-2">
+                    <div>
+                        <h2 class="py-2 text-center">Efetuar Login:</h2>
+                    </div>
+                    <div>
+                        <form asp-action="Login">
+                            <input type="hidden" name="ReturnUrl" id="ReturnUrl" value="@returnUrl">
+                            <div class="form-group py-2">
+                                <label asp-for="@Model.Email"><span id="email">E-mail:</span></label>
+                                <input type="text" class="form-control shadow-none" asp-for=@Model.Email>
+                            </div>
+                            <div class="form-group py-2">
+                                <label asp-for="@Model.Senha"><span id="senha">Senha:</span></label>
+                                <input type="password" class="form-control shadow-none" asp-for="@Model.Senha">
+                            </div>
+                            <div>
+                                <input type="checkbox" asp-for="@Model.Lembrar">
+                            </div>
+                            <div class="text-center">
+                                <div class="py-3">
+                                    <button type="submit" class="btn btn-primary botao">Login</button>
+                                </div>
+                                <div>
+                                    <a asp-action="Recuperar" class="text-decoration-none">Esqueceu a senha</a>
+                                </div>
+                                <div>
+                                    Não tem um login?<a asp-action="Create" asp-controller="Cliente" class="text-decoration-none"> Registre-se</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+<script src="~/js/script_descricao.js" defer></script>

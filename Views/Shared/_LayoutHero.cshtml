@@ -34,12 +34,20 @@
                 </form>
             </div>
             <div class="col-6 col-md-3 text-end">
+            @if(Context.User.Identity is not null)
+            {
+                
                 <div class="d-inline-block">
-                    <!-- Botão Filtros -->
                     <a asp-action="Create" asp-controller="Cliente"><button class="botao-destaque" style="width: 105px;">Registre-se</button></a>
-                    <a asp-action="Login" asp-controller="Home"><button class="botao-destaque mt-2 mt-xl-0" style="width: 105px;">Login</button></a>
+                    <a asp-action="Login" asp-controller="Usuario"><button class="botao-destaque mt-2 mt-xl-0" style="width: 105px;">Login</button></a>
                 </div>
+            } else 
+            {
+                <a asp-action="Logout" asp-controller="Usuario"><button class="botao-destaque mt-2 mt-xl-0" style="width: 105px;">Logout</button></a>
+            }
+            
             </div>
+            
 
 
 
