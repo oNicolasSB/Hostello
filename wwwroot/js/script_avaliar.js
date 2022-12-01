@@ -3,7 +3,7 @@ let estrela2 = document.getElementById("estrela2")
 let estrela3 = document.getElementById("estrela3")
 let estrela4 = document.getElementById("estrela4")
 let estrela5 = document.getElementById("estrela5")
-let avaliacao = document.getElementById("avaliacao").value
+let avaliacao = document.getElementById("NotaAvaliacao").value
 
 function avaliar1(){
     estrela1.className = "bi bi-star-fill"

@@ -5,6 +5,18 @@ namespace hostello.Models;
 
 public class Responsavel : Usuario
 {
-    [NotMapped]
-    public ICollection<Estabelecimento> Estabelecimentos { get; set; }
+    [Required, StringLength(14)]
+    public string CNPJ { get; set;}
+    [Required, StringLength(128)]
+    public string NomeFantasia { get ; set; }
+    [StringLength(14)]
+    public string Celular { get ; set; }
+    [Required, StringLength(14)]
+    public string RazaoSocial { get; set; }
+    public double? MediaAvaliacao { get; set; }
+    [ForeignKey("Endereco")]
+    public int? FkEndereco { get; set; }
+    public Endereco Endereco { get; set; }
+    public ICollection<Acomodacao> Acomodacoes { get; set; }
+    public ICollection<Contato> Contatos { get; set; }
 }

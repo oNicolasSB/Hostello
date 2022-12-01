@@ -15,5 +15,4 @@ public class Reserva
     [ForeignKey("Cliente")]
     public int FkCliente { get; set; }
     public Cliente Cliente { get; set; }
-    public ICollection<ItemReserva> ItensReserva { get; set; }
 } 

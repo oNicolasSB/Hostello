@@ -15,12 +15,21 @@ public class AppDbContext : DbContext
     public DbSet<Contato> Contatos { get; set; }
     public DbSet<Reserva> Reservas { get; set; }
     public DbSet<Avaliacao> Avaliacoes { get; set; }
-    public DbSet<ItemReserva> ItensReserva { get; set; }
+    public DbSet<Categoria> Categorias { get; set; }
     public DbSet<Acomodacao> Acomodacoes { get; set; }
 
     protected override void OnModelCreating(ModelBuilder mb)
     {
-
+        mb.Entity<Categoria>().HasData(
+            new Categoria{IdCategoria = 1, Nome = "Suíte"},
+            new Categoria{IdCategoria = 2, Nome = "Internet"},
+            new Categoria{IdCategoria = 3, Nome = "Estacionamento"},
+            new Categoria{IdCategoria = 4, Nome = "ArCondicionado"},
+            new Categoria{IdCategoria = 5, Nome = "Elevador"},
+            new Categoria{IdCategoria = 6, Nome = "TV"},
+            new Categoria{IdCategoria = 7, Nome = "Frigobar"},
+            new Categoria{IdCategoria = 8, Nome = "BeiraMar"}
+        );
     }
 
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}

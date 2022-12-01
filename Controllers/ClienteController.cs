@@ -1,6 +1,7 @@
 using hostello.Data;
 using hostello.Models;
 using Microsoft.AspNetCore.Mvc;
+using static BCrypt.Net.BCrypt;
 
 namespace hostello.Controllers;
 
@@ -32,7 +33,7 @@ public class ClienteController : Controller
         cliente.Nome = clienteViewModel.Nome;
         cliente.Cpf = clienteViewModel.Cpf;
         cliente.Email = clienteViewModel.Email;
-        cliente.Senha = clienteViewModel.Senha;
+        cliente.Senha = HashPassword(clienteViewModel.Senha, 10);
         cliente.Telefone = clienteViewModel.Telefone;
         cliente.DataNascimento = clienteViewModel.DataNascimento;
         if(clienteViewModel.Sexo == 0){

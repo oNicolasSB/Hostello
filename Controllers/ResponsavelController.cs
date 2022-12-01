@@ -43,16 +43,13 @@ public class ResponsavelController : Controller
         } else {
             responsavel.Sexo = EnumSexo.Feminino;
         }
+        
+        responsavel.CNPJ = responsavelViewModel.Cnpj;
+        responsavel.NomeFantasia = responsavelViewModel.NomeFantasia;
+        responsavel.Celular = responsavelViewModel.Celular;
+        responsavel.RazaoSocial = responsavelViewModel.RazaoSocial;
+        responsavel.MediaAvaliacao = null;
         _db.Responsaveis.Add(responsavel);
-        var estabelecimento = new Estabelecimento();
-        estabelecimento.CNPJ = responsavelViewModel.Cnpj;
-        estabelecimento.NomeFantasia = responsavelViewModel.NomeFantasia;
-        estabelecimento.TelefoneFixo = responsavelViewModel.Telefone;
-        estabelecimento.Celular = responsavelViewModel.Celular;
-        estabelecimento.RazaoSocial = responsavelViewModel.RazaoSocial;
-        estabelecimento.MediaAvaliacao = null;
-        _db.Estabelecimentos.Add(estabelecimento);
-
         _db.SaveChanges();
         return RedirectToAction("Create", "Endereco");
 
@@ -69,12 +66,23 @@ public class ResponsavelController : Controller
     public IActionResult Edit(int id, Responsavel responsavel)
     {
         var responsaveloriginal = _db.Responsaveis.Find(id);
+        Responsavel controle = responsavel;
+        ModelState.Remove("IdUsuario");
+        ModelState.Remove("Cpf");
+        ModelState.Remove("DataNascimento");
+        ModelState.Remove("Sexo");
+        ModelState.Remove("Senha");
+        ModelState.Remove("RazaoSocial");
+        ModelState.Remove("CNPJ");
         if(responsaveloriginal is null)
             return RedirectToAction("Index");
 
         responsaveloriginal.Nome = responsavel.Nome;
         responsaveloriginal.Email = responsavel.Email;
         responsaveloriginal.Telefone = responsavel.Telefone;
+        responsaveloriginal.Celular = responsavel.Celular;
+        responsaveloriginal.RazaoSocial = responsavel.RazaoSocial;
+        responsaveloriginal.NomeFantasia = responsavel.NomeFantasia;
         _db.SaveChanges();
         return RedirectToAction("IndexResponsavel", "Home");
     }

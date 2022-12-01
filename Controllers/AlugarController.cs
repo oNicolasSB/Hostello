@@ -1,5 +1,6 @@
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -25,6 +26,7 @@ public class AlugarController : Controller
         ViewBag.SelectMaxPessoas = selectMaxPessoas;
 
     }
+    [Authorize("cliente")]
     public IActionResult Index()
     {
         return View();

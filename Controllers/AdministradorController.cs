@@ -31,7 +31,12 @@ public class AdministradorController : Controller
     {
         var administradororiginal = _db.Usuarios.Find(id);
         Administrador teste = administrador;
-        if(teste.Nome=="" || teste.Email=="" || teste.Senha=="" || teste.Telefone==""){
+        ModelState.Remove("IdUsuario");
+        ModelState.Remove("Cpf");
+        ModelState.Remove("DataNascimento");
+        ModelState.Remove("Sexo");
+        if (!ModelState.IsValid)
+        {
             return View(administrador);
         }
         if(administradororiginal is null)

@@ -24,6 +24,6 @@ public class Acomodacao
     public Administrador Administrador { get; set; }
     public TipoAcomodacao TipoAcomodacao { get; set; }
     public Estabelecimento Estabelecimento { get; set; }
-    public ICollection<ItemReserva> ItensReserva { get; set; }
+    public ICollection<Reserva> Reservas { get; set; }
     public ICollection<Avaliacao> Avaliacoes { get; set; }
 }
