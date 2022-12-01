@@ -1,5 +1,6 @@
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +14,10 @@ public class PesquisaController : Controller
     {
         _db = db;
     }
+    [Authorize(Roles = "cliente")]
     public IActionResult Index()
     {
-        var acomodacoes = _db.Acomodacoes.Include(a=>a.Estabelecimento).Include(a=>a.Estabelecimento.Endereco).AsNoTracking().ToList();
+        var acomodacoes = _db.Acomodacoes.Include(a=>a.Responsavel).Include(a=>a.Responsavel.Endereco).AsNoTracking().ToList();
         return View(acomodacoes);
     }
 }

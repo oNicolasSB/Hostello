@@ -49,6 +49,7 @@ public class UsuarioController : Controller
         {
             new Claim(ClaimTypes.Email, usuario.Email),
             new Claim(ClaimTypes.Name, usuario.Nome),
+            new Claim(ClaimTypes.Sid, usuario.IdUsuario.ToString()),
         };
             if (_db.Administradores.Any(a => a.IdUsuario == usuario.IdUsuario))
             {
@@ -90,7 +91,7 @@ public class UsuarioController : Controller
  
         if (returnUrl is null) 
         { 
-            return RedirectToAction(nameof(Index)); 
+            return RedirectToAction("Index", "Home"); 
         } 
  
         return Redirect(returnUrl); 

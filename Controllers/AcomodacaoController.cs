@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -21,32 +23,35 @@ public class AcomodacaoController : Controller
         var selectTiposAcomodacoes = new SelectList(tiposAcomodacoes, "IdTipoAcomodacao", "NomeTipoAcomodacao", idSelectedTipoAcomodacao);
         ViewBag.SelectTiposAcomodacoes = selectTiposAcomodacoes;
     }
-
+    [Authorize(Roles = "responsavel")]
     public IActionResult Index()
     {
-        var acomodacoes = _db.Acomodacoes.Include(a=>a.Estabelecimento).Include(a=>a.TipoAcomodacao).ToList();
+        var responsavel = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
+        var acomodacoes = _db.Acomodacoes.Include(a=>a.Responsavel).Include(a=>a.TipoAcomodacao).Where(a => a.FkResponsavel == responsavel).ToList();
         return View(acomodacoes);
     }
     [HttpGet]
+    [Authorize(Roles = "responsavel")]
     public IActionResult Create()
     {
         CarregarTipoAcomodacao();
         var acomodacao = new Acomodacao();
-        var estabelecimento = new Estabelecimento();
-        estabelecimento.NomeFantasia = "Teste";
-        estabelecimento.Celular = "99999999";
-        estabelecimento.CNPJ = "24242";
-        estabelecimento.MediaAvaliacao = 1;
-        estabelecimento.RazaoSocial = "empresa 1";
-        estabelecimento.TelefoneFixo = "242424242";
-        _db.Estabelecimentos.Add(estabelecimento);
-        _db.SaveChanges();
+        // var estabelecimento = new Estabelecimento();
+        // estabelecimento.NomeFantasia = "Teste";
+        // estabelecimento.Celular = "99999999";
+        // estabelecimento.CNPJ = "24242";
+        // estabelecimento.MediaAvaliacao = 1;
+        // estabelecimento.RazaoSocial = "empresa 1";
+        // estabelecimento.TelefoneFixo = "242424242";
+        // _db.Estabelecimentos.Add(estabelecimento);
+        // _db.SaveChanges();
 
-        acomodacao.FkEstabelecimento = estabelecimento.IdEstabelecimento;
+        acomodacao.FkResponsavel = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
         acomodacao.MediaAvaliacaoQuarto = null;
         return View(acomodacao);
     }
     [HttpPost]
+    [Authorize(Roles = "responsavel")]
     public IActionResult Create(Acomodacao acomodacao)
     {
         if(!ModelState.IsValid)
@@ -59,6 +64,7 @@ public class AcomodacaoController : Controller
         return RedirectToAction("Index");
     }
     [HttpGet]
+    [Authorize(Roles = "responsavel")]
     public IActionResult Edit(int id)
     {
         CarregarTipoAcomodacao();
@@ -68,6 +74,7 @@ public class AcomodacaoController : Controller
         return View(acomodacao);
     }
     [HttpPost]
+    [Authorize(Roles = "responsavel")]
     public IActionResult Edit(int id, Acomodacao acomodacao)
     {
 
@@ -75,7 +82,7 @@ public class AcomodacaoController : Controller
         if(acomodacaooriginal is null)
             return RedirectToAction("Index");
 
-        acomodacao.FkEstabelecimento = acomodacaooriginal.FkEstabelecimento;
+        acomodacao.FkResponsavel = acomodacaooriginal.FkResponsavel;
         if(!ModelState.IsValid)
             return View(acomodacao);
 
@@ -90,6 +97,7 @@ public class AcomodacaoController : Controller
     }
 
     [HttpGet]
+    [Authorize(Roles = "responsavel")]
     public IActionResult Delete(int id)
     {
         var acomodacao = _db.Acomodacoes.Find(id);
@@ -99,6 +107,7 @@ public class AcomodacaoController : Controller
         
     }
     [HttpPost]
+    [Authorize(Roles = "responsavel")]
     public IActionResult ProcessDelete(Acomodacao acomodacao)
     {
         if(acomodacao is null)

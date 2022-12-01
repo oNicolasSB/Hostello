@@ -11,7 +11,7 @@ using hostello.Data;
 namespace hostello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20221130230802_v1")]
+    [Migration("20221201201420_v1")]
     partial class v1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,6 +30,9 @@ namespace hostello.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("EstabelecimentoIdEstabelecimento")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("EstadiaMax")
                         .HasColumnType("INTEGER");
 
@@ -39,7 +42,7 @@ namespace hostello.Migrations
                     b.Property<int?>("FkAdministrador")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("FkEstabelecimento")
+                    b.Property<int>("FkResponsavel")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("FkTipoAcomodacao")
@@ -54,21 +57,18 @@ namespace hostello.Migrations
                     b.Property<int>("PessoasMax")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ResponsavelIdUsuario")
-                        .HasColumnType("INTEGER");
-
                     b.Property<double>("ValorDiaria")
                         .HasColumnType("REAL");
 
                     b.HasKey("IdAcomodacao");
 
+                    b.HasIndex("EstabelecimentoIdEstabelecimento");
+
                     b.HasIndex("FkAdministrador");
 
-                    b.HasIndex("FkEstabelecimento");
+                    b.HasIndex("FkResponsavel");
 
                     b.HasIndex("FkTipoAcomodacao");
-
-                    b.HasIndex("ResponsavelIdUsuario");
 
                     b.ToTable("Acomodacoes");
                 });
@@ -260,6 +260,20 @@ namespace hostello.Migrations
                     b.HasKey("IdEndereco");
 
                     b.ToTable("Enderecos");
+
+                    b.HasData(
+                        new
+                        {
+                            IdEndereco = 1,
+                            Bairro = "Bairro dos bobos",
+                            Cep = "29360-000",
+                            Cidade = "Castelo",
+                            Complemento = "apt 404",
+                            Estado = "Espirito Santo",
+                            Logradouro = "Rua dos bobos",
+                            Numero = "0",
+                            Pais = "Brasil"
+                        });
                 });
 
             modelBuilder.Entity("hostello.Models.Estabelecimento", b =>
@@ -352,6 +366,18 @@ namespace hostello.Migrations
                     b.HasKey("IdTipoAcomodacao");
 
                     b.ToTable("TiposAcomodacoes");
+
+                    b.HasData(
+                        new
+                        {
+                            IdTipoAcomodacao = 1,
+                            NomeTipoAcomodacao = "Quarto"
+                        },
+                        new
+                        {
+                            IdTipoAcomodacao = 2,
+                            NomeTipoAcomodacao = "Pousada"
+                        });
                 });
 
             modelBuilder.Entity("hostello.Models.Usuario", b =>
@@ -404,6 +430,19 @@ namespace hostello.Migrations
                     b.HasBaseType("hostello.Models.Usuario");
 
                     b.HasDiscriminator().HasValue("Administrador");
+
+                    b.HasData(
+                        new
+                        {
+                            IdUsuario = 1,
+                            Cpf = "111.111.111-11",
+                            DataNascimento = new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "nicolasbassini@hotmail.com",
+                            Nome = "Nicolas",
+                            Senha = "$2a$10$i4qMnE0jI21AHsW1ycWHtuKP5DwUCpFVdFHEzounB6saleAFYqzN6",
+                            Sexo = 1,
+                            Telefone = "+5528999752520"
+                        });
                 });
 
             modelBuilder.Entity("hostello.Models.Cliente", b =>
@@ -432,7 +471,7 @@ namespace hostello.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("FkEndereco")
+                    b.Property<int>("FkEndereco")
                         .HasColumnType("INTEGER");
 
                     b.Property<double?>("MediaAvaliacao")
@@ -451,17 +490,39 @@ namespace hostello.Migrations
                     b.HasIndex("FkEndereco");
 
                     b.HasDiscriminator().HasValue("Responsavel");
+
+                    b.HasData(
+                        new
+                        {
+                            IdUsuario = 2,
+                            Cpf = "222.222.222-22",
+                            DataNascimento = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "dono@empresa.com",
+                            Nome = "Dono Empresa",
+                            Senha = "$2a$10$A79eRYBpXxXrjrdg9ZdLN.XNAtP45twlbT6MHhwp0sF1ZVa0dA4yy",
+                            Sexo = 2,
+                            Telefone = "+5528999999999",
+                            CNPJ = "12312312312312",
+                            Celular = "+5528999999998",
+                            FkEndereco = 1,
+                            NomeFantasia = "Empresa Fantasia",
+                            RazaoSocial = "Empresa Corporation"
+                        });
                 });
 
             modelBuilder.Entity("hostello.Models.Acomodacao", b =>
                 {
+                    b.HasOne("hostello.Models.Estabelecimento", null)
+                        .WithMany("Acomodacoes")
+                        .HasForeignKey("EstabelecimentoIdEstabelecimento");
+
                     b.HasOne("hostello.Models.Administrador", "Administrador")
                         .WithMany("Acomodacoes")
                         .HasForeignKey("FkAdministrador");
 
-                    b.HasOne("hostello.Models.Estabelecimento", "Estabelecimento")
+                    b.HasOne("hostello.Models.Responsavel", "Responsavel")
                         .WithMany("Acomodacoes")
-                        .HasForeignKey("FkEstabelecimento")
+                        .HasForeignKey("FkResponsavel")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -471,13 +532,9 @@ namespace hostello.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("hostello.Models.Responsavel", null)
-                        .WithMany("Acomodacoes")
-                        .HasForeignKey("ResponsavelIdUsuario");
-
                     b.Navigation("Administrador");
 
-                    b.Navigation("Estabelecimento");
+                    b.Navigation("Responsavel");
 
                     b.Navigation("TipoAcomodacao");
                 });
@@ -559,7 +616,9 @@ namespace hostello.Migrations
                 {
                     b.HasOne("hostello.Models.Endereco", "Endereco")
                         .WithMany()
-                        .HasForeignKey("FkEndereco");
+                        .HasForeignKey("FkEndereco")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Endereco");
                 });

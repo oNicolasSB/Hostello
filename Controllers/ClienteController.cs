@@ -29,6 +29,11 @@ public class ClienteController : Controller
     public IActionResult Create(CadastroClienteViewModel clienteViewModel)
     {
         if(!ModelState.IsValid) return View(clienteViewModel);
+        if(_db.Usuarios.Any(u => u.Email == clienteViewModel.Email))
+        {
+            ModelState.AddModelError("Email", "Já existe um usuário com este e-mail.");
+            return View(clienteViewModel);
+        }
         var cliente = new Cliente();
         cliente.Nome = clienteViewModel.Nome;
         cliente.Cpf = clienteViewModel.Cpf;

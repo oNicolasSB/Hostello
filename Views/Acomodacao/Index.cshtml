@@ -30,7 +30,7 @@
                         </div>
                         <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
                             <ul>
-                                <li><h4>@acomodacao.Estabelecimento.NomeFantasia, @acomodacao.Numero</h4></li>
+                                <li><h4>@acomodacao.Responsavel.NomeFantasia, @acomodacao.Numero</h4></li>
                                 <li>@acomodacao.Descricao</li>
                             </ul>
                         </div>
@@ -46,7 +46,7 @@
                                 </a>
                             </div>
                             <div class="col-12 my-3 my-md-3">
-                                <a asp-action="Index" asp-controller="Alugar" asp-route-id="@acomodacao.IdAcomodacao" class="botao-destaque">
+                                <a asp-action="Edit" asp-controller="Acomodacao" asp-route-id="@acomodacao.IdAcomodacao" class="botao-destaque">
                                 <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
                                 </a>
                             </div>

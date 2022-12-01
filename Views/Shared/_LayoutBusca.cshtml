@@ -21,25 +21,26 @@
     <nav class="navegacao py-3 mb-3">
         <div class="container d-flex justify-content-between align-items-center">
             <div class="col-6 col-md-2 text-start">
-                <a asp-action="Index" asp-controller="Home"><img src="~/img/logo_completa.svg" class="logo d-none d-lg-block"><img src="~/img/logo.svg"
-                        class=" logo d-block d-lg-none"></a>
+                <a asp-action="Index" asp-controller="Home"><img src="~/img/logo_completa.svg"
+                        class="logo d-none d-lg-block"><img src="~/img/logo.svg" class=" logo d-block d-lg-none"></a>
             </div>
 
             <div class="col-8 d-none d-md-flex justify-content-center">
                 <form class="d-none d-md-block barra-pesquisa">
                     <input type="search" placeholder="Qual seu destino?">
                     <a asp-action="Index" asp-controller="Pesquisa"><button type="button">
-                        <i class="bi bi-search"></i>
-                    </button></a>
+                            <i class="bi bi-search"></i>
+                        </button></a>
                 </form>
             </div>
             <div class="col-6 col-md-2 text-end">
-                <div class="d-inline-block d-lg-none"> <!-- Botão Filtros -->
+                <div class="d-inline-block d-lg-none">
+                    <!-- Botão Filtros -->
                     <button class="botao-expandir px-3" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
-                    <i class="bi bi-list botao-expandir"></i></button>
-                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-                        aria-labelledby="offcanvasWithBothOptionsLabel">
+                        data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+                        <i class="bi bi-list botao-expandir"></i></button>
+                    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1"
+                        id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                         <div class="offcanvas-header barralateral">
                             <h2 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Filtros: </h2>
                             <button type="button" class="fechar text-dark" data-bs-dismiss="offcanvas"
@@ -121,18 +122,19 @@
                                 <input type="checkbox" id="interior" name="interior">
                                 <label for="interior">Interior</label>
                             </div>
-                            <div class="d-flex justify-content-center my-3"><button class="botao-destaque"><i class="bi bi-funnel-fill"></i></button></div>
+                            <div class="d-flex justify-content-center my-3"><button class="botao-destaque"><i
+                                        class="bi bi-funnel-fill"></i></button></div>
                         </div>
                     </div>
                 </div>
                 <!-- Botão Perfil-->
                 <div class="d-inline-block">
                     <button class="avatar" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
-                    aria-controls="offcanvasRight">
-                    <img src="~/img/avatar.png">
-                </button>
+                        aria-controls="offcanvasRight">
+                        <img src="~/img/avatar.png">
+                    </button>
                 </div>
-                
+
 
                 <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasRight"
                     aria-labelledby="offcanvasRightLabel">
@@ -166,6 +168,9 @@
                             <li class="my-3"><a asp-action="Details" asp-controller="Cliente" class="lista">
                                     <h4 class="px-3 py-1">Meu Perfil</h4>
                                 </a></li>
+                            <li class="my-3"><a asp-action="Logout" asp-controller="Usuario" class="lista">
+                                    <h4 class="px-3 py-1">Logout</h4>
+                                </a></li>
                         </ul>
                     </div>
                 </div>
@@ -190,25 +195,25 @@
     </nav>
     <main>
         <div class="container" id="conteudo">
-        
+
             @RenderBody()
-            
+
 
         </div>
     </main>
 
     <footer class="py-3 my-4" id="rodape">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-          <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
         </ul>
         <p class="text-center text-muted">© 2022 Hostello.</p>
-      </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <script src="~/js/script_rodape.js"></script>
+    <script src="~/js/script_rodape.js"></script>
 </body>
 
 </html>

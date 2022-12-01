@@ -1,6 +1,7 @@
 using hostello.Data;
 using hostello.Models;
 using Microsoft.AspNetCore.Mvc;
+using static BCrypt.Net.BCrypt;
 
 namespace hostello.Controllers;
 
@@ -29,11 +30,16 @@ public class ResponsavelController : Controller
     public IActionResult Create(CadastroResponsavelViewModel responsavelViewModel)
     {
         if(!ModelState.IsValid) return View(responsavelViewModel);
+        if(_db.Usuarios.Any(u => u.Email == responsavelViewModel.Email))
+        {
+            ModelState.AddModelError("Email", "Já existe um usuário com este e-mail.");
+            return View(responsavelViewModel);
+        }
         var responsavel = new Responsavel();
         responsavel.Nome = responsavelViewModel.Nome;
         responsavel.Cpf = responsavelViewModel.Cpf;
         responsavel.Email = responsavelViewModel.Email;
-        responsavel.Senha = responsavelViewModel.Senha;
+        responsavel.Senha = HashPassword(responsavelViewModel.Senha, 10);
         responsavel.Telefone = responsavelViewModel.Telefone;
         responsavel.DataNascimento = responsavelViewModel.DataNascimento;
         if(responsavelViewModel.Sexo == 0){
@@ -43,16 +49,25 @@ public class ResponsavelController : Controller
         } else {
             responsavel.Sexo = EnumSexo.Feminino;
         }
-        
         responsavel.CNPJ = responsavelViewModel.Cnpj;
         responsavel.NomeFantasia = responsavelViewModel.NomeFantasia;
         responsavel.Celular = responsavelViewModel.Celular;
         responsavel.RazaoSocial = responsavelViewModel.RazaoSocial;
         responsavel.MediaAvaliacao = null;
+        var endereco = new Endereco();
+        endereco.Logradouro = responsavelViewModel.Logradouro;
+        endereco.Bairro = responsavelViewModel.Bairro;
+        endereco.Numero = responsavelViewModel.Numero;
+        endereco.Complemento = responsavelViewModel.Complemento;
+        endereco.Cep = responsavelViewModel.Cep;
+        endereco.Cidade = responsavelViewModel.Cidade;
+        endereco.Estado = responsavelViewModel.Estado;
+        endereco.Pais = responsavelViewModel.Pais;
+        _db.Enderecos.Add(endereco);
+        responsavel.FkEndereco = endereco.IdEndereco;
         _db.Responsaveis.Add(responsavel);
         _db.SaveChanges();
         return RedirectToAction("Create", "Endereco");
-
     }
     [HttpGet]
     public IActionResult Edit(int id)

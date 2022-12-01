@@ -12,10 +12,10 @@ function ajustar () {
         rodape.style.cssText = 'margin-top:'+margem+' !important';
     }
     
-    console.log("conteudo: " + conteudo);
-    console.log("rodape: " + rodape.offsetHeight);
-    console.log("janela: " + janela);
-    console.log("margem: " + margem);
+    // console.log("conteudo: " + conteudo);
+    // console.log("rodape: " + rodape.offsetHeight);
+    // console.log("janela: " + janela);
+    // console.log("margem: " + margem);
     
 }
 

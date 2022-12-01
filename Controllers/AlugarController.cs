@@ -26,7 +26,7 @@ public class AlugarController : Controller
         ViewBag.SelectMaxPessoas = selectMaxPessoas;
 
     }
-    [Authorize("cliente")]
+    [Authorize(Roles = "cliente")]
     public IActionResult Index()
     {
         return View();

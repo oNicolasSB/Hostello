@@ -113,7 +113,8 @@ namespace hostello.Migrations
                         name: "FK_Usuarios_Enderecos_FkEndereco",
                         column: x => x.FkEndereco,
                         principalTable: "Enderecos",
-                        principalColumn: "IdEndereco");
+                        principalColumn: "IdEndereco",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -131,18 +132,17 @@ namespace hostello.Migrations
                     ValorDiaria = table.Column<double>(type: "REAL", nullable: false),
                     FkAdministrador = table.Column<int>(type: "INTEGER", nullable: true),
                     FkTipoAcomodacao = table.Column<int>(type: "INTEGER", nullable: false),
-                    FkEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false),
-                    ResponsavelIdUsuario = table.Column<int>(type: "INTEGER", nullable: true)
+                    FkResponsavel = table.Column<int>(type: "INTEGER", nullable: false),
+                    EstabelecimentoIdEstabelecimento = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Acomodacoes", x => x.IdAcomodacao);
                     table.ForeignKey(
-                        name: "FK_Acomodacoes_Estabelecimentos_FkEstabelecimento",
-                        column: x => x.FkEstabelecimento,
+                        name: "FK_Acomodacoes_Estabelecimentos_EstabelecimentoIdEstabelecimento",
+                        column: x => x.EstabelecimentoIdEstabelecimento,
                         principalTable: "Estabelecimentos",
-                        principalColumn: "IdEstabelecimento",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdEstabelecimento");
                     table.ForeignKey(
                         name: "FK_Acomodacoes_TiposAcomodacoes_FkTipoAcomodacao",
                         column: x => x.FkTipoAcomodacao,
@@ -155,10 +155,11 @@ namespace hostello.Migrations
                         principalTable: "Usuarios",
                         principalColumn: "IdUsuario");
                     table.ForeignKey(
-                        name: "FK_Acomodacoes_Usuarios_ResponsavelIdUsuario",
-                        column: x => x.ResponsavelIdUsuario,
+                        name: "FK_Acomodacoes_Usuarios_FkResponsavel",
+                        column: x => x.FkResponsavel,
                         principalTable: "Usuarios",
-                        principalColumn: "IdUsuario");
+                        principalColumn: "IdUsuario",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -295,25 +296,50 @@ namespace hostello.Migrations
                 columns: new[] { "IdCategoria", "Nome" },
                 values: new object[] { 8, "BeiraMar" });
 
+            migrationBuilder.InsertData(
+                table: "Enderecos",
+                columns: new[] { "IdEndereco", "Bairro", "Cep", "Cidade", "Complemento", "Estado", "Logradouro", "Numero", "Pais" },
+                values: new object[] { 1, "Bairro dos bobos", "29360-000", "Castelo", "apt 404", "Espirito Santo", "Rua dos bobos", "0", "Brasil" });
+
+            migrationBuilder.InsertData(
+                table: "TiposAcomodacoes",
+                columns: new[] { "IdTipoAcomodacao", "NomeTipoAcomodacao" },
+                values: new object[] { 1, "Quarto" });
+
+            migrationBuilder.InsertData(
+                table: "TiposAcomodacoes",
+                columns: new[] { "IdTipoAcomodacao", "NomeTipoAcomodacao" },
+                values: new object[] { 2, "Pousada" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "IdUsuario", "Cpf", "DataNascimento", "Discriminator", "Email", "Nome", "Senha", "Sexo", "Telefone" },
+                values: new object[] { 1, "111.111.111-11", new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrador", "nicolasbassini@hotmail.com", "Nicolas", "$2a$10$i4qMnE0jI21AHsW1ycWHtuKP5DwUCpFVdFHEzounB6saleAFYqzN6", 1, "+5528999752520" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "IdUsuario", "CNPJ", "Celular", "Cpf", "DataNascimento", "Discriminator", "Email", "FkEndereco", "MediaAvaliacao", "Nome", "NomeFantasia", "RazaoSocial", "Senha", "Sexo", "Telefone" },
+                values: new object[] { 2, "12312312312312", "+5528999999998", "222.222.222-22", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Responsavel", "dono@empresa.com", 1, null, "Dono Empresa", "Empresa Fantasia", "Empresa Corporation", "$2a$10$A79eRYBpXxXrjrdg9ZdLN.XNAtP45twlbT6MHhwp0sF1ZVa0dA4yy", 2, "+5528999999999" });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Acomodacoes_EstabelecimentoIdEstabelecimento",
+                table: "Acomodacoes",
+                column: "EstabelecimentoIdEstabelecimento");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Acomodacoes_FkAdministrador",
                 table: "Acomodacoes",
                 column: "FkAdministrador");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Acomodacoes_FkEstabelecimento",
+                name: "IX_Acomodacoes_FkResponsavel",
                 table: "Acomodacoes",
-                column: "FkEstabelecimento");
+                column: "FkResponsavel");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Acomodacoes_FkTipoAcomodacao",
                 table: "Acomodacoes",
                 column: "FkTipoAcomodacao");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Acomodacoes_ResponsavelIdUsuario",
-                table: "Acomodacoes",
-                column: "ResponsavelIdUsuario");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Avaliacoes_FkAcomodacao",

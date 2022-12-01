@@ -39,7 +39,7 @@
                         aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
                             <img src="~/img/avatar.png" class="sidebar-avatar">
-                            <h2 class="offcanvas-title" id="offcanvasRightLabel">Nome do usuário</h2>
+                            <h2 class="offcanvas-title" id="offcanvasRightLabel">@User.Identity.Name</h2>
                             <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
                                 aria-label="Close"></button>
                         </div>
@@ -53,6 +53,9 @@
                                     </a></li>
                                 <li class="my-3"><a  asp-action="Index" asp-controller="Avaliacao" class="lista">
                                         <h4 class="px-3 py-1">Avaliações</h4>
+                                    </a></li>
+                                <li class="my-3"><a  asp-action="Logout" asp-controller="Usuario" class="lista">
+                                        <h4 class="px-3 py-1">Logout</h4>
                                     </a></li>
                             </ul>
                         </div>

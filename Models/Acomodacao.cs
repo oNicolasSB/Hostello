@@ -19,11 +19,11 @@ public class Acomodacao
     public int? FkAdministrador { get; set; }
     [ForeignKey("TipoAcomodacao")]
     public int FkTipoAcomodacao { get; set; }
-    [ForeignKey("Estabelecimento")]
-    public int FkEstabelecimento { get; set; }
+    [ForeignKey("Responsavel")]
+    public int FkResponsavel { get; set; }
     public Administrador Administrador { get; set; }
     public TipoAcomodacao TipoAcomodacao { get; set; }
-    public Estabelecimento Estabelecimento { get; set; }
+    public Responsavel Responsavel { get; set; }
     public ICollection<Reserva> Reservas { get; set; }
     public ICollection<Avaliacao> Avaliacoes { get; set; }
 }
