@@ -22,7 +22,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 {
     options.UseSqlite("Data source=data.db");
 }); //adição do serviço do banco de dados
- 
 
 var app = builder.Build();
 

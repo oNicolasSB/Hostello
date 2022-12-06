@@ -15,30 +15,6 @@
                 <input type="checkbox" id="cafe_da_manha" name="cafe_da_manha">
                 <label for="cafe_da_manha">Café da Manhã</label>
             </div>
-            <div class="mb-1">
-                <input type="checkbox" id="pet_friendly" name="pet_friendly">
-                <label for="pet_friendly">PET friendly</label>
-            </div>
-            <div class="mb-1">
-                <input type="checkbox" id="internet" name="internet">
-                <label for="internet">Internet</label>
-            </div>
-            <div class="mb-1">
-                <input type="checkbox" id="lavanderia" name="lavanderia">
-                <label for="lavanderia">Lavanderia</label>
-            </div>
-            <div class="mb-1">
-                <input type="checkbox" id="estacionamento" name="estacionamento">
-                <label for="estacionamento">Estacionamento</label>
-            </div>
-            <div class="mb-1">
-                <input type="checkbox" id="cancelamento" name="cancelamento">
-                <label for="cancelamento">Cancelamento grátis</label>
-            </div>
-            <div class="mb-1">
-                <input type="checkbox" id="tomada" name="tomada">
-                <label for="tomada">Tomada perto da cama</label>
-            </div>
 
             <h3 class="my-3">Opções de Quarto</h3>
             <div class="mb-1">
@@ -89,11 +65,11 @@
     </div>
     <div class="col-12 col-lg-9 green">
         <!-- Conteúdo Principal -->
-        <div class="row g-3">
+        <div class="row g-3 align-items-stretch">
             @foreach (var acomodacao in Model)
             {
                 <div class="col-12 col-md-6 col-xl-4">
-                <div class="card">
+                <div class="card h-100">
                     <img src="~/img/ex01.png" class="card-img-top">
                     <div class="card-body">
                         <h5 class="card-title">@acomodacao.Responsavel.NomeFantasia</h5>

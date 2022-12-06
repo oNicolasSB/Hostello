@@ -6,6 +6,7 @@ using hostello.Data;
 using hostello.Models;
 using Microsoft.AspNetCore.Mvc;
 using static BCrypt.Net.BCrypt;
+using System.Web;
 
 namespace hostello.Controllers;
 
@@ -42,9 +43,6 @@ public class UsuarioController : Controller
         var verificado = Verify(login.Senha, usuario.Senha);
         if (verificado)
         {
-
-
-
             var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Email, usuario.Email),
@@ -77,7 +75,7 @@ public class UsuarioController : Controller
             System.Console.WriteLine($"O Usuário {usuario.Email} logou às {DateTime.Now}");
 
             if (returnUrl is null) return RedirectToAction("Index", "Pesquisa");
-            return RedirectToAction(returnUrl);
+            return Redirect(returnUrl);
         } else 
         {
             return View(login);

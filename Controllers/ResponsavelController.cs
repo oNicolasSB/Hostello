@@ -35,6 +35,17 @@ public class ResponsavelController : Controller
             ModelState.AddModelError("Email", "Já existe um usuário com este e-mail.");
             return View(responsavelViewModel);
         }
+        var endereco = new Endereco();
+        endereco.Logradouro = responsavelViewModel.Logradouro;
+        endereco.Bairro = responsavelViewModel.Bairro;
+        endereco.Numero = responsavelViewModel.Numero;
+        endereco.Complemento = responsavelViewModel.Complemento;
+        endereco.Cep = responsavelViewModel.Cep;
+        endereco.Cidade = responsavelViewModel.Cidade;
+        endereco.Estado = responsavelViewModel.Estado;
+        endereco.Pais = responsavelViewModel.Pais;
+        _db.Enderecos.Add(endereco);
+        _db.SaveChanges();
         var responsavel = new Responsavel();
         responsavel.Nome = responsavelViewModel.Nome;
         responsavel.Cpf = responsavelViewModel.Cpf;
@@ -54,20 +65,10 @@ public class ResponsavelController : Controller
         responsavel.Celular = responsavelViewModel.Celular;
         responsavel.RazaoSocial = responsavelViewModel.RazaoSocial;
         responsavel.MediaAvaliacao = null;
-        var endereco = new Endereco();
-        endereco.Logradouro = responsavelViewModel.Logradouro;
-        endereco.Bairro = responsavelViewModel.Bairro;
-        endereco.Numero = responsavelViewModel.Numero;
-        endereco.Complemento = responsavelViewModel.Complemento;
-        endereco.Cep = responsavelViewModel.Cep;
-        endereco.Cidade = responsavelViewModel.Cidade;
-        endereco.Estado = responsavelViewModel.Estado;
-        endereco.Pais = responsavelViewModel.Pais;
-        _db.Enderecos.Add(endereco);
         responsavel.FkEndereco = endereco.IdEndereco;
         _db.Responsaveis.Add(responsavel);
         _db.SaveChanges();
-        return RedirectToAction("Create", "Endereco");
+        return RedirectToAction("Index", "Home");
     }
     [HttpGet]
     public IActionResult Edit(int id)

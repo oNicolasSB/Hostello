@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace hostello.Controllers;
 
-public class ReservaController : Controller
+public class AlugarController : Controller
 {
     private readonly AppDbContext _db;
 
-    public ReservaController(AppDbContext db)
+    public AlugarController(AppDbContext db)
     {
         _db = db;
     }
@@ -39,36 +39,32 @@ public class ReservaController : Controller
         ViewBag.SelectEstadiaMax = selectEstadiaMax;
     }
 
-    public IActionResult Index()
-    {
-        var reservas = _db.Reservas.ToList();
-        return View(reservas);
-    }
     [Authorize(Roles = "cliente")]
     [HttpGet]
-    public IActionResult Create(int id)
+    public IActionResult Index(int id)
     {
         CarregarMaxPessoas(id);
         CarregarEstadiaMax(id);
-        var reserva = new Reserva();
-        return View(reserva);
+
+        var aluguel = new Aluguel();
+
+        return View(aluguel);
     }
 
-    [Authorize(Roles = "cliente")]
     [HttpPost]
-    public IActionResult Create(Reserva reserva)
+    public IActionResult Index(Aluguel aluguel)
     {
-        var valorDiaria = _db.Acomodacoes.Find(reserva.FkAcomodacao).ValorDiaria;
-        reserva.DataReserva = DateTime.Now;
-        reserva.QtdeDias = Convert.ToInt32(reserva.EstadiaEntrada.Subtract(reserva.EstadiaSaida).TotalDays);
-        reserva.EstadiaSaida = reserva.EstadiaEntrada.AddDays(reserva.QtdeDias);
-        reserva.ValorReserva = reserva.Acomodacao.ValorDiaria * reserva.QtdeDias;
-        if(!ModelState.IsValid)
-        {
-            return View(reserva);
-        }
-        _db.Reservas.Add(reserva);
-        _db.SaveChanges();
-        RedirectToAction("Index");
+        var valorDiaria = _db.Acomodacoes.Find(aluguel.FkAcomodacao).ValorDiaria;
+        aluguel.DataSaida = aluguel.DataEntrada.AddDays(aluguel.QtdeDias);
+        aluguel.Valor = aluguel.QtdeDias*aluguel.
     }
+
+    // public IActionResult Alugar(int IdAcomodacao)
+    // {
+    //     var acomodacao = _db.Acomodacoes.Find(IdAcomodacao);
+    //     if(acomodacao is null)
+    //         return RedirectToAction("Index", "Pesquisa");
+    //     CarregarMaxPessoas(acomodacao.PessoasMax);
+    //     return View(acomodacao);
+    // }
 }

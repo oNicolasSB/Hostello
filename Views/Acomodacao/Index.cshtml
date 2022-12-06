@@ -1,3 +1,4 @@
+@using System.Security.Claims
 @{
     Layout = "_LayoutResponsavel";
 }
@@ -8,11 +9,14 @@
         <div class="col-8 offset-2 align-self-center">
             <h1 class="text-center pb-3">Quartos Cadastrados</h1>
         </div>
+        @if (User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value == "responsavel")
+        {
         <div class="text-end col-2 align-self-center">
             <a class="botao-destaque" asp-action="Create">
                 <i class="bi bi-plus-circle"></i>
             </a>
         </div>
+        }
     </div>
 </header>
 <ul class="list-group mb-3">
@@ -21,12 +25,12 @@
         <li class="list-group-item py-3">
                     <div class="row d-md-none">
                         <div class="col-12 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
+                            <img src='~/img/acomodacao/@acomodacao.IdAcomodacao.ToString("D6")/000000.jpg' class="img-thumbnail">
                         </div>
                     </div>
                     <div class="row">
                         <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
+                            <img src='~/img/acomodacao/@acomodacao.IdAcomodacao.ToString("D6")/000000.jpg' class="img-thumbnail">
                         </div>
                         <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
                             <ul>
