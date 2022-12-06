@@ -11,10 +11,15 @@ public class Acomodacao
     
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(256)]
     public string Descricao { get; set; }
+    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int Numero { get; set; }
+    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int PessoasMax { get; set; }
+    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int EstadiaMin { get; set; }
+    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int EstadiaMax { get; set; }
+    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public double ValorDiaria { get; set; }
     [ForeignKey("Administrador")]
     public int? FkAdministrador { get; set; }

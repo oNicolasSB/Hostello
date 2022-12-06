@@ -9,7 +9,7 @@ public class Responsavel : Usuario
     public string CNPJ { get; set;}
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(128)]
     public string NomeFantasia { get ; set; }
-    [StringLength(14)]
+    [StringLength(14), (ErrorMessage = "O campo {0} deve ser preenchido.")]
     public string Celular { get ; set; }
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(14)]
     public string RazaoSocial { get; set; }

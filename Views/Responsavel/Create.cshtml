@@ -26,6 +26,7 @@
                                 <label asp-for=@Model.Nome><span id="nome" onclick="descricao(this)">Nome
                                         completo:</span></label>
                                 <input type="text" class="form-control shadow-none" asp-for=@Model.Nome>
+                                <span class="text-danger text-sm" asp-validation-for="@Model.Nome"></span>
                             </div>
                         </div>
 
@@ -34,6 +35,7 @@
                                 <label asp-for=@Model.Email><span id="email"
                                         onclick="descricao(this)">E-mail:</span></label>
                                 <input type="email" class="form-control shadow-none" asp-for=@Model.Email>
+                                <span class="text-danger text-sm" asp-validation-for="@Model.Email"></span>
                             </div>
                         </div>
 
@@ -43,6 +45,7 @@
                                     <label asp-for=@Model.Cpf><span id="cpf"
                                             onclick="descricao(this)">CPF:</span></label>
                                     <input type="text" class="form-control shadow-none" asp-for=@Model.Cpf>
+                                    <span class="text-danger text-sm" asp-validation-for="@Model.Cpf"></span>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -50,6 +53,7 @@
                                     <label asp-for=@Model.DataNascimento><span id="dtnasc"
                                             onclick="descricao(this)">Data de nascimento:</span></label>
                                     <input type="date" class="form-control shadow-none" asp-for=@Model.DataNascimento>
+                                    <span class="text-danger text-sm" asp-validation-for="@Model.DataNascimento"></span>
                                 </div>
                             </div>
                         </div>
@@ -60,6 +64,7 @@
                                     <label asp-for=@Model.Celular><span id="cel" onclick="descricao(this)">Telefone
                                             celular:</span></label>
                                     <input type="text" class="form-control shadow-none" asp-for=@Model.Celular>
+                                    <span class="text-danger text-sm" asp-validation-for="@Model.Celular"></span>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -67,6 +72,7 @@
                                     <label asp-for=@Model.Telefone><span id="fixo" onclick="descricao(this)">Telefone
                                             fixo:</span></label>
                                     <input type="text" class="form-control shadow-none" asp-for=@Model.Telefone>
+                                    <span class="text-danger text-sm" asp-validation-for="@Model.Telefone"></span>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +82,7 @@
                                 <div class="form-group py-2 ">
                                     <label asp-for=@Model.Sexo><span id="sexo"
                                             onclick="descricao(this)">Sexo:</span></label>
+                                    <span class="text-danger text-sm" asp-validation-for="@Model.Sexo"></span>
                                     <select class="form-select shadow-none" id="SelectGrid">
                                         <option value="1">Masculino</option>
                                         <option value="2">Feminino</option>
@@ -118,6 +125,7 @@
                                     <label asp-for=@Model.Senha><span id="senha"
                                             onclick="descricao(this)">Senha:</span></label>
                                     <input type="password" class="form-control shadow-none" asp-for=@Model.Senha>
+                                    <span class="text-danger text-sm" asp-validation-for="@Model.Senha"></span>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -125,6 +133,7 @@
                                     <label asp-for=@Model.ConfSenha><span id="confsenha"
                                             onclick="descricao(this)">Confirmar senha:</span></label>
                                     <input type="password" class="form-control shadow-none" asp-for=@Model.ConfSenha>
+                                <span class="text-danger text-sm" asp-validation-for="@Model.ConfSenha"></span>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -150,38 +159,46 @@
                     <div class="form-group py-2">
                         <label asp-for="@Model.Pais">País:</label>
                         <input type="text" class="form-control shadow-none" id="pais" asp-for="@Model.Pais">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Pais"></span>
                     </div>
                     <div class="form-group py-2">
                         <label asp-for="@Model.Estado">Estado:</label>
                         <input type="text" class="form-control shadow-none" id="estado" asp-for="@Model.Estado">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Estado"></span>
                     </div>
                     <div class="form-group py-2">
                         <label asp-for="@Model.Cidade">Cidade:</label>
                         <input type="text" class="form-control shadow-none" id="cidade" asp-for="@Model.Cidade">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Cidade"></span>
                     </div>
 
                     <div class="form-group py-2">
                         <label asp-for="@Model.Logradouro">Logradouro:</label>
                         <input type="text" class="form-control shadow-none" id="logradouro" asp-for="@Model.Logradouro">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Logradouro"></span>
                     </div>
                     <div class="form-group py-2">
                         <label asp-for="@Model.Bairro">Bairro:</label>
                         <input type="text" class="form-control shadow-none" id="bairro" asp-for="@Model.Bairro">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Bairro"></span>
                     </div>
                     <div class="form-group py-2 d-flex">
                         <div class="col-8 pe-1">
                             <label asp-for="@Model.Cep">CEP:</label>
                             <input type="text" class="form-control shadow-none" id="cep" asp-for="@Model.Cep">
+                            <span class="text-danger text-sm" asp-validation-for="@Model.Cep"></span>
                         </div>
                         <div class="col-4">
                             <label asp-for="@Model.Numero">Número:</label>
                             <input type="text" class="form-control shadow-none" id="numero" asp-for="@Model.Numero">
+                            <span class="text-danger text-sm" asp-validation-for="@Model.Numero"></span>
                         </div>
                     </div>
                     <div class="form-group py-2">
                         <label asp-for="@Model.Complemento">Complemento:</label>
                         <input type="text" class="form-control shadow-none" id="complemento"
                             asp-for="@Model.Complemento">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Complemento"></span>
                     </div>
                     <div class="text-center">
                         <div class="py-4">

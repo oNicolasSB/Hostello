@@ -58,6 +58,7 @@
             <h3 class="text-center">Selecione as opções para aluguel: </h3>
             <div class="row my-4 text-left">
                 <div class="col-4"><label for="pessoas">Número de Pessoas: </label>
+                <span class="text-danger text-sm" asp-validation-for="@Model.QtdePessoas"></span>
                 </div>
                 <div class="col-8">
                     <select class="form-select shadow-none" id="pessoas">

@@ -106,6 +106,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col-5"><label asp-for="@Model.Numero">Número do quarto: </label>
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Numero"></span>
                         </div>
                         <div class="col-7">
                             <input type="text" class="form-control shadow-none" asp-for="@Model.Numero" placeholder="Ex.: 101">
@@ -113,6 +114,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col-5"><label asp-for="@Model.PessoasMax">Número Máximo de Pessoas: </label>
+                        <span class="text-danger text-sm" asp-validation-for="@Model.PessoasMax"></span>
                         </div>
                         <div class="col-7">
                             <select class="form-select shadow-none" asp-for="@Model.PessoasMax">
@@ -127,6 +129,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col-5"><label asp-for="@Model.EstadiaMin">Período mínimo de estadia: (Dias)</label>
+                        <span class="text-danger text-sm" asp-validation-for="@Model.EstadiaMin"></span>
                         </div>
                         <div class="col-7">
                             <select class="form-select shadow-none" asp-for="@Model.PessoasMax">
@@ -166,6 +169,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col-5"><label asp-for="@Model.EstadiaMax">Período máximo de estadia: (Dias)</label>
+                        <span class="text-danger text-sm" asp-validation-for="@Model.EstadiaMax"></span>
                         </div>
                         <div class="col-7">
                             <select class="form-select shadow-none" asp-for="@Model.EstadiaMax">
@@ -205,6 +209,7 @@
                     </div>
                     <div class="row my-4">
                         <div class="col-5"><label asp-for="@Model.ValorDiaria">Valor da diária (R$): </label>
+                        <span class="text-danger text-sm" asp-validation-for="@Model.ValorDiaria"></span>
                         </div>
                         <div class="col-7">
                             <input type="text" class="form-control" asp-for="@Model.ValorDiaria" placeholder="Ex.: 99,90">

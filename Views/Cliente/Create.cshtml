@@ -20,6 +20,7 @@
                                     <div class="form-group py-2" >
                                         <label asp-for=@Model.Nome ><span id="nome" onclick="descricao(this)">Nome completo:</span></label>
                                         <input type="text" class="form-control shadow-none" asp-for=@Model.Nome>
+                                        <span class="text-danger text-sm" asp-validation-for="@Model.Nome"></span>
                                     </div>
                                 </div>
 
@@ -28,6 +29,7 @@
                                     <div class="form-group py-2">
                                         <label asp-for=@Model.Email ><span id="email" onclick="descricao(this)">E-mail:</span></label>
                                         <input type="email" class="form-control shadow-none" asp-for=@Model.Email>
+                                        <span class="text-danger text-sm" asp-validation-for="@Model.Email"></span>
                                     </div>
                                 </div>
                                 <div class="row g-2">
@@ -35,12 +37,14 @@
                                         <div class="form-group py-2">
                                             <label  asp-for=@Model.Cpf ><span id="cpf" onclick="descricao(this)">CPF:</span></label>
                                             <input type="text" class="form-control shadow-none" asp-for=@Model.Cpf>
+                                            <span class="text-danger text-sm" asp-validation-for="@Model.Cpf"></span>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
                                             <label asp-for=@Model.DataNascimento ><span id="dtnasc" onclick="descricao(this)">Data de nascimento:</span></label>
                                             <input type="date" class="form-control shadow-none"  asp-for=@Model.DataNascimento>
+                                            <span class="text-danger text-sm" asp-validation-for="@Model.DataNascimento"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -49,11 +53,13 @@
                                         <div class="form-group">
                                             <label asp-for=@Model.Telefone ><span id="cel" onclick="descricao(this)">Telefone celular:</span></label>
                                             <input type="text" class="form-control shadow-none" asp-for=@Model.Telefone>
+                                            <span class="text-danger text-sm" asp-validation-for="@Model.Telefone"></span>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form">
                                             <label asp-for=@Model.Sexo ><span id="sexo" onclick="descricao(this)">Sexo:</span></label>
+                                            <span class="text-danger text-sm" asp-validation-for="@Model.Sexo"></span>
                                             <select class="form-select" asp-for=@Model.Sexo>
                                                 <option value="1" selected>Masculino</option>
                                                 <option value="2">Feminino</option>
@@ -67,12 +73,14 @@
                                         <div class="form-group py-2">
                                             <label asp-for=@Model.Senha ><span id="senha" onclick="descricao(this)">Senha:</span></label>
                                             <input type="password" class="form-control shadow-none" asp-for=@Model.Senha>
+                                            <span class="text-danger text-sm" asp-validation-for="@Model.Senha"></span>
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group py-2">
                                             <label  asp-for=@Model.ConfSenha ><span id="confsenha" onclick="descricao(this)">Confirmar senha:</span></label>
                                             <input type="password" class="form-control shadow-none" asp-for=@Model.ConfSenha>
+                                            <span class="text-danger text-sm" asp-validation-for="@Model.ConfSenha"></span>
                                         </div>
                                     </div>
                                     <div class="col-12">

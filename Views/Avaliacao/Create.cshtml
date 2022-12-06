@@ -76,6 +76,7 @@
                         <textarea class="form-control shadow-none" style="resize: none;" asp-for="@Model.Comentario" rows="3"></textarea>
                         <span class="text-danger text-sm" asp-validation-for="@Model.Comentario"></span>
                         <input type="hidden" asp-for="@Model.NotaAvaliacao">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.NotaAvaliacao"></span>
                         <input type="hidden" value="1" asp-for="@Model.FkAcomodacao">
                         <input type="hidden" value="2" asp-for="@Model.FkCliente">
 
