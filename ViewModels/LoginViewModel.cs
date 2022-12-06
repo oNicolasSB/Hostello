@@ -11,7 +11,7 @@ public class LoginViewModel
     [Display(Name = "Senha")]
     [Required(ErrorMessage = "O Campo {0} deve ser preenchido.")]
     public string Senha { get; set; }
-    [Required]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     [Display(Name = "Lembrar de mim.")]
     public bool Lembrar { get; set; }
 }

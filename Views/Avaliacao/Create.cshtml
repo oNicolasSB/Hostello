@@ -73,16 +73,15 @@
                         </div>
 
                         <h5 class="text-center mt-2">Adicionar avaliação: </h5>
-                        <textarea class="form-control shadow-none" style="resize: none;" asp-for="@Model.Comentario"
-                            rows="3"></textarea>
-
+                        <textarea class="form-control shadow-none" style="resize: none;" asp-for="@Model.Comentario" rows="3"></textarea>
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Comentario"></span>
                         <input type="hidden" asp-for="@Model.NotaAvaliacao">
                         <input type="hidden" value="1" asp-for="@Model.FkAcomodacao">
                         <input type="hidden" value="2" asp-for="@Model.FkCliente">
 
                         <div class="row mt-3">
 
-                            <div class="col-12 text-end"><button type="submit" class="btn btn-primary botao">Concluir 🆗</button>
+                            <div class="col-12 text-end"><button type="submit" class="btn btn-primary botao">Concluir</button>
                             </div>
                         </div>
                     </div>

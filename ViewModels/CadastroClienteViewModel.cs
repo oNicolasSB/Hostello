@@ -10,25 +10,25 @@ public class CadastroClienteViewModel
 
     public string Nome { get; set; }
 
-    [Required, StringLength(11)]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(11)]
     public string Cpf { get; set; }
 
-    [Required, StringLength(128)]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(128)]
     public string Email { get; set; }
 
-    [Required, StringLength(32)]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(32)]
     public string Senha { get; set; }
 
-    [Required, StringLength(32)]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(32)]
     [Compare(nameof(Senha), ErrorMessage = "Os campos {0} e {1} devem ser iguais.")]
     public string ConfSenha { get; set; }
 
     [StringLength(14)]
     public string Telefone { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public DateTime DataNascimento { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int Sexo { get; set; }
 }

@@ -10,7 +10,7 @@ public class Avaliacao
     public int IdAvaliacao { get; set; }
     public DateTime? DataAvaliacao { get; set; }
     public double NotaAvaliacao { get; set; }
-    [Required, StringLength(256)]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(256)]
     public string Comentario { get; set; }
     public bool? Aprovado { get; set; }
     [ForeignKey("Administrador")]

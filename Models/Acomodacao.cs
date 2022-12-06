@@ -8,7 +8,8 @@ public class Acomodacao
     [Key]
     public int IdAcomodacao { get; set; }
     public double? MediaAvaliacaoQuarto { get; set; }
-    [Required, StringLength(256)]
+    
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(256)]
     public string Descricao { get; set; }
     public int Numero { get; set; }
     public int PessoasMax { get; set; }

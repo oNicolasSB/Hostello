@@ -13,6 +13,7 @@
             <div class="form-group py-2 text-align">
               <label asp-for="@Model.Nome">Nome Completo:</label>
               <input type="text" class="form-control shadow-none" id="nome" placeholder="Nícolas Sanson Bassini" asp-for="@Model.Nome">
+              <span class="text-danger text-sm" asp-validation-for="@Model.Descricao"></span>
             </div>
             <div class="form-group py-2 text-align">
               <label asp-for="@Model.Telefone">Telefone/Celular:</label>
@@ -21,14 +22,16 @@
             <div class="form-group py-2 text-align">
               <label asp-for="@Model.Email">Email:</label>
               <input type="text" class="form-control shadow-none" id="email" placeholder="nicleis@gmail.com" asp-for="@Model.Email">
+              <span class="text-danger text-sm" asp-validation-for="@Model.Email"></span>
             </div>
             <div class="form-group py-2 text-align">
               <label asp-for="@Model.Cargo">Cargo:</label>
               <input type="text" class="form-control shadow-none" id="cargo" placeholder="Gerente" asp-for="@Model.Cargo">
+              <span class="text-danger text-sm" asp-validation-for="@Model.Cargo"></span>
             </div>
 
             <div class="py-4">
-              <button type="submit" class="btn btn-primary botao">Salvar 🆗</button>
+              <button type="submit" class="btn btn-primary botao">Salvar</button>
             </div>
           </form>
         </div>

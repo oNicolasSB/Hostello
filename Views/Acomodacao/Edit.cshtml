@@ -92,6 +92,7 @@
                         <label asp-for="@Model.Descricao" class="form-label">Adicione uma descrição: </label>
                         <textarea class="form-control shadow-none" style="resize: none;" id="descricao" rows="3"
                             asp-for="@Model.Descricao"></textarea>
+                            <span class="text-danger text-sm" asp-validation-for="@Model.Descricao"></span>
                     </div>
                     <div class="row my-4">
                         <div class="col-5"><label for="tipoacomodacao">Tipo de acomodação: </label>
