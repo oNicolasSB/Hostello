@@ -43,6 +43,10 @@ public class AppDbContext : DbContext
                 IdUsuario = 2, Nome = "Dono Empresa", Cpf = "222.222.222-22", Email = "dono@empresa.com", Senha = HashPassword("123123", 10), Telefone = "+5528999999999", DataNascimento = new DateTime(2000, 01, 01), Sexo = EnumSexo.Feminino, CNPJ = "12312312312312", NomeFantasia = "Empresa Fantasia", Celular = "+5528999999998", RazaoSocial = "Empresa Corporation", FkEndereco = 1
             }
         );
+        mb.Entity<Cliente>().HasData(
+            new Cliente{IdUsuario = 3, Nome = "Anna", Cpf = "333.333.333-33", Email = "anna@email.com", Senha = HashPassword("123123", 10), Telefone = "+5528999967759", DataNascimento = new DateTime(2004, 07, 11), Sexo = EnumSexo.Feminino
+            }
+        );
         mb.Entity<TipoAcomodacao>().HasData(
             new TipoAcomodacao{IdTipoAcomodacao = 1, NomeTipoAcomodacao = "Quarto"},
             new TipoAcomodacao{IdTipoAcomodacao = 2, NomeTipoAcomodacao = "Pousada"}

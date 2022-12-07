@@ -85,7 +85,7 @@ namespace hostello.Migrations
                 {
                     IdUsuario = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
+                    Nome = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
                     Cpf = table.Column<string>(type: "TEXT", maxLength: 11, nullable: false),
                     Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
                     Senha = table.Column<string>(type: "TEXT", maxLength: 32, nullable: false),
@@ -113,8 +113,7 @@ namespace hostello.Migrations
                         name: "FK_Usuarios_Enderecos_FkEndereco",
                         column: x => x.FkEndereco,
                         principalTable: "Enderecos",
-                        principalColumn: "IdEndereco",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "IdEndereco");
                 });
 
             migrationBuilder.CreateTable(
@@ -236,18 +235,22 @@ namespace hostello.Migrations
                     DataReserva = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EstadiaEntrada = table.Column<DateTime>(type: "TEXT", nullable: false),
                     EstadiaSaida = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    PeriodoEstadia = table.Column<int>(type: "INTEGER", nullable: false),
+                    QtdePessoas = table.Column<int>(type: "INTEGER", nullable: false),
                     ValorReserva = table.Column<double>(type: "REAL", nullable: false),
+                    EstaPago = table.Column<bool>(type: "INTEGER", nullable: false),
                     FkCliente = table.Column<int>(type: "INTEGER", nullable: false),
-                    AcomodacaoIdAcomodacao = table.Column<int>(type: "INTEGER", nullable: true)
+                    FkAcomodacao = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Reservas", x => x.IdReserva);
                     table.ForeignKey(
-                        name: "FK_Reservas_Acomodacoes_AcomodacaoIdAcomodacao",
-                        column: x => x.AcomodacaoIdAcomodacao,
+                        name: "FK_Reservas_Acomodacoes_FkAcomodacao",
+                        column: x => x.FkAcomodacao,
                         principalTable: "Acomodacoes",
-                        principalColumn: "IdAcomodacao");
+                        principalColumn: "IdAcomodacao",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Reservas_Usuarios_FkCliente",
                         column: x => x.FkCliente,
@@ -314,12 +317,17 @@ namespace hostello.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "IdUsuario", "Cpf", "DataNascimento", "Discriminator", "Email", "Nome", "Senha", "Sexo", "Telefone" },
-                values: new object[] { 1, "111.111.111-11", new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrador", "nicolasbassini@hotmail.com", "Nicolas", "$2a$10$i4qMnE0jI21AHsW1ycWHtuKP5DwUCpFVdFHEzounB6saleAFYqzN6", 1, "+5528999752520" });
+                values: new object[] { 1, "111.111.111-11", new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrador", "nicolasbassini@hotmail.com", "Nicolas", "$2a$10$dJbqlMpg0y1EP3LUYZKKcekqI8WBglIYge5boRK7n/smTC2MDD9qy", 1, "+5528999752520" });
+
+            migrationBuilder.InsertData(
+                table: "Usuarios",
+                columns: new[] { "IdUsuario", "Cpf", "DataNascimento", "Discriminator", "Email", "Cliente_FkEndereco", "Nome", "Senha", "Sexo", "Telefone" },
+                values: new object[] { 3, "333.333.333-33", new DateTime(2004, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cliente", "anna@email.com", null, "Anna", "$2a$10$9gLRUuHxy5nOZw7zg4y2LuVqHFL/K/xODrWpilPHBsNwhZnPXdlJ.", 2, "+5528999967759" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "IdUsuario", "CNPJ", "Celular", "Cpf", "DataNascimento", "Discriminator", "Email", "FkEndereco", "MediaAvaliacao", "Nome", "NomeFantasia", "RazaoSocial", "Senha", "Sexo", "Telefone" },
-                values: new object[] { 2, "12312312312312", "+5528999999998", "222.222.222-22", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Responsavel", "dono@empresa.com", 1, null, "Dono Empresa", "Empresa Fantasia", "Empresa Corporation", "$2a$10$A79eRYBpXxXrjrdg9ZdLN.XNAtP45twlbT6MHhwp0sF1ZVa0dA4yy", 2, "+5528999999999" });
+                values: new object[] { 2, "12312312312312", "+5528999999998", "222.222.222-22", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Responsavel", "dono@empresa.com", 1, null, "Dono Empresa", "Empresa Fantasia", "Empresa Corporation", "$2a$10$Kba4xd9qCY.8Sj4GYTl6VucAm8Fqp.hDmUff0dSM1SMQYe2PBjOku", 2, "+5528999999999" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Acomodacoes_EstabelecimentoIdEstabelecimento",
@@ -372,9 +380,9 @@ namespace hostello.Migrations
                 column: "FkEndereco");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Reservas_AcomodacaoIdAcomodacao",
+                name: "IX_Reservas_FkAcomodacao",
                 table: "Reservas",
-                column: "AcomodacaoIdAcomodacao");
+                column: "FkAcomodacao");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservas_FkCliente",

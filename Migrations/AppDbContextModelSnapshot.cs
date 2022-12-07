@@ -323,11 +323,11 @@ namespace hostello.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("AcomodacaoIdAcomodacao")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("DataReserva")
                         .HasColumnType("TEXT");
+
+                    b.Property<bool>("EstaPago")
+                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime>("EstadiaEntrada")
                         .HasColumnType("TEXT");
@@ -335,7 +335,16 @@ namespace hostello.Migrations
                     b.Property<DateTime>("EstadiaSaida")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("FkAcomodacao")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("FkCliente")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PeriodoEstadia")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QtdePessoas")
                         .HasColumnType("INTEGER");
 
                     b.Property<double>("ValorReserva")
@@ -343,7 +352,7 @@ namespace hostello.Migrations
 
                     b.HasKey("IdReserva");
 
-                    b.HasIndex("AcomodacaoIdAcomodacao");
+                    b.HasIndex("FkAcomodacao");
 
                     b.HasIndex("FkCliente");
 
@@ -402,6 +411,8 @@ namespace hostello.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Senha")
@@ -437,7 +448,7 @@ namespace hostello.Migrations
                             DataNascimento = new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nicolasbassini@hotmail.com",
                             Nome = "Nicolas",
-                            Senha = "$2a$10$e2OsnW4pAMryY/gls75wS.z1TIV98bJZDAXcILak90NGIqrJHNA2K",
+                            Senha = "$2a$10$dJbqlMpg0y1EP3LUYZKKcekqI8WBglIYge5boRK7n/smTC2MDD9qy",
                             Sexo = 1,
                             Telefone = "+5528999752520"
                         });
@@ -454,6 +465,19 @@ namespace hostello.Migrations
                     b.HasIndex("FkEndereco");
 
                     b.HasDiscriminator().HasValue("Cliente");
+
+                    b.HasData(
+                        new
+                        {
+                            IdUsuario = 3,
+                            Cpf = "333.333.333-33",
+                            DataNascimento = new DateTime(2004, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "anna@email.com",
+                            Nome = "Anna",
+                            Senha = "$2a$10$9gLRUuHxy5nOZw7zg4y2LuVqHFL/K/xODrWpilPHBsNwhZnPXdlJ.",
+                            Sexo = 2,
+                            Telefone = "+5528999967759"
+                        });
                 });
 
             modelBuilder.Entity("hostello.Models.Responsavel", b =>
@@ -466,6 +490,7 @@ namespace hostello.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Celular")
+                        .IsRequired()
                         .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
@@ -497,7 +522,7 @@ namespace hostello.Migrations
                             DataNascimento = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "dono@empresa.com",
                             Nome = "Dono Empresa",
-                            Senha = "$2a$10$8QC49JUaIKqUmgANU5Wy7eZYK/tlbVygExdnCYEnLY6GnU5i6HiKG",
+                            Senha = "$2a$10$Kba4xd9qCY.8Sj4GYTl6VucAm8Fqp.hDmUff0dSM1SMQYe2PBjOku",
                             Sexo = 2,
                             Telefone = "+5528999999999",
                             CNPJ = "12312312312312",
@@ -588,15 +613,19 @@ namespace hostello.Migrations
 
             modelBuilder.Entity("hostello.Models.Reserva", b =>
                 {
-                    b.HasOne("hostello.Models.Acomodacao", null)
+                    b.HasOne("hostello.Models.Acomodacao", "Acomodacao")
                         .WithMany("Reservas")
-                        .HasForeignKey("AcomodacaoIdAcomodacao");
+                        .HasForeignKey("FkAcomodacao")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("hostello.Models.Cliente", "Cliente")
                         .WithMany("Reservas")
                         .HasForeignKey("FkCliente")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Acomodacao");
 
                     b.Navigation("Cliente");
                 });

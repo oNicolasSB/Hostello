@@ -1,0 +1,157 @@
+@model Reserva;
+@{
+    var acomodacao = ViewBag.Acomodacao as Acomodacao;
+}
+
+
+    <form method="post">
+<div class="row">
+        <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-7 col-xl-6 offset-xl-1">
+            <div class="border-1 border rounded-3 secao p-3 fit-content text-center">
+
+                <h3>@acomodacao.Responsavel.NomeFantasia, nº @acomodacao.Numero</h3>
+                <div id="carouselExampleIndicators" class="carousel slide mb-3" data-bs-ride="true">
+                    @if (acomodacao.QtdeImagens == 0)
+                    {
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/img/imgnotfound.png" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                    }
+                    <div class="carousel-indicators">
+                        @for (int i = 0; i < @acomodacao.QtdeImagens; i++)
+                        {
+                            if (i == 0)
+                            {
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i"
+                            class="active" aria-current="true" aria-label="Slide @i+1"></button>
+                            }
+                            else
+                            {
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i"
+                            aria-current="true" aria-label="Slide @i+1"></button>
+                            }
+                        }
+                    </div>
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < @acomodacao.QtdeImagens; i++)
+                        {
+                            var caminhoimagem
+                            = $"\\img\\acomodacao\\{@acomodacao.IdAcomodacao.ToString("D6")}\\{@i.ToString("D6")}.jpg";
+                            if (i == 0)
+                            {
+                                <div class="carousel-item active">
+                                    <img src="@caminhoimagem" class="d-block w-100" alt="...">
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="carousel-item">
+                                    <img src="@caminhoimagem" class="d-block w-100" alt="...">
+                                </div>
+                            }
+                        }
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+
+                <h3>Inclui:</h3>
+                <input type="checkbox" id="suite" name="suite" checked disabled="disable">
+                <label for="suite">Suíte</label>
+                <input type="checkbox" id="animais" name="animais" checked disabled="disable">
+                <label for="animais">Permitido animais</label>
+                <input type="checkbox" id="cafe" name="cafe" checked disabled="disable">
+                <label for="cafe">Café da manhã</label>
+                <input type="checkbox" id="wifi" name="wifi" checked disabled="disable">
+                <label for="wifi">Wi-fi</label>
+
+            </div>
+
+        </div>
+        <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-5 col-xl-4">
+            <div class="border-1 border rounded-3 secao p-3 mt-3 mt-lg-0">
+                <h3 class="text-center">Descrição: </h3>
+                <p>@acomodacao.Descricao
+                </p>
+                <h3 class="text-center">Selecione as opções para aluguel: </h3>
+                <div class="row my-4 text-left">
+                    <div class="col-4"><label for="pessoas">Número de Pessoas: </label>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-select shadow-none" asp-for="@Model.QtdePessoas" asp-items="@ViewBag.SelectMaxPessoas">
+                            <option value="">Selecione</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row my-4 text-left">
+                    <div class="col-4"><label asp-for="@Model.EstadiaEntrada">Data de Entrada: </label>
+                    </div>
+                    <div class="col-8">
+                        <input type="date" class="form-control shadow-none" asp-for="@Model.EstadiaEntrada" min="" max="">
+                    </div>
+                </div>
+                <div class="row my-4">
+                    <div class="col-4"><label asp-for="@Model.PeriodoEstadia">Período de Estadia</label>
+                    </div>
+                    <div class="col-8">
+                        <select class="form-select shadow-none" asp-for="@Model.PeriodoEstadia" asp-items="@ViewBag.SelectEstadiaMax">
+                            <option selected value="">Selecione</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+                <input type="hidden" value="@acomodacao.ValorDiaria" id="ValorDiaria">
+                <input type="hidden" asp-for="@Model.DataReserva">
+                <input type="hidden" asp-for="@Model.FkCliente">
+                <input type="hidden" value="@acomodacao.ValorDiaria" asp-for="@Model.ValorReserva">
+                <div class="row mt-3">
+                    <div class="col-8">
+                        <h3>Valor: <span id="valor"></span></h3>
+                    </div>
+                    <div class="col-4 text-end"><button type="submit" class="btn btn-primary botao">Próximo</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+</div>
+    </form>
+
+<script>
+    window.addEventListener("onload", total());
+
+    var periodo = window.document.querySelector("#PeriodoEstadia");
+    periodo.onchange = () => {total()};
+    
+    function total(){
+        var qtdeDias = parseFloat(window.document.querySelector("#PeriodoEstadia").value);
+        console.log(qtdeDias);
+        var valorDiaria = parseFloat(window.document.querySelector("#ValorDiaria").value);
+        console.log(valorDiaria);
+        var valor = window.document.querySelector("#valor");
+
+        var texto = valorDiaria * qtdeDias;
+        texto = texto.toFixed(2);
+        texto = texto+"";
+        texto = texto.replace(".",",")
+        if(isNaN(qtdeDias)){
+            valor.innerHTML = "----"
+        }else{
+            valor.innerHTML = "R$ "+ texto;
+        }
+    }
+    var dataEntrada = window.document.querySelector("#EstadiaEntrada")
+    dataEntrada.min = new Date().toISOString().split("T")[0];
+
+</script>

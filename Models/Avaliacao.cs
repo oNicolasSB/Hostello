@@ -9,7 +9,7 @@ public class Avaliacao
     [Key]
     public int IdAvaliacao { get; set; }
     public DateTime? DataAvaliacao { get; set; }
-    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public double NotaAvaliacao { get; set; }
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(256)]
     public string Comentario { get; set; }

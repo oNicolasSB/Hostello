@@ -76,7 +76,7 @@ public class AcomodacaoController : Controller
         {
             foreach (var imagem in acomodacao.ArquivosImagens)
             {
-                var pastaimagens = $"{_env.WebRootPath}//img//acomodacao//{acomodacao.IdAcomodacao.ToString("D6")}//";
+                var pastaimagens = CarregarPastaImagens(acomodacao.IdAcomodacao);
                 if (!Directory.Exists(pastaimagens))
                 {
                     Directory.CreateDirectory(pastaimagens);
@@ -93,8 +93,8 @@ public class AcomodacaoController : Controller
     {
         CarregarTipoAcomodacao();
         var acomodacao = _db.Acomodacoes.Include(a => a.Responsavel).Include(a => a.TipoAcomodacao).FirstOrDefault(a => a.IdAcomodacao == id);
-        var pastaImagens = $"{_env.WebRootPath}//img//acomodacao//{acomodacao.IdAcomodacao.ToString("D6")}//";
-        var di = new DirectoryInfo(pastaImagens);
+        CarregarPastaImagens(acomodacao.IdAcomodacao);
+        var di = new DirectoryInfo(CarregarPastaImagens(acomodacao.IdAcomodacao));
         var imagens = di.GetFiles("*.jpg");
         acomodacao.QtdeImagens = imagens.Count();
         if (acomodacao is null)
@@ -123,17 +123,29 @@ public class AcomodacaoController : Controller
         _db.SaveChanges();
         if (acomodacao.ArquivosImagens is not null)
         {
-            var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{id.ToString("D6")}";
-            var di = new DirectoryInfo(pastaImagens);
-            var imagens = di.GetFiles("*.jpg");
+            var imagens = CarregarImagens(id);
             var ultimo = Convert.ToInt32(imagens.Last().Name.Replace(".jpg", ""));
             for (int i = 0; i < acomodacao.ArquivosImagens.Count(); i++)
             {
-                var caminhoimagem = $"{pastaImagens}\\{(i + ultimo + 1).ToString("D6")}.jpg";
+                var caminhoimagem = $"{CarregarPastaImagens(id)}\\{(i + ultimo + 1).ToString("D6")}.jpg";
                 SalvarUploadImagemAsync(caminhoimagem, acomodacao.ArquivosImagens.ElementAt(i)).Wait();
             }
         }
         return RedirectToAction("Index");
+    }
+
+    public string CarregarPastaImagens(int idAcomodacao)
+    {
+        var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{idAcomodacao.ToString("D6")}";
+        return pastaImagens;
+    }
+
+    public FileInfo[] CarregarImagens(int idAcomodacao)
+    {
+        
+        var di = new DirectoryInfo(CarregarPastaImagens(idAcomodacao));
+        var imagens = di.GetFiles("*.jpg");
+        return imagens;
     }
 
     [HttpGet]

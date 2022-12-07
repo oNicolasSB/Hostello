@@ -11,15 +11,15 @@ public class Acomodacao
     
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(256)]
     public string Descricao { get; set; }
-    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int Numero { get; set; }
-    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int PessoasMax { get; set; }
-    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int EstadiaMin { get; set; }
-    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int EstadiaMax { get; set; }
-    [(ErrorMessage = "O campo {0} deve ser preenchido.")]
+    [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public double ValorDiaria { get; set; }
     [ForeignKey("Administrador")]
     public int? FkAdministrador { get; set; }
@@ -30,34 +30,12 @@ public class Acomodacao
     public Administrador Administrador { get; set; }
     public TipoAcomodacao TipoAcomodacao { get; set; }
     public Responsavel Responsavel { get; set; }
-    public ICollection<Aluguel> Alugueis { get; set; }
     public ICollection<Reserva> Reservas { get; set; }
     public ICollection<Avaliacao> Avaliacoes { get; set; }
 
     [NotMapped, Required(ErrorMessage = "Imagem não enviada.")]
     [Display(Name = "Arquivo da Imagem")]
     public List<IFormFile> ArquivosImagens { get; set; }
-
-    [NotMapped]
-    public string CaminhoPasta
-    {
-        get
-        {
-            var CaminhoPasta = Path.Combine(
-                $"\\img\\acomodacao\\", this.IdAcomodacao.ToString("D6"));
-            return CaminhoPasta;
-
-            // CaminhosImagens.Add("//img//acomodacao000000//000000.jpg");
-            // int i = 0;
-            // foreach (var imagem in ArquivosImagens)
-            // {
-            //     i++;
-            //     CaminhosImagens.Add(Path.Combine(
-            //     $"//img//acomodacao{IdAcomodacao.ToString("D6")}//{i.ToString("D6")}.jpg"));
-            // }
-            // return CaminhosImagens;
-        }
-    }
     [NotMapped]
     public int QtdeImagens { get; set; }
 }

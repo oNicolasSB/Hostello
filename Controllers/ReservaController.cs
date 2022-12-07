@@ -1,18 +1,22 @@
+using System.Security.Claims;
 using hostello.Data;
 using hostello.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace hostello.Controllers;
 
 public class ReservaController : Controller
 {
     private readonly AppDbContext _db;
+    private readonly IWebHostEnvironment _env;
 
-    public ReservaController(AppDbContext db)
+    public ReservaController(AppDbContext db, IWebHostEnvironment env)
     {
         _db = db;
+        _env = env;
     }
 
     public void CarregarMaxPessoas(int idAcomodacao)
@@ -21,22 +25,36 @@ public class ReservaController : Controller
         List<int> listMaxPessoas = new List<int>();
         for (int i = 0; i < acomodacao.PessoasMax; i++)
         {
-            listMaxPessoas.Add(i);
+            listMaxPessoas.Add(i+1);
         }
         var selectMaxPessoas = new SelectList(listMaxPessoas);
         ViewBag.SelectMaxPessoas = selectMaxPessoas;
     }
 
-    public void CarregarEstadiaMax(int idAcomodacao)
+    public void CarregarEstadia(int idAcomodacao)
     {
         var acomodacao = _db.Acomodacoes.Find(idAcomodacao);
-        List<int> listEstadiaMax = new List<int>();
-        for (int i = 0; i < acomodacao.EstadiaMax; i++)
+        var estadiaMax = acomodacao.EstadiaMax;
+        var estadiaMin = acomodacao.EstadiaMin;
+        List<int> listEstadia = new List<int>();
+        for (int i = estadiaMin; i <= acomodacao.EstadiaMax; i++)
         {
-            listEstadiaMax.Add(i);
+            listEstadia.Add(i);
         }
-        var selectEstadiaMax = new SelectList(listEstadiaMax);
+        var selectEstadiaMax = new SelectList(listEstadia);
         ViewBag.SelectEstadiaMax = selectEstadiaMax;
+    }
+
+    public void CarregarAcomodacao(int idAcomodacao)
+    {
+        var acomodacao = _db.Acomodacoes.Find(idAcomodacao);
+        _db.Acomodacoes.Include(a => a.Responsavel).Load();
+        var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{idAcomodacao.ToString("D6")}";
+        var di = new DirectoryInfo(pastaImagens);
+        var imagens = di.GetFiles("*.jpg");
+        acomodacao.QtdeImagens = imagens.Count();
+
+        ViewBag.Acomodacao = acomodacao;
     }
 
     public IActionResult Index()
@@ -48,9 +66,17 @@ public class ReservaController : Controller
     [HttpGet]
     public IActionResult Create(int id)
     {
+        CarregarEstadia(id);
         CarregarMaxPessoas(id);
-        CarregarEstadiaMax(id);
+        CarregarAcomodacao(id);
+        var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{id.ToString("D6")}";
+        var di = new DirectoryInfo(pastaImagens);
+        var imagens = di.GetFiles("*.jpg");
         var reserva = new Reserva();
+        reserva.EstaPago = false;
+        reserva.EstadiaEntrada = DateTime.Today;
+        reserva.FkAcomodacao = id;
+        reserva.FkCliente = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
         return View(reserva);
     }
 
@@ -58,17 +84,15 @@ public class ReservaController : Controller
     [HttpPost]
     public IActionResult Create(Reserva reserva)
     {
-        var valorDiaria = _db.Acomodacoes.Find(reserva.FkAcomodacao).ValorDiaria;
         reserva.DataReserva = DateTime.Now;
-        reserva.QtdeDias = Convert.ToInt32(reserva.EstadiaEntrada.Subtract(reserva.EstadiaSaida).TotalDays);
-        reserva.EstadiaSaida = reserva.EstadiaEntrada.AddDays(reserva.QtdeDias);
-        reserva.ValorReserva = reserva.Acomodacao.ValorDiaria * reserva.QtdeDias;
+        reserva.EstadiaSaida = reserva.EstadiaEntrada.AddDays(reserva.PeriodoEstadia);
+        reserva.ValorReserva = reserva.ValorReserva * reserva.PeriodoEstadia;
         if(!ModelState.IsValid)
         {
             return View(reserva);
         }
         _db.Reservas.Add(reserva);
         _db.SaveChanges();
-        RedirectToAction("Index");
+        return RedirectToAction("Pagamento");
     }
 }
