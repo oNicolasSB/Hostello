@@ -5,9 +5,6 @@ namespace hostello.Models;
 
 public class CadastroClienteViewModel
 {
-    [Key]
-    public int IdUsuario { get; set; }
-
     public string Nome { get; set; }
 
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(11)]

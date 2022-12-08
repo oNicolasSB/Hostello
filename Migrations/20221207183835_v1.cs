@@ -56,30 +56,6 @@ namespace hostello.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Estabelecimentos",
-                columns: table => new
-                {
-                    IdEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    CNPJ = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
-                    NomeFantasia = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    TelefoneFixo = table.Column<string>(type: "TEXT", maxLength: 14, nullable: true),
-                    Celular = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
-                    RazaoSocial = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
-                    MediaAvaliacao = table.Column<double>(type: "REAL", nullable: true),
-                    FkEndereco = table.Column<int>(type: "INTEGER", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Estabelecimentos", x => x.IdEstabelecimento);
-                    table.ForeignKey(
-                        name: "FK_Estabelecimentos_Enderecos_FkEndereco",
-                        column: x => x.FkEndereco,
-                        principalTable: "Enderecos",
-                        principalColumn: "IdEndereco");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
@@ -131,17 +107,11 @@ namespace hostello.Migrations
                     ValorDiaria = table.Column<double>(type: "REAL", nullable: false),
                     FkAdministrador = table.Column<int>(type: "INTEGER", nullable: true),
                     FkTipoAcomodacao = table.Column<int>(type: "INTEGER", nullable: false),
-                    FkResponsavel = table.Column<int>(type: "INTEGER", nullable: false),
-                    EstabelecimentoIdEstabelecimento = table.Column<int>(type: "INTEGER", nullable: true)
+                    FkResponsavel = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Acomodacoes", x => x.IdAcomodacao);
-                    table.ForeignKey(
-                        name: "FK_Acomodacoes_Estabelecimentos_EstabelecimentoIdEstabelecimento",
-                        column: x => x.EstabelecimentoIdEstabelecimento,
-                        principalTable: "Estabelecimentos",
-                        principalColumn: "IdEstabelecimento");
                     table.ForeignKey(
                         name: "FK_Acomodacoes_TiposAcomodacoes_FkTipoAcomodacao",
                         column: x => x.FkTipoAcomodacao,
@@ -171,18 +141,12 @@ namespace hostello.Migrations
                     Telefone = table.Column<string>(type: "TEXT", maxLength: 14, nullable: false),
                     Email = table.Column<string>(type: "TEXT", maxLength: 128, nullable: false),
                     Cargo = table.Column<string>(type: "TEXT", maxLength: 64, nullable: false),
-                    FkEstabelecimento = table.Column<int>(type: "INTEGER", nullable: false),
+                    FkResponsavel = table.Column<int>(type: "INTEGER", nullable: false),
                     ResponsavelIdUsuario = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contatos", x => x.IdContato);
-                    table.ForeignKey(
-                        name: "FK_Contatos_Estabelecimentos_FkEstabelecimento",
-                        column: x => x.FkEstabelecimento,
-                        principalTable: "Estabelecimentos",
-                        principalColumn: "IdEstabelecimento",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Contatos_Usuarios_ResponsavelIdUsuario",
                         column: x => x.ResponsavelIdUsuario,
@@ -317,22 +281,17 @@ namespace hostello.Migrations
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "IdUsuario", "Cpf", "DataNascimento", "Discriminator", "Email", "Nome", "Senha", "Sexo", "Telefone" },
-                values: new object[] { 1, "111.111.111-11", new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrador", "nicolasbassini@hotmail.com", "Nicolas", "$2a$10$dJbqlMpg0y1EP3LUYZKKcekqI8WBglIYge5boRK7n/smTC2MDD9qy", 1, "+5528999752520" });
+                values: new object[] { 1, "111.111.111-11", new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), "Administrador", "nicolasbassini@hotmail.com", "Nicolas", "$2a$10$R1wO91Bzdj.7Xz74dZhFcucaFarD0ADszqBu6HIrueZ/O1wOgMDWm", 1, "+5528999752520" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "IdUsuario", "Cpf", "DataNascimento", "Discriminator", "Email", "Cliente_FkEndereco", "Nome", "Senha", "Sexo", "Telefone" },
-                values: new object[] { 3, "333.333.333-33", new DateTime(2004, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cliente", "anna@email.com", null, "Anna", "$2a$10$9gLRUuHxy5nOZw7zg4y2LuVqHFL/K/xODrWpilPHBsNwhZnPXdlJ.", 2, "+5528999967759" });
+                values: new object[] { 3, "333.333.333-33", new DateTime(2004, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), "Cliente", "anna@email.com", null, "Anna", "$2a$10$drRKLSDft7ypuwkTDJkcXeSnOi6HTtfECJqrcxIOvXO20LMM5b30C", 2, "+5528999967759" });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "IdUsuario", "CNPJ", "Celular", "Cpf", "DataNascimento", "Discriminator", "Email", "FkEndereco", "MediaAvaliacao", "Nome", "NomeFantasia", "RazaoSocial", "Senha", "Sexo", "Telefone" },
-                values: new object[] { 2, "12312312312312", "+5528999999998", "222.222.222-22", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Responsavel", "dono@empresa.com", 1, null, "Dono Empresa", "Empresa Fantasia", "Empresa Corporation", "$2a$10$Kba4xd9qCY.8Sj4GYTl6VucAm8Fqp.hDmUff0dSM1SMQYe2PBjOku", 2, "+5528999999999" });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Acomodacoes_EstabelecimentoIdEstabelecimento",
-                table: "Acomodacoes",
-                column: "EstabelecimentoIdEstabelecimento");
+                values: new object[] { 2, "12312312312312", "+5528999999998", "222.222.222-22", new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Responsavel", "dono@empresa.com", 1, null, "Dono Empresa", "Empresa Fantasia", "Empresa Corporation", "$2a$10$5T.WEOHhFeCs3vBQaUsC1OaU/k1r54fPGntGneNgPCyNHK36qJCzi", 2, "+5528999999999" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Acomodacoes_FkAdministrador",
@@ -365,19 +324,9 @@ namespace hostello.Migrations
                 column: "FkCliente");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Contatos_FkEstabelecimento",
-                table: "Contatos",
-                column: "FkEstabelecimento");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Contatos_ResponsavelIdUsuario",
                 table: "Contatos",
                 column: "ResponsavelIdUsuario");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Estabelecimentos_FkEndereco",
-                table: "Estabelecimentos",
-                column: "FkEndereco");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservas_FkAcomodacao",
@@ -416,9 +365,6 @@ namespace hostello.Migrations
 
             migrationBuilder.DropTable(
                 name: "Acomodacoes");
-
-            migrationBuilder.DropTable(
-                name: "Estabelecimentos");
 
             migrationBuilder.DropTable(
                 name: "TiposAcomodacoes");

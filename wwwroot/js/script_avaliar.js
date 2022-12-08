@@ -3,7 +3,9 @@ let estrela2 = document.getElementById("estrela2")
 let estrela3 = document.getElementById("estrela3")
 let estrela4 = document.getElementById("estrela4")
 let estrela5 = document.getElementById("estrela5")
-let avaliacao = document.getElementById("NotaAvaliacao").value
+let avaliacao = document.querySelector("#NotaAvaliacao")
+
+document.getElementsByTagName("body")[0].addEventListener("onload", avaliar3());
 
 function avaliar1(){
     estrela1.className = "bi bi-star-fill"
@@ -11,7 +13,7 @@ function avaliar1(){
     estrela3.className = "bi bi-star"
     estrela4.className = "bi bi-star"
     estrela5.className = "bi bi-star"
-    avaliacao = 1
+    avaliacao.setAttribute('value', 1)
     console.log(avaliacao)
 }
 
@@ -21,7 +23,7 @@ function avaliar2(){
     estrela3.className = "bi bi-star"
     estrela4.className = "bi bi-star"
     estrela5.className = "bi bi-star"
-    avaliacao = 2
+    avaliacao.setAttribute('value', 2)
     console.log(avaliacao)
 }
 
@@ -31,7 +33,7 @@ function avaliar3(){
     estrela3.className = "bi bi-star-fill"
     estrela4.className = "bi bi-star"
     estrela5.className = "bi bi-star"
-    avaliacao = 3
+    avaliacao.setAttribute('value', 3)
     console.log(avaliacao)
 }
 
@@ -41,7 +43,7 @@ function avaliar4(){
     estrela3.className = "bi bi-star-fill"
     estrela4.className = "bi bi-star-fill"
     estrela5.className = "bi bi-star"
-    avaliacao = 4
+    avaliacao.setAttribute('value', 4)
     console.log(avaliacao)
 }
 
@@ -51,6 +53,6 @@ function avaliar5(){
     estrela3.className = "bi bi-star-fill"
     estrela4.className = "bi bi-star-fill"
     estrela5.className = "bi bi-star-fill"
-    avaliacao = 5
+    avaliacao.setAttribute('value', 5)
     console.log(avaliacao)
 }

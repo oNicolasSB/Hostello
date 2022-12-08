@@ -1,6 +1,9 @@
+using System.Security.Claims;
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static BCrypt.Net.BCrypt;
 
 namespace hostello.Controllers;
 
@@ -19,19 +22,18 @@ public class AdministradorController : Controller
         return View(administradores);
     }
     [HttpGet]
-    public IActionResult Edit(int id)
+    [Authorize(Roles = "administrador")]
+    public IActionResult Edit()
     {
-        var administrador = _db.Usuarios.Find(id);
+        var administrador = _db.Administradores.Find(Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value));
         if(administrador is null)
-            return RedirectToAction("IndexAdmin", "Home");
+            return RedirectToAction("Index", "Home");
         return View(administrador);
     }
     [HttpPost]
+    [Authorize(Roles = "administrador")]
     public IActionResult Edit(int id, Administrador administrador)
     {
-        var administradororiginal = _db.Usuarios.Find(id);
-        Administrador teste = administrador;
-        ModelState.Remove("IdUsuario");
         ModelState.Remove("Cpf");
         ModelState.Remove("DataNascimento");
         ModelState.Remove("Sexo");
@@ -39,14 +41,15 @@ public class AdministradorController : Controller
         {
             return View(administrador);
         }
+        var administradororiginal = _db.Usuarios.Find(id);
         if(administradororiginal is null)
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
 
         administradororiginal.Nome = administrador.Nome;
         administradororiginal.Email = administrador.Email;
-        administradororiginal.Senha = administrador.Senha;
+        administradororiginal.Senha = HashPassword(administrador.Senha, 10);
         administradororiginal.Telefone = administrador.Telefone;
         _db.SaveChanges();
-        return RedirectToAction("IndexAdmin", "Home");
+        return RedirectToAction("Details", "Usuario");
     }
 }

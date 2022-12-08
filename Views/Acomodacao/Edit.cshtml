@@ -1,7 +1,4 @@
 @{
-
-
-
     Layout = "_LayoutResponsavel";
 }
 @model Acomodacao
@@ -10,7 +7,7 @@
     <div class="row">
         <div class="col-12 col-md-10 offset-md-1 offset-lg-0 col-lg-7 col-xl-6 offset-xl-1">
             <div class="border-1 border rounded-3 secao p-3 fit-content text-center">
-                <h3>Editar @Model.TipoAcomodacao.NomeTipoAcomodacao, @Model.Numero</h3>
+                <h3>Editar @Model.TipoAcomodacao.NomeTipoAcomodacao, nº @Model.Numero</h3>
                 <div id="carouselExampleIndicators" class="carousel slide mb-3" data-bs-ride="true">
                     @if (Model.QtdeImagens == 0)
                     {
@@ -30,17 +27,16 @@
                             }
                             else
                             {
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i"
-                            aria-current="true" aria-label="Slide @i+1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i" aria-label="Slide @i+1"></button>
                             }
                         }
                     </div>
                     <div class="carousel-inner">
-                        @for (int i = 0; i < @Model.QtdeImagens; i++)
+                        @{int j = 0;}
+                        @foreach(var imagem in @ViewBag.Imagens)
                         {
-                            var caminhoimagem
-                            = $"\\img\\acomodacao\\{@Model.IdAcomodacao.ToString("D6")}\\{@i.ToString("D6")}.jpg";
-                            if (i == 0)
+                            var caminhoimagem = imagem;
+                            if (j == 0)
                             {
                                 <div class="carousel-item active">
                                     <img src="@caminhoimagem" class="d-block w-100" alt="...">
@@ -52,6 +48,7 @@
                                     <img src="@caminhoimagem" class="d-block w-100" alt="...">
                                 </div>
                             }
+                            j++;
                         }
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -65,13 +62,20 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <input class="fileinput d-none" asp-for="@Model.ArquivosImagens" accept="image/*" multiple="multiple"
-                    onchange="verificar()">
+                <input class="fileinput d-none" asp-for="@Model.ArquivosImagens" accept="image/*" multiple="multiple">
                 <label asp-for="@Model.ArquivosImagens" class="botao mb-3">
                     <!--<i class="bi bi-plus"></i><i class="bi bi-file-earmark-image-fill"></i>-->Selecione as
                     imagens
                 </label>
                 <span asp-validation-for="@Model.ArquivosImagens"></span>
+                <button type="button" class="botao-vermelho" data-bs-toggle="modal" data-bs-target="#modal">Excluir Imagens</button>
+                <div class="modal fade" id="modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <partial name="_ExcluirImagens" model=@Model></partial>
+                        </div>
+                    </div>
+                </div>
                 <h3>Inclui:</h3>
                 <input type="checkbox" id="suite" name="suite" checked>
                 <label for="suite">Suíte</label>
@@ -221,7 +225,7 @@
                     <div class="col-7">
                     </div>
                     <input type="hidden" asp-for="@Model.FkResponsavel">
-                    <div class="col-5 text-end"><button type="submit" class="btn btn-primary botao">Próximo</button>
+                    <div class="col-5 text-end"><button type="submit" class="btn btn-primary botao">Concluir</button>
                     </div>
                 </div>
             </div>

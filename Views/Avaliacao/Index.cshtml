@@ -1,32 +1,54 @@
-@{
-    Layout = "_LayoutAdmin";
-}
 @model List<Avaliacao>
 <div class="row">
             <table class="table table-striped table-hover tabela">
                 <h2 class="text-center">Avaliação de quartos</h2>
                 <thead>
                     <tr>
-                        <th scope="col">Nome</th>
-                        <th scope="col">Telefone</th>
-                        <th scope="col">CPF</th>
-                        <th scope="col">Email</th>
+                        @if(User.IsInRole("administrador")){
+                            <th scope="col">Email</th>
+                        }
+                        @if(User.IsInRole("responsavel")){
+                            <th scope="col">Nº</th>
+                        }
                         <th scope="col">Avaliação</th>
-                        <th scope="col">Excluir</th>
+                        <th scope="col">Nota</th>
+                        @if(User.IsInRole("administrador")){
+                            <th scope="col">Aprovar</th>
+                            <th scope="col">Reprovar</th>
+                        } else if (User.IsInRole("cliente")){
+                            <th scope="col">Aprovação</th>
+                        }
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var avaliacao in Model)
                     {
                         <tr>
-                        <td>@avaliacao.Cliente.Nome</td>
-                        <td>@avaliacao.Cliente.Telefone</td>
-                        <td>@avaliacao.Cliente.Cpf</td>
+                        @if(User.IsInRole("administrador")){
                         <td>@avaliacao.Cliente.Email</td>
+                        }
+                        @if(User.IsInRole("responsavel")){
+                            <td>@avaliacao.Acomodacao.Numero</td>
+                        }
                         <td>@avaliacao.Comentario</td>
-                        <td><a asp-action="Delete" asp-route-id="@avaliacao.IdAvaliacao" class="botao-destaque" type="button">
-                                <i class="bi-trash" style="font-size: 16px; line-height: 12px;"></i>
+                        <td>@avaliacao.NotaAvaliacao</td>
+                        @if(User.IsInRole("administrador")){
+                            <td><a asp-action="Aprovar" asp-route-id="@avaliacao.IdAvaliacao" class="botao-destaque" type="button">
+                                <i class="bi bi-check2-circle" style="font-size: 16px; line-height: 12px;"></i>
                             </a></td>
+                            <td><a asp-action="Reprovar" asp-route-id="@avaliacao.IdAvaliacao" class="botao-vermelho" type="button">
+                                <i class="bi bi-x-circle" style="font-size: 16px; line-height: 12px;"></i>
+                            </a></td>
+                        } else if (User.IsInRole("cliente")){
+                            if (@avaliacao.Aprovado is true)
+                            {
+                                <td class="text-success">Aprovado</td>
+                            } else if (@avaliacao.Aprovado is false){
+                                <td class="text-danger">Reprovado</td>
+                            } else {
+                                <td class="text-warning">Aguardando aprovação</td>
+                            }
+                        }
                     </tr>
                     }
                 </tbody>

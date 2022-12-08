@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,19 +16,28 @@ public class ContatoController : Controller
         _db = db;
     }
 
+    [Authorize(Roles = "responsavel, administrador")]
     public IActionResult Index()
     {
-        var contatos = _db.Contatos.AsNoTracking().ToList();
-        return View(contatos);
+        if(User.IsInRole("responsavel")){
+        int id = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
+        var contatos = _db.Contatos.Where(a => a.FkResponsavel == id).AsNoTracking().ToList();
+            return View(contatos);
+        } else {
+            var contatos = _db.Contatos.AsNoTracking().ToList();
+            return View(contatos);
+        }
     }
 
+    [Authorize(Roles= "responsavel")]
     [HttpGet]
     public IActionResult Create()
     {
         var contato = new Contato();
-        contato.FkEstabelecimento = 1;
+        contato.FkResponsavel = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
         return View(contato);
     }
+    [Authorize(Roles = "responsavel")]
     [HttpPost]
     public IActionResult Create(Contato contato)
     {
@@ -35,6 +46,7 @@ public class ContatoController : Controller
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
+    [Authorize(Roles = "responsavel")]
     [HttpGet]
     public IActionResult Edit(int id)
     {
@@ -43,6 +55,7 @@ public class ContatoController : Controller
             return RedirectToAction("Index");
         return View(contato);
     }
+    [Authorize(Roles = "responsavel")]
     [HttpPost]
     public IActionResult Edit(int id, Contato contato)
     {
@@ -50,7 +63,7 @@ public class ContatoController : Controller
         if(contatooriginal is null)
             return RedirectToAction("Index");
 
-        contato.FkEstabelecimento = contatooriginal.FkEstabelecimento;
+        contato.FkResponsavel = contatooriginal.FkResponsavel;
         if(!ModelState.IsValid)
             return View(contato);
 
@@ -62,6 +75,7 @@ public class ContatoController : Controller
         return RedirectToAction("Index");
     }
 
+    [Authorize(Roles = "responsavel")]
     [HttpGet]
     public IActionResult Delete(int id)
     {
@@ -71,6 +85,7 @@ public class ContatoController : Controller
         return View(contato);
         
     }
+    [Authorize(Roles = "responsavel")]
     [HttpPost]
     public IActionResult ProcessDelete(Contato contato)
     {

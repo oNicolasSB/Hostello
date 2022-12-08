@@ -1,0 +1,38 @@
+@model Usuario;
+
+<div>
+    <div class="card mb-3">
+        <div class="row g-2">
+            <div class="col-md-3 col-sm-5 flex-columnn-flex align-self-center">
+                <div class="">
+                    <img src="~/img/foto-removebg-preview.png" class="img-fluid" alt="...">
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-7 d-flex flex-column">
+                <div class="card-body">
+                    <h4 class="card-title">Informações pessoais:</h4>
+                    <p class="card-text">
+                    <ul>
+                        <li>Nome: @Model.Nome</li>
+                        <li>E-mail: @Model.Email</li>
+                        <li>Telefone: @Model.Telefone</li>
+                        <li>Nascimento: @Model.DataNascimento.ToShortDateString()</li>
+                    </ul>
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="text-end">
+                        @if(User.IsInRole("cliente")){
+                        <a asp-action="Edit" asp-controller="Cliente" asp-route-id="@Model.IdUsuario" class="botao text-decoration-none">Editar
+                            perfil</a>
+                        } else if(User.IsInRole("responsavel")){
+                            <a asp-action="Edit" asp-controller="Responsavel" asp-route-id="@Model.IdUsuario" class="botao text-decoration-none">Editar
+                            perfil</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

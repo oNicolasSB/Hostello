@@ -8,7 +8,7 @@ function ajustar () {
     
     if (conteudo < janela){
         var margem = rodape.style.marginTop
-        margem = (janela - conteudo) + "px";
+        margem = (janela - conteudo + 12) + "px";
         rodape.style.cssText = 'margin-top:'+margem+' !important';
     }
     

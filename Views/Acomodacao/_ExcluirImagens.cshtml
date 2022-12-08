@@ -1,0 +1,21 @@
+@model Acomodacao;
+
+    <ul class="list-group">
+        @{int j = 1;}
+        @foreach (var imagem in @ViewBag.Imagens)
+        {
+            var caminhoimagem = imagem;
+            <li class="list-group-item py-3">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="@caminhoimagem" class="img-thumbnail">
+                    </div>
+                    <div class="col-8">
+                        <p>Imagem @j</p>
+                        <a asp-action="DeleteImage" asp-controller="Acomodacao" asp-route-caminhoimagem="@caminhoimagem" asp-route-idacomodacao="@Model.IdAcomodacao" class="botao-vermelho"><i class="bi bi-trash"></i></a>
+                    </div>
+                </div>
+            </li>
+            j++;
+        }
+    </ul>

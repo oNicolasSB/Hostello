@@ -29,17 +29,16 @@
                             }
                             else
                             {
-                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i"
-                            aria-current="true" aria-label="Slide @i+1"></button>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="@i" aria-label="Slide @i+1"></button>
                             }
                         }
                     </div>
                     <div class="carousel-inner">
-                        @for (int i = 0; i < @acomodacao.QtdeImagens; i++)
+                        @{int j = 0;}
+                        @foreach(var imagem in @ViewBag.Imagens)
                         {
-                            var caminhoimagem
-                            = $"\\img\\acomodacao\\{@acomodacao.IdAcomodacao.ToString("D6")}\\{@i.ToString("D6")}.jpg";
-                            if (i == 0)
+                            var caminhoimagem = imagem;
+                            if (j == 0)
                             {
                                 <div class="carousel-item active">
                                     <img src="@caminhoimagem" class="d-block w-100" alt="...">
@@ -51,6 +50,7 @@
                                     <img src="@caminhoimagem" class="d-block w-100" alt="...">
                                 </div>
                             }
+                            j++;
                         }
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
@@ -114,6 +114,7 @@
                 <input type="hidden" value="@acomodacao.ValorDiaria" id="ValorDiaria">
                 <input type="hidden" asp-for="@Model.DataReserva">
                 <input type="hidden" asp-for="@Model.FkCliente">
+                <input type="hidden" asp-for="@Model.FkAcomodacao">
                 <input type="hidden" value="@acomodacao.ValorDiaria" asp-for="@Model.ValorReserva">
                 <div class="row mt-3">
                     <div class="col-8">

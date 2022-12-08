@@ -8,11 +8,13 @@
         <div class="col-8 offset-2 align-self-center">
             <h1 class="text-center pb-3">Contatos Cadastrados</h1>
         </div>
+        @if(User.IsInRole("responsavel")){
         <div class="text-end col-2 align-self-center">
             <a class="botao-destaque" asp-action="Create">
                 <i class="bi bi-plus-circle"></i>
             </a>
         </div>
+        }
     </div>
 </header>
 
@@ -40,11 +42,13 @@
                         </ul>
                     </div>
                     <div class="col-3 align-self-center text-end p-3">
+                        @if(User.IsInRole("responsavel")){
                         <div class="col-12 mb-3">
                             <a class="botao-destaque my-3" asp-action="Edit" asp-route-id="@contato.IdContato">
                                 <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
                             </a>
                         </div>
+                        }
                         <div class="col-12">
                             <a class="botao-destaque my-3" asp-action="Delete" asp-route-id="@contato.IdContato">
                                 <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>

@@ -74,12 +74,18 @@ public class UsuarioController : Controller
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
             System.Console.WriteLine($"O Usuário {usuario.Email} logou às {DateTime.Now}");
 
-            if (returnUrl is null) return RedirectToAction("Index", "Pesquisa");
+            if (returnUrl is null) return RedirectToAction("Index", "Home");
             return Redirect(returnUrl);
         } else 
         {
             return View(login);
         }
+    }
+    [Authorize]
+    public IActionResult Details()
+    {
+        var usuario = _db.Usuarios.Find(Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value));
+        return View(usuario);
     }
 
     public async Task<IActionResult> Logout(string returnUrl = null) 

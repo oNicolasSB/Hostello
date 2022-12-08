@@ -11,7 +11,6 @@ public class AppDbContext : DbContext
     public DbSet<TipoAcomodacao> TiposAcomodacoes { get; set; }
     public DbSet<Cliente> Clientes { get; set; }
     public DbSet<Administrador> Administradores { get; set; }
-    public DbSet<Estabelecimento> Estabelecimentos { get; set; }
     public DbSet<Responsavel> Responsaveis { get; set; }
     public DbSet<Contato> Contatos { get; set; }
     public DbSet<Reserva> Reservas { get; set; }

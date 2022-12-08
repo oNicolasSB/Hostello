@@ -21,6 +21,7 @@ public class Acomodacao
     public int EstadiaMax { get; set; }
     [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public double ValorDiaria { get; set; }
+    public bool? Aprovado { get; set; }
     [ForeignKey("Administrador")]
     public int? FkAdministrador { get; set; }
     [ForeignKey("TipoAcomodacao")]

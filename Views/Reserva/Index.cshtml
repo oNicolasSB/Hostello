@@ -1,249 +1,99 @@
+@using System.Security.Claims;
+@using System.Linq;
+@using System.Collections.Generic;
+
+@{
+    var imagens = ViewBag.Imagens as List<string>;
+}
+@model List<Reserva>
+
 <div class="container">
-            <h1 class="text-center">Aluguéis Efetuados</h1>
-            <ul class="list-group mb-3">
-                <li class="list-group-item py-3">
-                    <div class="row d-md-none">
-                        <div class="col-12 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
+    <h1 class="text-center">Reservas</h1>
+    <ul class="list-group mb-3">
+        @{int j = 0;}
+        @foreach (var reserva in Model)
+        {    
+        var posicao = @imagens.ElementAt(j);
+        <li class="list-group-item py-3">
+            <div class="row d-md-none">
+                <div class="col-12 align-self-center">
+                    <img src='@posicao' class="img-thumbnail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
+                    <img src='@posicao' class="img-thumbnail">
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
+                    <ul>
+                        @if(reserva.EstaPago == true){
+                         <li>
+                            <strong class="text-success">Pago</strong>
+                         </li>   
+                        } else if(reserva.EstadiaEntrada < DateTime.Now.AddDays(1)){
+                            <li>
+                            <strong class="text-warning">Aguardando pagamento</strong>
+                         </li>
+                        } else {
+                            <li>
+                            <strong class="text-danger">Vencido</strong>
+                         </li>
+                        }
+                        <li>
+                            <h4>@reserva.Acomodacao.Responsavel.NomeFantasia, nº @reserva.Acomodacao.Numero</h4>
+                        </li>
+                        <li>Descrição: @reserva.Acomodacao.Descricao</li>
+                    </ul>
+                </div>
+                <div class="col-4 d-none d-lg-block align-self-center text-left">
+                    <p>Número de pessoas: @reserva.QtdePessoas</p>
+                    <p>Ida: @reserva.EstadiaEntrada.ToShortDateString()</p>
+                    <p>Período de estadia: @reserva.PeriodoEstadia dias</p>
+                    @{
+                        var valor = reserva.ValorReserva.ToString("n2");
+                    }
+                    <p>Valor: R$ @valor</p>
+                </div>
+                <div class="col-4 col-lg-2 align-self-center text-end">
+                    @if(User.IsInRole("cliente")){
+                        @if(reserva.EstadiaSaida < DateTime.Now){
+                    <div class="col-12 my-3 my-md-4">
+                        <a asp-action="Create" asp-controller="Avaliacao" class="botao-destaque" asp-route-id="@reserva.FkAcomodacao">
+                            <i class="bi bi-star-half" alt="Avaliar quarto"
+                                style="font-size: 16px; line-height: 16px;"></i>
+                        </a>
                     </div>
-                    <div class="row">
-                        <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                        <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
-                            <ul>
-                                <li>
-                                    <h4>Nome do quarto/pousada, nº</h4>
-                                </li>
-                                <li>Descrição: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                                    provident odit cumque eos aperiam sapiente nam magni ab rem nemo.</li>
-                            </ul>
-                        </div>
-                        <div class="col-4 d-none d-lg-block align-self-center text-left">
-                            <p>Número de pessoas: 3</p>
-                            <p>Ida: 16/10/2022</p>
-                            <p>Período de estadia: 2 dias</p>
-                            <p>Valor: R$999,99</p>
-                        </div>
-                        <div class="col-4 col-lg-2 align-self-center text-end">
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Create" asp-controller="Avaliacao" class="botao-destaque">
-                                    <i class="bi bi-star-half" alt="Avaliar quarto"
-                                        style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Index" asp-controller="Alugar" class="botao-destaque">
-                                    <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="col-12 my-3 my-md-4">
+                        <a asp-action="Create" asp-controller="Reserva" class="botao-destaque" asp-route-id="@reserva.FkAcomodacao">
+                            <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
+                        </a>
                     </div>
-                    <div class="row d-lg-none mt-1">
-                        <h1 class="px-3 m-0 text-center">
-                            <hr>
-                        </h1>
-                        <div class="col-3"><span>Pessoas: 3</span></div>
-                        <div class="col-3"><span>Ida: 16/10/2022</span></div>
-                        <div class="col-3"><span>Estadia: 2 dias</span></div>
-                        <div class="col-3"><span>Valor: R$999,99</span></div>
+                    } else if(reserva.EstaPago == false){
+                        <div class="col-12 my-3 my-md-4">
+                        <a asp-action="Pagamento" asp-controller="Reserva" class="botao-destaque" asp-route-fkReserva="@reserva.IdReserva">
+                            <i class="bi bi-wallet2" style="font-size: 16px; line-height: 16px;"></i>
+                        </a>
                     </div>
-                </li>
-                <li class="list-group-item py-3">
-                    <div class="row d-md-none">
-                        <div class="col-12 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
+                    } else {
+                        <div class="col-12 my-3 my-md-4">
+                        <a asp-action="Create" asp-controller="Reserva" class="botao-destaque" asp-route-id="@reserva.FkAcomodacao">
+                            <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
+                        </a>
                     </div>
-                    <div class="row">
-                        <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                        <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
-                            <ul>
-                                <li>
-                                    <h4>Nome do quarto/pousada, nº</h4>
-                                </li>
-                                <li>Descrição: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                                    provident odit cumque eos aperiam sapiente nam magni ab rem nemo.</li>
-                            </ul>
-                        </div>
-                        <div class="col-4 d-none d-lg-block align-self-center text-left">
-                            <p>Número de pessoas: 3</p>
-                            <p>Ida: 16/10/2022</p>
-                            <p>Período de estadia: 2 dias</p>
-                            <p>Valor: R$999,99</p>
-                        </div>
-                        <div class="col-4 col-lg-2 align-self-center text-end">
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Create" asp-controller="Avaliacao" class="botao-destaque">
-                                    <i class="bi bi-star-half" alt="Avaliar quarto"
-                                        style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Index" asp-controller="Alugar" class="botao-destaque">
-                                    <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-lg-none mt-1">
-                        <h1 class="px-3 m-0 text-center">
-                            <hr>
-                        </h1>
-                        <div class="col-3"><span>Pessoas: 3</span></div>
-                        <div class="col-3"><span>Ida: 16/10/2022</span></div>
-                        <div class="col-3"><span>Estadia: 2 dias</span></div>
-                        <div class="col-3"><span>Valor: R$999,99</span></div>
-                    </div>
-                </li>
-                <li class="list-group-item py-3">
-                    <div class="row d-md-none">
-                        <div class="col-12 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                        <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
-                            <ul>
-                                <li>
-                                    <h4>Nome do quarto/pousada, nº</h4>
-                                </li>
-                                <li>Descrição: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                                    provident odit cumque eos aperiam sapiente nam magni ab rem nemo.</li>
-                            </ul>
-                        </div>
-                        <div class="col-4 d-none d-lg-block align-self-center text-left">
-                            <p>Número de pessoas: 3</p>
-                            <p>Ida: 16/10/2022</p>
-                            <p>Período de estadia: 2 dias</p>
-                            <p>Valor: R$999,99</p>
-                        </div>
-                        <div class="col-4 col-lg-2 align-self-center text-end">
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Create" asp-controller="Avaliacao" class="botao-destaque">
-                                    <i class="bi bi-star-half" alt="Avaliar quarto"
-                                        style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Index" asp-controller="Alugar" class="botao-destaque">
-                                    <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-lg-none mt-1">
-                        <h1 class="px-3 m-0 text-center">
-                            <hr>
-                        </h1>
-                        <div class="col-3"><span>Pessoas: 3</span></div>
-                        <div class="col-3"><span>Ida: 16/10/2022</span></div>
-                        <div class="col-3"><span>Estadia: 2 dias</span></div>
-                        <div class="col-3"><span>Valor: R$999,99</span></div>
-                    </div>
-                </li>
-                <li class="list-group-item py-3">
-                    <div class="row d-md-none">
-                        <div class="col-12 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                        <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
-                            <ul>
-                                <li>
-                                    <h4>Nome do quarto/pousada, nº</h4>
-                                </li>
-                                <li>Descrição: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                                    provident odit cumque eos aperiam sapiente nam magni ab rem nemo.</li>
-                            </ul>
-                        </div>
-                        <div class="col-4 d-none d-lg-block align-self-center text-left">
-                            <p>Número de pessoas: 3</p>
-                            <p>Ida: 16/10/2022</p>
-                            <p>Período de estadia: 2 dias</p>
-                            <p>Valor: R$999,99</p>
-                        </div>
-                        <div class="col-4 col-lg-2 align-self-center text-end">
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Create" asp-controller="Avaliacao" class="botao-destaque">
-                                    <i class="bi bi-star-half" alt="Avaliar quarto"
-                                        style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Index" asp-controller="Alugar" class="botao-destaque">
-                                    <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-lg-none mt-1">
-                        <h1 class="px-3 m-0 text-center">
-                            <hr>
-                        </h1>
-                        <div class="col-3"><span>Pessoas: 3</span></div>
-                        <div class="col-3"><span>Ida: 16/10/2022</span></div>
-                        <div class="col-3"><span>Estadia: 2 dias</span></div>
-                        <div class="col-3"><span>Valor: R$999,99</span></div>
-                    </div>
-                </li>
-                <li class="list-group-item py-3">
-                    <div class="row d-md-none">
-                        <div class="col-12 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src="~/img/ex01.png" class="img-thumbnail">
-                        </div>
-                        <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
-                            <ul>
-                                <li>
-                                    <h4>Nome do quarto/pousada, nº</h4>
-                                </li>
-                                <li>Descrição: Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
-                                    provident odit cumque eos aperiam sapiente nam magni ab rem nemo.</li>
-                            </ul>
-                        </div>
-                        <div class="col-4 d-none d-lg-block align-self-center text-left">
-                            <p>Número de pessoas: 3</p>
-                            <p>Ida: 16/10/2022</p>
-                            <p>Período de estadia: 2 dias</p>
-                            <p>Valor: R$999,99</p>
-                        </div>
-                        <div class="col-4 col-lg-2 align-self-center text-end">
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Create" asp-controller="Avaliacao" class="botao-destaque" alt="Avaliar Estabelecimento">
-                                    <i class="bi bi-star-half" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-4">
-                                <a asp-action="Index" asp-controller="Alugar" class="botao-destaque">
-                                    <i class="bi bi-arrow-repeat" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-lg-none mt-1">
-                        <h1 class="px-3 m-0 text-center">
-                            <hr>
-                        </h1>
-                        <div class="col-3"><span>Pessoas: 3</span></div>
-                        <div class="col-3"><span>Ida: 16/10/2022</span></div>
-                        <div class="col-3"><span>Estadia: 2 dias</span></div>
-                        <div class="col-3"><span>Valor: R$999,99</span></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+                    }
+                    }
+                </div>
+            </div>
+            <div class="row d-lg-none mt-1">
+                <h1 class="px-3 m-0 text-center">
+                    <hr>
+                </h1>
+                <div class="col-6 col-sm-3"><span>Pessoas: @reserva.QtdePessoas</span></div>
+                <div class="col-6 col-sm-3"><span>Ida: @reserva.EstadiaEntrada.ToShortDateString()</span></div>
+                <div class="col-6 col-sm-3"><span>Estadia: @reserva.PeriodoEstadia dias</span></div>
+                <div class="col-6 col-sm-3"><span>Valor: R$ @valor</span></div>
+            </div>
+        </li>
+        }
+    </ul>
+</div>

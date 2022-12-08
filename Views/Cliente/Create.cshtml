@@ -4,6 +4,9 @@
 @model CadastroClienteViewModel
 <div class="row align-items-center vh-100">
             <div class="col-12 col-md-8 col-lg-6 col-xxl-4 offset-md-2 offset-lg-3 offset-xl-3 offset-xxl-4 border-1 border rounded-3 p-3 secao">
+                <div class="text-center">
+                    <img src="~/img/logo_escrita_dark.svg" style="height: 40px;">
+                </div>
                 <div class="py-2">
                     <div>
                         <h2 class="py-2 text-center">Efetuar cadastro:</h1>
@@ -89,7 +92,7 @@
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="botao">Registrar</button>
-                                    <p class="pt-2">Já tem uma conta? Efetue <a asp-action="Login" asp-controller="Home">Login</a></p>
+                                    <p class="pt-2">Já tem uma conta? Efetue <a asp-action="Login" asp-controller="Usuario">Login</a></p>
                                 </div>
                                 <div asp-validation-summary="All">
                                     
@@ -100,4 +103,3 @@
                 </div>
             </div>
         </div>
-<script src="~/js/script_descricao.js" defer></script>

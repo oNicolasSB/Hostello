@@ -1,0 +1,44 @@
+@model PagamentoViewModel;
+<div class="row">
+            <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 border-1 border rounded-3 p-3 secao">
+                <div class="text-center">
+                    <h2 class="pb-2">Efetuar Pagamento</h1>
+                    <h3>Cartão de Crédito</h3>
+                </div>
+                <form method="post">
+                    <div class="form-group py-2 text-align">
+                        <label asp-for="@Model.Nome">Nome no cartão</label>
+                        <input type="text" class="form-control bg-light shadow-none shadow-none" asp-for="@Model.Nome"
+                            placeholder="Nícolas Sanson Bassini">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Nome"></span>
+                    </div>
+                    <div class="form-group py-2 text-align">
+                        <label asp-for="@Model.Numero">Número no cartão</label>
+                        <input type="text" class="form-control bg-light shadow-none" asp-for="@Model.Numero"
+                            placeholder="0000.0000.0000.0000">
+                        <span class="text-danger text-sm" asp-validation-for="@Model.Numero"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="form-group py-2 text-align">
+                                <label asp-for="@Model.Validade">Data de expiração</label>
+                                <input type="text" class="form-control bg-light shadow-none" asp-for="@Model.Validade"
+                                    placeholder="00/00/0000">
+                                <span class="text-danger text-sm" asp-validation-for="@Model.Validade"></span>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group py-2 text-align">
+                                <label asp-for="@Model.CVC">CVC/CVV</label>
+                                <input type="text" class="form-control bg-light shadow-none" asp-for="@Model.CVC" placeholder="000">
+                                <span class="text-danger text-sm" asp-validation-for="@Model.CVC"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" asp-for="@Model.FkReserva">
+                <div class="py-2 text-center">
+                    <button type="submit" class="btn btn-primary botao">Finalizar Pagamento</button>
+                </div>
+                </form>
+            </div>
+        </div>

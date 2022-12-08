@@ -18,6 +18,6 @@ public class Contato
     [Required(ErrorMessage = "O campo {0} deve ser preenchido."), StringLength(64)]
     public string Cargo { get; set; }
     [ForeignKey("Estabelecimento")]
-    public int FkEstabelecimento { get; set; }
-    public Estabelecimento Estabelecimento { get; set; }
+    public int FkResponsavel { get; set; }
+    public Responsavel Responsavel { get; set; }
 }

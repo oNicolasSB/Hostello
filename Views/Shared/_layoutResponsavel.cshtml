@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="~/css/admin-navbar.css">
     <link rel="stylesheet" href="~/css/main.css">
+    <link rel="icon" type="imagem/png" href="~/img/logo.svg"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Cadastrar Acomodação</title>
@@ -45,6 +46,9 @@
                         </div>
                         <div class="offcanvas-body p-0 text-start">
                             <ul>
+                                <li class="my-3"><a  asp-action="Details" asp-controller="Usuario" class="lista">
+                                        <h4 class="px-3 py-1">Meu Perfil</h4>
+                                    </a></li>
                                 <li class="my-3"><a  asp-action="Index" asp-controller="Contato" class="lista">
                                         <h4 class="px-3 py-1">Contatos</h4>
                                     </a></li>
@@ -53,6 +57,9 @@
                                     </a></li>
                                 <li class="my-3"><a  asp-action="Index" asp-controller="Avaliacao" class="lista">
                                         <h4 class="px-3 py-1">Avaliações</h4>
+                                    </a></li>
+                                <li class="my-3"><a  asp-action="index" asp-controller="Reserva" class="lista">
+                                        <h4 class="px-3 py-1">Reservas</h4>
                                     </a></li>
                                 <li class="my-3"><a  asp-action="Logout" asp-controller="Usuario" class="lista">
                                         <h4 class="px-3 py-1">Logout</h4>

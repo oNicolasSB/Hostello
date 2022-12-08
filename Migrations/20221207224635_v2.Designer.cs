@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using hostello.Data;
 
@@ -10,9 +11,10 @@ using hostello.Data;
 namespace hostello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221207224635_v2")]
+    partial class v2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.9");
@@ -21,9 +23,6 @@ namespace hostello.Migrations
                 {
                     b.Property<int>("IdAcomodacao")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<bool?>("Aprovado")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descricao")
@@ -404,7 +403,7 @@ namespace hostello.Migrations
                             DataNascimento = new DateTime(2003, 8, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nicolasbassini@hotmail.com",
                             Nome = "Nicolas",
-                            Senha = "$2a$10$LtW2I.5uNR4d5wXhknZeReTZfRdrlW.a0yrq1lURea6EfbPWY0HbS",
+                            Senha = "$2a$10$Xw2u7JbyYXaSUY59f/hi/uW2U7siVMOVwQ6jJR5RZ3IFeztF9JWOm",
                             Sexo = 1,
                             Telefone = "+5528999752520"
                         });
@@ -430,7 +429,7 @@ namespace hostello.Migrations
                             DataNascimento = new DateTime(2004, 7, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "anna@email.com",
                             Nome = "Anna",
-                            Senha = "$2a$10$MO40YIRRTEPpWbR9F9qz8.Z7//TzpZy1e3SVh3qqUkfapADtda9wS",
+                            Senha = "$2a$10$nx3K9s.9Pt1drM//7P.1qulSyhODxnEoVeRD.tvE2YRkVjUg5vUta",
                             Sexo = 2,
                             Telefone = "+5528999967759"
                         });
@@ -478,7 +477,7 @@ namespace hostello.Migrations
                             DataNascimento = new DateTime(2000, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "dono@empresa.com",
                             Nome = "Dono Empresa",
-                            Senha = "$2a$10$N0TMi9NUTs8WVw6FNCuo3.yhNCNl4ASWz8vlr48uQIuH.OExdjUa2",
+                            Senha = "$2a$10$uGdrgDW...CjwhHD3NnWbOoixsx0YSRm5YArZcFw.cnbElR/X7MKW",
                             Sexo = 2,
                             Telefone = "+5528999999999",
                             CNPJ = "12312312312312",

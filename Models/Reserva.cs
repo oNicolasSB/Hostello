@@ -14,6 +14,7 @@ public class Reserva
     public DateTime EstadiaEntrada { get; set; }
     [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public DateTime EstadiaSaida { get; set; }
+    public DateTime DataPagamento { get; set; }
     [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]
     public int PeriodoEstadia { get; set; }
     [Required(ErrorMessage = "O campo {0} deve ser preenchido.")]

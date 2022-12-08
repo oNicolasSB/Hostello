@@ -30,14 +30,33 @@ public class AcomodacaoController : Controller
     [Authorize(Roles = "responsavel, administrador")]
     public IActionResult Index()
     {
-        if (User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value == "responsavel")
+        @ViewBag.Imagens = new List<string>();
+        if (User.IsInRole("responsavel"))
         {
             var responsavel = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
             var acomodacoes = _db.Acomodacoes.Include(a => a.Responsavel).Include(a => a.TipoAcomodacao).Where(a => a.FkResponsavel == responsavel).ToList();
+            foreach (var acomodacao in acomodacoes)
+            {
+                var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{acomodacao.IdAcomodacao.ToString("D6")}";
+                var di = new DirectoryInfo(pastaImagens);
+                var imagens = di.GetFiles("*.jpg");
+                var diretorio = imagens[0].ToString();
+                var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+                @ViewBag.Imagens.Add(diretorioimagem);
+            }
             return View(acomodacoes);
         } else
         {
-            var acomodacoes = _db.Acomodacoes.Include(a => a.Responsavel).Include(a => a.TipoAcomodacao).ToList();
+            var acomodacoes = _db.Acomodacoes.Include(a => a.Responsavel).Include(a => a.TipoAcomodacao).Where(a => a.Aprovado == null).ToList();
+            foreach (var acomodacao in acomodacoes)
+            {
+                var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{acomodacao.IdAcomodacao.ToString("D6")}";
+                var di = new DirectoryInfo(pastaImagens);
+                var imagens = di.GetFiles("*.jpg");
+                var diretorio = imagens[0].ToString();
+                var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+                @ViewBag.Imagens.Add(diretorioimagem);
+            }
             return View(acomodacoes);
         }
 
@@ -93,9 +112,14 @@ public class AcomodacaoController : Controller
     {
         CarregarTipoAcomodacao();
         var acomodacao = _db.Acomodacoes.Include(a => a.Responsavel).Include(a => a.TipoAcomodacao).FirstOrDefault(a => a.IdAcomodacao == id);
-        CarregarPastaImagens(acomodacao.IdAcomodacao);
-        var di = new DirectoryInfo(CarregarPastaImagens(acomodacao.IdAcomodacao));
-        var imagens = di.GetFiles("*.jpg");
+        var imagens = CarregarImagens(acomodacao.IdAcomodacao);
+        @ViewBag.Imagens = new List<string>();
+        foreach(var imagem in imagens)
+        {
+            var diretorio = imagem.ToString();
+            var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+            @ViewBag.Imagens.Add(diretorioimagem);
+        }
         acomodacao.QtdeImagens = imagens.Count();
         if (acomodacao is null)
             return RedirectToAction("Index");
@@ -133,6 +157,27 @@ public class AcomodacaoController : Controller
         }
         return RedirectToAction("Index");
     }
+    [Authorize(Roles="responsavel")]
+    [HttpGet]
+    public IActionResult DeleteImage(int idacomodacao, string caminhoimagem)
+    {
+        var imagemDelete = new ImagemDeleteViewModel();
+        imagemDelete.CaminhoImagem = caminhoimagem;
+        imagemDelete.IdAcomodacao = idacomodacao;
+        return View(imagemDelete);
+
+    }
+    [Authorize(Roles="responsavel")]
+    [HttpPost]
+    public IActionResult ProccesDeleteImagem(ImagemDeleteViewModel imagemDelete)
+    {
+        FileInfo imagem = new FileInfo($"{_env.WebRootPath}\\{imagemDelete.CaminhoImagem}");
+        if(imagem.Exists)
+        {
+            imagem.Delete();
+        }
+        return RedirectToAction("Edit", "Acomodacao", new {id = imagemDelete.IdAcomodacao});
+    }
 
     public string CarregarPastaImagens(int idAcomodacao)
     {
@@ -156,7 +201,6 @@ public class AcomodacaoController : Controller
         if (acomodacao is null)
             return RedirectToAction("Index");
         return View(acomodacao);
-
     }
     [HttpPost]
     [Authorize(Roles = "responsavel")]
@@ -165,6 +209,47 @@ public class AcomodacaoController : Controller
         if (acomodacao is null)
             return RedirectToAction("Index");
         _db.Acomodacoes.Remove(acomodacao);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public IActionResult Aprovar(int id)
+    {
+        var avaliacao = _db.Acomodacoes.Find(id);
+        if(avaliacao is null)
+            return RedirectToAction("Index");
+        var aprovacao = new AprovacaoViewModel();
+        aprovacao.IdAprovar = id;
+        return View(aprovacao);
+        
+    }
+    [HttpPost]
+    public IActionResult ProcessAprovar(AprovacaoViewModel aprovacao)
+    {
+        if(!ModelState.IsValid) return RedirectToAction("Index");
+        var avaliacao = _db.Acomodacoes.Find(aprovacao.IdAprovar);
+        avaliacao.Aprovado = true;
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+    [HttpGet]
+    public IActionResult Reprovar(int id)
+    {
+        var avaliacao = _db.Acomodacoes.Find(id);
+        if(avaliacao is null)
+            return RedirectToAction("Index");
+        var aprovacao = new AprovacaoViewModel();
+        aprovacao.IdAprovar = id;
+        return View(aprovacao);
+        
+    }
+    [HttpPost]
+    public IActionResult ProcessReprovar(AprovacaoViewModel aprovar)
+    {
+        if(!ModelState.IsValid) return RedirectToAction("Index");
+        var avaliacao = _db.Acomodacoes.Find(aprovar.IdAprovar);
+        avaliacao.Aprovado = false;
         _db.SaveChanges();
         return RedirectToAction("Index");
     }

@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static BCrypt.Net.BCrypt;
 
@@ -71,35 +73,39 @@ public class ResponsavelController : Controller
         return RedirectToAction("Index", "Home");
     }
     [HttpGet]
-    public IActionResult Edit(int id)
+    [Authorize(Roles="responsavel")]
+    public IActionResult Edit()
     {
-        var responsavel = _db.Responsaveis.Find(id);
+        var responsavel = _db.Responsaveis.Find(Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value));
+        responsavel.Senha = "";
         if(responsavel is null)
             return RedirectToAction("Index");
         return View(responsavel);
     }
     [HttpPost]
+    [Authorize(Roles="responsavel")]
     public IActionResult Edit(int id, Responsavel responsavel)
     {
-        var responsaveloriginal = _db.Responsaveis.Find(id);
-        Responsavel controle = responsavel;
-        ModelState.Remove("IdUsuario");
         ModelState.Remove("Cpf");
         ModelState.Remove("DataNascimento");
         ModelState.Remove("Sexo");
         ModelState.Remove("Senha");
-        ModelState.Remove("RazaoSocial");
         ModelState.Remove("CNPJ");
-        if(responsaveloriginal is null)
-            return RedirectToAction("Index");
+        if(!ModelState.IsValid){
+            return View(responsavel);
 
+        }
+        var responsaveloriginal = _db.Responsaveis.Find(id);
+        if(responsaveloriginal is null)
+            return RedirectToAction("Index", "Home");
         responsaveloriginal.Nome = responsavel.Nome;
         responsaveloriginal.Email = responsavel.Email;
         responsaveloriginal.Telefone = responsavel.Telefone;
         responsaveloriginal.Celular = responsavel.Celular;
         responsaveloriginal.RazaoSocial = responsavel.RazaoSocial;
         responsaveloriginal.NomeFantasia = responsavel.NomeFantasia;
+        responsaveloriginal.Senha = HashPassword(responsavel.Senha, 10);
         _db.SaveChanges();
-        return RedirectToAction("IndexResponsavel", "Home");
+        return RedirectToAction("Details", "Usuario");
     }
 }

@@ -1,5 +1,7 @@
+using System.Security.Claims;
 using hostello.Data;
 using hostello.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using static BCrypt.Net.BCrypt;
 
@@ -53,32 +55,34 @@ public class ClienteController : Controller
         return RedirectToAction("Index");
 
     }
-    public IActionResult Details()
-    {
-        var cliente = _db.Clientes.Find(2);
-        return View(cliente);
-    }
     [HttpGet]
-    public IActionResult Edit(int id)
+    [Authorize(Roles = "cliente")]
+    public IActionResult Edit()
     {
-        var cliente = _db.Usuarios.Find(id);
+        var cliente = _db.Usuarios.Find(Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value));
         if(cliente is null)
-            return RedirectToAction("Details", "Cliente");
+            return RedirectToAction("Index", "Home");
         return View(cliente);
     }
     [HttpPost]
+    [Authorize(Roles = "cliente")]
     public IActionResult Edit(int id, Cliente cliente)
     {
+        ModelState.Remove("Cpf");
+        ModelState.Remove("DataNascimento");
+        ModelState.Remove("Sexo");
+        if(!ModelState.IsValid){
+            return View(cliente);
+        }
         var clienteoriginal = _db.Usuarios.Find(id);
-        Cliente teste = cliente;
         if(clienteoriginal is null)
-            return RedirectToAction("Details", "Cliente");
+            return RedirectToAction("Index", "Home");
 
         clienteoriginal.Nome = cliente.Nome;
         clienteoriginal.Email = cliente.Email;
-        clienteoriginal.Senha = cliente.Senha;
+        clienteoriginal.Senha = HashPassword(cliente.Senha, 10);
         clienteoriginal.Telefone = cliente.Telefone;
         _db.SaveChanges();
-        return RedirectToAction("Details", "Cliente");
+        return RedirectToAction("Details", "Usuario");
     }
 }

@@ -1,6 +1,9 @@
-@using System.Security.Claims
+@using System.Security.Claims;
+@using System.Linq;
+@using System.Collections.Generic;
+
 @{
-    Layout = "_LayoutResponsavel";
+    var imagens = ViewBag.Imagens as List<string>;
 }
 @model List<Acomodacao>
 
@@ -11,62 +14,102 @@
         </div>
         @if (User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role).Value == "responsavel")
         {
-        <div class="text-end col-2 align-self-center">
-            <a class="botao-destaque" asp-action="Create">
-                <i class="bi bi-plus-circle"></i>
-            </a>
-        </div>
+            <div class="text-end col-2 align-self-center">
+                <a class="botao-destaque" asp-action="Create">
+                    <i class="bi bi-plus-circle"></i>
+                </a>
+            </div>
         }
     </div>
 </header>
 <ul class="list-group mb-3">
-    @foreach (var acomodacao in Model)
-    {
-        <li class="list-group-item py-3">
-                    <div class="row d-md-none">
-                        <div class="col-12 align-self-center">
-                            <img src='~/img/acomodacao/@acomodacao.IdAcomodacao.ToString("D6")/000000.jpg' class="img-thumbnail">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
-                            <img src='~/img/acomodacao/@acomodacao.IdAcomodacao.ToString("D6")/000000.jpg' class="img-thumbnail">
-                        </div>
-                        <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
-                            <ul>
-                                <li><h4>@acomodacao.Responsavel.NomeFantasia, @acomodacao.Numero</h4></li>
-                                <li>@acomodacao.Descricao</li>
-                            </ul>
-                        </div>
-                        <div class="col-4 d-none d-lg-block align-self-center text-left">
-                            <p>Número Máximo de Pessoas: @acomodacao.PessoasMax</p>
-                            <p>Período máximo de estadia: @acomodacao.EstadiaMax dias</p>
-                            <p>Valor da diária: R$@acomodacao.ValorDiaria</p>
-                        </div>
-                        <div class="col-4 col-lg-2 align-self-center text-end">
-                            <div class="col-12 mt-1 my-3 my-md-3">
-                                <a asp-action="Details" class="botao-destaque">
-                                    <i class="bi bi-info-circle" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-3">
-                                <a asp-action="Edit" asp-controller="Acomodacao" asp-route-id="@acomodacao.IdAcomodacao" class="botao-destaque">
-                                <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                            <div class="col-12 my-3 my-md-3">
-                                <a asp-action="Delete" asp-route-id="@acomodacao.IdAcomodacao" class="botao-destaque">
-                                    <i class="bi-trash" style="font-size: 16px; line-height: 16px;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row d-lg-none mt-1">
-                        <h1 class="px-3 m-0 text-center"><hr></h1>
-                        <div class="col-4"><span>Número Máximo de Pessoas: @acomodacao.PessoasMax</span></div>
-                        <div class="col-4"><span>Período máximo de estadia: @acomodacao.EstadiaMax dias</span></div>
-                        <div class="col-4"><span>Valor: R$@acomodacao.ValorDiaria</span></div>
-                    </div>
-                </li>
+    @{
+        int j = 0;
     }
-</ul>        
+    @foreach (var acomodacao in Model)
+
+    {
+
+        var posicao = @imagens.ElementAt(j);
+        <li class="list-group-item py-3">
+            <div class="row d-md-none">
+                <div class="col-12 align-self-center">
+                    <img src='@posicao' class="img-thumbnail">
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-none d-md-block col-3 col-lg-2 align-self-center">
+                    <img src='@posicao' class="img-thumbnail">
+                </div>
+                <div class="col-8 col-md-5 col-lg-4 text-left align-self-center">
+                    <ul>
+                        @if(acomodacao.Aprovado is null){
+                        <li>
+                            <strong class="text-warning">Aguardando Aprovação</strong>
+                         </li> 
+                        } else if(acomodacao.Aprovado is true)
+                        {
+                            <li>
+                            <strong class="text-success">Aprovado</strong>
+                         </li> 
+                        } else {
+                            <li>
+                            <strong class="text-danger">Reprovado</strong>
+                         </li> 
+                        }
+                        <li>
+                            <h4>@acomodacao.Responsavel.NomeFantasia, @acomodacao.Numero</h4>
+                        </li>
+                        <li>@acomodacao.Descricao</li>
+                    </ul>
+                </div>
+                <div class="col-4 d-none d-lg-block align-self-center text-left">
+                    <p>Número Máximo de Pessoas: @acomodacao.PessoasMax</p>
+                    <p>Período máximo de estadia: @acomodacao.EstadiaMax dias</p>
+                    <p>Valor da diária: R$@acomodacao.ValorDiaria</p>
+                </div>
+                <div class="col-4 col-lg-2 align-self-center text-end">
+                    @if (User.IsInRole("responsavel"))
+                    {
+                        if(acomodacao.Aprovado != false){
+                        <div class="col-12 my-3 my-md-3">
+                            <a asp-action="Edit" asp-controller="Acomodacao" asp-route-id="@acomodacao.IdAcomodacao"
+                        class="botao-destaque">
+                                <i class="bi bi-pencil-square" style="font-size: 16px; line-height: 16px;"></i>
+                            </a>
+                        </div>
+                        }
+                        <div class="col-12 my-3 my-md-3">
+                            <a asp-action="Delete" asp-route-id="@acomodacao.IdAcomodacao" class="botao-destaque">
+                                <i class="bi bi-trash" style="font-size: 16px; line-height: 16px;"></i>
+                            </a>
+                        </div>
+                    } else {
+                        <div class="col-12 my-3 my-md-3">
+                            <a asp-action="Aprovar" asp-controller="Acomodacao" asp-route-id="@acomodacao.IdAcomodacao"
+                        class="botao-destaque">
+                                <i class="bi bi-check2-circle" style="font-size: 16px; line-height: 16px;"></i>
+                            </a>
+                        </div>
+                        <div class="col-12 my-3 my-md-3">
+                            <a asp-action="Reprovar" asp-route-id="@acomodacao.IdAcomodacao" class="botao-vermelho">
+                                <i class="bi bi-x-circle" style="font-size: 16px; line-height: 16px;"></i>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="row d-lg-none mt-1">
+                <h1 class="px-3 m-0 text-center">
+                    <hr>
+                </h1>
+                <div class="col-4"><span>Número Máximo de Pessoas: @acomodacao.PessoasMax</span></div>
+                <div class="col-4"><span>Período máximo de estadia: @acomodacao.EstadiaMax dias</span></div>
+                <div class="col-4"><span>Valor: R$@acomodacao.ValorDiaria</span></div>
+            </div>
+        </li>
+
+        j++;
+
+    }
+</ul>

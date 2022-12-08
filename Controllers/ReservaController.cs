@@ -56,11 +56,50 @@ public class ReservaController : Controller
 
         ViewBag.Acomodacao = acomodacao;
     }
-
+    [Authorize(Roles = "cliente, administrador, responsavel")]
     public IActionResult Index()
     {
-        var reservas = _db.Reservas.ToList();
-        return View(reservas);
+        @ViewBag.Imagens = new List<string>();
+        if (User.IsInRole("cliente"))
+        {
+            var cliente = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
+            var reservas = _db.Reservas.Include(a => a.Cliente).Include(a => a.Acomodacao).ThenInclude(a => a.Responsavel).Where(a => a.FkCliente == cliente).ToList();
+            foreach (var reserva in reservas)
+            {
+                var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{reserva.FkAcomodacao.ToString("D6")}";
+                var di = new DirectoryInfo(pastaImagens);
+                var imagens = di.GetFiles("*.jpg");
+                var diretorio = imagens[0].ToString();
+                var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+                @ViewBag.Imagens.Add(diretorioimagem);
+            }
+            return View(reservas);
+        }else if(User.IsInRole("responsavel")){
+            var responsavel = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
+            var reservas = _db.Reservas.Include(a => a.Cliente).Include(a => a.Acomodacao).ThenInclude(a => a.Responsavel).Where(a => a.Acomodacao.FkResponsavel == responsavel).Where(a => a.EstaPago == true).ToList();
+            foreach (var reserva in reservas)
+            {
+                var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{reserva.FkAcomodacao.ToString("D6")}";
+                var di = new DirectoryInfo(pastaImagens);
+                var imagens = di.GetFiles("*.jpg");
+                var diretorio = imagens[0].ToString();
+                var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+                @ViewBag.Imagens.Add(diretorioimagem);
+            }
+            return View(reservas);
+        } else {
+            var reservas = _db.Reservas.Include(a => a.Cliente).Include(a => a.Acomodacao).ThenInclude(a => a.Responsavel).AsNoTracking().ToList();
+            foreach (var reserva in reservas)
+            {
+                var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{reserva.FkAcomodacao.ToString("D6")}";
+                var di = new DirectoryInfo(pastaImagens);
+                var imagens = di.GetFiles("*.jpg");
+                var diretorio = imagens[0].ToString();
+                var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+                @ViewBag.Imagens.Add(diretorioimagem);
+            }
+            return View(reservas);
+        }
     }
     [Authorize(Roles = "cliente")]
     [HttpGet]
@@ -72,10 +111,18 @@ public class ReservaController : Controller
         var pastaImagens = $"{_env.WebRootPath}\\img\\acomodacao\\{id.ToString("D6")}";
         var di = new DirectoryInfo(pastaImagens);
         var imagens = di.GetFiles("*.jpg");
+        @ViewBag.Imagens = new List<string>();
+        foreach(var imagem in imagens)
+        {
+            var diretorio = imagem.ToString();
+            var diretorioimagem = diretorio.Replace($"{_env.WebRootPath}", "");
+            @ViewBag.Imagens.Add(diretorioimagem);
+        }
         var reserva = new Reserva();
         reserva.EstaPago = false;
-        reserva.EstadiaEntrada = DateTime.Today;
-        reserva.FkAcomodacao = id;
+        reserva.EstadiaEntrada = DateTime.Today.AddDays(1);
+        int fkAcomodacao = id;
+        reserva.FkAcomodacao = fkAcomodacao;
         reserva.FkCliente = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Sid).Value);
         return View(reserva);
     }
@@ -84,15 +131,46 @@ public class ReservaController : Controller
     [HttpPost]
     public IActionResult Create(Reserva reserva)
     {
+        ModelState.Remove("DataReserva");
+        ModelState.Remove("EstadiaEntrada");
+        ModelState.Remove("ValorReserva");
+        if(!ModelState.IsValid)
+        {
+            return RedirectToAction("Create", "Reserva", reserva.FkAcomodacao);
+        }
         reserva.DataReserva = DateTime.Now;
         reserva.EstadiaSaida = reserva.EstadiaEntrada.AddDays(reserva.PeriodoEstadia);
         reserva.ValorReserva = reserva.ValorReserva * reserva.PeriodoEstadia;
-        if(!ModelState.IsValid)
-        {
-            return View(reserva);
-        }
         _db.Reservas.Add(reserva);
         _db.SaveChanges();
-        return RedirectToAction("Pagamento");
+        return RedirectToAction("Pagamento", "Reserva", new {fkReserva = reserva.IdReserva});
+    }
+
+    [Authorize(Roles = "cliente")]
+    [HttpGet]
+    public IActionResult Pagamento(int fkReserva)
+    {
+        if(_db.Reservas.Find(fkReserva) is null) 
+        {
+            return RedirectToAction("Index", "Acomodacao");
+        }
+        var pagamento = new PagamentoViewModel();
+        pagamento.FkReserva = fkReserva;
+        return View(pagamento);
+    }
+    [Authorize(Roles = "cliente")]
+    [HttpPost]
+    public IActionResult Pagamento(PagamentoViewModel pagamento)
+    {
+        if(!ModelState.IsValid)
+        {
+            return View(pagamento);
+        }
+        var reserva = _db.Reservas.Find(pagamento.FkReserva);
+        var hoje = DateTime.Now;
+        reserva.EstaPago = true;
+        reserva.DataPagamento = hoje;
+        _db.SaveChanges();
+        return RedirectToAction("Index");
     }
 }
