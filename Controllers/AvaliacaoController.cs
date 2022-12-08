@@ -69,16 +69,6 @@ public class AvaliacaoController : Controller
         if(!ModelState.IsValid) return View(avaliacao);
         _db.Avaliacoes.Add(avaliacao);
         _db.SaveChanges();
-        var acomodacao = _db.Acomodacoes.Find(avaliacao.FkAcomodacao);
-        var avaliacoes = _db.Avaliacoes.Where(a => a.FkAcomodacao == avaliacao.IdAvaliacao).Where(a => a.Aprovado == true).ToList();
-        double total = 0;
-        int i = 0;
-        foreach (var item in avaliacoes)
-        {
-            total += item.NotaAvaliacao;
-            i++;
-        }
-        acomodacao.MediaAvaliacaoQuarto = total/i;
         return RedirectToAction("Index");
     }
     // [HttpGet]
@@ -116,6 +106,16 @@ public class AvaliacaoController : Controller
         if(!ModelState.IsValid) return RedirectToAction("Index");
         var avaliacao = _db.Avaliacoes.Find(aprovacao.IdAprovar);
         avaliacao.Aprovado = true;
+        var acomodacao = _db.Acomodacoes.Find(avaliacao.FkAcomodacao);
+        var avaliacoes = _db.Avaliacoes.Where(a => a.FkAcomodacao == avaliacao.FkAcomodacao).Where(a => a.Aprovado == true).ToList();
+        double total = 0;
+        int i = 0;
+        foreach (var item in avaliacoes)
+        {
+            total += item.NotaAvaliacao;
+            i++;
+        }
+        acomodacao.MediaAvaliacaoQuarto = total/i;
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
